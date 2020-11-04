@@ -1,0 +1,106 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[lastexercise,answerdelayed]{exercise}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem{%
+  \stepcounter{problem}%
+  \textbf{\theproblem.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solution:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solution \thesolution:}\\%
+}
+\parindent 0in
+\parskip 1em
+
+\begin{document}
+\Problem For \(m, n \in \mathbb{N}\), determine the unique generator of the following ideals.
+\begin{enumerate}
+    \item \( (m) \cap (n) \)
+    \item \( (m) + (n) \)
+    \item \( (m) \cdot (n)\)
+    \item \( ((m) : (n)) \)
+\end{enumerate}
+
+\TheSolution
+\begin{enumerate}
+    \item \( (m) \cap (n) = (d) \), where \(d \in \mathbb{N}\) is the least common multiple of \(m\) and \(n\).
+    \begin{proof}
+        The uniqueness of \(d\) is already guaranteed. We proof the equality.
+
+        Let \( x \in (m) \cap (n) \), then there exists some \(r_1, r_2 \in \mathbb{Z}\) such that
+        \[x = r_1 \cdot m = r_2 \cdot n \text{.}\]
+        In other words, \(x\) is a multiple of \(m\) and \(n\), since \(d\) is the least common multiple of \(n\) and \(m\), we can write \(x = a \cdot d\) for some \(a \in \mathbb{Z}\). Then, by definition, we have \( x \in (d) \).
+
+        On the other hand, let \(x \in (d) \). We have \(x = a \cdot d\) for some \(a \in \mathbb{Z}\). Now, as \(d\) is the least common multiple of \(n\) and \(m\), we can write for some \(r_1, r_2 \in \mathbb{Z}\)
+        \[d = r_1 \cdot m = r_2 \cdot n \text{.}\]
+        By definition, \(x \in (m)\) and \(x \in (n)\), and therefore \(x \in (m) \cap (n)\).
+    \end{proof}
+    \item \((m) + (n) = (d)\), where \(d \in \mathbb{N}\) is the greatest common divisor of \(m\) and \(n\).
+    \begin{proof}
+        Again, the uniqueness of \(d\) is trivial. We proceed by proving the equality.
+
+        Let \(x \in (m) + (n)\), then we have for some \( r_1, r_2 \in \mathbb{Z}\)
+        \begin{align*}
+            x &= r_1 \cdot m + r_2 \cdot n \\
+              &= d ( r_1 \cdot \frac{m}{d} + r_2 \cdot \frac{n}{d} ) \text{.}
+        \end{align*}
+        Now, \(d\) is the greatest common divisor of both \(m\) and \(n\), therefore \(\frac{m}{d}\) and \(\frac{n}{d}\) are integers. This means that the whole expression, \( r_1 \cdot \frac{m}{d} + r_2 \cdot \frac{n}{d} \) is contained in \( \mathbb{Z} \), hence \(x \in (d)\).
+
+        For the other inclusion, let \(x \in (d)\), then we have \(x = a \cdot d\) for some \(a \in \mathbb{Z}\). Moreover by B\'ezout's identity, we have \(d = r_1 \cdot m + r_2 \cdot n\) for some \( r_1, r_2 \in \mathbb{Z} \). Putting these together, we have
+        \begin{align*}
+            x &= a \cdot d \\
+            & = a \cdot (r_1 \cdot m + r_2 \cdot n) \\
+            & = a r_1 m + a r_2 n \text{.}
+        \end{align*}
+        Hence, \(x \in (m) + (n)\).
+    \end{proof}
+    \item \( (m) \cdot (n) = (mn) \)
+    \begin{proof}
+        Let \(x \in (m) \cdot (n)\), then for some \(r_1, r_2 \in \mathbb{Z}\) we have \(x = r_1 m \cdot r_2 n = r_1 r_2 m n\), therefore \(x \in (mn)\).
+        Now let \(x \in (mn)\). For some \(r \in \mathbb{Z}\) we have \(x = r \cdot mn = r \cdot m \cdot 1 \cdot n\), hence \(x \in (m) \cdot (n)\).
+    \end{proof}
+    \item \(( (m) : (n) ) = (l \cdot n^{-1})\), where \(l\) is the least common multiple of \(m\) and \(n\).
+    \begin{proof}
+        The right side is well-defined because \(l\) is divisible by \(n\). We prove the equality.
+
+        Let \(x \in ( (m) : (n) )\), then by definition we have \( x (n) \subseteq (m) \), or in other words, for some  \(r \in \mathbb{Z}\) we have
+        \begin{align*}
+            &x \cdot n = r \cdot m \\
+            \Rightarrow &x = r \cdot m \cdot n^{-1} \text{.}
+        \end{align*}
+        \((r \cdot m)\) is divisible by \(m\) and \(n\) because \(x\) is an integer, therefore \((r \cdot m)\) is a multiple of \(m\) and \(n\). This means that \(x \in (l \cdot n^{-1})\).
+
+        For the other side, let \(x \in (l \cdot n^{-1})\). We have for some \(r \in \mathbb{Z}\)
+        \begin{align*}
+            & x = r \cdot l \cdot n^{-1} \\
+            \Rightarrow& x \cdot n = r \cdot l \\
+            \Rightarrow& x (n) \subseteq (r \cdot l) 
+        \end{align*}
+        Now, we have \((r \cdot l) \subseteq (m)\) as \(l\) is a multiple of \(m\), hence \(x(n) \subseteq (m)\) which means \(x \in ( (m) : (n) )\).
+    \end{proof}
+\end{enumerate}
+
+\newpage
+
+\Problem For \(m, n \in \mathbb{N}\), determine the unique generator of the following ideals.
+\begin{enumerate}
+    \item \( (m) \cap (n) \)
+    \item \( (m) + (n) \)
+    \item \( (m) \cdot (n)\)
+    \item \( ((m) : (n)) \)
+\end{enumerate}
+
+\end{document}
