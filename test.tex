@@ -4,6 +4,8 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{yfonts}
 
 \newcounter{problem}
 \newcounter{solution}
@@ -95,12 +97,18 @@
 
 \newpage
 
-\Problem For \(m, n \in \mathbb{N}\), determine the unique generator of the following ideals.
+\Problem Let \(f: A \rightarrow B\) be a ring homomorphism.
 \begin{enumerate}
-    \item \( (m) \cap (n) \)
-    \item \( (m) + (n) \)
-    \item \( (m) \cdot (n)\)
-    \item \( ((m) : (n)) \)
+    \item
+    \begin{enumerate}
+        \item If \(\textgoth{q} \subsetneq B\) is a prime ideal, the ideal \(f^{-1}(\textgoth{q}) \subsetneq A\) is also prime.
+        \begin{proof}
+            Let \(a, b \in A\) with \(a \cdot b \in f^{-1}(\textgoth{q})\), then \(f(a \cdot b) \in \textgoth{q}\) and as \(f\) is a ring homomorphism we have \(f(a) \cdot f(b) \in \textgoth{q}\). Since \(\textgoth{q}\) is a prime ideal, we have \(f(a) \in \textgoth{q}\) or \(f(b) \in \textgoth{q}\). From this we can conclude \(a \in f^{-1}(\textgoth{q})\) or \(b \in f^{-1}(\textgoth{q})\) which is exactly one of the definitions for a prime ideal.
+        \end{proof}
+        \item However, the above statement is false for maximum ideals.
+        \begin{proof}
+        \end{proof}
+    \end{enumerate}
 \end{enumerate}
 
 \end{document}
