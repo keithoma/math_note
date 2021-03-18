@@ -1,0 +1,70 @@
+\documentclass[a4paper]{book}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+%
+%
+%
+%
+%
+\part{Solving Integrals}
+\chapter{Trigonometric Functions}
+\chapter{Hyperbolic Functions}
+\chapter{Solving Integrals}
+\input{solving_integrals.tex}
+\end{document}
