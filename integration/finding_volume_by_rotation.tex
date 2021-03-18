@@ -1,0 +1,100 @@
+\begin{definition}
+    \(F: \mathbb{R}^n \rightarrow \overline{\mathbb{R}}\) is rotationally symmetric in \(\mathbb{R}^n\) if there exists a \(f: [0, \infty) \rightarrow \overline{\mathbb{R}}\) such that for all \(x \in \mathbb{R}^n\) it is \(F(x) = f(\norm{x})\).
+\end{definition}
+\begin{theorem}
+    The volume of the unit sphare is
+    \begin{align}
+        \tau_n = \frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2} + 1)}
+    \end{align}
+\end{theorem}
+%
+\begin{theorem}
+    Let \(B \subset [0, \infty)\) a Borel subset and \(A := \left\{ x \in \mathbb{R}^n \middle| \norm{x} \in B \right\}\). Then the Lebesgue measure of \(A\) is
+    \begin{align}
+        \lambda^n (A) = n \tau_n \int_B r^{n-1} dr
+    \end{align}
+    where \(\tau_n\) is the volume of the unit sphere.
+\end{theorem}
+%
+\begin{theorem}
+    Let \(f:[0, \infty) \rightarrow \overline{\mathbb{R}}\) is Borel measurable. Then the following are equivalent.
+    \begin{enumerate}
+        \item \(F: \mathbb{R}^n \rightarrow \overline{\mathbb{R}}, x \mapsto F(x) := f(\norm{x})\) is Lebesgue integrable over \(\mathbb{R}^n\).
+        \item \(r^{n-1} f: [0, \infty) \rightarrow \overline{\mathbb{R}}, r \mapsto r^{n-1}f(r)\) is Lebesgue integrable over \([0, \infty)\).
+    \end{enumerate}
+    Moreover, if one of the above is true, then we have the formula
+    \begin{align}
+        \int_{\mathbb{R}^n} f(\norm{x}) d^n x = n \tau_n \int_{[0, \infty)} r^{n-1}f(r)dr
+    \end{align}
+\end{theorem}
+%
+%
+%
+%
+%
+\begin{example}
+    For a \(R \in \mathbb{R}^+\) and \(1 \leq i \leq n\) let 
+    \begin{align}
+        I_i := \int_{\norm{x} \leq R} x_i^2 d^nx \text{.}
+    \end{align}
+    We Immediately have \(I_i = I_j =: I\) for all \(i, j\).
+    \begin{align}
+        I &= \frac{1}{n} \sum_{i = 1}^n I_i\\
+        &= \frac{1}{n} \sum_{i = 1}^n \int_{\norm{x} \leq R} x_i^2 d^n x\\
+        &= \frac{1}{n} \int_{\norm{x} \leq R} \sum_{i = 1}^n x_i^2 d^n x\\
+        &= \frac{1}{n} \int_{\norm{x} \leq R} \norm{x}^2 d^n x \\
+    \end{align}
+    Now with the formula above, we have
+    \begin{align}
+        I &= \frac{1}{n} \cdot n \cdot \tau_n \int_0^R r^{n-1} r^2 dr\\
+        &= \tau_n \int_0^R r^{n+1} dr \\
+        &=\tau_n \frac{R^{n+2}}{n+2}
+    \end{align}
+\end{example}
+\begin{example}
+    \begin{align}
+        \int_0^\infty \exp(-x^2) = \frac{\sqrt{\pi}}{2}
+    \end{align}
+\end{example}
+\proof
+Define
+\begin{align}
+    I = \int_{-\infty}^\infty \exp(-x^2) dx
+\end{align}
+Consider
+\begin{align}
+    I^2 &= \left( \int_{-\infty}^\infty \exp(-x^2) dx \right) \left( \int_{-\infty}^\infty \exp(-y^2) dy \right) \\
+    &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \exp(-x^2) \exp(-y^2) dx dy \\
+    &= \int_{-\infty}^\infty \int_{-\infty}^\infty \exp(-(x^2 + y^2)) dx dy \\
+    &= \int_{\mathbb{R}^2} e^{-\norm{x}^2} d^2\lambda \\
+    &= \int_0^\infty r e^{-r^2} dr
+\end{align}
+%
+%
+%
+%
+%
+\begin{example}
+    Let \(B_1 := \left\{ x \in \mathbb{R}^2 \middle| \norm{x} < 1 \right\}\) be the open unit disk. Find the integral
+    \begin{align}
+        \int_{B_1} \frac{1}{\sqrt{1 - \norm{x}^2}} d\lambda^2(x)
+    \end{align}
+\end{example}
+\proof Define \(f: [0, \infty) \rightarrow \overline{\mathbb{R}}\) as
+\begin{align}
+    f(x) = \frac{1}{\sqrt{1 - x^2}} \chi_{[0, 1)}(x) \text{.}
+\end{align}
+As \([0, 1)\) is a Borel set of \(\mathbb{R}\), \(\chi_{[0, 1)}\) is Borel measurable. On the other hand, \(\frac{1}{\sqrt{1 - x^2}}\) is continuous for all \(x \in [0, 1)\), so the composition of these two functions \(f\) is again Borel measurable.\\
+Now consider, \(r f(r)\). We have
+\begin{align}
+    \int |r f(r)| dr &= \int_0^1 \frac{r}{\sqrt{1 - r^2}} dr \\
+    &= -\sqrt{1 - r^2} \\
+    &= 0 + 1 \\
+    &= 1
+\end{align}
+\begin{example}
+    Compute the following integral
+    \begin{align}
+        f(\xi, \eta) := \int_{B_1} \frac{\exp(i (x\xi + y\eta))}{\sqrt{1 - x^2 -y^2}} dx dy
+    \end{align}
+\end{example}

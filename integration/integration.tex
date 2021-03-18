@@ -1,0 +1,118 @@
+\documentclass[a4paper]{book}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\begin{document}
+\maketitle
+\tableofcontents
+%
+%
+%
+%
+%
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\input{introduction.tex}
+%
+%
+%
+%
+%
+\part{\(\sigma\)-algebra and measures}
+%
+\chapter{Family of Sets}
+\input{family_of_sets.tex}
+%
+\chapter{Measure}
+\input{measure.tex}
+%
+%
+%
+%
+%
+\part{Lebesgue Integral}
+\chapter{Measurable Functions}
+\input{measurable_functions.tex}
+\chapter{Convergence Theorems}
+\input{convergence_theorem.tex}
+%
+%
+%
+%
+%
+\part{Applications}
+\chapter{Cavalieri's Principle}
+\input{cavalieris_principle.tex}
+%
+\chapter{Finding Volume by Rotation}
+\input{finding_volume_by_rotation.tex}
+%
+\chapter{Transformation Formula}
+\input{transformation_formula.tex}
+%
+%
+%
+%
+%
+\part{More Theory}
+\chapter{Lebesgue Space}
+\input{lebesgue_space.tex}
+%
+%
+%
+%
+%
+\part{Manifolds}
+\input{manifolds.tex}
+\end{document}

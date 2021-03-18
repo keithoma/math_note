@@ -1,0 +1,27 @@
+\begin{theorem}[Beppo Levi]
+    Let \((\Omega, \mathcal{A}, \mu)\) a measure space, and for \(k \in \mathbb{N}^*\), let \(f_k: \Omega \rightarrow \mathbb{R}\) be a sequence of integratable functions such that
+    \begin{align}
+        \forall x \in \Omega, \forall n \in \mathbb{N}: f_n(x) \leq f_{n+1}(x) \text{.}
+    \end{align}
+    Moreover, if there exists \(M \in \mathbb{R}\) with \(\forall k: \int f_k d \mu \leq M\), then
+    \begin{align}
+        f := \lim_{k \rightarrow \infty} f_k: \Omega \rightarrow \overline{\mathbb{R}}
+    \end{align}
+    integratable with
+    \begin{align}
+        \int f d\mu = \lim_{k \rightarrow \infty} \int f_k d\mu
+    \end{align}
+\end{theorem}
+\begin{theorem}
+    If the Riemann integral exists, it matches the Lebesgue integral.
+\end{theorem}
+\begin{theorem}
+    Let \((\Omega, \mathcal{A}, \mu)\) a measure space, let \(g: X \rightarrow [0, \infty)\) be an integrable function, and let \(f_n: X \rightarrow \mathbb{R}\) be a sequence of integrable functions satisying
+    \begin{align}
+        |f_n(x)| \leq g(x) \text{ for all } x \in X \text{ and } n \in \mathbb{N}
+    \end{align}
+    and converging pointwise to \(f: X \rightarrow \mathbb{R}\). Then \(f\) is integrable and, for every \(E \in \mathcal{A}\)
+    \begin{align}
+        \int_E f d\mu = \lim_{n \rightarrow \infty} \int_E f_n d\mu
+    \end{align}
+\end{theorem}

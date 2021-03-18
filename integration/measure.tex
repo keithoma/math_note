@@ -1,0 +1,71 @@
+\begin{definition}
+    Let \(\mathcal{R} \subset \mathcal{P}(\Omega)\) a ring of sets, and let \(\mu: \mathcal{R} \rightarrow [0, \infty]\) be an application. \(\mu\) is called a content, if
+    \begin{enumerate}
+        \item \(\mu(\emptyset) = 0\).
+        \item \(\mu(A \dot\cup B) = \mu(A) + \mu(B)\)
+    \end{enumerate}
+    An \(\sigma\)-additive content is called premeasure.\\
+    A premeasure \(\mu: \mathcal{A} \rightarrow [0, \infty]\) on \(\sigma\)-algebra \(\mathcal{A}\) is called a measure.\\
+    \(\mu\) is finite if for all \(A \in \mathcal{R}: \mu(A) < \infty\).\\
+    \(\mu\) is \(\sigma\)-finite if there exists are sequence \((A_m)_{m \in \mathbb{N}^*}\) in \(\mathcal{R}\) with \(\mu(A_m) < \infty\) and \(\bigcup_{m \in \mathbb{N}^*}A_m = \Omega\).
+\end{definition}
+\begin{lemma}
+    If \(\mu(A \cap B) < \infty\), then
+    \begin{align}
+        \mu(A \cap B) = \mu(A) + \mu(B) - \mu(A \cup B)
+    \end{align}
+\end{lemma}
+\begin{theorem}[Properties of premeasure]
+\end{theorem}
+\begin{example}[Dirac-measure]
+    Let \(\Omega \neq \emptyset\). Let \(\mathcal{A} \subset \mathcal{P}(\Omega)\) a \(\sigma\)-algebra. Define for all \(x \in \Omega\) a \(\delta_x: \mathcal{A} \rightarrow \mathbb{R}_0^+\) with
+    \begin{align}
+        \delta_x (A) := 
+        \begin{cases}
+            1 \text{, if \(x \in A\)} \\
+            0 \text{, else.}
+        \end{cases}
+    \end{align}
+    \(\delta_x\) is a finite measure, called the Dirac-measure.
+\end{example}
+\begin{definition}
+    Let
+    \begin{align}
+    \mathfrak{Q}(\mathbb{R}^n) := \left\{ \dot\bigcup_{i=1}^m [a_{1, i}, b_{1, i}) \times \dots [a_{n, i} \times b_{n, i}) \middle| m \in \mathbb{N}; a_{\nu, i}, b_{\nu, i} \in \mathbb{R}; \nu = 1, \dots, n \right\}
+    \end{align}
+    define
+    \begin{align}
+        \lambda^n : \mathfrak{Q}(\mathbb{R}^n) \rightarrow \mathbb{R}_0^+, A \mapsto \lambda^n (A) := \sum_{i=1}^m \prod_{\nu = 1}^n (b_{\nu, i} - a_{\nu, i})
+    \end{align}
+    is a premeasure.
+\end{definition}
+\begin{definition}
+    \begin{align}
+        \mathcal{R}^{\uparrow} := \left\{A \in \mathcal{P}(\Omega) \middle| \exists (A_k)_{k \in \mathbb{N}^*} \subset \mathcal{R} \text{ with } A_k \uparrow A  \right\}
+    \end{align}
+    \(\mathcal{R}^{\uparrow}\) is the set of all \(A \in \mathcal{P}(\Omega)\) that can be expressed as countably many sets from \(\mathcal{R}\). \(\mathcal{R}^{\uparrow}\) is not a ring of sets.
+\end{definition}
+\begin{definition}
+    Let \(\mu : \mathcal{R} \rightarrow [0, \infty]\) be a premeasure on \(\mathcal{R}\), and \(A_k \uparrow A\). Then,
+    \begin{align}
+        \tilde\mu : \mathcal{R}^\uparrow \rightarrow [0, \infty], A \mapsto := \tilde\mu(A) = \lim_{k \rightarrow \infty} \mu (A_k)
+    \end{align}
+    is an extension of \(\mu\) on \(\mathcal{R}^\uparrow\). This is not in general a premeasure.
+\end{definition}
+\begin{theorem}[Properties of the first extension]
+    
+\end{theorem}
+\begin{definition}
+    Let \(\mathcal{R} \subset \mathcal{P}(\Omega)\) a set of rings, \(\mu: \mathcal{R} \rightarrow [0, \infty]\) a \(\sigma\)-finite premeasure on \(\mathcal{R}\), and \(\tilde\mu: \mathcal{R}^\uparrow \rightarrow [0, \infty]\) the first extension on \(\mathcal{R}^\uparrow\). Moreover, let \(X \subset \Omega\) a subset of \(\Omega\). Then,
+    \begin{align}
+        \mu^* : \mathcal{P}(\Omega) \rightarrow [0, \infty], X \mapsto \mu^* (X) := \inf \left\{ \tilde\mu(A) \middle| A \in \mathcal{R}^\uparrow, X \subset A \right\}
+    \end{align}
+    is the outer measure.
+\end{definition}
+\begin{theorem}[Properties of the second extension]
+    
+\end{theorem}
+Bla Bla bla
+\begin{definition}[Lebesgue measure]
+    
+\end{definition}

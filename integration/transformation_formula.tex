@@ -1,0 +1,41 @@
+\begin{theorem}
+    Suppose \(\phi: U \rightarrow V\) is a \(C^1\)-diffeomorphism between open subsets of \(\mathbb{R}^n\). If \(f: V \rightarrow \mathbb{R}\) is Lebesgue integrable OR continuous with a compact support, then
+    \begin{align}
+        \int_U (f \circ \phi) |\det(d\phi)| dm = \int_V f dm \text{.}
+    \end{align}
+    \end{theorem}
+    \begin{example}
+        (2D) From polar coordinates to cartesian coordinates.
+        \begin{gather}
+            \phi: \mathbb{R}_0^+ \times [0, 2\pi) \rightarrow \mathbb{R}^2, (r, \varphi) \mapsto \phi(r, \varphi) := (r \cos \varphi, r \sin \varphi) \\
+            D \phi (r, \varphi) =         \begin{pmatrix}
+                \cos \varphi & -r \sin \varphi \\
+                \sin \varphi & r \cos \varphi
+            \end{pmatrix}\\
+            \det D\phi(r, \varphi) = r
+        \end{gather}
+        (3D) From spherical coordinates to cartesian coordinates.
+        \begin{gather}
+            \phi: \mathbb{R}_0^+ \times [0, \pi] \times [0, \pi) \rightarrow \mathbb{R}^3\\
+            (r, \theta, \varphi) \mapsto \phi(r, \theta, \varphi) := (r \sin \theta \cos \varphi, r \sin \theta \sin \varphi, r \cos \theta)\\
+            D\phi(r, \theta, \varphi) := \begin{pmatrix}
+                \sin \theta \cos \varphi & r \cos \theta \cos \varphi & -r \sin \theta \sin \varphi \\
+                \sin \theta \sin \varphi & r \cos \theta \sin \varphi & r \sin \theta \cos \varphi \\
+                \cos \theta & -r \sin \theta & 0
+            \end{pmatrix}\\
+            \det D\phi(r, \theta, \varphi) = r^2 \sin \theta
+        \end{gather}
+        (3D) From cylindrical coordinates to cartesian coordinates.
+        \begin{gather}
+            \phi: \mathbb{R} \times \mathbb{R} \times [0, 2\pi) \rightarrow \mathbb{R}^3\\
+            x = r \cos \theta \\
+            y = r \sin \theta \\
+            z = z \\
+            D \phi (r, \theta, z) = \begin{pmatrix}
+                \cos \theta & -r \sin \theta & 0 \\
+                \sin \theta & r \cos \theta & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}\\
+            \det D \phi (r, \theta, z) = r
+        \end{gather}
+    \end{example}

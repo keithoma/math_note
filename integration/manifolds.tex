@@ -1,0 +1,33 @@
+%
+\begin{theorem}
+    If \(M \subset \mathbb{R}^n\) is a \(k\)-dimensional submanifold then the following are equivalent.
+    \begin{enumerate}
+        \item For all points \(a \in M\) there exists a open neighbourhood \(U \in \mathcal{U}_a(\mathbb{R})\), and there exists a function \(f_i: U \rightarrow \mathbb{R}\) with \(1 \leq i \leq n-k\)that is \(n-k\) continuously (partially) differentiable such that
+        \begin{align}
+            M \cap U = \left\{ x \in U \middle| f_1(x) = \dots = f_{n-k}(x) = 0 \right\}
+        \end{align}
+        and for all \(x \in U\) \(Df (x) = n-k\).
+    \end{enumerate}
+\end{theorem}
+%
+\begin{example}
+    The figure eight is described by \(f: \mathbb{R} \rightarrow \mathbb{R}^2\), \(f(t):= (\cos t, \sin 2t)\). Define
+    \begin{align}
+        M := \left\{ x \in \mathbb{R} \middle | \cos x = 0, \sin 2x = 0 \right\}
+    \end{align}
+    then
+    \begin{align}
+        D\phi(x) = \begin{pmatrix}
+            -\sin t \\
+            2\cos 2t
+        \end{pmatrix}
+    \end{align}
+\end{example}
+%
+\begin{definition}
+    A submanifold is \(k\)-dimensional of the class \(\mathcal{C}^\alpha\) if the \(n-k\) functions that describe the submanifold is \(\alpha\) times continuously differentiable.
+\end{definition}
+%
+\begin{theorem}
+    Let \(M \subset \mathbb{R}^n\) a \(k\)-dimensional submanifold of the class \(\mathcal{C}^\alpha\). Let \(i = 1, 2\) \(T_i \subset \mathbb{R}^k\) open and \(\varphi_i: T_i \rightarrow V_i \subset M\) KARTEN, i.e. in parameter form of the class \(\mathcal{C}^\alpha\) with \(V:= V_1 \cap V_2 \neq \emptyset\).
+\end{theorem}

@@ -1,0 +1,24 @@
+\begin{definition}[\(L^p\)-Norm]
+    Let \(X, \mathcal{A}, \mu\) a measure space, and \(f: X \rightarrow \overline{\mathbb{R}}\) measurable. Then for \(p \in [1, \infty)\) the \(L^p\)-norm is defined as
+    \begin{align}
+        \norm{f}_p := \left( \int_X |f|^p d\mu \right)^{\frac{1}{p}} \text{.}
+    \end{align}
+\end{definition}
+\begin{theorem}[Holder Inequality]
+    Let \(p, q \in (1, \infty)\) such that \(p^{-1} + q^{-1} =1\). Let \(f, g: X \rightarrow \overline{\mathbb{R}}\) measurable. Then we have
+    \begin{align}
+        \norm{fg}_1 \leq \norm{f}_p \cdot \norm{g}_q
+    \end{align}
+\end{theorem}
+\begin{theorem}[Minkowski Inequality]
+    Let \(f, g: X \rightarrow \overline{\mathbb{R}}\) measurable and \(f + g\) well defined on \(X\). Then
+    \begin{align}
+        \forall p \in [1, \infty) : \norm{f + g}_p \leq \norm{f}_p + \norm{g}_p
+    \end{align}
+\end{theorem}
+\begin{definition}
+    Let \(X, \mathcal{A}, \mu\) be a measure space and \(p \in [1, \infty)\). Define
+    \begin{align}
+        \mathcal{L}^p(X, \mathcal{A}, \mu) = \left\{f: X \rightarrow \mathbb{R} \middle| f \text{ is \(\mathcal{A}\)-measurable and } \norm{f}_p < \infty \right\}
+    \end{align}
+\end{definition}

@@ -1,0 +1,32 @@
+\begin{definition}[Cross-section]
+    Let \(\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^l\) with \(n, k, l \in \mathbb{N}^*\), and \(A \subset \mathbb{R}^n\). Then for a \(y \in \mathbb{R}^l\)
+    \begin{align}
+        A_y := \left\{ x \in \mathbb{R}^k \middle| (x, y) \in A \right\}
+    \end{align}
+    is the \(l\)-dimensional cross-sections of \(A\).
+\end{definition}
+\begin{remark}
+    Immediately from the definition above, we have
+    \begin{align}
+        A = \dot\bigcup_{y \in \mathbb{R}^l}(A_y, y) \text{.}
+    \end{align}
+    In other words, \( \left\{(A_y, y)\right\}_{y \in \mathbb{R}^l}\) is a patition of \(A\).
+\end{remark}
+\begin{theorem}[Cavalieri's principle]
+    Let \(\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^l\) with \(n, k, l \in \mathbb{N}^*\), let \(A \subset \mathbb{R}^k \times \mathbb{R}^l\) a Borel subset of \(\mathbb{R}^n\), and let \( \left\{(A_y, y)\right\}_{y \in \mathbb{R}^l}\) be a patition of \(A\) via cross-sections. Then we have the following
+    \begin{enumerate}
+        \item For all \(y \in \mathbb{R}^l\), \(A_y\) is Borel subset of \(\mathbb{R}^k\).
+        \item Let \(F_A: \mathbb{R}^l \rightarrow [0, \infty], y \mapsto F_A(y) := Vol_K(A_y) = \lambda^k (A_y)\) be the \(k\)-dimensional volume of \(A_y\). Then \(F_A\) is Borel measurable on \(\mathbb{R}^l\).
+        \item \(\text{Vol}_n(A) := \int_{\mathbb{R}^l} \text{Vol}_k (A_y)\)
+    \end{enumerate}
+\end{theorem}
+\proof
+\begin{enumerate}
+    \item Fix \(y \in \mathbb{R}^l\)
+\end{enumerate}
+\begin{theorem}
+    For \(K \subset \mathbb{R^n}\) compact, we have
+    \begin{align}
+        \text{Vol}_n (K) = \int_{\mathbb{R}} \text{Vol}_{n-1}(K_t)
+    \end{align}
+\end{theorem}

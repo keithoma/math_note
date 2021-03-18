@@ -1,0 +1,41 @@
+\begin{definition}[Measurable Function]
+    Let \((X, \mathcal{A}_X)\) and \((Y, \mathcal{A}_Y)\) be measurable spaces. A map \(f: X \rightarrow Y\) is called measurable if the pre-image of every measurable subset of \(Y\) under \(f\) is measurable subset of \(X\), i.e.
+        \begin{align}
+            B \in \mathcal{A}_Y \Rightarrow f^{-1}(B) \in \mathcal{A}_X \text{.}
+        \end{align}
+\end{definition}
+%
+%
+%
+%
+%
+\begin{definition}
+    Let \((X \mathcal{A}_X)\) be a measurable space. A function \(f: \Omega \rightarrow \overline{\mathbb{R}}\) is called measurable if it is measurable with respect to the Borel \(\sigma\)-algebra on \(\overline{\mathbb{R}}\)
+\end{definition}
+%
+%
+%
+%
+%
+%
+\begin{definition}[Borel Measurable Maps]
+    
+\end{definition}
+%
+%
+%
+%
+%
+\begin{theorem}
+    Let \((\Omega, \mathcal{A})\) be a measurable space, and \(\mathcal{B} = \sigma(\mathcal{E})\) for a generator \(\mathcal{E} \subset \mathcal{P}(\Omega)\). If for all \(E \in \mathcal{E}\) it is \(f^{-1}(E) \in \mathcal{A}\), then \(f\) is measurable.
+\end{theorem}
+\begin{example}
+    Let \(f:(\mathbb{R}, \mathcal{B}) \rightarrow (\mathbb{R}, \mathcal{B})\) defined as
+    \begin{align}
+        f(x) := \begin{cases}
+            1 x \in Q \\
+            -1 x \notin Q
+        \end{cases}
+    \end{align}
+    for a \(Q \notin \mathcal{B}(\mathbb{R})\). Then, \(f^{-1}({1})=Q \notin \mathcal{B}\) and therefore, \(f\) is not measurable even though \(|f| = 1\) is measurable.
+\end{example}

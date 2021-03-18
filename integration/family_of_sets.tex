@@ -1,0 +1,241 @@
+We have the following tree of inclusion.
+\begin{figure}[h]
+    \center
+    \begin{tikzpicture}[node distance=2cm and 1cm]
+        \tikzstyle{box} = [draw=none, minimum width=4cm]
+        \tikzstyle{arrow} = [thick,-,>=stealth]
+        \node [draw=none]                 (ring of sets) {ring of sets};
+        \coordinate[below=of ring of sets] (c);
+        \node [box, left=of c]      (algebra of sets) {algebra of sets};
+        \node [box] at (c)     (s-ring)     {\(\sigma\)-ring};
+        \node [box, right=of c] (monotone class)     {monotone class};
+        \node [box, below=of c]     (s-algebra)    {\(\sigma\)-algebra};
+        \node [box, below=of s-algebra] (b-algebra) {Borel \(\sigma\)-algebra};
+        \draw [arrow] (ring of sets) -- (algebra of sets);
+        \draw [arrow] (ring of sets) -- (s-ring);
+        \draw [arrow] (algebra of sets) -- (s-algebra);
+        \draw [arrow] (s-ring) -- (s-algebra);
+        \draw [arrow] (monotone class) -- (s-algebra);
+        \draw [arrow] (s-algebra) -- (b-algebra);
+    \end{tikzpicture}
+\end{figure}
+%
+%
+%
+%
+%
+\section{Symmetric Difference}
+\begin{definition}[Symmetric difference]
+\end{definition}
+\begin{theorem}[Rules for symmetric difference]    
+\end{theorem}
+%
+%
+%
+%
+%
+\section{Ring of Sets}
+\begin{definition}[Ring of sets]
+    There are two equivalent definitions. Let {\color{mathif}\(\Omega\)} be a {\color{mathif}set} and {\color{mathif}\(\mathcal{R} \subset \mathcal{P}(\Omega)\)} a {\color{mathif}system of subsets}. Then {\color{maththen} \(\mathcal{R}\)}  is a {\color{maththen}ring of sets over \(\Omega\)}, if
+    \begin{enumerate}
+        \item the following axioms are met.
+        \begin{enumerate}
+            \item \(\mathcal{R} \neq \emptyset\) (\(\mathcal{R}\) is {\color{mathrem}nonempty.})
+            \item \(A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}\) (\(\mathcal{R}\) is {\color{mathrem}closed under relative complement}.)
+            \item \(A, B \in \mathcal{R} \Rightarrow A \cup B \in \mathcal{R}\) (\(\mathcal{R}\) is {\color{mathrem}closed under finite unions}.)
+        \end{enumerate}
+        \item \((\mathcal{R}, \triangle, \cap)\) is a ring in the algebraic sense, with \(\triangle\) as addition and \(\cap\) as multiplication.
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    In the above definition, the condition that \(\mathcal{R}\) is closed under the relative complement, i.e.
+    \begin{align}
+        A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}
+    \end{align}
+    can be replaced with closure under finite intersection, therefore
+    \begin{align}
+        A, B \in \mathcal{R} \Rightarrow A \cap B \in \mathcal{R}
+    \end{align}
+    because \(A \cap B = A \setminus (A \setminus B)\).
+\end{remark}
+\begin{theorem}[Properties of ring of sets]
+\end{theorem}
+%
+%
+%
+%
+%
+\section{Algebra of Sets}
+\begin{definition}[Algebra of sets]
+    There are two equivalent definitions.
+    \begin{enumerate}
+        \item A ring of sets \(\mathcal{A}\) is a algebra of sets if it contains \(\Omega\) 
+    \end{enumerate}
+\end{definition}
+%
+%
+%
+%
+%
+\section{\(\sigma\)-Ring}
+\begin{definition}[\(\sigma\)-Ring]
+    Let \(\Omega\) be set and \(\mathcal{R} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{R}\) is a \(\sigma\)-ring over \(\Omega\), if
+        \begin{enumerate}
+            \item \(\mathcal{R} \neq \emptyset\).
+            \item \(A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}\)
+            \item \(A_1, A_2, A_3, ... \in \mathcal{R} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{R}\)
+        \end{enumerate}
+\end{definition}
+%
+%
+%
+%
+%
+\section{\(\sigma\)-Algebra}
+\begin{definition}[\(\sigma\)-algebra]
+    Let \(\Omega\) be set and \(\mathcal{A} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{A}\) is a \(\sigma\)-algebra over \(\Omega\), if
+        \begin{enumerate}
+            \item \(\mathcal{A} \neq \emptyset\).
+            \item \(A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}\)
+            \item \(A_1, A_2, A_3, ... \in \mathcal{A} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{A}\)
+        \end{enumerate}
+\end{definition}
+\begin{example}
+    Trivial examples for the above structures.
+\end{example}
+\begin{example}
+    Let
+    \begin{align}
+        \mathfrak{Q}(\mathbb{R}) := \left\{ \bigcup_{i=1}^m [a_i, b_i)  \middle| m \in \mathbb{N}; a_i, b_i \in \mathbb{R} \right\}
+    \end{align}
+    be the set of all unions of finitely many right half open intervals on \(\mathbb{R}\). Then, \(\mathfrak{Q}(\mathbb{R})\) is a set of rings. Similary for the left half open sets, but not for open or closed intervals!
+    \(\mathfrak{Q}(\mathbb{R})\) is neither \(\sigma\)-ring, \(\sigma\)-algebra nor an algebra of sets.
+    One can generalize this to higher dimensions.
+\end{example}
+\begin{definition}
+    Let \(\mathcal{E} \subset \mathcal{P}(\Omega)\) be a system of sets. Define
+    \begin{align}
+        \mathcal{F}(\mathcal{E}) &:= \left\{ \mathcal{A} \subset \mathcal{P}(\Omega) \middle| \mathcal{E} \subset \mathcal{A}, \mathcal{A} \sigma\text{-Algebra} \right\} \\
+        \left< \mathcal{E}  \right>^{\sigma} &:= \sigma(\mathcal{E}) := \bigcap_{\mathcal{A} \in \mathcal{F}(\mathcal{E})} \mathcal{A}
+    \end{align}
+    The first is the family of all \(\sigma\)-algebras that contain \(\mathcal{E}\).
+    The second is the smallest \(\sigma\)-algebra that contains \(\mathcal{E}\).
+\end{definition}
+%
+%
+%
+%
+%
+\section{Monotone Class}
+\begin{definition}[Monotone class]
+    Let \(\mathcal{M} \subset \mathcal{P}(\Omega)\) a system of sets and \(k \in \mathbb{N}^*\). Then, \(\mathcal{M}\) is a monotone class, if
+    \begin{enumerate}
+        \item Let \(X_k \in \mathcal{M}\) with \(X_k \uparrow X\), then \(X \in \mathcal{M}\).
+        \item Let \(Y_k \in \mathcal{M}\) with \(Y_k \downarrow X\), then \(Y \in \mathcal{M}\).
+    \end{enumerate}
+    Intersection of arbitary many monotonous class is again a monotonous class. Therefore, for all \(\mathcal{E} \subset \mathcal{P}(\Omega)\) with \(\mathcal{E} \neq \emptyset\) there exists the smallest monotonous class around \(\mathcal{E}\)
+    \begin{align}
+        \mathcal{M}_{\mathcal{E}} := \bigcap_{\mathcal{M} \text{ is monotonous class}, \mathcal{E} \subset \mathcal{M}} \mathcal{M}
+    \end{align}
+\end{definition}
+\begin{remark}
+    All \(\sigma\)-algebras are monotone class.
+\end{remark}
+\begin{theorem}
+    Let \(\mathcal{A} \subset \mathcal{P}(\Omega)\) an algebra of sets. Then, the following are equivalent
+    \begin{itemize}
+        \item \(\mathcal{A}\) is a \(\sigma\)-algebra.
+        \item For \(A_k \uparrow A\), \(A \in \mathcal{A}\).
+    \end{itemize}
+\end{theorem}
+%
+%
+%
+%
+%
+\section{Product Algebra??}
+\begin{definition}
+    Let \(\Omega_1\) and \(\Omega_1\) be sets; let \(\mathcal{R}_1 \subset \mathcal{P}(\Omega_1)\) and \(\mathcal{R}_2 \subset \mathcal{P}(\Omega_2)\) be ring of sets, and \(\Omega := \Omega_1 \times \Omega_2\). Define
+    \begin{align}
+        \mathcal{R} := \mathcal{R}_1 \boxtimes \mathcal{R}_2 := \left\{ \bigcup_{i=1}^m A_i \times B_i \middle| A_i \in \mathcal{R}_1, B_i \in \mathcal{R}_2, m \in \mathbb{N} \right\}
+    \end{align}
+    \(\mathcal{R}\) is a ring of sets over \(\Omega\).
+\end{definition}
+\begin{theorem}
+    In above definition, if \(\mathcal{R}_1\) and \(\mathcal{R}_2\) are algebra of sets, then \(\mathcal{R}\) is a algebra of set.
+\end{theorem}
+\begin{theorem}
+    \begin{align}
+        \mathfrak{Q}(\mathbb{R}^n)
+    \end{align}
+    is a ring of sets.
+\end{theorem}
+\begin{remark}
+    From \(\mathfrak{Q}(\mathbb{R}^n)\) we can construct one very important \(\sigma\)-algebra, the Borel-Algebra of \(\mathbb{R}^n\).
+\end{remark}
+\begin{definition}[Products of \(\sigma\)-algebras]
+    Let \(\mathcal{A}_1\) and \(\mathcal{A}_2\) be \(\sigma\)-algebras on \(\Omega_1, \Omega_2\). Then, let
+    \begin{align}
+        \mathcal{A}_1 \otimes \mathcal{A}_2 = \sigma( \mathcal{A}_1 \boxtimes \mathcal{A}_2 )
+    \end{align}
+\end{definition}
+\begin{example}
+    \begin{align}
+        \mathcal{B}(\mathbb{R}^{n+m}) = \mathcal{B}(\mathbb{R}^n) \otimes \mathcal{B}(\mathbb{R}^m)
+    \end{align}
+\end{example}
+\begin{definition}
+    Let \((X_k)_{k \in \mathbb{N}^*}\) be a sequence of sets with \(X_1 \subset X_2 \subset X_3 \subset \dots \) and \(X := \lim_{k \rightarrow \infty} := \bigcup_{k \in \mathbb{N}*} X_k\).
+    Similar for monotonously decreasing.
+\end{definition}
+%
+%
+%
+%
+%
+\section{Borel \(\sigma\)-algebra}
+\begin{definition}
+    Let \(\Omega\) be a set. A collection \(\mathcal{U} \subset \mathcal{P}(\Omega)\) of subsets of X is called a topology on \(X\) if it satisfies the following axioms.
+    \begin{enumerate}
+        \item \(\emptyset, X \in \mathcal{U}\).
+        \item If \(n \in \mathbb{N}\) and \(U_1, \dots U_n \in \mathcal{U}\) then \(\bigcap_{i=1}^n U_i \in \mathcal{U}\).
+        \item If \(I\) is any index set and \(U_i \in \mathcal{U}\) for \(i \in I\) then \(\bigcup_{i \in I} U_i \in \mathcal{U}\).
+    \end{enumerate}
+    A topological space is a pair \((\Omega, \mathcal{U})\) consisting of a set \(\Omega\) and a topology \(\mathcal{U} \in \mathcal{P}(\Omega)\).
+\end{definition}
+\begin{example}[Standard Topology on \(\overline{\mathbb{R}}\)]
+    The set of open subsets \(\mathcal{T}\) of \(\overline{\mathbb{R}}\) is the standard topology on \(\overline{\mathbb{R}}\). Concretely, \(\mathcal{T}\) contains countable union of open intervals in \(\mathbb{R}\) and sets of the form \((a, \infty]\) or \([-\infty, b)\) for \(a, b \in \mathbb{R}\).
+\end{example}
+\begin{definition}[Borel algebra]
+    Let \((\Omega, \mathcal{T})\) be a topological space, then \(\mathcal{B}(\Omega) := \sigma(\mathcal{T})\) is the Borel \(\sigma\)-algebra of \(\Omega\). The elments of \(\mathcal{B}\) are called Borel (measurable) sets.
+    There are many ways to generate this algebra.
+\end{definition}
+\begin{theorem}
+    Let \((\Omega, \mathcal{T})\) be a topological space. Then the following holds.
+    \begin{enumerate}
+        \item Every closed subset \(F \subset \Omega\) is a Borel set.
+        \item Every countable union \(\bigcup_{i=1}^\infty F_i\) of closed subsets \(F_i \subset \Omega\) is a Borel set.
+        \item Every countable intersection \(\bigcap_{i=1}^\infty F_i\) of open subsets \(F_i \subset \Omega\) is a Borel set.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    It is
+    \begin{align}
+        \mathcal{B}(\mathbb{R}^n) = \sigma(\mathfrak{Q}(\mathbb{R}^n))
+    \end{align}
+    Moreover, define
+    \begin{align}
+        \mathfrak{Q}_{\mathbb{Q}}(\mathbb{R}^n) := \left\{ \bigcup_{i=1}^m [a_{1, i}, b_{1, i}) \times \dots [a_{n, i} \times b_{n, i}) \middle| m \in \mathbb{N}; a_{\nu, i}, b_{\nu, i} \in \mathbb{Q}; \nu = 1, \dots, n \right\}
+    \end{align}
+    the ring of sets of finite unions of quadern with rational edge points. Then, we even have
+    \begin{align}
+        \mathcal{R}(\mathbb{R}^n) = \sigma( \mathfrak{Q}_{\mathbb{Q}} (\mathbb{R}^n))
+    \end{align}
+\end{theorem}
+\begin{lemma}
+    Open subsets \(U \subset \mathbb{R}^n\) are disjoint union of countably many right half open dices with edge points in \(\mathbb{Q}^n\)
+\end{lemma}
+%
+%
+%
+\section{Exercises}
