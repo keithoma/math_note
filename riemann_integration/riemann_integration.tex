@@ -11,6 +11,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{exsheets}
 
 % mathematics
 \usepackage{amsthm} % for theorems, and definitions
@@ -27,6 +28,13 @@
 
 % typography and formatting
 \geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
 
 % mathematics
 \theoremstyle{definition}

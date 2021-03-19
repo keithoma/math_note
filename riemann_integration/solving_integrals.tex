@@ -1,7 +1,6 @@
 \begin{theorem}[Important Identities]
-    \newcounter{identities}
     \begin{align}
-        & \int x^\alpha \diff x = \frac{1}{\alpha + 1}x^{\alpha + 1} + c & \text{For all \(\alpha \in \mathbb{N}\)}\\
+        & \int x^\alpha \diff x = \frac{1}{\alpha + 1}x^{\alpha + 1} + c & \text{For all \(\alpha \in \mathbb{N}\)} \label{thm:ii:pow}\\
         & \int \frac{1}{x} \diff x = \ln |x| + c & \text{If \(x \neq 0\).} \\
         & \int e^x \diff x = e^x + c & \\
         & \int \cos x \diff x = \sin x + c& \\
@@ -10,3 +9,51 @@
         & \int 
     \end{align}
 \end{theorem}
+
+\begin{question}
+    \begin{align}
+        \int (1 - t)^9 \diff x
+    \end{align}
+\end{question}
+\begin{solution}
+    Substitute \(1 - t = u \Rightarrow -1 \diff t = \diff u\), then we have
+    \begin{align}
+        \int (1 - t)^9 \diff x &= - \int u^9 \diff u & \text{(Substitution.)}\\
+        &= -\frac{u ^{10}}{10} + c & \text{(Important identities: \ref{thm:ii:pow})} \\
+        &= -\frac{(1 - t)^{10}}{10} + c \text{.} & \text{(\(u = 1 - t\).)}
+    \end{align}
+\end{solution}
+\begin{question}
+    \begin{align}
+        \int (x^2 + 1)^2 \diff x
+    \end{align}
+\end{question}
+\begin{solution}
+    Substitute \(x^2 + 1 = u \Rightarrow 2x \diff x = \diff u\).
+    \begin{align}
+        \int (x^2 + 1)^2 \diff x &= \int x^4 + 2x^2 + 1 \diff x \\
+        &= \int x^4 \diff x + 2 \int x^2 \diff x + \int 1 \diff x \\
+        &= \frac{1}{5} x^5 + \frac{2}{3} x^3 + x
+    \end{align}
+\end{solution}
+\begin{question}
+    \begin{align}
+        \int \frac{1}{x^2 -x + 1} \diff x
+    \end{align}
+\end{question}
+\begin{solution}
+    Substitute \(x - \frac{1}{2} = u \Rightarrow 1 \diff x = \diff u\).
+    \begin{align}
+        \int \frac{1}{x^2 -x + 1} \diff x &= \int \frac{1}{(x - \frac{1}{2})^2 + \frac{3}{4}} \diff x\\
+        &= \int \frac{1}{u^2 + \frac{3}{4}} \diff x \\
+        &= \frac{3}{4} \int \frac{1}{\frac{4}{3} u^2 + 1}
+    \end{align}
+    The last step was done in order to force the integrand to be in a form similar to
+    \begin{align}
+        \frac{\diff}{\diff x} \arctan x = \frac{1}{x^2 + 1}
+    \end{align}
+    Lastly, substitute in the equation above \(\frac{2}{\sqrt{3}} u = v \Rightarrow \frac{2}{\sqrt{3}} \diff u = \diff v\). We have
+    \begin{align}
+        \int \frac{1}{x^2 -x + 1} \diff x &= 
+    \end{align}
+\end{solution}
