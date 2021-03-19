@@ -46,14 +46,18 @@
     \begin{align}
         \int \frac{1}{x^2 -x + 1} \diff x &= \int \frac{1}{(x - \frac{1}{2})^2 + \frac{3}{4}} \diff x\\
         &= \int \frac{1}{u^2 + \frac{3}{4}} \diff x \\
-        &= \frac{3}{4} \int \frac{1}{\frac{4}{3} u^2 + 1}
+        &= \frac{3}{4} \int \frac{1}{\frac{4}{3} u^2 + 1} \diff u
     \end{align}
     The last step was done in order to force the integrand to be in a form similar to
     \begin{align}
         \frac{\diff}{\diff x} \arctan x = \frac{1}{x^2 + 1}
     \end{align}
-    Lastly, substitute in the equation above \(\frac{2}{\sqrt{3}} u = v \Rightarrow \frac{2}{\sqrt{3}} \diff u = \diff v\). We have
+    Lastly, substitute in the equation above \(\frac{2}{\sqrt{3}} u = v \Rightarrow \frac{2}{\sqrt{3}} \diff u = \diff v\). It is \(u = \frac{\sqrt{3}}{2} v\) and \(\diff u = \frac{\sqrt{3}}{2} \diff v\), therefore, we have
     \begin{align}
-        \int \frac{1}{x^2 -x + 1} \diff x &= 
+        \frac{3}{4} \int \frac{1}{\frac{4}{3} u^2 + 1} \diff u &= \frac{3}{4} \int \frac{1}{\frac{4}{3} (\frac{\sqrt{3}}{2}v)^2 + 1} \frac{\sqrt{3}}{2} \diff v \\
+        &= \frac{3}{4} \frac{\sqrt{3}}{2} \int \frac{1}{v^2 + 1} \diff v \\
+        &= \frac{3 \sqrt{3}}{8} \arctan v  \\
+        &= \frac{3 \sqrt{3}}{8} \arctan \left( \frac{\sqrt{3}}{2}u \right) \\
+        &= \frac{3 \sqrt{3}}{8} \arctan \left( \frac{\sqrt{3}}{2}(x - \frac{1}{2})\right)
     \end{align}
 \end{solution}
