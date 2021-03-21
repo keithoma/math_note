@@ -48,3 +48,39 @@
     % is this word, parametization, correct?
     is a global parametization of \(C\).
 \end{question}
+\begin{solution}
+    We have
+    \begin{align}
+        \partial_x f(x, y, z) &= 2x + y & \partial_x g(x, y, z) &= 4x + 3y \\
+        \partial_y f(x, y, z) &= x - 1 & \partial_y g(x, y, z) &= 3x - 2 \\
+        \partial_z f(x, y, z) &= -1 & \partial_z g(x, y, z) &= -3
+    \end{align}
+    Define \(F: \mathbb{R}^3 \rightarrow \mathbb{R}^2\) as \(F(x, y, z) = (f(x, y, z), g(x, y, z))\), then
+    \begin{align}
+        \Diff F (x, y, z) =
+        \begin{pmatrix}
+            2x + y & x - 1 & - 1 \\
+            4x + 3y & 3x - 2 & -3 
+        \end{pmatrix}
+    \end{align}
+    This leads to the equation
+    \begin{align}
+        4x + 3y - 3(2x + y) &= 0 \\
+        3x - 2 - 3(x - 1) &= 0 \\
+        \Rightarrow  \\
+        4x + 3y - 6x - 3y &=0\\
+        3x -2 -3x + 3 &= 0 \\
+        \Rightarrow \\
+        -2x &= 0 \\
+        1 &= 0
+    \end{align}
+    So even if \(x = 0\), \(\Diff F\) is
+    \begin{align}
+        \Diff F (0, y, z) =
+        \begin{pmatrix}
+            y  & -1 & -1 \\
+            3y & -2 & -3 \\
+        \end{pmatrix}
+    \end{align}
+    therefore, the rank of \(\Diff F\) is \(2\).
+\end{solution}
