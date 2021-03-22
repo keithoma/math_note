@@ -1,3 +1,23 @@
+\begin{definition}
+    \(M \subset \mathbb{R}^n\) is a \(k\)-dimensional submanifold, if
+    \begin{itemize}
+        \item For all \(a \in M\) there exists an open neighbourhood \(U\) around \(a\) in \(\mathbb{R}^n\) and there exists a \(n - k\) continuously partial differentiable \(f_j : U \rightarrow \mathbb{R}\) for \(j = 1, \dots, n-k\) such that
+        \begin{align}
+            M \cap U = \left\{ x \in U \middle| f_1(x) = \dots = f_{n-k}(x) = 0 \right\}
+        \end{align}
+        and for all \(x \in U\)
+        \begin{align}
+            \rank \frac{\partial (f_1, \dots, f_{n-k})}{\partial (x_1, \dots, x_n)}(x) = n-k
+        \end{align}
+    \end{itemize}
+\end{definition}
+%
+\begin{example}
+    Let's construct the simplest submanifold. Let \(n = 2\) and \(k = 1\).
+    \begin{align}
+        M = \left\{ x \in \mathbb{R}^2 \middle| f(x, y) = c \right\}
+    \end{align}
+\end{example}
 %
 \begin{theorem}
     If \(M \subset \mathbb{R}^n\) is a \(k\)-dimensional submanifold then the following are equivalent.
