@@ -142,32 +142,6 @@ NOTATION GUIDE:
 %
 %
 %
-\section{\(\sigma\)-Algebra}
-\begin{definition}[\(\sigma\)-algebra]
-    Let \(\Omega\) be set and \(\mathcal{A} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{A}\) is a \(\sigma\)-algebra over \(\Omega\), if
-        \begin{enumerate}
-            \item \(\mathcal{A} \neq \emptyset\).
-            \item \(A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}\)
-            \item \(A_1, A_2, A_3, ... \in \mathcal{A} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{A}\)
-        \end{enumerate}
-\end{definition}
-\begin{example}
-    Trivial examples for the above structures.
-\end{example}
-\begin{definition}
-    Let \(\mathcal{E} \subset \mathcal{P}(\Omega)\) be a system of sets. Define
-    \begin{align}
-        \mathcal{F}(\mathcal{E}) &:= \left\{ \mathcal{A} \subset \mathcal{P}(\Omega) \middle| \mathcal{E} \subset \mathcal{A}, \mathcal{A} \sigma\text{-Algebra} \right\} \\
-        \left< \mathcal{E}  \right>^{\sigma} &:= \sigma(\mathcal{E}) := \bigcap_{\mathcal{A} \in \mathcal{F}(\mathcal{E})} \mathcal{A}
-    \end{align}
-    The first is the family of all \(\sigma\)-algebras that contain \(\mathcal{E}\).
-    The second is the smallest \(\sigma\)-algebra that contains \(\mathcal{E}\).
-\end{definition}
-%
-%
-%
-%
-%
 \section{Monotone Class}
 \begin{definition}[Notation for Monotonous Sequence of Sets]
     % Let \((X_k)_{k \in \mathbb{N}}\) and \((Y_k)_{k \in \mathbb{N}}\) be two sequence of sets. We write
@@ -197,6 +171,32 @@ NOTATION GUIDE:
         \item For \(A_k \uparrow A\), \(A \in \mathcal{A}\).
     \end{itemize}
 \end{theorem}
+%
+%
+%
+%
+%
+\section{\(\sigma\)-Algebra}
+\begin{definition}[\(\sigma\)-algebra]
+    Let \(\Omega\) be set and \(\mathcal{A} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{A}\) is a \(\sigma\)-algebra over \(\Omega\), if
+        \begin{enumerate}
+            \item \(\mathcal{A} \neq \emptyset\).
+            \item \(A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}\)
+            \item \(A_1, A_2, A_3, ... \in \mathcal{A} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{A}\)
+        \end{enumerate}
+\end{definition}
+\begin{example}
+    Trivial examples for the above structures.
+\end{example}
+\begin{definition}
+    Let \(\mathcal{E} \subset \mathcal{P}(\Omega)\) be a system of sets. Define
+    \begin{align}
+        \mathcal{F}(\mathcal{E}) &:= \left\{ \mathcal{A} \subset \mathcal{P}(\Omega) \middle| \mathcal{E} \subset \mathcal{A}, \mathcal{A} \sigma\text{-Algebra} \right\} \\
+        \left< \mathcal{E}  \right>^{\sigma} &:= \sigma(\mathcal{E}) := \bigcap_{\mathcal{A} \in \mathcal{F}(\mathcal{E})} \mathcal{A}
+    \end{align}
+    The first is the family of all \(\sigma\)-algebras that contain \(\mathcal{E}\).
+    The second is the smallest \(\sigma\)-algebra that contains \(\mathcal{E}\).
+\end{definition}
 %
 %
 %
