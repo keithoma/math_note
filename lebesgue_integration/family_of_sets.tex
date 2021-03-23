@@ -19,16 +19,39 @@ We have the following tree of inclusion.
         \draw [arrow] (s-algebra) -- (b-algebra);
     \end{tikzpicture}
 \end{figure}
-%
-%
-%
-%
+NOTATION GUIDE:
+\begin{enumerate}
+    \item \(X\) as the superset
+    \item \(\mathcal{P}(X)\) is the power set of \(X\).
+    \item \(A, B \in \mathcal{P}(X)\) as subsets
+    \item \(\mathcal{R}, \mathcal{A} \subset \mathcal{P}(X)\) system of subsets
+\end{enumerate}
 %
 \section{Symmetric Difference}
 \begin{definition}[Symmetric difference]
+    Let {\color{mathif}\(A, B\)} be {\color{mathif}sets}. The binary set operation {\color{maththen}symmetric difference} is defined as
+    \begin{align}
+        A \triangle B := (A \setminus B) \cup (B \setminus A) \text{.}
+    \end{align}
+    In other words, \(x \in A \triangle B\) implies \(x\) is either in \(A\) or \(B\), but not in both.
 \end{definition}
-\begin{theorem}[Rules for symmetric difference]    
-\end{theorem}
+\begin{proposition}[Properties of Symmetric Difference]
+    Let \(A, B, C, X\) and \(Y\) be {\color{mathif}sets}. Moreover, let \(A_i\) and \(X_i\) be {\color{mathif}sets} with an {\color{mathif}arbitary non-empty index set} \(i \in I\). Then, the following {\color{maththen}identities} hold.
+    \begin{enumerate}
+        \item \( A \triangle B = (A \cup B) \setminus (A \cap B) \).
+        \item \( ( A \triangle B) \triangle C = A \triangle (B \triangle C) \). (Symmetric difference is {\color{mathrem}associative}.) 
+        \item \( A \triangle B = B \triangle A \). (Symmetric difference is {\color{mathrem}commutative}.)
+        \item \( A \triangle \emptyset = A\) and \( A \triangle A = \emptyset\)
+        \item \( (A \triangle B) \cup C = (A \cup C) \triangle (B \cup C)\).
+        \item \( A \cap B = \emptyset \Rightarrow A \triangle B = A \cup B \).
+        \item \( B \subset A \Rightarrow A \triangle B = A \setminus B \).
+        \item \(X \cap Y = \emptyset \Rightarrow A \cap B \subset (X \triangle A) \cup (Y \triangle B) \).
+        \item \( (\bigcup_{i \in I} X_i) \triangle (\bigcup_{i \in I} A_i) \subset \bigcup_{i \in I} (X_i \triangle A_i) \)
+    \end{enumerate}
+\end{proposition}
+\begin{Proof}
+    Elementary.
+\end{Proof}
 %
 %
 %
@@ -36,7 +59,7 @@ We have the following tree of inclusion.
 %
 \section{Ring of Sets}
 \begin{definition}[Ring of sets]
-    There are two equivalent definitions. Let {\color{mathif}\(\Omega\)} be a {\color{mathif}set} and {\color{mathif}\(\mathcal{R} \subset \mathcal{P}(\Omega)\)} a {\color{mathif}system of subsets}. Then {\color{maththen} \(\mathcal{R}\)}  is a {\color{maththen}ring of sets over \(\Omega\)}, if
+    There are two equivalent definitions. Let {\color{mathif}\(X\)} be a {\color{mathif}set} and {\color{mathif}\(\mathcal{R} \subset \mathcal{P}(X)\)} a {\color{mathif}system of subsets}. Then {\color{maththen} \(\mathcal{R}\)}  is a {\color{maththen}ring of sets over \(X\)}, if
     \begin{enumerate}
         \item the following axioms are met.
         \begin{enumerate}
@@ -47,29 +70,50 @@ We have the following tree of inclusion.
         \item \((\mathcal{R}, \triangle, \cap)\) is a ring in the algebraic sense, with \(\triangle\) as addition and \(\cap\) as multiplication.
     \end{enumerate}
 \end{definition}
+\begin{Proof}
+    We show that the two definitions above are indeed equivalent.
+
+    \((1 \Rightarrow 2)\) Let \(\mathcal{R}\) be nonempty, closed under the relative complement, and closed under finite unions. First, consider \((\mathcal{R}, \triangle)\). Let \(A, B \in \mathcal{R}\). It is
+    \begin{enumerate}
+        \item (Closure under addition) \(A \cup B \in \mathcal{R}\) because \(\mathcal{R}\) is closed under finite unions. We also have \(A \cap B = A \setminus (A \setminus B) \in \mathcal{R}\) as \(\mathcal{R}\) is closed under the relative complement. From these it follows that \( A \triangle B = (A \cup B) \setminus (A \cap B) \in \mathcal{R}\) by using the closure under the relative complement again.
+        \item (Associativity)
+        \item (Commutativity)
+        \item (Neutral element) \(\emptyset\)
+        \item (Inverse element) \(A\)
+    \end{enumerate}
+    Therefore, \((\mathcal{R}, \triangle)\) is an abelian group.
+\end{Proof}
+%
 \begin{remark}
-    In the above definition, the condition that \(\mathcal{R}\) is closed under the relative complement, i.e.
+    Since we have the identity \(A \cap B = A \setminus (A \setminus B)\), the condition that \(\mathcal{R}\) is closed under the relative complement, i.e.
     \begin{align}
         A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}
     \end{align}
     can be replaced with closure under finite intersection, therefore
     \begin{align}
-        A, B \in \mathcal{R} \Rightarrow A \cap B \in \mathcal{R}
+        A, B \in \mathcal{R} \Rightarrow A \cap B \in \mathcal{R} \text{.}
     \end{align}
-    because \(A \cap B = A \setminus (A \setminus B)\).
 \end{remark}
-\begin{theorem}[Properties of ring of sets]
-\end{theorem}
-%
-%
-%
-%
-%
+%%%%%%%%%% This is already implied in the definition
+% \begin{proposition}[Properties of ring of sets]
+%     Let \(\mathcal{R}\) be a ring of sets. It is
+%     \begin{enumerate}
+%         \item \(\emptyset \in \mathcal{R}\).
+%         \item \(A, B \in \mathcal{R} \Rightarrow A \triangle B \in \mathcal{R}\)
+%     \end{enumerate}
+% \end{proposition}
+%%%%%%%%%%
 \section{Algebra of Sets}
 \begin{definition}[Algebra of sets]
-    There are two equivalent definitions.
+    There are two equivalent definitions. Let {\color{mathif}\(X\)} be a {\color{mathif}set} and {\color{mathif}\(\mathcal{R} \subset \mathcal{P}(X)\)} a {\color{mathif}system of subsets}. Then {\color{maththen} \(\mathcal{A}\)}  is a {\color{maththen}algebra of sets over \(X\)},
     \begin{enumerate}
-        \item A ring of sets \(\mathcal{A}\) is a algebra of sets if it contains \(\Omega\) 
+        \item if \(\mathcal{A}\) is a {\color{mathif}ring of sets} that contains {\color{mathif}\(X\)}, or
+        \item if the following axioms are met
+        \begin{enumerate}
+            \item \(\mathcal{A} \neq \emptyset\) (\(\mathcal{A}\) is {\color{mathrem}nonempty.})
+            \item \(A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}\) (\(\mathcal{R}\) is {\color{mathrem}closed under the absolute complement}.)
+            \item \(A, B \in \mathcal{A} \Rightarrow A \cup B \in \mathcal{A}\) (\(\mathcal{R}\) is {\color{mathrem}closed under finite unions}.)
+        \end{enumerate}
     \end{enumerate}
 \end{definition}
 %
