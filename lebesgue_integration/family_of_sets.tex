@@ -103,6 +103,13 @@ NOTATION GUIDE:
 %     \end{enumerate}
 % \end{proposition}
 %%%%%%%%%%
+\begin{example}
+    Let \(X\) be a set.
+    \begin{enumerate}
+        \item \(\mathcal{P}(X)\) and \(\{\emptyset, X\}\) are ring of sets.
+        \item \(\{\emptyset\}\) is a ring of sets.
+    \end{enumerate}
+\end{example}
 \section{Algebra of Sets}
 \begin{definition}[Algebra of sets]
     There are two equivalent definitions. Let {\color{mathif}\(X\)} be a {\color{mathif}set} and {\color{mathif}\(\mathcal{R} \subset \mathcal{P}(X)\)} a {\color{mathif}system of subsets}. Then {\color{maththen} \(\mathcal{A}\)}  is a {\color{maththen}algebra of sets over \(X\)},
@@ -123,11 +130,11 @@ NOTATION GUIDE:
 %
 \section{\(\sigma\)-Ring}
 \begin{definition}[\(\sigma\)-Ring]
-    Let \(\Omega\) be set and \(\mathcal{R} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{R}\) is a \(\sigma\)-ring over \(\Omega\), if
+    Let \(X\) be set and \(\mathcal{R} \subset \mathcal{P}(X)\) a system of subsets. \(\mathcal{R}\) is a \(\sigma\)-ring over \(X\), if
         \begin{enumerate}
-            \item \(\mathcal{R} \neq \emptyset\).
-            \item \(A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}\)
-            \item \(A_1, A_2, A_3, ... \in \mathcal{R} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{R}\)
+            \item \(\mathcal{R} \neq \emptyset\). (\(\mathcal{A}\) is {\color{mathrem}nonempty.})
+            \item \(A, B \in \mathcal{R} \Rightarrow A \setminus B \in \mathcal{R}\) ({\color{mathrem}closed under the relative complement}.)
+            \item \(A_1, A_2, A_3, ... \in \mathcal{R} \Rightarrow \bigcup_{k=1}^\infty A_k \in \mathcal{R}\) ({\color{mathrem} Closed under countable unions.})
         \end{enumerate}
 \end{definition}
 %
