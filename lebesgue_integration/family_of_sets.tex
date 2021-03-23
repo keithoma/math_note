@@ -81,7 +81,7 @@ NOTATION GUIDE:
         \item (Neutral element) \(\emptyset\)
         \item (Inverse element) \(A\)
     \end{enumerate}
-    Therefore, \((\mathcal{R}, \triangle)\) is an abelian group.
+    Therefore, \((\mathcal{R}, \triangle)\) is an abelian group. Secondly, consider \((\mathcal{R}, \cap)\). \(\cap\) is associative and commutative. The identity element is the union of all sets (does this exist??).
 \end{Proof}
 %
 \begin{remark}
@@ -322,3 +322,24 @@ NOTATION GUIDE:
 \begin{solution}
     % trivial 
 \end{solution}
+%
+%
+%
+\begin{question}
+    Let \(X\) be a nonempty set and \(R := \{f: X \rightarrow \mathbb{F}_2\}\) where \(\mathbb{F}_2 = \{0, 1\}\) is a field of two elements equipped with the common addition and the common multiplication. Moreover, define the operations
+    \begin{align}
+        (f \oplus g)(x) &:= f(x) + g(x) \\
+        (f \otimes g)(x) &:= f(x) \cdot g(x) \text{.}
+    \end{align}
+    Show the following statements.
+    \begin{enumerate}
+        \item \((R, \oplus, \otimes)\) is a commutative ring with the identity element.
+        \item The map \(\mathcal{P}(X) \rightarrow R, A \mapsto \chi_A\) that maps a subset \(A \subset X\) to its characteristic function is bijective.
+        \item For all \(A, B \in \mathcal{P}(X)\) we have
+        \begin{align}
+            \chi_{A \triangle B} = \chi_A \oplus \chi_B && \chi_{A \cap B} = \chi_A \otimes \chi_B \text{.}
+        \end{align}
+        \item Conclude from the statements above that \(\mathcal{P}(X)\) is isomorphic to \(R\) as a ring with \(\triangle\) as its addition and with \(\cap\) as its multiplication.
+        \item A subset \(\mathcal{R} \subset \mathcal{P}(X)\) is a ring of sets if and only if \(\mathcal{R}\) is a subring of \(\mathcal{P}(X)\) with respects to the ring structure defined above.
+    \end{enumerate}
+\end{question}
