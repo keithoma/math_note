@@ -154,15 +154,6 @@ NOTATION GUIDE:
 \begin{example}
     Trivial examples for the above structures.
 \end{example}
-\begin{example}
-    Let
-    \begin{align}
-        \mathfrak{Q}(\mathbb{R}) := \left\{ \bigcup_{i=1}^m [a_i, b_i)  \middle| m \in \mathbb{N}; a_i, b_i \in \mathbb{R} \right\}
-    \end{align}
-    be the set of all unions of finitely many right half open intervals on \(\mathbb{R}\). Then, \(\mathfrak{Q}(\mathbb{R})\) is a set of rings. Similary for the left half open sets, but not for open or closed intervals!
-    \(\mathfrak{Q}(\mathbb{R})\) is neither \(\sigma\)-ring, \(\sigma\)-algebra nor an algebra of sets.
-    One can generalize this to higher dimensions.
-\end{example}
 \begin{definition}
     Let \(\mathcal{E} \subset \mathcal{P}(\Omega)\) be a system of sets. Define
     \begin{align}
@@ -178,6 +169,13 @@ NOTATION GUIDE:
 %
 %
 \section{Monotone Class}
+\begin{definition}[Notation for Monotonous Sequence of Sets]
+    % Let \((X_k)_{k \in \mathbb{N}}\) and \((Y_k)_{k \in \mathbb{N}}\) be two sequence of sets. We write
+    % \begin{align}
+    %     X_k \uparrow X && Y_k \downarrow Y
+    % \end{align}
+    % if \(X_k\) and \(Y_k\) are monotonously increasing or decreasing, i.e. \(X_k \subset X_{k + 1}\) or \(Y_k \supset Y_{k + 1}\), and
+\end{definition}
 \begin{definition}[Monotone class]
     Let \(\mathcal{M} \subset \mathcal{P}(\Omega)\) a system of sets and \(k \in \mathbb{N}^*\). Then, \(\mathcal{M}\) is a monotone class, if
     \begin{enumerate}
@@ -239,6 +237,27 @@ NOTATION GUIDE:
     Let \((X_k)_{k \in \mathbb{N}^*}\) be a sequence of sets with \(X_1 \subset X_2 \subset X_3 \subset \dots \) and \(X := \lim_{k \rightarrow \infty} := \bigcup_{k \in \mathbb{N}*} X_k\).
     Similar for monotonously decreasing.
 \end{definition}
+
+%
+%
+%
+%
+%
+\section{Rectangles}
+\begin{example}
+    Let
+    \begin{align}
+        \mathfrak{Q}(\mathbb{R}) := \left\{ \bigcup_{i=1}^m [a_i, b_i)  \middle| m \in \mathbb{N}; a_i, b_i \in \mathbb{R} \right\}
+    \end{align}
+    be the set of all unions of finitely many right half open intervals on \(\mathbb{R}\). Then, \(\mathfrak{Q}(\mathbb{R})\) is a set of rings. Similary for the left half open sets, but not for open or closed intervals!
+    \(\mathfrak{Q}(\mathbb{R})\) is neither \(\sigma\)-ring, \(\sigma\)-algebra nor an algebra of sets.
+    One can generalize this to higher dimensions.
+\end{example}
+%
+%
+%
+%
+%
 %
 %
 %
@@ -290,3 +309,16 @@ NOTATION GUIDE:
 %
 %
 \section{Exercises}
+\begin{question}
+    Let \(X\) be a nonempty set and for all \(1 \leq i \leq m\) with \(m \in \mathbb{N}\) let \(A_i \subset X\) be a finite amount of subsets. Set
+    \begin{align}
+        S := A_1 \triangle A_2 \triangle \dots \triangle A_m \text{.}
+    \end{align}
+
+    Because of the associative property of the symmetric difference, \(S\) is uniquely defined regardless of the order of the operations.
+
+    Show that \(x \in X\) belongs to \(S\) if and only if \(x\) belongs to an odd number of sets \(A_k\), i.e. when the number of indices \(k \in \{1, 2, \dots, m\}\) with \(x \in A_k\) is odd.
+\end{question}
+\begin{solution}
+    % trivial 
+\end{solution}
