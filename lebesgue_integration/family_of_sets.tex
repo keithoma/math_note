@@ -177,8 +177,15 @@ NOTATION GUIDE:
 %
 %
 \section{\(\sigma\)-Algebra}
+\textbf{CHEAT SHEET}
+\begin{enumerate}
+    \item closed under complementation (absolute and relative)
+    \item closed under countable unions
+    \item closed under countable intersections
+    \item closed under symmetric differences
+\end{enumerate}
 \begin{definition}[\(\sigma\)-algebra]
-    Let \(\Omega\) be set and \(\mathcal{A} \subset \mathcal{P}(\Omega)\) a system of subsets. \(\mathcal{A}\) is a \(\sigma\)-algebra over \(\Omega\), if
+    Let \(X\) be a set and \(\mathcal{A} \subset \mathcal{P}(X)\) a system of subsets. \(\mathcal{A}\) is a \(\sigma\)-algebra over \(X\), if
         \begin{enumerate}
             \item \(\mathcal{A} \neq \emptyset\).
             \item \(A \in \mathcal{A} \Rightarrow A^c \in \mathcal{A}\)
@@ -389,6 +396,8 @@ NOTATION GUIDE:
         \bigcup_{k=1}^\infty (x_k, b) = \lim_{k \rightarrow \infty} (x_k, b) = (-\infty, b) \text{.}
     \end{align}
     This means that \((-\infty, b) \in \sigma (\mathcal{E}_3)\) and from this we have \(\sigma (\mathcal{E}_3) \subset \sigma (\mathcal{E}_4)\).
-    \item Lastly, we want to show \(\mathcal{E}_4 \subset \mathcal{E}_1\). Fix \(a, b \in \mathbb{R}\) with \(a \leq b\) and consider \((a, b)\). Again, if \(a = b\), then the interval is empty and included in \(\sigma (\mathcal{E}_4) \). Otherwise, 
+    \item Lastly, we want to show \(\mathcal{E}_4 \subset \mathcal{E}_1\). Fix \(a, b \in \mathbb{R}\) with \(a \leq b\) and consider \((a, b)\). Again, if \(a = b\), then the interval is empty and included in \(\sigma (\mathcal{E}_4) \). So assume \(a < b\). \\
+    Let \( [x, y)\) with \(x, y \in \mathbb{Q}\) and \(x < y\) be a half left open interval. This is included in \(\sigma( \mathcal{E}_1)\) because \((-\infty, x)^c \cap (-\infty, y) = [x, y)\) and \(\sigma\)-algebras are closed under absolute complements and intersections. \\
+    Now let \((x_k)_{k \in \mathbb{N}}\) be a sequence in \(\mathbb{Q}\) with \(x_k < y\) for all \(k \in \mathbb{N}\) and converging to \(x\), then \(\bigcap_{k = 1}^\infty [x, x_k) = \lim_{k \rightarrow \infty} [x, x_k]= \{x\}\) is also in \(\sigma(\mathcal{E}_1)\).
     \end{enumerate}
 \end{solution}
