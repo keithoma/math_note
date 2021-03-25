@@ -30,3 +30,21 @@
         \text{Vol}_n (K) = \int_{\mathbb{R}} \text{Vol}_{n-1}(K_t)
     \end{align}
 \end{theorem}
+%
+\begin{example}[Volume of a Cylinder]
+    Let \(B \in \mathbb{R}^{n-1}\) be compact and \(Z := B \times [0, h] \subset \mathbb{R}^n\). \(Z\) is called the generalized \(n\)-dimensional cylinder with a basis \(B\) and height \(h\) where \(h \geq 0\). \\
+    For the cross-sections we have
+    \begin{align}
+        Z_t = \begin{cases}
+            B \quad \text{ if } t \in [0, h] \\
+            \varnothing \quad\text{ else.}
+        \end{cases}
+    \end{align}
+    and for the Volume of the Cylinder, we have
+    \begin{align}
+        \Vol_n(Z) &= \int_0^h \Vol_{n-1}(B) \diff t \\
+        &= \Vol_{n-1}(B) \int_0^h \diff t \\
+        &= \Vol_{n-1}(B) \cdot h
+    \end{align}
+    as \(\Vol_{n-1} (\varnothing) = 0\).
+\end{example}
