@@ -271,21 +271,20 @@ NOTATION GUIDE:
 %
 %
 \section{Borel \(\sigma\)-algebra}
-\begin{definition}
-    Let \(\Omega\) be a set. A collection \(\mathcal{U} \subset \mathcal{P}(\Omega)\) of subsets of X is called a topology on \(X\) if it satisfies the following axioms.
+\begin{definition}[Topology]
+    Let {\color{mathif}\(X\)} be a {\color{mathif}set}. A {\color{mathif}collection \(\mathcal{U} \subset \mathcal{P}(\Omega)\)} of {\color{mathif}subsets} of {\color{mathif}X} is called a {\color{maththen}topology} on {\color{maththen}\(X\)} if it satisfies the following axioms.
     \begin{enumerate}
-        \item \(\emptyset, X \in \mathcal{U}\).
-        \item If \(n \in \mathbb{N}\) and \(U_1, \dots U_n \in \mathcal{U}\) then \(\bigcap_{i=1}^n U_i \in \mathcal{U}\).
-        \item If \(I\) is any index set and \(U_i \in \mathcal{U}\) for \(i \in I\) then \(\bigcup_{i \in I} U_i \in \mathcal{U}\).
+        \item The {\color{mathif}empty set} and {\color{mathif}\(X\)} itself belong to the toplogy, i.e. \(\varnothing \in \mathcal{U}\) and \(X \in \mathcal{U}\).
+        \item The topology is stable under finite intersections, i.e. if \(n \in \mathbb{N}\) and \(U_1, \dots U_n \in \mathcal{U}\) then \(\bigcap_{i=1}^n U_i \in \mathcal{U}\).
+        \item The topology is stable under arbitary unions, i.e. if \(I\) is any index set and \(U_i \in \mathcal{U}\) for \(i \in I\) then \(\bigcup_{i \in I} U_i \in \mathcal{U}\).
     \end{enumerate}
-    A topological space is a pair \((\Omega, \mathcal{U})\) consisting of a set \(\Omega\) and a topology \(\mathcal{U} \in \mathcal{P}(\Omega)\).
+    A {\color{maththen}topological space} is a {\color{mathif}pair \((X, \mathcal{U})\)} consisting of a {\color{mathif}set \(X\)} and a {\color{mathif}topology \(\mathcal{U} \in \mathcal{P}(X)\)}.
 \end{definition}
 \begin{example}[Standard Topology on \(\overline{\mathbb{R}}\)]
     The set of open subsets \(\mathcal{T}\) of \(\overline{\mathbb{R}}\) is the standard topology on \(\overline{\mathbb{R}}\). Concretely, \(\mathcal{T}\) contains countable union of open intervals in \(\mathbb{R}\) and sets of the form \((a, \infty]\) or \([-\infty, b)\) for \(a, b \in \mathbb{R}\).
 \end{example}
 \begin{definition}[Borel algebra]
     Let \((\Omega, \mathcal{T})\) be a topological space, then \(\mathcal{B}(\Omega) := \sigma(\mathcal{T})\) is the Borel \(\sigma\)-algebra of \(\Omega\). The elments of \(\mathcal{B}\) are called Borel (measurable) sets.
-    There are many ways to generate this algebra.
 \end{definition}
 \begin{theorem}
     Let \((\Omega, \mathcal{T})\) be a topological space. Then the following holds.
