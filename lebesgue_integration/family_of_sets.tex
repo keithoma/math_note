@@ -383,5 +383,12 @@ NOTATION GUIDE:
     \begin{align}
         \bigcup_{k=1}^\infty [a_k, b_k) = \lim_{k \rightarrow \infty} [a_k, b_k) = [a, b)
     \end{align}
+    We conclude that \([a, b) \in \sigma (\mathcal{E}_2)\) and therefore, \(\sigma (\mathcal{E}_2) \subset \sigma (\mathcal{E}_3)\).
+    \item Now we will show \( \sigma (\mathcal{E}_3) \subset \sigma (\mathcal{E}_4)\). Again, fix \(b \in \mathbb{Q}\) and consider \((-\infty, b)\). Let \((x_k)_{k \in \mathbb{N}}\) be a sequence in \(\mathbb{Q}\) with \(x_k < b\) for each \(k \in \mathbb{N}\) and diverging to negative infinity. As \(\sigma\)-algebras are closed under countable unions, we have \(\bigcup_{k=1}^\infty (x_k, b) \in \sigma( \mathcal{E}_3 )\). On the other hand, it is
+    \begin{align}
+        \bigcup_{k=1}^\infty (x_k, b) = \lim_{k \rightarrow \infty} (x_k, b) = (-\infty, b) \text{.}
+    \end{align}
+    This means that \((-\infty, b) \in \sigma (\mathcal{E}_3)\) and from this we have \(\sigma (\mathcal{E}_3) \subset \sigma (\mathcal{E}_4)\).
+    \item Lastly, we want to show \(\mathcal{E}_4 \subset \mathcal{E}_1\). Fix \(a, b \in \mathbb{R}\) with \(a \leq b\) and consider \((a, b)\). Again, if \(a = b\), then the interval is empty and included in \(\sigma (\mathcal{E}_4) \). Otherwise, 
     \end{enumerate}
 \end{solution}
