@@ -359,3 +359,29 @@ NOTATION GUIDE:
     %PREASENZUEBUNG 2.2
 \end{question}
 % UEBUNGSBLATT 2
+\begin{question}
+    Show explicitly that the following subsets generate the same \(\sigma\)-algebra on \(\mathbb{R}\).
+    \begin{align}
+        \mathcal{E}_1 &:= \{(a, b) \mid a, b \in \mathbb{R}, \, a \leq b\} &         \mathcal{E}_2 &:= \{[a, b) \mid a, b \in \mathbb{Q}, \, a \leq b\} \\
+        \mathcal{E}_3 &:= \{[a, b) \mid a, b \in \mathbb{R}, \, a \leq b\} &
+        \mathcal{E}_4 &:= \{(-\infty, b) \mid a, b \in \mathbb{Q}, \, a \leq b\}
+    \end{align}
+\end{question}
+\begin{solution}
+    We want to proof
+    \begin{align}
+        \sigma (\mathcal{E}_1) = \sigma (\mathcal{E}_2) = \sigma (\mathcal{E}_3) = \sigma (\mathcal{E}_4) \text{.}
+    \end{align}
+    We will do this by showing four inclusions. In each step, our goal is to show that an arbitary interval from the generator of the superset is included in the \(\sigma\)-algebra of the subset.
+    \begin{enumerate}
+    \item First we show \(\sigma (\mathcal{E}_1) \subset \sigma (\mathcal{E}_2)\). Fix \(a, b \in \mathbb{Q}\) with \(a \leq b\) and consider the interval \([a, b)\). If \(a = b\), then the interval is empty and \([a, b) = \varnothing \in \sigma (\mathcal{E}_1)\) immediately. Now let \(x, y \in \mathbb{R}\) with \(x < y < a\). The set \((x, a)^c \cap (y, b)\) is included in \(\sigma (\mathcal{E}_1)\) as \(\sigma\)-algebras are closed under absolute complements and intersections. We also have
+    \begin{align}
+        (x, a)^c \cap (y, b) = \left( (-\infty, x] \cup [a, \infty] \right) \cap (y, b) = [a, b) \text{.}
+    \end{align}
+    Therefore, it follows that \([a, b) \in \sigma (\mathcal{E}_1) \) and hence \(\sigma (\mathcal{E}_1) \subset \sigma (\mathcal{E}_2)\).
+    \item Next, we show \( \sigma (\mathcal{E}_2) \subset \sigma (\mathcal{E}_3) \). As before, fix \(a, b \in \mathbb{R}\) with \(a \leq b\) and consider the interval \([a, b)\). If this interval is empty, it is included in \(\sigma (\mathcal{E}_2)\), so assume \(a < b\). Let \((a_k)_{k \in \mathbb{N}}\) and \((b_k)_{k \in \mathbb{N}}\) sequences in \(\mathbb{Q}\) with \(a < a_k\) and \(b_k < b\) and with \(a\) and \(b\) as their limits respectively. Since a \(\sigma\)-algebra is closed under countable unions, \(\bigcup_{k=1}^\infty [a_k, b_k)\) is included in \(\sigma (\mathcal{E}_2)\), but we also have
+    \begin{align}
+        \bigcup_{k=1}^\infty [a_k, b_k) = \lim_{k \rightarrow \infty} [a_k, b_k) = [a, b)
+    \end{align}
+    \end{enumerate}
+\end{solution}
