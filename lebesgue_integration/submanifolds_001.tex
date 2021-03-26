@@ -6,6 +6,7 @@
     Show the following.
     \begin{enumerate}
         \item \(M\) is a onedimensional submanifold of \(\mathbb{R}^3\).
+        \item Compute \(T_{(1, 1, -1)}M\).
     \end{enumerate}
 \end{question}
 \begin{solution}
@@ -36,4 +37,24 @@
         (\frac{2}{3})^2 + (\frac{2}{3})^2 - 2 (-\frac{1}{3})^2 &= \frac{8}{9} - \frac{2}{9} = \frac{6}{9} \neq 0
     \end{align}
     So for all \((x, y, z) \in M\), the differential \(\Diff f\) is surjective and by definition \(M\) is a onedimensional submanifold in \(\mathbb{R}^3\).
+\end{solution}
+%
+\begin{question}
+    Let \(R > 0\) and \(M\) be given by
+    \begin{align}
+        M = \{(\cosh(u) \cos(v), \, \cosh(u) \sin(v), \, u) \mid u \in (-R, R), \, v \in (-\pi, \pi)\} \text{.}
+    \end{align}
+    Show the following.
+    \begin{enumerate}
+        \item \(M\) is a two-dimensional submanifold of \(\mathbb{R}^2\).
+        \item Compute \(\sigma_2 (M)\).
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    We need to show that for all \(a \in M\) there exists an open neighbourhood \(U \in \mathcal{U}_a\) and \(T \subset \mathbb{R}^k\) open, the immersion \(\varphi: T \rightarrow \mathbb{R}^n\), such that \(\varphi: T \rightarrow \varphi(T) = M \cap U\) is homeomorphism.\\
+    Define \(\varphi: (-R, R) \times (-\pi, \pi) \rightarrow \mathbb{R}^3\) as
+    \begin{align}
+        \varphi(u, v) = (\cosh(u) \cos(v), \, \cosh(u) \sin(v), \, u) \text{.}
+    \end{align}
+    We want to show that \(\varphi\) is a homeomorphism. The bijectivity is easy.
 \end{solution}

@@ -1,3 +1,25 @@
+\begin{definition}[Homeomorphism]
+    A function \(f: X \rightarrow Y\) between two topological spaces is a homeomorphism if it has the following properties:
+    \begin{enumerate}
+        \item \(f\) is a bijection.
+        \item \(f\) is continous.
+        \item the inverse function \(f^{-1}\) is continous.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Immersion]
+    Let \(T \subset \mathbb{R}^k\) be an open subset. \(\varphi: T \rightarrow \mathbb{R}^n, \, t \mapsto \varphi(t)\) is called an immersion or embedding if \(\varphi\) is continously partially differentiable and for all \(t \in T\) it is \(\rank( \Diff \varphi) = k\)
+\end{definition}
+\begin{remark}
+    If \(k = n\), then \(\varphi\) is locally inversible.
+\end{remark}
+
+\begin{theorem}
+    Let \(T \subset \mathbb{R}^k\) open and \(\varphi: T \rightarrow \mathbb{R}^n\) an immersion. Then, for all \(t \in T\) there exists an open neighbourhood \(V \in \mathcal{U}_t\), such that \(\restr{\varphi}{V}: V \rightarrow \varphi(V)\) is a homeomorphism.
+\end{theorem}
+
+
+
 \begin{definition}
     \(M \subset \mathbb{R}^n\) is a \(k\)-dimensional submanifold, if
     \begin{itemize}
@@ -22,11 +44,12 @@
 \begin{theorem}
     If \(M \subset \mathbb{R}^n\) is a \(k\)-dimensional submanifold then the following are equivalent.
     \begin{enumerate}
-        \item For all points \(a \in M\) there exists a open neighbourhood \(U \in \mathcal{U}_a(\mathbb{R})\), and there exists a function \(f_i: U \rightarrow \mathbb{R}\) with \(1 \leq i \leq n-k\)that is \(n-k\) continuously (partially) differentiable such that
+        \item For all points \(a \in M\) there exists a open neighbourhood \(U \in \mathcal{U}_a(\mathbb{R})\), and there exists a function \(f_i: U \rightarrow \mathbb{R}\) with \(1 \leq i \leq n-k\) that is \(n-k\) continuously (partially) differentiable such that
         \begin{align}
             M \cap U = \left\{ x \in U \middle| f_1(x) = \dots = f_{n-k}(x) = 0 \right\}
         \end{align}
         and for all \(x \in U\) \(Df (x) = n-k\).
+        \item There exists a numbering of the coordinate system, such that
     \end{enumerate}
 \end{theorem}
 %

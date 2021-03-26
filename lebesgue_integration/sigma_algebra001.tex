@@ -1,0 +1,19 @@
+\begin{question}
+    Let \(\Omega = \{a, b, c, d, e\}\) and \(M = \{\{a\}, \{a, b\}\}\).
+    \begin{enumerate}
+        \item Give \(\sigma(M)\).
+        \item Give a \(\sigma\)-algebra \(\mathcal{A}\) over \(\Omega\) with \(\mathcal{A} \supset \sigma (M)\) and \(\mathcal{A} \neq \sigma(M)\).
+        \item Give two measures which are not identical, but have the same value on \(\sigma (M)\).
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    \begin{enumerate}
+        \item In all \(\sigma\)-algebras \(\Omega\) and \(\varnothing\) are included, so we immediately have \(\Omega, \varnothing \in \sigma (M)\). Further, all complements are included, hence we have \(\{b, c, d, e\} \in \sigma (M)\) and \(\{c, d, e\} \in \sigma (M)\). We also have \(\{a\} \cup \{c, d, e\} = \{a, c, d, e\} \in M\) and its complement \(\{b\} \in M\). Another union included is \(\{b\} \cup \{c, d, e\} = \{b, c, d,e\}\). To sum up, we have
+        \begin{align}
+            \{\Omega, \varnothing, \{a\}, \{b\}, \{a, b\}, \{c, d, e\}, \{a, c, d, e\}, \{b, c, d, e\}\} = M
+        \end{align}
+        These are indeed all the subsets of \(M\) as there is no more new complements or unions to be made.
+        \item \(\mathcal{P}(\Omega) =: \mathcal{A}\) is a \(\sigma\)-algebra and fullfills the required properties.
+        \item
+    \end{enumerate}
+\end{solution}
