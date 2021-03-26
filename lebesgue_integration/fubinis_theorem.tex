@@ -1,8 +1,34 @@
 \begin{question}
     \begin{enumerate}
-        \item In case of existence, compute the following integrals.
+        \item In case of existence, compute the following Riemann and Lebesgue integrals for each permutation of the integration order.
         \begin{align}
-            \int_0^2 \int_1^2 y \sin \pi x y
+            \int_0^2 \int_1^2 y \sin (\pi x y) \diff x \diff y \\
+            \int_{[0, 2]} \int_{[1, 2]} y \sin (\pi x y) \diff \lambda(x) \diff \lambda(y)
+        \end{align}
+        \item In case of existence, compute the following Riemann and Lebesgue integrals for each permutation of the integration order.
+        \begin{align}
+            \int_0^1 \int_0^\infty (2 - xy) xy \exp(-xy) \diff x \diff y
         \end{align}
     \end{enumerate}
 \end{question}
+\begin{solution}
+    First, we solve the inner integral. First, apply linearity.
+    \begin{align}
+        \int (2 - xy) xy \exp(-xy) \diff x &= -y \int x(yx - 2) \exp(-yx) \diff x
+    \end{align}
+    Now define
+    \begin{align}
+        f(x) = x (yx - 2) &\Rightarrow f'(x) = 2yx - 2\\
+        g'(x) = \exp(-yx) &\Rightarrow g(x) = - y^{-1} \exp(-yx)
+    \end{align}
+    Rewrite and apply integration by parts.
+    \begin{align}
+        -y \int x(yx - 2) \exp(-yx) \diff x &= -y \int f(x) g'(x) \diff x \\
+        &= -y \left( f(x)g(x) - \int f'(x)g(x)\diff x \right) \\
+        &= -y \left( x(yx - 2) \cdot y^{-1} \exp(-yx) - \int (2yx - 2) (-y^{-1} \exp(-yx)) \diff x\right)
+    \end{align}
+    We will solve this integral
+    \begin{align}
+        \int (2yx - 2) -y^{-1} \exp(-yx) \diff x &= 
+    \end{align}
+\end{solution}
