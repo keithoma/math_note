@@ -12,10 +12,10 @@
     \end{align}
     In other words, \( \left\{(A_y, y)\right\}_{y \in \mathbb{R}^l}\) is a patition of \(A\).
 \end{remark}
-\begin{theorem}[Cavalieri's principle]
-    Let \(\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^l\) with \(n, k, l \in \mathbb{N}^*\), let \(A \subset \mathbb{R}^k \times \mathbb{R}^l\) a Borel subset of \(\mathbb{R}^n\), and let \( \left\{(A_y, y)\right\}_{y \in \mathbb{R}^l}\) be a patition of \(A\) via cross-sections. Then we have the following
+\begin{theorem}[Generalized Cavalieri's principle]
+    Let {\color{mathif}\(\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^l\)} with {\color{mathif}\(n, k, l \in \mathbb{N}^*\)}. Let {\color{mathif}\(A \subset \mathbb{R}^k \times \mathbb{R}^l\)} a {\color{mathif}Borel subset} of {\color{mathif}\(\mathbb{R}^n\)}, and let {\color{mathif}\( \left\{(A_y, y)\right\}_{y \in \mathbb{R}^l}\)} be a {\color{mathif}patition} of {\color{mathif}\(A\)} via {\color{mathif}cross-sections}. Then we have the following
     \begin{enumerate}
-        \item For all \(y \in \mathbb{R}^l\), \(A_y\) is Borel subset of \(\mathbb{R}^k\).
+        \item For all {\color{maththen}\(y \in \mathbb{R}^l\)}, {\color{maththen}\(A_y\)} is {\color{maththen}Borel subset} of {\color{maththen}\(\mathbb{R}^k\)}.
         \item Let \(F_A: \mathbb{R}^l \rightarrow [0, \infty], y \mapsto F_A(y) := Vol_K(A_y) = \lambda^k (A_y)\) be the \(k\)-dimensional volume of \(A_y\). Then \(F_A\) is Borel measurable on \(\mathbb{R}^l\).
         \item \(\text{Vol}_n(A) := \int_{\mathbb{R}^l} \text{Vol}_k (A_y)\)
     \end{enumerate}
@@ -24,12 +24,12 @@
 \begin{enumerate}
     \item Fix \(y \in \mathbb{R}^l\)
 \end{enumerate}
-\begin{theorem}
-    For \(K \subset \mathbb{R^n}\) compact, we have
+\begin{corollary}
+    For \(K \subset \mathbb{R}^n\) compact, we have
     \begin{align}
         \text{Vol}_n (K) = \int_{\mathbb{R}} \text{Vol}_{n-1}(K_t)
     \end{align}
-\end{theorem}
+\end{corollary}
 %
 \begin{example}[Volume of a Cylinder]
     Let \(B \in \mathbb{R}^{n-1}\) be compact and \(Z := B \times [0, h] \subset \mathbb{R}^n\). \(Z\) is called the generalized \(n\)-dimensional cylinder with a basis \(B\) and height \(h\) where \(h \geq 0\). \\
@@ -48,3 +48,32 @@
     \end{align}
     as \(\Vol_{n-1} (\varnothing) = 0\).
 \end{example}
+%
+\begin{question}
+    Let \(B \subset \mathbb{R}^n\) be a Borel set and \(f: B \rightarrow \mathbb{R}^+_0\) a non-negative measurable function. Show the following.
+    \begin{enumerate}
+        \item The set
+        \begin{align}
+            V := \{(x, y) \in B \times \mathbb{R} \mid 0 \leq y \leq f(x)\}
+        \end{align}
+        is a measurable subset of \(\mathbb{R}^{n + 1}\).
+        \item \(f\) is integratable over \(B\) if and only if the \((n + 1)\)-dimensional Lebesgue measure of \(V\) is finite and it is
+        \begin{align}
+            \lambda^{n + 1} (V) = \int_B f(x) \diff \lambda^n (x)
+        \end{align}
+    \end{enumerate}
+\end{question}
+\begin{solution}
+    2. Fix a \(x \in \mathbb{R}^n\) and define
+    \begin{align}
+        V_x :=& \{y \in \mathbb{R} \mid (x, y) \in V\} \\
+        =& \{y \in \mathbb{R} \mid (x, y) \in B \times \mathbb{R}, \, 0 \leq y \leq f(x)\} \\
+        \Vol (V_x) &= f(x) - 0 = f(x) 
+    \end{align}
+    \begin{align}
+        \lambda^{n+1} (V) = \Vol_n(V) = \int_B \Vol_1(A_y) \diff^n y
+    \end{align}
+    \begin{align}
+        \Vol_1(A_y)
+    \end{align}
+\end{solution}
