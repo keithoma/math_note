@@ -1,5 +1,5 @@
 # My Math Notes
-*I take no responsibility for the readability nor the correctness of the documents I worte on this repository -- at least not yet. Right now, the documents are readable for me and more importantly, they are absolutely without any errors in my eyes.*
+*I take no responsibility for the readability nor the correctness of the documents I provide on this repository -- at least not yet. Right now, the documents are readable for me and more importantly, they are absolutely without any errors for me.*
 ## Analysis
 ### Measure Theory
 Resources:
