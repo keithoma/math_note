@@ -1,0 +1,17 @@
+\begin{definition}[Lebesgue Content]
+    Let \(\mathcal{Q}(\mathbb{R}^n)\) be the ring of sets over \(\mathbb{R}^n\). % how is endlichen Quadersummen called in English?
+    \begin{align}
+        \mathcal{Q}(\mathbb{R}^n) = \left\{ \bigsqcup_{k=1}^m \, [a_{1, k},\, b_{1, k}) \times \dots \times [a_{n, k},\, b_{n, k}) \, \middle| \, m \in \mathbb{N}; \, a_{i, k}, b_{i, k} \in \mathbb{R}; \, 1 \leq k \leq n \right\}
+    \end{align}
+    Set \(\lambda^n: \mathcal{Q}(\mathbb{R}^n) \rightarrow \mathbb{R}_0^+\) as
+    \begin{align}
+        \lambda^n(A) := \sum_{k=1}^m \prod_{i=1}^n (b_{i,k} - a_{i, k})
+    \end{align}
+    \(\lambda^n\) is the Lebesgue content.
+\end{definition}
+\begin{theorem}
+    \(\lambda^n\) is a well-defined finite content.
+\end{theorem}
+\begin{theorem}
+    \(\lambda^n\) is a premeasure.
+\end{theorem}
