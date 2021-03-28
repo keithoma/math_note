@@ -1,0 +1,39 @@
+\begin{definition}
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) be a ring of sets. A set function \(\mu \rightarrow [0, \infty]\) is called
+    \begin{itemize}
+        \item finitely additive if for all disjoint \(A, B \in \mathcal{R}\) it is \(\mu (A \sqcup B) = \mu(A) + \mu(B)\).
+        \item \(\sigma\)-additive if for all disjoint \(A_k \in \mathcal{R}\) with \(k \in \mathbb{N}\) and  \(\bigsqcup_{k=1}^\infty A_k \in \mathcal{R}\) it is
+        \begin{align}
+            \mu \left( \bigsqcup_{k=1}^\infty A_k \right) = \sum_{k=1}^\infty \mu(A_k) \text{.}
+        \end{align}
+        \item subadditive if XXXXX
+        \item \(\sigma\)-subadditive if XXXXX
+        \item finite if for all \(A \in \mathcal{R}\) it is \(\mu(A) < \infty\).
+        \item \(\sigma\)-finite if there exists a collection of subsets \(\{A_k\}_{k \in \mathbb{N}}\) in \(\mathcal{R}\) with \(\mu(A_k) < \infty\) for all \(k \in \mathbb{N}\) such that
+        \begin{align}
+            \bigcup_{k \in \mathbb{N}} A_k = X \text{.}
+        \end{align}
+        \item monotonous if for all \(A, B \in \mathcal{R}\) with \(A \subset B\) it is \(\mu(A) \leq \mu(B)\).
+    \end{itemize}
+\end{definition}
+%
+\begin{remark}
+    In the definition of \(\sigma\)-additivity, checking whether \( \bigsqcup_{k=1}^\infty A_k\) is included in \(\mathcal{R}\) is required. For \(\sigma\)-rings and therefore \(\sigma\)-algebras, it is guranteed that a countable union of disjoint sets are included.
+
+    In general, not all finite set functions \(\mu \rightarrow [0, \infty]\) are \(\sigma\)-finite as \(X\) need not be included in a ring of sets. 
+\end{remark}
+\begin{definition}[Content]
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) be a ring of sets. A set function \(\mu \rightarrow [0, \infty]\) is called a content if
+    \begin{enumerate}
+        \item \(\mu(\varnothing) = 0\).
+        \item \(\mu\) is finitely additive.
+    \end{enumerate}
+\end{definition}
+%
+\begin{definition}[Premeasure]
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) be a ring of sets. A \(\sigma\)-additive content \(\mu \rightarrow [0, \infty]\) is called a premeasure.
+\end{definition}
+%
+\begin{definition}[Measure]
+    Let \(\mathcal{A} \subset \mathcal{P}(X)\) a \(\sigma\)-algebra. A \(\sigma\)-additive content \(\mu: \mathcal{A} \rightarrow [0, \infty]\) is called a measure.
+\end{definition}
