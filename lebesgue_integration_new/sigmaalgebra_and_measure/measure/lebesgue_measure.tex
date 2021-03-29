@@ -1,0 +1,83 @@
+\textbf{CHEET SHEET}
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\begin{definition}
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) a set of rings. Set
+    \begin{align}
+        \mathcal{R}^{\uparrow} := \left\{ A \in \mathcal{P}(X) \mid \exists (A_k)_{k \in \mathbb{N}} \text{ in } \mathcal{R} \text{ with } A_k \uparrow A \right\} \subset \mathcal{R} \text{.}
+    \end{align}
+\end{definition}
+\begin{remark}
+    \(\mathcal{R}^\uparrow\) is the set of all \(A \in \mathcal{P}(X)\) that can be expressed as a countable many unions of sets in \(\mathcal{R}\).
+
+    In general, \(\mathcal{R}^\uparrow\) is not a set of rings.
+\end{remark}
+\begin{definition}
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) be a ring of sets and \(\mu: \mathcal{R} \rightarrow [0, \infty]\) a premeasure. For \(A_k \uparrow A\) with \(A_k \in \mathcal{R}\) for \(k \in \mathbb{N}\) define
+    \begin{align}
+        \tilde{\mu}: \mathcal{R}^\uparrow \rightarrow [0, \infty], \, A \mapsto \tilde{\mu}(A) := \lim_{k \rightarrow \infty} \mu(A_k)\text{.}
+    \end{align}
+    \(\tilde{\mu}\) is called the first extension of the premeasure \(\mu\).
+\end{definition}
+\begin{remark}
+    In general, \(\tilde{\mu}\) is not a premeasure as \(\mathcal{R}^\uparrow\) need not be a ring of sets.
+
+    \(\tilde{\mu}\) restricted on \(\mathcal{R}\) is identical with \(\mu\), i.e. \(\restr{\tilde{\mu}}{\mathcal{R}} \equiv \mu \).
+\end{remark}
+\begin{lemma}
+    The first extension \(\tilde{\mu}\) is well-defined.
+\end{lemma}
+\begin{proposition}[Properties of \(\mathcal{R}^\uparrow\)]
+    
+\end{proposition}
+\begin{proposition}[Properties of the First Extension]
+    
+\end{proposition}
+\begin{definition}[Second Extension or the Outer Measure]
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) be a ring of sets, \(\mu: \mathcal{R} \rightarrow [0, \infty]\) a \(\sigma\)-finite premeasure on \(\mathcal{R}\), and \(\tilde{\mu}: \mathcal{R}^\uparrow \rightarrow [0, \infty]\) the first extension of \(\mu\) on \(\mathcal{R}^\uparrow\). Moreover, let \(B \subset X\) be a subset of \(X\). Then, the map
+    \begin{align}
+        \mu^*: \mathcal{P}(X) \rightarrow [0, \infty], \, B \mapsto \mu^* := \inf \left\{ \tilde\mu(A) \mid A \in \mathcal{R}^\uparrow, \, A \supset B \right\}
+    \end{align}
+    is called the outer measure induced by \(\tilde{\mu}\) on \(\mathcal{P}(X)\).
+\end{definition}
+
+\begin{proposition}[Properties of the Second Extension]
+
+\end{proposition}
+
+\begin{proposition}[Properties of the Outer Measure]
+
+\end{proposition}
+
+\begin{definition}[Lebesgue Outer Measure]
+    Let \(\lambda^n: \mathcal{Q}(\mathbb{R}^n) \rightarrow \mathbb{R}_0^+\) the Lebesgue premeasure. The map
+    \begin{align}
+        \lambda^*: \mathcal{P}(\mathbb{R}^n) \rightarrow [0, \infty], \, B \mapsto \lambda^*(B):= \inf \left\{ \tilde{\lambda}^n (B) \mid A \in \mathcal{Q}(\mathbb{R}^n)^\uparrow, \, A \supset B \right\}
+    \end{align}
+    is called the Lebesgue outer measure induced by \(\tilde{\lambda^n}\).
+\end{definition}
+
+\begin{definition}[Pseudo Metric]
+    
+\end{definition}
+
+\begin{proposition}
+    The outer measure induces a pseudo metric.
+\end{proposition}
+
+\begin{proposition}
+    The outer measure is continuous.
+\end{proposition}
+
+\begin{definition}[Approximation through elements of Rings]
+    
+\end{definition}
+
+\begin{theorem}
+    \begin{align}
+        \hat{\mathcal{A}} := \{ A \in \mathcal{P}(X) \mid \text{\(A\) is \(\mathcal{A}\)-approximatable with \(\mu^*\)} \}
+    \end{align}
+    is a \(\sigma\)-algebra on \(X\).
+\end{theorem}
