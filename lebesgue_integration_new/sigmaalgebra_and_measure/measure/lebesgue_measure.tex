@@ -1,7 +1,13 @@
 \textbf{CHEET SHEET}
 \begin{enumerate}
-    \item 
+    \item Content \(\mu: \mathcal{R} \rightarrow [0, \infty]\) is empty set 0 and finitely additive.
+    \item Premeasure \(\mu: \mathcal{R} \rightarrow [0, \infty]\) is \(\sigma\)-additive content.
+    \item First extension \(\tilde{\mu}: \mathcal{R}^\uparrow \rightarrow [0, \infty]\)
+    \item Outer measure \(\mu^*: \mathcal{P}(X) \rightarrow [0, \infty]\)
 \end{enumerate}
+\begin{align}
+    \mathcal{A} \subset \mathcal{A}^\uparrow \subset \sigma(\mathcal{A}) \subset \hat{\mathcal{A}}
+\end{align}
 
 \begin{definition}
     Let \(\mathcal{R} \subset \mathcal{P}(X)\) a set of rings. Set
@@ -60,11 +66,20 @@
 \end{definition}
 
 \begin{definition}[Pseudo Metric]
-    
+    Let \(X\) be a set. A map \(d: X \times X \rightarrow \overline{\mathbb{R}}, \, (x,y) \mapsto d(x,y)\) is called pseudo metric on \(X\) if for all \(x, y, z \in X\) it is the following three axioms are met.
+    \begin{enumerate}
+        \item \(x=y \Rightarrow d(x, y) = 0\).
+        \item \(d(x, y) = d(y, x)\). (Symmetry.)
+        \item \(d(x, z) \leq d(x, y) + d(y, z)\).
+    \end{enumerate}
 \end{definition}
 
 \begin{proposition}
-    The outer measure induces a pseudo metric.
+    The outer measure induces a pseudo metric, i.e.
+    \begin{align}
+        d_{\mu^*}: \mathcal{P}(X) \times \mathcal{P}(X) \rightarrow [0, \infty], \, (A, B) \mapsto d_{\mu^*}(A, B) := d_{\mu^*}(A \triangle B)
+    \end{align}
+    is a pseudo metric.
 \end{proposition}
 
 \begin{proposition}
@@ -72,12 +87,25 @@
 \end{proposition}
 
 \begin{definition}[Approximation through elements of Rings]
-    
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) a set of rings, \(\mu: \mathcal{R} \rightarrow [0, \infty]\) a premeasure on \(\mathcal{R}\), and \(\mu^*: \mathcal{P}(X) \rightarrow [0, \infty]\) the outer measure induced by \(\mu\). Then, \(A \in \mathcal{P}(X)\) is called \(\mathcal{R}\)-approximatable in respect to \(\mu^*\) if for all \(\epsilon > 0\) there exists an \(B \in \mathcal{R}\) such that \(d_{\mu^*}(A, B) = \mu^*(A \triangle B) < \epsilon\).
 \end{definition}
 
 \begin{theorem}
+    Let \(\mathcal{A} \subset \mathcal{P}(X)\) be a \(\sigma\)-algebra and \(\mu: \mathcal{A} \rightarrow \mathbb{R}_0^+\) a finite premeasure. Let the first extension \(\tilde{\mu}: \mathcal{A}^\uparrow \rightarrow \mathbb{R}_0^+\) also be finite and \(\mu^*: \mathcal{P}(X) \rightarrow \mathbb{R}_0^+\) the outer measure. Then,
     \begin{align}
         \hat{\mathcal{A}} := \{ A \in \mathcal{P}(X) \mid \text{\(A\) is \(\mathcal{A}\)-approximatable with \(\mu^*\)} \}
     \end{align}
     is a \(\sigma\)-algebra on \(X\).
 \end{theorem}
+
+\begin{theorem}
+    Let \(\mu, \tilde{\mu}, \mu^*\) and \(\mathcal{A}, \mathcal{A}^\uparrow, \hat{\mathcal{A}}\) be given. Then, a finite premeasure \(\mu: \mathcal{A} \rightarrow \mathbb{R}_0^+\) can be uniquely extended to a finite measure \(\hat{\mu}: \hat{\mathcal{A}} \rightarrow \mathbb{R}_0^+\) where \(\hat{\mu} \equiv \restr{\mu^*}{\hat{\mathcal{A}}}\).
+\end{theorem}
+
+\begin{theorem}
+    Let \(\mathcal{R} \subset \mathcal{P}(X)\) a set of rings and \(\mu: \mathcal{R} \rightarrow [0, \infty]\) a \(\sigma\)-finite premeasure on \(\mathcal{R}\) and \(\mu^*: \mathcal{P}(X) \rightarrow [0, \infty]\) the outer measure induced by \(\mu\). Then, \(\mu\) can be uniquely extended to a measure \(\hat{\mu}: \sigma(\mathcal{R}) \rightarrow [0, \infty]\) where \(\hat{\mu} \equiv \restr{\mu^*}{\sigma(\mathcal{R})}\).
+\end{theorem}
+
+\begin{definition}
+    Let \(\lambda^n: \mathcal{Q}(\mathbb{R}^n) \rightarrow \mathbb{R}_0^+\) a \(\sigma\)-finite Lebesgue premeasure. In this chapter, we constructed a unique extension of \(\lambda^n\) on the Borel \(\sigma\)-algebra \(\mathcal{B}(\mathbb{R}^n) = \sigma(\mathbb{R}^n)\), the Lebesgue-Borel measure \(\hat{\lambda}: \mathcal{B}(\mathbb{R}^n) \rightarrow [0, \infty]\).
+\end{definition}
