@@ -1,0 +1,36 @@
+\begin{definition}
+    Let \(\mathcal{A} \subset \mathcal{P}(X)\) a \(\sigma\)-algebra. The tupel \(X, \mathcal{A}\) is called measurable space and the sets in the \(\sigma\)-algebra \(A \in \mathcal{A}\) are called measurable sets.
+
+    Morover, let \(\mu: \mathcal{A} \rightarrow [0, \infty]\) be a measure on \(\mathcal{P}(X)\). Then, \((X, \mathcal{A}, \mu)\) a measure space.
+\end{definition}
+
+\begin{definition}[Null Sets]
+    Let \((X, \mathcal{A}, \mu)\) be a measure space and \(\mu^*: \mathcal{P}(X) \rightarrow [0, \infty]\) the induced outer measure. Then \(N \subset X\) with \(\mu^*(N) = 0\) is called null set.
+
+    For \(X = \mathbb{R}^n\) with \(\lambda^n(N) = 0\) called Lebesgue null set.
+
+    \(S = \varnothing\) is called the trivial null set.
+\end{definition}
+
+\begin{definition}[Completion of a Measure Space]
+    Let \((X, \mathcal{A}, \mu)\) be a measure space. This measure space is called complete if all null sets are included in \(\mathcal{A}\), i.e. for all \(N \in \mathcal{A}\)
+    \begin{align}
+        \mu^*{N} = 0 \Rightarrow N \in \mathcal{A} \text{.}
+    \end{align}
+\end{definition}
+
+\begin{definition}
+    Let
+    \begin{align}
+        \overline{\mathcal{A}}^\mu := \{ A \cup N \mid A \in \mathcal{A}, \, N \subset X \text{ with } \mu^*(N) = 0 \}
+    \end{align}
+    then \(\overline{\mathcal{A}}^\mu\) is called the completion of \((X, \mathcal{A}, \mu)\).
+\end{definition}
+
+\begin{definition}
+    The completion of the Lebesgue-Borel measure space \( (\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), \hat{\lambda}^n) \) to \( (\mathbb{R}^n, \mathcal{B}^{\hat{\lambda}^n}(\mathbb{R}^n), \hat{\lambda}^n) \) or shorter \( (\mathbb{R}^n, \overline{\mathcal{B}}^\lambda (\mathbb{R}^n), \lambda^n)\) is called the (completed) Lebesgue measure space.
+
+    \(B \in \overline{\mathbb{B}}^\lambda(\mathbb{R}^n)\) is called Lebesgue measurable to differentiate from \(B \in \mathcal{B}(\mathbb{R}^n)\) Borel measurable.
+\end{definition}
+
+% https://math.stackexchange.com/questions/141017/lebesgue-measurable-set-that-is-not-a-borel-measurable-set
