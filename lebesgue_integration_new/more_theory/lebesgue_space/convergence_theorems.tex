@@ -1,0 +1,30 @@
+\begin{theorem}[Lebesgue Monotone Convergence Theorem]
+    \textit{Also called the theorem of Beppo Levi.}
+    Let \( (X, \mathcal{A}, \mu) \) be a measure space and let \(f_n: X \rightarrow [0, \infty]\) be a sequence of measurable functions such that
+    \begin{align}
+        f_n(x) \leq f_{n+1}(x)
+    \end{align}
+    for all \(x \in X\) and all \(n \in \mathbb{N}\). Define \(f: X \rightarrow [0, \infty]\) by
+    \begin{align}
+        f(x) := \lim_{n \rightarrow \infty} f_n(x) \text{.}
+    \end{align}
+    Then \(f\) is measurable and
+    \begin{align}
+        \lim_{n \rightarrow \infty} \int_X f_n \diff \mu = \int_X f \diff \mu \text{.}
+    \end{align}
+\end{theorem}
+%
+\begin{theorem}[Lebesgue Dominated Convergence Theorem]
+    Let \( (X, \mathcal{A}, \mu) \) be a measure space, let \(g: X \rightarrow \mathbb{R}_0^+\) be an integrable function, and let \(f_n: X \rightarrow \mathbb{R}\) be a sequence of integrable functions satisfying
+    \begin{align}
+        |f_n(x)| \leq g(x)
+    \end{align}
+    for all \(x \in X\) and \(n \in \mathbb{N}\) and converging pointwise to \(f: X \rightarrow \mathbb{R}\), i.e.
+    \begin{align}
+        f(x) = \lim_{n \rightarrow \infty} f_n(x) \qquad \text{for all \(x \in X\).}
+    \end{align}
+    Then \(f\) is integrable and, for every \(E \in \mathcal{A}\),
+    \begin{align}
+        \int_E f \diff \mu = \lim_{n \rightarrow \infty} \int_E f_n \diff \mu \text{.}
+    \end{align}
+\end{theorem}
