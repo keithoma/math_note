@@ -1,1 +1,14 @@
-\
+\begin{definition}
+    Let \( (X, \mathcal{A}, \mu) \) be a measure space.
+    \begin{enumerate}
+        \item For all \(m \in \mathbb{N}\) let \(f_m: X \rightarrow \overline{\mathbb{R}}\) be a sequence of function, and let \(f: X \rightarrow \overline{\mathbb{R}}\). \(f_m\) converges to \(f\) almost everywhere, written \(f_m \rightarrow^{a.e.} f\), if there exists a null set \(N \subset X\) such that for all \(x \in X \setminus N\) it is
+        \begin{align}
+            \lim_{m \rightarrow \infty} f_m(x) = f(x) \text{.}
+        \end{align}
+        \item For all \(m \in \mathbb{N}\) let \(f_m: X \rightarrow \overline{\mathbb{R}}\) with \(f_m \in \mathcal{L}^1 (X, \mathcal{A}, \mu) \) and let \(f: X \rightarrow \overline{\mathbb{R}}\) also with \(f \in \mathcal{L}^1 (X, \mathcal{A}, \mu) \). \(f_m\) is \(L^1\)-convergent to \(f\), written \(f_m \rightarrow^{L^1} f\), if
+        \begin{align}
+            \lim_{m \rightarrow \infty} \norm{f - f_m}_{L^1} = 0 \text{.}
+        \end{align}
+        \item For all \(m \in \mathbb{N}\) let \(f_m: X \rightarrow \overline{\mathbb{R}}\) with \(f_m \in \mathcal{L}^1 (X, \mathcal{A}, \mu) \). \((f_m)_{m \in \mathbb{N}}\) is called \(L^1\)-Cauchy sequence if for all \(\epsilon > 0\) there exists a \(m_0(\epsilon)\) such that for all \(m, k \geq m_0(\epsilon)\) it is \(\norm{f_m - f_k}_{L^1} < \epsilon \).
+    \end{enumerate}
+\end{definition}
