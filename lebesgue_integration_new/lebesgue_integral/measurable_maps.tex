@@ -1,0 +1,81 @@
+There is measurable, Borel measurable and Lebesgue measurable.
+\begin{definition}[Measurable Function]
+    Let \((X, \mathcal{A}_X)\) and \((Y, \mathcal{A}_Y)\) be measurable spaces. A map \(f: X \rightarrow Y\) is called measurable if the pre-image of every measurable subset of \(Y\) under \(f\) is measurable subset of \(X\), i.e.
+        \begin{align}
+            B \in \mathcal{A}_Y \Rightarrow f^{-1}(B) \in \mathcal{A}_X \text{.}
+        \end{align}
+\end{definition}
+
+\begin{definition}
+    Let \((X, \mathcal{A}_X)\) be a measurable space. A function \(f: X \rightarrow \overline{\mathbb{R}}\) is called measurable if it is measurable with respect to the Borel \(\sigma\)-algebra on \(\overline{\mathbb{R}}\) associated to the standard topology.
+\end{definition}
+%
+\begin{definition}[Borel Measurable Maps]
+    Let \(X, \mathcal{U}_X\) and \(Y, \mathcal{U}_Y\) be topological spaces. A map \(f: X \rightarrow Y\) is called Borel measurable if the pre-image of every Borel measurable subset of \(Y\) under \(f\) is a Borel measurable subset of \(X\).
+\end{definition}
+%
+\begin{definition}[Pushforward]
+    Let \(f: X \rightarrow Y\) be any map. Then the set
+    \begin{align}
+        f_{*} \mathcal{A}_X := \{B \subset Y \mid f^{-1}(B) \in \mathcal{A}_X\}
+    \end{align}
+    is a \(\sigma\)-algebra on \(Y\), called the pushforward of \(\mathcal{A}_X\) under \(f\).
+\end{definition}
+%
+\begin{theorem}
+    Let \((X, \mathcal{A}_X)\), \((Y, \mathcal{A}_Y)\), and \((Z, \mathcal{A}_Z)\) be measurable spaces.
+    \begin{enumerate}
+        \item The identity map \(\text{id}_X: X \rightarrow X\) is measurable.
+        \item If \(f: X \rightarrow Y\) and \(g: Y \rightarrow Z\) are measurable maps then so is the composition \(g \circ f: X \rightarrow Z\).
+        \item A map \(f: X \rightarrow Y\) is measurable if and only if \(\mathcal{A}_Y \subset f_* \mathcal{A}_X\).
+        \item A map \(f: X \rightarrow Y\) is measurable if and only if the pre-image of every oben subset \(V \subset Y\) under \(f\) is measurable, i.e.
+        \begin{align}
+            V \in \mathcal{U}_Y \Rightarrow f^{-1}(V) \in \mathcal{A}_X \text{.}
+        \end{align}
+        \item Assume \(\mathcal{U}_X \subset \mathcal{P}(X)\) is a topology on \(X\) such that \(\mathcal{A}_X\) is a Borel \(\sigma\)-algebra of \((X, \mathcal{U}_X)\). Then every continuous map \(f: X \rightarrow Y\) is (Borel) measurable.
+        \item Let \(f = (f_1, \dots, f_n): X \rightarrow \mathbb{R}^n\) be a function. Then \(f\) is measurable if and only if \(f_i: X \rightarrow \mathbb{R}\) is measurable for each \(i\).
+    \end{enumerate}
+\end{theorem}
+%
+\begin{theorem}
+    Let \((X, \mathcal{A})\) be a measurable space and let \(f: X \rightarrow \overline{\mathbb{R}}\) be any function. Then the following are equivalent.
+    \begin{itemize}
+        \item \(f\) is measurable.
+        \item \(f^{-1}( (a, \infty])\) is a measurable subset of \(X\) for every \(a \in \mathbb{R}\).
+        \item \(f^{-1}( [a, \infty])\) is a measurable subset of \(X\) for every \(a \in \mathbb{R}\).
+        \item \(f^{-1}( [-\infty, b))\) is a measurable subset of \(X\) for every \(b \in \mathbb{R}\).
+        \item \(f^{-1}( [-\infty, b])\) is a measurable subset of \(X\) for every \(b \in \mathbb{R}\).
+    \end{itemize}
+\end{theorem}
+%
+\begin{lemma}
+    Let \((X, \mathcal{A})\) be a measurable space and let \(u, v: X \rightarrow \mathbb{R}\) be measurable functions. If \(\phi: \mathbb{R}^2 \rightarrow \mathbb{R}\) is continuous then the function \(h: X \rightarrow \mathbb{R}\), defined by \(h(x) := \phi(u(x), v(x))\) for \(x \in X\), is measurable.
+\end{lemma}
+%
+\begin{theorem}
+    Let \(X, \mathcal{A}\) be a measurable space.
+    \begin{enumerate}
+        \item If \(f, g: X \rightarrow \mathbb{R}\) are measurable functions then so are the functions
+        \begin{align}
+            f+g, && fg, && \max\{f, g\}, && |f| \text{.}
+        \end{align}
+        \item Let \(f_k: X \rightarrow \overline{\mathbb{R}}\), \(k \in \mathbb{B}\) be a sequence of measurable functions. Then the following functions from \(X\) to \(\overline{\mathbb{R}}\) are measurable
+        \begin{align}
+            \inf_k f_k, && \sup_k f_k, && \limsup_{k \rightarrow \infty} f_k, && \liminf_{k \rightarrow \infty} f_k \text{.}
+        \end{align}
+    \end{enumerate}
+\end{theorem}
+%
+\begin{theorem}
+    Let \((\Omega, \mathcal{A})\) be a measurable space, and \(\mathcal{B} = \sigma(\mathcal{E})\) for a generator \(\mathcal{E} \subset \mathcal{P}(\Omega)\). If for all \(E \in \mathcal{E}\) it is \(f^{-1}(E) \in \mathcal{A}\), then \(f\) is measurable.
+\end{theorem}
+\begin{example}
+    Let \(f:(\mathbb{R}, \mathcal{B}) \rightarrow (\mathbb{R}, \mathcal{B})\) defined as
+    \begin{align}
+        f(x) := \begin{cases}
+            1 x \in Q \\
+            -1 x \notin Q
+        \end{cases}
+    \end{align}
+    for a \(Q \notin \mathcal{B}(\mathbb{R})\). Then, \(f^{-1}({1})=Q \notin \mathcal{B}\) and therefore, \(f\) is not measurable even though \(|f| = 1\) is measurable.
+\end{example}

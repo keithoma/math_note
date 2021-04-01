@@ -1,0 +1,40 @@
+\begin{definition}
+    Let \(Y\) be a set and \(f: \mathbb{R} \rightarrow Y\) be a function. \(f\) is called periodic with periodicity \(L \in \mathbb{R}^+\) if for all \(x \in \mathbb{R}\) it is \(f(x + L) = f(x)\).
+\end{definition}
+\begin{remark}
+    In the following, if the periodicity of the function is not given, let it be \(2\pi\).
+\end{remark}
+\begin{definition}
+    For all \(k \in \mathbb{N}\) let \(a_k, b_k \in \mathbb{R}\). Then \(f: \mathbb{R} \rightarrow \mathbb{R}\) with
+    \begin{align}
+        f(x) := \frac{a_0}{2} + \sum_{k = 1}^n (a_k \cos(kx) + b_k \sin(kx))
+    \end{align}
+    is called the trigonometric polynomial of the order \(n\).
+\end{definition}
+\begin{remark}
+    \begin{itemize}
+        \item \(f\) sets the constants \(a_k\) and \(b_k\) uniquely.
+        \item \(f\) is indeed a polynomial with the degree \(2n\).
+    \end{itemize}
+\end{remark}
+\begin{definition}
+    Let \(u, v: [a, b] \rightarrow \mathbb{R}\) integratable. Then \(\varphi: [a, b] \rightarrow \mathbb{C}, \, x \mapsto \varphi(x) := u(x) + iv(x)\) integratable with
+    \begin{align}
+        \int_a^b \varphi(x) := \int_a^b u(x) \diff x + i \int_a^b v(x) \diff x \text{.}
+    \end{align}
+\end{definition}
+\begin{theorem}
+    something
+\end{theorem}
+%
+\begin{definition}[Fourier Series]
+    Let \(f: \mathbb{R} \rightarrow \mathbb{C}\) periodic and integratable on \([0, 2\pi]\). Then the constants
+    \begin{align}
+        c_k = \frac{1}{2\pi} \int_0^{2\pi} f(x) e^{ikx} \diff x 
+    \end{align}
+    are called the Fourier-coefficients of \(f\). The series
+    \begin{align}
+        \mathcal{F}[f](x) := \sum_{k = -\infty}^\infty c_k e^{ikx}
+    \end{align}
+    is called the Fourier-series of \(f\).
+\end{definition}
