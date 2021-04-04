@@ -1,0 +1,46 @@
+\begin{definition}
+    Let \(f \in \mathcal{L}^1 (\mathbb{R}^n) \) be \(L\)-integrable. Then, \(\hat{f}: \mathbb{R}^n \rightarrow \mathbb{C}\) with
+    \begin{align}
+        \xi \mapsto \hat{f} (\xi) &:= \frac{1}{(2\pi)^{\frac{n}{2}}} \int_{\mathbb{R}^n} f(x) e^{-i <x, \xi>} \diff x \\
+        &:= \int f(x) e^{ix\xi} \tilde{\diff x} \\
+        &:= \int_{\mathbb{R}^n} f(x) e^{-i x \xi} \frac{\diff^n x}{(2\pi)^{\frac{n}{2}}} 
+    \end{align}
+\end{definition}
+%
+\begin{example}
+    \begin{enumerate}
+        \item
+        \begin{align}
+            f(x) :=& e^{-\frac{1}{2} \norm{x}^2} \Rightarrow \\
+            \hat{f}(\xi) =& \int_{\mathbb{R}^n} e^{-\frac{1}{2} \norm{x}^2} e^{-i x \xi} \frac{\diff^n x}{(2 \pi)^{\frac{n}{2}}} \\
+            =& \int_{\mathbb{R}^n} e^{-\frac{1}{2} x_1^2} \dots e^{-\frac{1}{2} x_n^2} \cdot e^{-i x_1 \xi_1} \dots e^{-i x_n \xi_n} \frac{\diff^n x}{(2 \pi)^{\frac{n}{2}}} \\
+            =& \prod_{k = 1}^n \left( \int_\mathbb{R} e^{-\frac{1}{2} x_k^2} e^{-i x_k \xi_k} \frac{\diff^n x_k}{(2 \pi)^{\frac{n}{2}}} \right) \\
+            =& \prod_{k=1}^n e^{\frac{1}{2} \xi_k^2} \\
+            =& e^{-\frac{1}{2} \norm{\xi}^2}
+        \end{align}
+        In the last step, we used
+        \begin{align}
+            \frac{1}{2\pi} \int_\infty^\infty e^{-\frac{1}{2}x^2} e^{i t x} \diff x = e^{\frac{1}{2}t^2}
+        \end{align}
+        So it is \(f = \hat{f}\).
+        \item Let \(f \in \mathcal{L}^1 (\mathbb{R}^n)\) and \(\alpha \in \mathbb{R}^*\) and \(g(x) := f(\alpha x)\). Let \(y = \alpha x \) and use the transformation formula.
+        \begin{align}
+            \Rightarrow \hat{g}(\xi) =& \int f(\alpha x) e^{-i x \xi} \frac{\diff^n x}{(2\pi)^{\frac{n}{2}}} \\
+            =& \frac{1}{|\alpha|} \int f(y) e^{-\frac{1}{\alpha}y \cdot \xi} \frac{\diff^n y}{(2 \pi)^{\frac{n}{2}}} \\
+            =& \frac{1}{|\alpha|^n} \hat{f} \left( \frac{\xi}{\alpha} \right)
+        \end{align}
+        \item \(f: \mathbb{R} \rightarrow \mathbb{R}, \, x \mapsto f(x) := e^{-|x|}\)
+        \begin{align}
+            \Rightarrow \hat{f} = \int_{\mathbb{R}} e^{-|x|} e^{-ix\xi} \frac{\diff x}{\sqrt{2 \pi}} =& \int_0^\infty e^{-x} \left( e^{-ix\xi} + e^{ix\xi} \right) \\
+            =& \frac{1}{\sqrt{2\pi}} \left[ \frac{e^{-x(i + i\xi)}}{-1-i\xi} + \frac{e^{-x(1-i\xi)}}{-1+i\xi} \right]_{x=0}^{x=\infty} \\
+            =& \frac{1}{\sqrt{2pi}} \left(\frac{1}{1 + i\xi} + \frac{1}{1-i\xi}\right) \\
+            =& \sqrt{\frac{2}{\pi}} \frac{1}{1 + \xi^2}
+        \end{align}
+    \end{enumerate}
+\end{example}
+\begin{proposition}
+    Let \(f, g \in \mathcal{L}^1 (\mathbb{R}^n)\)
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proposition}
