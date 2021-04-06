@@ -1,0 +1,33 @@
+We have the following tree of inclusion.
+\begin{figure}[h]
+    \center
+    \begin{tikzpicture}[node distance=2cm and 1cm]
+        \tikzstyle{box} = [draw=none, minimum width=4cm]
+        \tikzstyle{arrow} = [thick,-,>=stealth]
+        \node [draw=none]                 (ring of sets) {ring of sets};
+        \coordinate[below=of ring of sets] (c);
+        \node [box, left=of c]      (algebra of sets) {algebra of sets};
+        \node [box] at (c)     (s-ring)     {\(\sigma\)-ring};
+        \node [box, right=of c] (monotone class)     {monotone class};
+        \node [box, below=of c]     (s-algebra)    {\(\sigma\)-algebra};
+        \node [box, below=of s-algebra] (b-algebra) {Borel \(\sigma\)-algebra};
+        \draw [arrow] (ring of sets) -- (algebra of sets);
+        \draw [arrow] (ring of sets) -- (s-ring);
+        \draw [arrow] (algebra of sets) -- (s-algebra);
+        \draw [arrow] (s-ring) -- (s-algebra);
+        \draw [arrow] (monotone class) -- (s-algebra);
+        \draw [arrow] (s-algebra) -- (b-algebra);
+    \end{tikzpicture}
+\end{figure}
+%
+\begin{definition}[Collection]
+    \textit{A collection is an assortment of elements.}
+
+    Given a set \(X\), a collection \(A\) of elements in \(X\) is subset of \(X\).
+\end{definition}
+%
+\begin{definition}[Family]
+    \textit{A family is an indexed collection.}
+
+    Given two sets \(X\) and \(I\), a family of elements in \(X\) indexed by \(I\) is a function \(f: I \rightarrow X\). In this document, we will denote such a family by \(\{A_i\}_{i \in I}\) where \(A_i := f(i)\) for every \(i \in I\).
+\end{definition}
