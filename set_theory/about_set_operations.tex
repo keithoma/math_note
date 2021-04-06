@@ -41,7 +41,7 @@
 
 % mathematics
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
+\newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[definition]
 
 \newtheorem{theorem}{Theorem}[definition]
@@ -92,5 +92,48 @@
 }%
 
 \begin{document}
-
+\begin{enumerate}
+  \item true
+  \item \(A \uparrow B\)
+\end{enumerate}
+%
+\section{Sheffer Stroke}
+\begin{definition}
+  \textit{\(A \uparrow B\) if \(x\) is not in the intersection of \(A\) and \(B\).}
+  \begin{align}
+    A \uparrow B = X \setminus (A \cap B) = (X \setminus A) \cup (X \setminus B)
+  \end{align}
+\end{definition}
+%
+\begin{proposition}
+  \begin{enumerate}
+    \item Sheffer stroke is associative.
+    \item Sheffer stroke is commutative.
+    \item For \(X\) the only identity element is \(\varnothing\).
+  \end{enumerate}
+\end{proposition}
+\begin{Proof}
+  Let \(A, B, C \subset X\). We have
+  \begin{align}
+    (A \uparrow B) \uparrow C =& (X \setminus (A \uparrow B)) \cup X \setminus C \\
+    =& (X \setminus A) \cup (X \setminus B) \cup (X \setminus C) \\
+    =& (X \setminus A) \cup ((X \setminus B) \cup (X \setminus C)) \\
+    =& A \uparrow ((X \setminus B) \cup (X \setminus C)) \\
+    =& A \uparrow (B \uparrow C)
+  \end{align}
+  \begin{align}
+    A \uparrow B =& (X \setminus A) \cup (X \setminus B) \\
+    =& (X \setminus B) \cup (X \setminus A) \\
+    =& B \uparrow A
+  \end{align}
+  \begin{align}
+    X \uparrow \varnothing =& X \setminus (X \cap \varnothing) \\
+    =& X \setminus \varnothing \\
+    =& X
+  \end{align}
+\end{Proof}
+\begin{corollary}
+  Sheffer stroke does not form a group on the power set of \(X\).
+\end{corollary}
+%
 \end{document}
