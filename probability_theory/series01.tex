@@ -93,8 +93,9 @@
 
 \begin{document}
 \noindent\textbf{Problem 01.2}
-
-Let \(\Omega, \mathcal{A}, \mathbb{P}\) a probability space and \(M, \mathcal{F}\) a measurable space. Moreover, let \(X: \Omega \rightarrow M\) a \((\mathcal{A}, \mathcal{F})\)-measurable random variable. Show that
+\newline
+\newline
+Let \((\Omega, \mathcal{A}, \mathbb{P})\) a probability space and \((M, \mathcal{F})\) a measurable space. Moreover, let \(X: \Omega \rightarrow M\) a \((\mathcal{A}, \mathcal{F})\)-measurable random variable. Show that
 \begin{align}
     \mathbb{P}^X (B) := \mathbb{P}(X \in B) = \mathbb{P} (X^{-1}(B)), \qquad B \in \mathcal{F}
 \end{align}
@@ -102,5 +103,27 @@ defines a probability measure on \((M, \mathcal{F})\).
 \newline
 \newline
 \textbf{Solution}
-
+\begin{enumerate}
+    \item We have
+    \begin{align}
+        \mathbb{P}^X(M) &\stackrel{\text{def.}}{=} \mathbb{P}(X \in M) \\
+        &\stackrel{\text{def.}}{=} \mathbb{P} (\{\omega \in M \mid X(\omega) \in M\}) \\
+        &= \mathbb{P} (\{\omega \in M\}) \label{eq1}\\
+        &= \mathbb{P} (M) \\
+        &\stackrel{\text{def.}}{=} 1 \text{.}
+    \end{align}
+    In (\ref{eq1}), we used that the codomain of \(X\) is \(M\) and in the last step, we used the normed property of the probability measure \(\mathbb{P}\).
+    \item Let \(A_i \in \mathcal{F}\) with \(i \in \mathbb{N}\) disjoint subsets. We have
+    \begin{align}
+        \mathbb{P}^X \left( \bigcup_{i = 1}^\infty A_i \right) &\stackrel{\text{def.}}{=} \mathbb{P} \left( X \in \bigcup_{i = 1}^\infty A_i \right) \\
+        &\stackrel{\text{def.}}{=} \mathbb{P} \left( \left\{ \omega \in M \, \middle| \, X(\omega) \in \bigcup_{i = 1}^\infty  A_i \right\}\right) \text{.}
+        \intertext{As \(A_i\) are disjoint, \(X(\omega)\) is included in one and only one \(A_i\). Therefore with the \(\sigma\)-additivity of \(\mathbb{P}\), we have}
+        &= \mathbb{P} \left( \bigcup_{i = 1}^\infty \left\{ \omega \in M \, \middle| \, X(\omega) \in A_i \right\}\right) \\
+        &\stackrel{\text{def.}}{=} \sum_{i = 1}^\infty \mathbb{P} \{\omega \in M \mid X(\omega) \in A_i \} \\
+        &\stackrel{\text{def.}}{=} \sum_{i = 1}^\infty \mathbb{P} (X \in A_i) \\
+        &\stackrel{\text{def.}}{=} \sum_{i = 1}^\infty \mathbb{P}^X (A_i) \text{.}
+    \end{align}
+    In short, \(\mathbb{P}^X\) is \(\sigma\)-additive.
+\end{enumerate}
+From above, it follows that \(\mathbb{P}^X\) is a probability measure.
 \end{document}
