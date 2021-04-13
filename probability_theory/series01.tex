@@ -135,4 +135,19 @@ Let \((\Omega, \mathcal{A}, \mathbb{P})\) be a probability space, \(n \in \mathb
 \newline
 \newline
 \textbf{Solution}
+Let \(n = 1\), then we simply have
+\begin{align}
+    \mathbb{P} \left( \bigcup_{k = 1}^1 A_k \right) = \mathbb{P} (A_1) = \sum_{k = 1}^1 \left( (-1)^{k-1} \sum_{I \subset \{1\}, |I| = k } \mathbb{P} \left( \bigcap_{i \in I} A_i \right) \right) \text{.}
+\end{align}
+Now consider the statement for the case \(n + 1\).
+\begin{align}
+    \mathbb{P} \left( \bigcup_{k=1}^{n+1} A_k \right) &= \mathbb{P} \left( A_{n+1} \cup \left( \bigcup_{k=1}^{n} A_k \right) \right) \\
+    &= \mathbb{P} (A_{n+1}) + \mathbb{P} \left( \bigcup_{k=1}^{n} A_k \right) - \mathbb{P} \left( A_{n+1} \cap \left( \bigcup_{k=1}^{n} A_k \right) \right) \\
+    % &= \sum_{k = 1}^n \left( (-1)^{k-1} \sum_{I \subset \{1, \dots, n\}, |I| = k } \mathbb{P} \left( \bigcap_{i \in I} A_i \right) \right) + \mathbb{P}(A_{n+1}) - \mathbb{P} \left( A_{n+1} \cap \left( \bigcup_{k=1}^{n} A_k \right) \right)
+\end{align}
+The following must hold
+\begin{align}
+    \mathbb{P}(A_n) - \mathbb{P} \left( A_{n+1} \cap \left( \bigcup_{k=1}^{n} A_k \right) \right) =& (-1)^n \sum_{I \subset \{1, \dots, n+1\}, |I| = n+1} \mathbb{P} \left( \bigcap_{i \in I} A_i \right)\\
+    =& (-1)^{n} \mathbb{P} \left( \bigcap_{i=1}^{n+1} A_i \right)
+\end{align}
 \end{document}
