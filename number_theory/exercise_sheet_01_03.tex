@@ -1,0 +1,114 @@
+\documentclass[a4paper]{article}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\begin{center}
+    \noindent\textbf{Exercise Sheet 1}
+\end{center}
+\noindent\textbf{Exercise 3}
+
+\noindent Let \(R = \mathbb{Z}[i]\).
+\begin{enumerate}
+    \item Find a factorization of \(2i\) into irreducible elements.
+    \item Use the factorization \(x^2 + 1 = (x - i)(x + i)\) to find all integral solutions to the equation \(x^2 + 1 = y^3\).
+\end{enumerate}
+
+\noindent\textbf{Solution}
+
+\noindent\underline{1:} We have \(2i = (1 + i)(1 - i)\). As \(N(1 +i) = N(1 - i) = 2\) these are irreducible elements.
+
+\noindent\underline{2:} From Theorem 1.0.1. we have that \(y^3 = 2\) or \(y^3 \equiv 1 \mod{4}\). Since \(y^3 = 2\) is not possible, we have \(x^2 + 1 = y^3 = 1 + 4n\) for some \(n \in \mathbb{N}\). So \(y\) is odd and \(x\) is even.
+
+Therefore, the only integral solutions is \(x = 0\) and \(y = 1\).
+
+\end{document}
