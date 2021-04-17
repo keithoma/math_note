@@ -107,27 +107,9 @@ Let \(k \in \mathbb{Z}_{>0}\).
 
 \noindent\underline{1.}
 
-\noindent Step 1: Let \(z \in \mathbb{Z}_{>0}\) such that \(z \equiv 3 \mod{4}\). Then, \(z = 3 + 4n\) for some \(n \in \mathbb{Z}\). Consider \(\alpha, \beta \in \mathbb{Z}_{>0}\) with \(\alpha \equiv 1 \mod{4}\) and \(\beta \equiv 3 \mod{4}\). For some \(m_\alpha, m_\beta \in \mathbb{N}\), we have
+\noindent Let \(k = a^2 + b^2\) for some \(a, b \in \mathbb{Z}\). We show that for for every prime \(p \equiv 3 \mod 4\), the exponent of \(p\) in the prime decomposition of \(k\) is even.
 
-\begin{align}
-    z \alpha = (3 + 4n)(1 + 4m_\alpha) = 3 + 4n + 12m_\alpha + 16nm_\alpha &\equiv 3 \mod{4} \\
-    z \beta = (3 + 4n)(3 + 4m_\alpha) = 9 + 12n + 12m_\alpha + 16nm_\alpha &\equiv 1 \mod{4} \\
-    z 2 = (3 + 4n) 2 = 6 + 8n &\equiv 2 \mod{4} \text{.}
-\end{align}
+First, let \(p \in \mathbb{Z}\) be a prime number and consider \(p\) in \(\mathbb{Z}[i]\). We have \(N(p) = p\) and from the multiplicative property of the norm it follows that \(p\) is also irreducible in \(\mathbb{Z}[i]\).
 
-In short, \(z\) must be multiplied with an integer equivalent to \(3\) mod \(4\) if one wants to obtain an integer equivalent to \(1\) mod \(4\).
-
-\noindent Step 2: Similarly as above, let \(z \in \mathbb{Z}_{>0}\) such that \(z \equiv 1 \mod{4}\). Then, \(z = 1 + 4n\) for some \(n \in \mathbb{Z}\). Consider \(\alpha, \beta \in \mathbb{Z}_{>0}\) with \(\alpha \equiv 1 \mod{4}\) and \(\beta \equiv 3 \mod{4}\). For some \(m_\alpha, m_\beta \in \mathbb{N}\), we have
-
-\begin{align}
-    z \alpha = (1 + 4n)(1 + 4m_\alpha) = 1 + 4n + 4m_\alpha + 16nm_\alpha &\equiv 1 \mod{4} \\
-    z \beta = (1 + 4n)(3 + 4m_\alpha) = 3 + 12n + 4m_\alpha + 16nm_\alpha &\equiv 3 \mod{4} \\
-    z 2 = (1 + 4n) 2 = 2 + 8n &\equiv 2 \mod{4} \text{.}
-\end{align}
-
-In short, any product of integers equivalent to \(1\) mod \(4\) requires even number of integers equivalent to \(3\) mod \(4\).
-
-\noindent Step 3: Let \(k = a^2 + b^2\). According to Theorem 1.0.1. this is equivalent to \(k = 2\) or \(k \equiv 1 \mod{4}\). If \(k = 2\), then it is clear immediately. So consider the case \(k \neq 2\). From step 1, we know that the prime factorization of \(k\) must contain even number of primes that are equivalent to \(3\) mod \(4\). Therefore, each exponent of such prime must also be even.
-
-\noindent The other direction of the equivalence follows from step 2.
+Now, we have \(k = a^2 + b^2 = (a + ib)(a - ib)\) and let \(p\) be a prime in the decomposition of \(k\). As \(p\) divides \(k\) and is a irreducible element in \(\mathbb{Z}[i]\), it divides \((a + ib)\) or \((a - ib)\). But since \(p\) is real it has to divide both \((a + ib)\) and \((a - ib)\). Let \(p^n\) be the highest exponent that divides \((a + ib)\), then \(p^{2n}\) divides \((a + ib)(a - ib) = k\). We conclude that every prime in the prime decomposition of \(k\) have even exponents.
 \end{document}
