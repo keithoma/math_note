@@ -4,6 +4,8 @@
 For Number Theory SoSe 2021 Excersie Sheet 1 Exercise 2.
 
 Find k = a^2 + b^2 and do prime decomposition.
+
+The script works, but my thinking about the problem was wrong. Will not continue here.
 """
 
 class SumOfSquares():
