@@ -1,0 +1,126 @@
+\documentclass[a4paper]{article}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\begin{center}
+    \noindent\textbf{Exercise Sheet 1}
+\end{center}
+\noindent\textbf{Exercise 1}
+
+\noindent A polynomial \(f(X) \in \mathbb{Z}[X]\) is primitive if the greatest common divisor of its coefficients is \(1\). Show the following:
+\begin{enumerate}
+    \item If \(f(X), g(X) \in \mathbb{Z}[X]\) are primitive, then the product \(f(X)g(X)\) is also primitive.
+\end{enumerate}
+
+\noindent\textbf{Solution}
+
+\noindent\underline{\textbf{1.}}
+
+\noindent Denote the coefficients of \(f\) and \(g\) with \(a_i\) and \(b_j\) for \(1 \leq i \leq \deg f\) and \(1 \leq j \leq \deg g\) such that
+
+\begin{align}
+    f(X) = \sum_{i = 0}^{\deg f} a_i X^i && g(X) = \sum_{j = 0}^{\deg g} b_j X^j
+\end{align}
+
+\noindent Assume there is a prime \(x \in \mathbb{Z}\) that divides all coefficients of \(fg\) and let \(a_n\) and \(b_m\) be the first coefficients in \(f\) and \(g\) respectively that are not divisble by \(x\).
+
+\noindent Consider \(X^{n + m}\) in the polynomial \(fg\). The coefficient for this term is the sum of products of \(a_i\) and \(b_j\) for which \(i + j = n + m\), i.e.
+
+\begin{align}
+    a_n b_m + a_{n - 1} b_{m+1} + a_{n + 1} b_{m - 1} + a_{n - 2} b_{m + 2} + \dots \text{.}
+\end{align}
+
+\noindent This coefficient is however not divisible by \(x\) as \(x\) divides all but the first term. Hence we have a contradiction.
+
+\noindent \underline{\textbf{2.}}
+\end{document}
