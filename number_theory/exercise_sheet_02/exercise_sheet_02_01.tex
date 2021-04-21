@@ -123,4 +123,14 @@
 \noindent This coefficient is however not divisible by \(x\) as \(x\) divides all but the first term. Hence we have a contradiction.
 
 \noindent \underline{\textbf{2.}}
+
+\noindent On the other hand, let \(f\) be primitive and irreducible in \(\mathbb{Q}[X]\), but assume it is reducible in \(\mathbb{Z}[X]\).
+
+If \(f\) is a constant, then it it \(f(X) = \pm 1\) as \(f\) is primitive. This is a contradiction, however, because \(\pm 1\) is a unit in \(\mathbb{Q}[X]\).
+
+Consider the case where \(\deg \geq 1\). From the assumption, we have a factorization \(f(X) = g(X)h(x)\) with \(g, h \in \mathbb{Z}[X]\) but \(g, h \neq \pm 1\).
+
+Assume \(g\) is a constant, then \(g\) divides all coefficient of \(f\) in \(\mathbb{Z}\). This cannot be since \(f\) is primitive. Therefore, we have \(\deg g \geq 1\) which means that \(g\) is not a unit in \(\mathbb{Q}[X]\).
+
+Apply the same argument for \(h\) and we have \(f(X) = g(X)h(X)\) is a non-trivial factorization in \(\mathbb{Q}[X]\). This is a contradiction with the first assumption.
 \end{document}
