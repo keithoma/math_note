@@ -93,14 +93,19 @@
 
 \begin{document}
 \begin{center}
-    \noindent\textbf{Exercise Sheet 1}
+    \noindent\textbf{Exercise Sheet 2}
 \end{center}
 \noindent\textbf{Exercise 1}
 
 \noindent A polynomial \(f(X) \in \mathbb{Z}[X]\) is primitive if the greatest common divisor of its coefficients is \(1\). Show the following:
 \begin{enumerate}
     \item If \(f(X), g(X) \in \mathbb{Z}[X]\) are primitive, then the product \(f(X)g(X)\) is also primitive.
+    \item \(f(X) \in \mathbb{Z}[X]\) is irreducible in \(\mathbb{Z}[X]\) if and only if it is primitive and irreducible in \(\mathbb{Q}[X]\).
+    \item If a monic \(f(X) \in \mathbb{Z}[X]\) factors as \(f(X) = g(X)h(X)\) with \(g(X), h(X) \in \mathbb{Q}[X]\) monic, then \(g(X), h(X) \in \mathbb{Z}[X]\).
 \end{enumerate}
+Do the analogous statements hold if we replace \(\mathbb{Z}\) by any UFD A, and \(\mathbb{Q}\) by its field of fractions \(K = \text{Quot}(A)\).
+
+\bigskip
 
 \noindent\textbf{Solution}
 
@@ -112,7 +117,9 @@
     f(X) = \sum_{i = 0}^{\deg f} a_i X^i && g(X) = \sum_{j = 0}^{\deg g} b_j X^j
 \end{align}
 
-\noindent Assume there is a prime \(x \in \mathbb{Z}\) that divides all coefficients of \(fg\) and let \(a_n\) and \(b_m\) be the first coefficients in \(f\) and \(g\) respectively that are not divisble by \(x\).
+\noindent Assume there is a prime \(p \in \mathbb{Z}\) that divides all coefficients of \(fg\) and let \(a_n\) and \(b_m\) be the first coefficients in \(f\) and \(g\) respectively that are not divisble by \(p\). Such \(a_n\) and \(b_m\) must exist because \(f\) and \(g\) are primitive.
+
+\bigskip
 
 \noindent Consider \(X^{n + m}\) in the polynomial \(fg\). The coefficient for this term is the sum of products of \(a_i\) and \(b_j\) for which \(i + j = n + m\), i.e.
 
@@ -120,17 +127,89 @@
     a_n b_m + a_{n - 1} b_{m+1} + a_{n + 1} b_{m - 1} + a_{n - 2} b_{m + 2} + \dots \text{.}
 \end{align}
 
-\noindent This coefficient is however not divisible by \(x\) as \(x\) divides all but the first term. Hence we have a contradiction.
+\noindent This coefficient is however not divisible by \(p\) as \(p\) divides all but the first term. Hence we have a contradiction.
 
 \noindent \underline{\textbf{2.}}
 
+\noindent Let \(f\) be irreducible in \(\mathbb{Z}[X]\) and assume that is reducible in \(\mathbb{Q}[X]\). From the assumption, we have that \(f(X) = g(X)h(X)\) for some \(g, h \in \mathbb{Q}[X]\) that are not units in \(\mathbb{Q}[X]\).
+
+\bigskip
+
+\noindent For two rational numbers, the greatest common divisor is defined as in the follow manner
+
+\begin{align}
+    \gcd \left( \frac{a}{b}, \frac{c}{d} \right) = \frac{\gcd(a \cdot d, b \cdot c)} {b \cdot d} \text{.}
+\end{align}
+
+\noindent We also have
+
+\begin{align}
+    \left(\frac{b \cdot d}{\gcd(a \cdot d, b \cdot c)}\right) \cdot \left( \frac{a}{b} \right) = \frac{a \cdot d}{\gcd(a \cdot d, b \cdot c)} \in \mathbb{Z}[X] \text{.}
+\end{align}
+
+\noindent as \(\gcd(a \cdot d, b \cdot c)\) divides \(a\) or \(d\).
+
+\bigskip
+
+\noindent Define \(d_g\) and \(d_h\) to be the greatest common divisor of the coefficients of \(g\) and \(h\) respectively. Consider \(\tilde{g} := d_g^{-1} g\) and \(\tilde{h} := d_h^{-1} h\). From above, we know that \(\tilde{g}, \tilde{h} \in \mathbb{Z}\), and moreover, these are primitive. Hence their product
+
+\begin{align}
+    \tilde{g}\tilde{h} = d_g^{-1} d_h^{-1} g h = d_g^{-1} d_h^{-1} f
+\end{align}
+
+\noindent is also primitive.
+
+\bigskip
+
+\noindent But \(f\) is also already primitive and since \(\tilde{g}\tilde{h} \in \mathbb{Z}[X]\) we have that \(d_g^{-1} d_h^{-1} = 1\). In other words, we have a factorization \(f(X) = \tilde{g}(X) \tilde{h}(X)\) which is a contradiction.
+
+\bigskip
+\bigskip
+
 \noindent On the other hand, let \(f\) be primitive and irreducible in \(\mathbb{Q}[X]\), but assume it is reducible in \(\mathbb{Z}[X]\).
 
-If \(f\) is a constant, then it it \(f(X) = \pm 1\) as \(f\) is primitive. This is a contradiction, however, because \(\pm 1\) is a unit in \(\mathbb{Q}[X]\).
+\bigskip
 
-Consider the case where \(\deg \geq 1\). From the assumption, we have a factorization \(f(X) = g(X)h(x)\) with \(g, h \in \mathbb{Z}[X]\) but \(g, h \neq \pm 1\).
+\noindent If \(f\) is a constant, then it is \(f(X) = \pm 1\) as \(f\) is primitive. This is a contradiction, however, because \(\pm 1\) is a unit in \(\mathbb{Q}[X]\).
 
-Assume \(g\) is a constant, then \(g\) divides all coefficient of \(f\) in \(\mathbb{Z}\). This cannot be since \(f\) is primitive. Therefore, we have \(\deg g \geq 1\) which means that \(g\) is not a unit in \(\mathbb{Q}[X]\).
+\bigskip
 
-Apply the same argument for \(h\) and we have \(f(X) = g(X)h(X)\) is a non-trivial factorization in \(\mathbb{Q}[X]\). This is a contradiction with the first assumption.
+\noindent Consider the case where \(\deg \geq 1\). From the assumption, we have a factorization \(f(X) = g(X)h(x)\) with \(g, h \in \mathbb{Z}[X]\) but \(g, h \neq \pm 1\).
+
+\bigskip
+
+\noindent Assume \(g\) is a constant, then \(g\) divides all coefficient of \(f\) in \(\mathbb{Z}\). This cannot be since \(f\) is primitive. Therefore, we have \(\deg g \geq 1\) which means that \(g\) is not a unit in \(\mathbb{Q}[X]\).
+
+\bigskip
+
+\noindent Apply the same argument for \(h\) and we have \(f(X) = g(X)h(X)\) is a non-trivial factorization in \(\mathbb{Q}[X]\). This is a contradiction with the first assumption.
+
+\bigskip
+
+\noindent \underline{\textbf{3.}}
+
+\noindent Let \(f \in \mathbb{Z}[X]\) be monic and \(f(X) = g(X)h(X)\) with \(g\) and \(h\) monic. Assume \(g, h \not\in \mathbb{Z}[X]\). There are some \(n \in \mathbb{Z}\) such that \(nf(X) = \tilde{g}(X) \tilde{h}(X)\) such that \(\tilde{g}, \tilde{h} \in \mathbb{Z}[X]\) (e.g. least common multiple) and let \(n\) be the smallest of such integers.
+
+\bigskip
+
+\noindent Since from the assumption we know that \(n \geq 1\), there is a \(p \in \mathbb{Z}\) that divides \(n\). Now assume \(p\) does not divide all coefficients of \(\tilde{g}\) nor \(\tilde{h}\). Similary to 1., let \(a_n\) and \(b_m\) be the first coefficients that are not divisble by \(p\) and consider the coefficient for \(X^{n+m}\). We again have
+
+\begin{align}
+    a_n b_m + a_{n - 1} b_{m+1} + a_{n + 1} b_{m - 1} + a_{n - 2} b_{m + 2} + \dots \text{.}
+\end{align}
+
+\noindent which is not divisble by \(p\). Therefore, \(p\) must divide \(\tilde{g}\) or \(\tilde{h}\). We have
+
+\begin{align}
+    \frac{n}{p} f(X) = \hat{g} \hat{h} 
+\end{align}
+
+\noindent with \(\hat{g}, \hat{h} \in \mathbb{Z}[X]\). This is a contradiction however, as we required \(n\) to be the smallest integer.
+
+\bigskip
+\bigskip
+
+\noindent All three proofs can be analogously applied to any UFD \(A\) and \(\text{Quot}(A)\).
+
+
 \end{document}
