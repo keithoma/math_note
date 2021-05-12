@@ -1,0 +1,32 @@
+\section{Integral Dependence}
+\begin{definition}
+    Let \(A \subset B\) be an extension of rings.
+    \begin{enumerate}
+        \item An element \(x \in B\) is integral over \(A\) if there is a monic polynomial \(f(T) \in A[T]\) such that \(f(x) = 0 \in B\). That is, if for certain \(n \in \mathbb{N}_0\) there are elements \(a_1, \dots, a_n \in A\) such that
+        \begin{equation}
+            x^n + a_1 x^{n-1} + a_2 x^{n-2} + \dots + a_n = 0.
+        \end{equation}
+        Such a polynomial \(f(T) = T^n + a_1 T^{n-1} + \dots + a_n\) is called an equation of integral dependence of \(x\) over \(A\).
+        % missing
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    All UFDs are integrally closed.
+\end{lemma}
+\begin{definition}[\(A\)-Module]
+    
+\end{definition}
+\begin{remark}
+    \begin{enumerate}
+        \item The submodules of the ring \(A\) itself are precisely the ideals of \(A\).
+        \item In an extension of rings \(A \subset B\), \(B\) is an \(A\)-module.
+    \end{enumerate}
+\end{remark}
+\begin{proposition}
+    Let \(A \subset B\) be an extension of rings and \(x \in B\). Then the following are equivalent.
+    \begin{itemize}
+        \item \(x\) is integral over \(A\).
+        \item The subring \(A[x] := \{f(x) \mid f(T) \in A[T]\} \subset S\) is a finitely generated \(A\)-module.
+        \item There is a finitely generated \(A\)-submodule \(M \subset B\) such that \(1 \in M\) and \(x \cdot M \subset M\).
+    \end{itemize}
+\end{proposition}
