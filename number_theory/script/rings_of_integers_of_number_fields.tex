@@ -7,7 +7,11 @@
             x^n + a_1 x^{n-1} + a_2 x^{n-2} + \dots + a_n = 0.
         \end{equation}
         Such a polynomial \(f(T) = T^n + a_1 T^{n-1} + \dots + a_n\) is called an equation of integral dependence of \(x\) over \(A\).
-        % missing
+        \item The integral closure of \(A\) in \(B\) is the subset
+        \begin{equation}
+            \bar{A} := \{x \in B \mid x \text{ is integral over A}\} \subset B.
+        \end{equation}
+        \item The extension \(A \subset B\) is called integral if every element of \(B\) is integral over \(A\).
     \end{enumerate}
 \end{definition}
 \begin{lemma}
@@ -29,4 +33,21 @@
         \item The subring \(A[x] := \{f(x) \mid f(T) \in A[T]\} \subset S\) is a finitely generated \(A\)-module.
         \item There is a finitely generated \(A\)-submodule \(M \subset B\) such that \(1 \in M\) and \(x \cdot M \subset M\).
     \end{itemize}
+\end{proposition}
+
+\section{Rings of Integers of Number Fields}
+\begin{definition}
+    \begin{enumerate}
+        \item A {\color{maththen}number field} is a {\color{mathif}finite extension} \(K\) of \(\mathbb{Q}\).
+        \item The {\color{maththen}ring of integers} \(\mathcal{O}_K\) of a number field \(K\) is the {\color{mathif}integral closure} of \(\mathbb{Z}\) in \(K\).
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Let \(K = \mathbb{Q}(i)\) be a number field. Then, \(\mathcal{O}_K = \mathbb{Z}[i]\).
+\end{example}
+\begin{proposition}
+    The field \(L\) and the ring \(B\) are related to each other as follows.
+    \begin{enumerate}
+        \item \(B = \{\alpha \in L \mid \text{the minimal polynomial }\}\)
+    \end{enumerate}
 \end{proposition}
