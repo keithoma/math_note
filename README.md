@@ -1,5 +1,5 @@
 # My Math Notes
-*I take no responsibility for the readability nor the correctness of the documents I provide in this repository. Right now, they are readable, and more importantly, they are absolutely devoid of any errors — for me.*
+*There might be mistakes in the documents I wrote. I take no responsibility*
 
 PARIN WAS HERE
 
