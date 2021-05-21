@@ -1,9 +1,11 @@
 # My Math Notes
-*There might be mistakes in the documents I wrote. I take no responsibility*
+*There might be mistakes in the documents I wrote. I take no responsibility.*
+
+Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems.
 
 ## Linear Algebra
 
-* 3Blue1Brown. *Essence of Linear Algebra*. 2021. (YouTube series. [Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab). [GitHub](https://github.com/3b1b).)
+* 3Blue1Brown. *Essence of Linear Algebra*. 2021. ([Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) to the YouTube series. [Link](https://github.com/3b1b) to their GitHub.)
 * Loehr, Nicholas. *Advanced Linear Algebra*. Taylor & Francis Inc., 2014.
 
 ## Algebra
