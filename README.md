@@ -3,6 +3,7 @@
 
 ## Linear Algebra
 
+* 3Blue1Brown. *Essence of Linear Algebra*. 2021. (YouTube series. [Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)).
 * Loehr, Nicholas. *Advanced Linear Algebra*. Taylor & Francis Inc., 2014.
 
 ## Algebra
