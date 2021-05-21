@@ -1,7 +1,7 @@
 # My Math Notes
 *There might be mistakes in the documents I wrote. I take no responsibility.*
 
-Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems.
+Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems. Most of the stuff listed below are in English, but some are in German.
 
 ## Linear Algebra
 
