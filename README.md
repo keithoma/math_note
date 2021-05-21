@@ -1,6 +1,18 @@
 # My Math Notes
 *There might be mistakes in the documents I wrote. I take no responsibility*
 
+## Linear Algebra
+
+* Loehr, Nicholas. *Advanced Linear Algebra*. Taylor & Francis Inc., 2014.
+
+## Algebra
+
+* Bosch, Siegfried. *Algebra*. Birkhäuser Basel, 2018.
+
+## Number Theory
+
+* Murty, M. Ram, and Jody Esmonde. *Problems In Algebraic Number Theory*. Springer-Verlag New York Inc., 2006.
+
 ## Analysis
 ### Measure Theory
 
@@ -11,19 +23,4 @@
 
 * Baum, Helga. *Grundkurs Analysis*. 2012. (PDF avaiable [here](https://www.mathematik.hu-berlin.de/%7Ebaum/Skript/Analysis-BA-WS11-Summe.pdf))
 * Gémes, Margit, and Zoltán Szentmiklóssy. *Mathematical Analysis – Exercises I*. Eötvös Loránd University, 2019. (PDF avaiable [here](http://etananyag.ttk.elte.hu/FiLeS/downloads/4a_GemesSzentm_MathAnExI.pdf))
-* Fehér, László et al. Mathematical Analysis – Problems And Exercises I. Eötvös Loránd University, 2019. (PDF avaiable [here](http://etananyag.ttk.elte.hu/FiLeS/downloads/4b_FeherKosToth_MathAnExII.pdf))
-
-## Linear Algebra
-Resources:
-
-Nicholas Loehr, Advanced Linear Algebra
-
-## Algebra
-Resources:
-
-Siegfried Bosch, Algebra
-
-## Number Theory
-Resources:
-
-Murty, M. Ram, and Jody Esmonde. *Problems In Algebraic Number Theory*. Springer-Verlag New York Inc., 2006.
+* Fehér, László et al. *Mathematical Analysis – Problems And Exercises II*. Eötvös Loránd University, 2019. (PDF avaiable [here](http://etananyag.ttk.elte.hu/FiLeS/downloads/4b_FeherKosToth_MathAnExII.pdf))
