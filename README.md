@@ -5,7 +5,8 @@
 ### Measure Theory
 Resources:
 
-https://people.math.ethz.ch/~salamon/PREPRINTS/measure.pdf
+Salamon, Dietmar. *Measure And Integration*. European Mathematical Society, 2016. (https://people.math.ethz.ch/~salamon/PREPRINTS/measure.pdf)
+
 
 https://arxiv.org/pdf/1711.04625.pdf
 
