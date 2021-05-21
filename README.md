@@ -1,8 +1,6 @@
 # My Math Notes
 *There might be mistakes in the documents I wrote. I take no responsibility*
 
-PARIN WAS HERE
-
 ## Analysis
 ### Measure Theory
 Resources:
@@ -27,3 +25,8 @@ Nicholas Loehr, Advanced Linear Algebra
 Resources:
 
 Siegfried Bosch, Algebra
+
+## Number Theory
+Resources:
+
+Murty, M. Ram, and Jody Esmonde. *Problems In Algebraic Number Theory*. Springer-Verlag New York Inc., 2006.
