@@ -1,0 +1,107 @@
+\documentclass[a4paper]{article}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\begin{center}
+    \noindent\textbf{Exercise Sheet 2}
+\end{center}
+\noindent\textbf{Exercise 1}
+
+\noindent\textbf{Solution}
+
+\begin{enumerate}
+    \item \(\mathbb{Z}\times\mathbb{Z}\) is not a Dedekind domain as it is not even an integral domain. Take \((1, 0) \in \mathbb{Z}\times\mathbb{Z}\) and \((0, 1) \in \mathbb{Z}\times\mathbb{Z}\) for example. \((1, 0) \cdot (0, 1) = (0, 0)\) even though we chose nonzero elements.
+    \item \(\mathbb{Z}[X] \/ (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\)
+\end{enumerate}
+
+\end{document}
