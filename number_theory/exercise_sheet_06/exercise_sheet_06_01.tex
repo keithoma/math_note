@@ -102,10 +102,16 @@
 \begin{enumerate}
     \item \(\mathbb{Z}\times\mathbb{Z}\) is not a Dedekind domain as it is not even an integral domain. Take \((1, 0) \in \mathbb{Z}\times\mathbb{Z}\) and \((0, 1) \in \mathbb{Z}\times\mathbb{Z}\) for example. \((1, 0) \cdot (0, 1) = (0, 0)\) even though we chose nonzero elements.
     \item We have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\); therefore, \(\mathbb{Z}[X] / (X^2 + 3)\) is an integral domain.
+
+    \(\mathbb{Z}[X] / (X^2 + 3)\) is also noetherian as \(\mathbb{Z}\) is noetherian and therefore it's polynomial ring and the quotient ring. 
     % why are they isomorphic? use isomorphism theorem 
     % it is also noetherian
     % is integrally closed in Quot(A)?
     % all above doesn't matter, this is not a Dedekind domain
+    %
+    % it is not integrally closed for example take (1/2) + (1/2) * sqrt(-3)
+    % the third one is a finite field order 11
+    % aren't all finite fields with the same order isomorphic to each other?
 \end{enumerate}
 
 \end{document}
