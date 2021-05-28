@@ -117,10 +117,9 @@
         \mathcal{O}_{\mathbb{Q}(\sqrt{-3})} = \mathbb{Z}[\alpha] \text{.}
     \end{equation}
     
-    Therefore, \(\alpha\) is integral over \(\mathbb{Z}\) and hence over \(\mathbb{Z}[\sqrt{-3}]\) as well, but it does not lie in \(\mathbb{Z}[\sqrt{-3}]\). We conclude \(\mathbb{Z}[\sqrt{-3}]\) is not integrally closed.
-    
+    Therefore, \(\alpha\) is integral over \(\mathbb{Z}\) and hence over \(\mathbb{Z}[\sqrt{-3}]\) as well, but it does not lie in \(\mathbb{Z}[\sqrt{-3}]\). We conclude \(\mathbb{Z}[\sqrt{-3}]\) and with it \(\mathbb{Z}[X] / (X^2 + 3)\) is not integrally closed.
     % We have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\); therefore, \(\mathbb{Z}[X] / (X^2 + 3)\) is an integral domain.
-
+    %
     % \(\mathbb{Z}[X] / (X^2 + 3)\) is also noetherian as \(\mathbb{Z}\) is noetherian and therefore it's polynomial ring and the quotient ring. 
     % why are they isomorphic? use isomorphism theorem 
     % it is also noetherian
@@ -128,8 +127,14 @@
     % all above doesn't matter, this is not a Dedekind domain
     % it is integrally closed
     % it does not satisfy the last condition though
-    % the third one is a finite field order 11
-    % aren't all finite fields with the same order isomorphic to each other?
+    \item \(\mathbb{F}_{11}[X]\) is a Dedekind domain.
+    
+    From remark 1.0.3. / 2. (script), we have that the ring of polynomials in one variable over a field is a Euclidean ring, so \(\mathbb{F}_{11}[X]\) is a Euclidean ring. Every Euclidean ring is a principal ideal domain (remark 1.0.3. / 3. from the script) and every principal ideal domain is a Dedekind domain (example 4.1.10. from the script). Hence, \(\mathbb{F}_{11}[X]\) is a Dedekind domain.
+    % as fields are integral domain and polynomial rings over integral domains are integral domain, this is integral domain
+    % same as above, field noetherian, polynomial rings over noetherian rings are noetherian
+    % as it is a principal ideal domain, it is integrally closed domain, so it is integral domain
+    % this is a Dedekind domain as it is a PID!!
+    \item \(\mathbb{R}[X, Y]\) is not a Dedekind domain because 
 \end{enumerate}
 
 \end{document}
