@@ -1,0 +1,109 @@
+\documentclass[a4paper]{book}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+%\maketitle
+%\tableofcontents
+
+\chapter{Rings}
+
+\begin{example}
+    \begin{enumerate}
+        \item \((\mathbb{Z}, +, \cdot)\)
+        \item All fields, such as \((\mathbb{Q}, +, \cdot)\), \((\mathbb{R}, +, \cdot)\), and \((\mathbb{C}, +, \cdot)\), are rings.
+        \item Let \(R\) be a commutative ring, then \(R[X]\), the set of polynomials with coefficients in \(R\), is again a ring, e.g. \(\mathbb{Z}[X]\), \(\mathbb{Q}[X]\), and \(\mathbb{R}[X]\).
+        \item For any ring \(R\) and for any \(n \in \mathbb{N}\), the set of all square \(n\)-by-\(n\) matricies with entries from \(R\), forms a ring with matrix addition and matrix multiplication as operations. If \(n = 1\), this matrix ring is isomorphic to \(R\) itself. For \(n > 1\) (and \(R\) not a zero ring), this matrix is noncommutative. More concretely, \(\text{Mat}_{3 \times 3}(\mathbb{R})\) is a noncommutative ring. 
+    \end{enumerate}
+\end{example}
+
+\end{document}
