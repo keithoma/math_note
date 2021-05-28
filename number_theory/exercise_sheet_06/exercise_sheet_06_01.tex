@@ -134,7 +134,15 @@
     % same as above, field noetherian, polynomial rings over noetherian rings are noetherian
     % as it is a principal ideal domain, it is integrally closed domain, so it is integral domain
     % this is a Dedekind domain as it is a PID!!
-    \item \(\mathbb{R}[X, Y]\) is not a Dedekind domain because 
+    \item \(\mathbb{R}[X, Y]\) is not a Dedekind domain because not all nonzero prime ideals are maximal.
+
+    Consider the ideal \((X^2 - Y)\) and the quotient generated \(\mathbb{R}[X, Y] / (X^2 - Y)\). If we can show that the quotient is an integral domain, but not a field, then the ideal \((X^2 - Y)\) is prime, but not maximal.
+
+    Define a ring homomorphism \(\varphi: \mathbb{R}[X, Y] \rightarrow \mathbb{R}[X]\) that substitues the variable \(Y\) with \(X^2\). We have that \(\varphi(\mathbb{R}[X, Y]) = \mathbb{R}[X]\) and \(\text{ker}(\varphi) = X^2 - Y\). From the isomorphism theorem, we get \(\mathbb{R}[X, Y] / (X^2 - Y) \cong \mathbb{R}[X]\).
+
+    As \(\mathbb{R}[X]\) is a integral domain (polynomial rings over integral domains are again an integral domain), but not a field, the ideal \((X^2 - Y)\) is a nonmaximal prime ideal. Hence \(\mathbb{R}[X, Y]\) is not a Dedekind domain.
+    % R[X, Y] is a UFD => prime == irreducible => (X) is pricipal == (X) is prime ideal
+    % (X, Y)
 \end{enumerate}
 
 \end{document}
