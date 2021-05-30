@@ -113,7 +113,7 @@
     \item \(\mathbb{Z}\times\mathbb{Z}\) is not a Dedekind domain as it is not even an integral domain. Take \((1, 0) \in \mathbb{Z}\times\mathbb{Z}\) and \((0, 1) \in \mathbb{Z}\times\mathbb{Z}\) for example. \((1, 0) \cdot (0, 1) = (0, 0)\) even though we chose nonzero elements.
     \item \(\mathbb{Z}[X] / (X^2 + 3)\) is not a Dedekind domain as it is not integrally closed.
 
-    First, define a ring homomorphism \(\varphi: \mathbb{Z}[X] \rightarrow \mathbb{Z}\) that substitues \(X\) with \(\sqrt{-3}\). We have \(\varphi(\mathbb{Z}[X]) = \mathbb{Z}[\sqrt{-3}]\) and \(\text{ker} (\varphi) = X^2 + 3\). With the isomorphism theorem, we have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\).
+    First, define a ring homomorphism \(\varphi: \mathbb{Z}[X] \rightarrow \mathbb{Z}\) that substitues \(X\) with \(\sqrt{-3}\). We have \(\varphi(\mathbb{Z}[X]) = \mathbb{Z}[\sqrt{-3}]\) and \(\text{ker} (\varphi) = (X^2 + 3)\). With the isomorphism theorem, we have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\).
 
     Consider
 
@@ -153,7 +153,21 @@
     As \(\mathbb{R}[X]\) is a integral domain (polynomial rings over integral domains are again an integral domain), but not a field, the ideal \((X^2 - Y)\) is a nonmaximal prime ideal. Hence \(\mathbb{R}[X, Y]\) is not a Dedekind domain.
     % R[X, Y] is a UFD => prime == irreducible => (X) is pricipal == (X) is prime ideal
     % (X, Y)
-    \item \(\mathbb{C}[X, Y] / (X^5 + Y - 13)\).
+    \item \(\mathbb{C}[X, Y] / (X^5 + Y - 13)\) is a Dedekind domain.
+    
+    As we did in 2., define a ring homomorphism \(\varphi: \mathbb{C}[X, Y] \rightarrow \mathbb{C}[X]\) as
+
+    \begin{equation}
+        \varphi(p(X, Y)) := p(X, X^5 - 13) \text{.} 
+    \end{equation}
+
+    \(\varphi\) is surjective and the kernel is \((X^5 + Y - 13)\). With the first isomorphism theorem for rings, we have the isomorphism \(\mathbb{C}[X, Y] / (X^5 + Y - 13) \cong \mathbb{C}[X]\).
+
+    Using similar argument as in 3., \(\mathbb{C}[X]\) is a principal ideal domain and hence \(\mathbb{C}[X, Y] / (X^5 + Y - 13)\) is a Dedekind domain.
+    % integral domain (x^5 + Y - 13) is prime because its principal
+    % noetherian because C[X, Y] is noetherian quotient is also neotherian
+    % 
+    % the point is if this is a integrally
 \end{enumerate}
 
 \end{document}
