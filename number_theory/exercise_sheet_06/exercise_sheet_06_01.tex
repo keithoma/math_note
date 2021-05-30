@@ -113,12 +113,12 @@
     \item \(\mathbb{Z}\times\mathbb{Z}\) is not a Dedekind domain as it is not even an integral domain. Take \((1, 0) \in \mathbb{Z}\times\mathbb{Z}\) and \((0, 1) \in \mathbb{Z}\times\mathbb{Z}\) for example. \((1, 0) \cdot (0, 1) = (0, 0)\) even though we chose nonzero elements.
     \item \(\mathbb{Z}[X] / (X^2 + 3)\) is not a Dedekind domain as it is not integrally closed.
 
-    First, define a ring homomorphism \(\varphi: \mathbb{Z}[X] \rightarrow \mathbb{Z}\) that substitues \(X\) with \(\sqrt{-3}\). We have \(\varphi(\mathbb{Z}[X]) = \mathbb{Z}[\sqrt{-3}]\) and \(\text{ker} (\varphi) = (X^2 + 3)\). With the isomorphism theorem, we have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\).
+    First, define a ring homomorphism \(\varphi: \mathbb{Z}[X] \rightarrow \mathbb{Z}\) that substitues \(X\) with \(\sqrt{-3}\). We have \(\varphi(\mathbb{Z}[X]) = \mathbb{Z}[\sqrt{-3}]\) and \(\text{ker} (\varphi) = (X^2 + 3)\). With the first isomorphism theorem for rings, we have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\).
 
     Consider
 
     \begin{equation}
-        \alpha := \frac{1}{2} + \frac{1}{2} \sqrt{-3} \in \text{Quot}(\mathbb{Z}[\sqrt{-3}]) = \mathbb{Q}(\sqrt{-3}) \text{.}
+        \alpha := \frac{1}{2} + \frac{1}{2} \sqrt{-3} \in \text{Quot}(\mathbb{Z}[\sqrt{-3}]) \cong \mathbb{Q}(\sqrt{-3}) \text{.}
     \end{equation}
 
     From example 3.2.5. (script), we know that
@@ -127,7 +127,7 @@
         \mathcal{O}_{\mathbb{Q}(\sqrt{-3})} = \mathbb{Z}[\alpha] \text{.}
     \end{equation}
     
-    Therefore, \(\alpha\) is integral over \(\mathbb{Z}\) and hence over \(\mathbb{Z}[\sqrt{-3}]\) as well, but it does not lie in \(\mathbb{Z}[\sqrt{-3}]\). We conclude \(\mathbb{Z}[\sqrt{-3}]\) and with it \(\mathbb{Z}[X] / (X^2 + 3)\) is not integrally closed.
+    Therefore, \(\alpha\) is integral over \(\mathbb{Z}\) and hence over \(\mathbb{Z}[\sqrt{-3}]\) as well, but it does not lie in \(\mathbb{Z}[\sqrt{-3}]\). We conclude \(\mathbb{Z}[\sqrt{-3}]\) and with it \(\mathbb{Z}[X] / (X^2 + 3)\) are not integrally closed.
     % We have \(\mathbb{Z}[X] / (X^2 + 3) \cong \mathbb{Z}[\sqrt{-3}]\); therefore, \(\mathbb{Z}[X] / (X^2 + 3)\) is an integral domain.
     %
     % \(\mathbb{Z}[X] / (X^2 + 3)\) is also noetherian as \(\mathbb{Z}\) is noetherian and therefore it's polynomial ring and the quotient ring. 
@@ -148,9 +148,9 @@
 
     Consider the ideal \((X^2 - Y)\) and the quotient generated \(\mathbb{R}[X, Y] / (X^2 - Y)\). If we can show that the quotient is an integral domain, but not a field, then the ideal \((X^2 - Y)\) is prime, but not maximal.
 
-    Define a ring homomorphism \(\varphi: \mathbb{R}[X, Y] \rightarrow \mathbb{R}[X]\) that substitues the variable \(Y\) with \(X^2\). We have that \(\varphi(\mathbb{R}[X, Y]) = \mathbb{R}[X]\) and \(\text{ker}(\varphi) = X^2 - Y\). From the isomorphism theorem, we get \(\mathbb{R}[X, Y] / (X^2 - Y) \cong \mathbb{R}[X]\).
+    Define a ring homomorphism \(\varphi: \mathbb{R}[X, Y] \rightarrow \mathbb{R}[X]\) that substitues the variable \(Y\) with \(X^2\). We have that \(\varphi(\mathbb{R}[X, Y]) = \mathbb{R}[X]\) and \(\text{ker}(\varphi) = (X^2 - Y)\). From the first isomorphism theorem for rings, we get \(\mathbb{R}[X, Y] / (X^2 - Y) \cong \mathbb{R}[X]\).
 
-    As \(\mathbb{R}[X]\) is a integral domain (polynomial rings over integral domains are again an integral domain), but not a field, the ideal \((X^2 - Y)\) is a nonmaximal prime ideal. Hence \(\mathbb{R}[X, Y]\) is not a Dedekind domain.
+    As \(\mathbb{R}[X]\) is a integral domain (polynomial rings over integral domains are again an integral domain), but not a field, the ideal \((X^2 - Y)\) is a non-maximal prime ideal. Hence \(\mathbb{R}[X, Y]\) is not a Dedekind domain.
     % R[X, Y] is a UFD => prime == irreducible => (X) is pricipal == (X) is prime ideal
     % (X, Y)
     \item \(\mathbb{C}[X, Y] / (X^5 + Y - 13)\) is a Dedekind domain.
