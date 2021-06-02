@@ -1,7 +1,7 @@
 # My Math Notes
 *There might be mistakes in the documents I wrote. I take no responsibility.*
 
-Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems. Most of the stuff listed below are in English, but some are in German.
+Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems (but I will list general theory textbooks before books that are collection of excersies). Most of the stuff listed below are in English, but some are in German.
 
 ## Linear Algebra
 
@@ -14,6 +14,7 @@ Below are the books and other resources that I found useful. In general, I prefe
 
 ## Number Theory
 
+* Milne, James. *Algebraic Number Theory*. 2020. (PDF avaible [here](https://www.jmilne.org/math/CourseNotes/ANT.pdf)).
 * Murty, M. Ram, and Jody Esmonde. *Problems In Algebraic Number Theory*. Springer-Verlag New York Inc., 2006.
 
 ## Analysis
