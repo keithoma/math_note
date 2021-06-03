@@ -15,15 +15,23 @@
 \usepackage{environ}
 
 % mathematics
-\usepackage{amsthm} % for theorems, and definitions
+% \usepackage{amsthm} % for theorems, and definitions
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{textcomp}
 %\usepackage{MnSymbol} % for \cupdot
 
+\usepackage[framemethod=tikz]{mdframed} 
+\usepackage{ntheorem}
+
 % extra
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage[sfdefault,light]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+\renewcommand*{\rmdefault}{roboto}
+
 
 % ---------------------------------------------------------------------
 % S E T T I N G
@@ -40,21 +48,37 @@
 }
 
 % mathematics
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{example}{Example}[definition]
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{defbg}{HTML}{fde5d6}
+
+\theoremstyle{break}
+% \theoremheaderstyle{\rmfamily}
+\theorembodyfont{\sffamily}
+
+\newmdtheoremenv[
+    ntheorem=true,
+    hidealllines=true,
+    backgroundcolor=defbg,
+    splittopskip=2\baselineskip,
+    middleextra={\node[anchor=north west,font=\bfseries,inner xsep=0pt,xshift=10pt] at (P-|O) {Example~\thetest\ (Continued)};},
+    secondextra={\node[anchor=north west,font=\bfseries,inner xsep=0pt,xshift=10pt] at (P-|O) {Example~\thetest\ (Continued)};}
+]{definition}{Definition}
+
+\newtheorem{example}{Example}
+
+\theoremstyle{plain}
 
 \newtheorem{theorem}{Theorem}[definition]
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}[definition]
 \newtheorem{proposition}{Proposition}[definition]
 
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}{Remark}
 
-% extra
-\definecolor{mathif}{HTML}{0000A0} % for conditions
-\definecolor{maththen}{HTML}{CC5500} % for consequences
-\definecolor{mathrem}{HTML}{8b008b} % for notes
+
 
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -114,12 +138,11 @@
         \item A {\color{maththen}fractional ideal} of \(A\) is an {\color{mathif}\(A\)-submodule} \(I \subset \text{Quot}(A)\) such that \(d I \subset A\) for some {\color{mathrem}denominator} \(d \in A \setminus \{0\}\).
         \item A {\color{maththen}principal fractional ideal} is a {\color{mathif}fractional ideal} of the form \((r) = rA = \{ar \mid a \in A\}\)
     \end{enumerate}
-    
-
 \end{definition}
 
 \begin{example}
     \begin{itemize}
+        \item All ordinary ideals \(I \subset A\) are also fractional ideals with denominator \(d = 1\), and are often referred to as {\color{mathrem}integral ideals}.
         \item The subset
         \begin{equation}
             \frac{3}{25}\mathbb{Z} = \left\{\, \frac{3n}{25} \in \mathbb{Q} \,\middle|\, n \in \mathbb{Z} \,\right\} \subset \mathbb{Q}
@@ -127,5 +150,44 @@
         is a principal fractional ideal of \(\mathbb{Z}\)
     \end{itemize}
 \end{example}
+
+\begin{lemma}
+    If \(I \subset \text{Quot}(A)\) is an \(A\)-submodule and \(d \in \text{Quot}(A)\), then \(dI \subset \text{Quot}(A)\) is also an \(A\)-module. Thus \(I \subset K\) is a fractional ideal if and only if \(I = \frac{1}{d} J\) for some \(d \in A \setminus \{0\}\) and some integral ideal \(J \subset A\) (just take \(d\) a denominator of \(I\) and \(J = dI\)).
+\end{lemma}
+
+\begin{lemma}
+    Let \(A\) be an integral domain and denote its field of fraction with \(\text{Quot}(A) = K\).
+    \begin{enumerate}
+        \item If \(I \subset K\) is a finitely generated \(A\)-submodule, then \(I\) is a fractional ideal.
+        \item Conversely, if \(A\) is noetherian and \(I \subset K\) is a fractional ideal, then \(I\) is a finitely generated \(A\)-module.
+        \item If \(I, J \subset K\) are fractional ideals, then \(I \cap J, I + J, IJ, \subset K\) are also fractional ideals.
+        \item If \(I, J \subset K\) are fractional ideals and \(J \neq {0}\), then the generalized ideal quotient
+        \begin{equation}
+            (I : J) := \{\, x \in K \, \mid \, xJ \subset I \,\}
+        \end{equation}
+        is also a fractional ideal. Moreover, it satisfies \((I : J)J \subset I\).
+    \end{enumerate}
+\end{lemma}
+% proof
+
+The nonzero fractional ideals form an abelian semigroup with neutral element \(A\) with respect to the multiplication. We will now show that, if \(A\) is a Dedekind domain, every nonzero fractional ideal has an inverse hence they forme an abelian group \(Id (A)\).
+
+\begin{definition}
+    Let \(A\) be an {\color{mathif}integral domain}. A {\color{mathif}fractional ideal} \(I \subset K\) is {\color{maththen}invertible} if \(IJ = A\) for some fractional ideal \(J\) called the {\color{mathrem}inverse} of \(I\).
+\end{definition}
+
+The following result shows characterizes invertible fractional ideals and their inverses (which are unique).
+
+\begin{lemma}
+    A fractional ideal \(I\) is invertible if and only if \(I (A : I) = A\), in which case \(I^{-1} := (A : I)\) is the unique inverse.
+\end{lemma}
+
+% proof
+
+The main result of this section is to prove that, in a Dedekind domain, every nonzero ideal is invertible. To this aim we need first a technical result.
+
+\begin{lemma}
+    Let \(A\) be a {\color{mathif}Dedekind domain} and \(I \subset A\) a {\color{mathif}nonzero integral ideal}. Then there are not necessarily distinct {\color{maththen}nonzero prime ideals} \(\mathfrak{p}_1, \dots, \mathfrak{p}_n \subset A\) such that \(\mathfrak{p}_1 \cdot \dots \cdot \mathfrak{p}_n \subset A\).
+\end{lemma}
 
 \end{document}
