@@ -198,4 +198,51 @@ The main result of this section is to prove that, in a Dedekind domain, every no
     Let \(A\) be a {\color{mathif}Dedekind domain} and \(I \subset A\) a {\color{mathif}nonzero integral ideal}. Then there are not necessarily distinct {\color{maththen}nonzero prime ideals} \(\mathfrak{p}_1, \dots, \mathfrak{p}_n \subset A\) such that \(\mathfrak{p}_1 \cdot \dots \cdot \mathfrak{p}_n \subset I\).
 \end{lemma}
 
+% proof
+
+Let
+\begin{equation}
+    \Sigma = \{\, I \neq \{0\} \, \mid \, I \subset A \text{ ideal. \(I\) does not contain any product of nonzero prime ideals.} \, \} \text{.}
+\end{equation}
+
+If \(\Sigma \neq \varnothing\), let \(I \in \Sigma\) be a maximal element which must exist since \(A\) is noetherian. In particular, \(I\) is not prime, i.e. there exists \(a, b \in A \setminus I\) with \(a \cdot b \in I\). % why is I not prime?
+
+Because of the maximility of \(I\), the ideals \(I + (a), I + (b) \supsetneq I\) don't lie in \(I\), i.e. there exists nonzero prime ideals \(\mathfrak{p}_1, \dots, \mathfrak{p}_n, \mathfrak{q}_1, \dots, \mathfrak{q}_m\) such that
+\begin{align}
+    \mathfrak{p}_1, \dots, \mathfrak{p}_n &\subseteq I + (a) \\
+    \mathfrak{q}_1, \dots, \mathfrak{q}_n &\subseteq I + (b) \text{.}
+\end{align}
+We have
+\begin{equation}
+    \mathfrak{p}_1 \cdot \dots \cdot \mathfrak{p}_n \cdot \mathfrak{q}_1 \cdot \dots \cdot \mathfrak{q}_m \subseteq (I + (a))(I + (b)) \subseteq I
+\end{equation}
+which is a contradiction. Hence \(\Sigma = \varnothing\).
+
+\begin{theorem}
+    Let \(A\) be a Dedekind domain, \(I\) a nonzero ideal, and \(\mathfrak{p}\) a prime ideal such that \(I \subseteq \mathfrak{p}\). Set
+    \begin{equation}
+        \mathfrak{p}^{-1} := (A : \mathfrak{p}) = \{x \in \text{Quot}(A) \mid x \mathfrak{p} \subseteq A\} \text{.}
+    \end{equation}
+    Then, \(I \subsetneq \mathfrak{p}^{-1} I \subseteq A\). In particular, \(A \subsetneq \mathfrak{p}^{-1}\) and \(\mathfrak{p}^{-1}\mathfrak{p} = A\), i.e. \(\mathfrak{p}\) is invertible.
+\end{theorem}
+
+\begin{corollary}
+    Let \(A\) be a Dedekind domain and
+    \begin{equation}
+        Id(A) = \{I \subseteq K \mid I \text{ is a nonzero fractional ideal.}\} \text{.}
+    \end{equation}
+    \begin{enumerate}
+        \item Every nonzero fractional ideal \(I \in Id(A)\) is invertible. In particular, \(Id(A)\) is an abelian group with respect to the product of ideals, and the trivial ideal \((1) = A\) as neutral element.
+        \item Moreover, the map
+        \begin{equation}
+            \varphi: K^* \rightarrow Id(A), \quad \frac{a}{b} \mapsto \left(\frac{a}{b}\right) = \left\{\frac{ac}{b} \middle| c \in A \right\} \subseteq K \text{,}
+        \end{equation}
+        is a group homomorphism, whose image is the subgroup \(P_A\) of nonzero principal fractional ideals.
+    \end{enumerate}
+\end{corollary}
+
+\begin{definition}
+    The {\color{maththen}(ideal) class group} of a {\color{mathif}Dedekind domain} \(A\) is the quotient \(Cl(A) = Id(A) / P_A\) which is naturally an abelian group.
+\end{definition}
+
 \end{document}
