@@ -256,6 +256,35 @@ which is a contradiction. Hence \(\Sigma = \varnothing\).
     \end{enumerate}
 \end{remark}
 
+\section{Divisibility and unique factorization of ideals}
+
+\begin{theorem}
+    Let \(I \subseteq K = \text{Quot}(A)\) be a nonzero fractional ideal of \(A\).
+    \begin{enumerate}
+        \item There exist an integer \(n \in \mathbb{N}_0\), distinct nonzero prime ideals \(\mathfrak{p}_1, \ldots, \mathfrak{p}_n \subseteq A\), and integers \(r_1, \ldots, r_n \in \mathbb{Z} \setminus \{0\}\) such that
+        \begin{equation}
+            I = \mathfrak{p}_1^{r_1} \cdot \ldots \cdot \mathfrak{p}_n^{r_n}
+        \end{equation}
+        with the convention that the empty product \(n = 0\) is \(A\), and \(\mathfrak{p}^{-r} := \left(\mathfrak{p}^{-1}\right)^r\) for any nonzero \(r \in \mathbb{N}\).
+        \item The decomposition is unique up to permutation of the factors.
+        \item \(I \subseteq A\) if and only if \(r_1, \ldots, r_n \geq 0\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+    the chinese remainder theorm.
+\end{corollary}
+
+\begin{definition}
+    For every nonzero prime ideal \(\mathfrak{p} \subseteq A\), we define \(v_\mathfrak{p}(I) \in \mathbb{Z}\) as the exponent of \(\mathfrak{p}\) in the unique factorization of \(I\) into a product prime ideals.
+\end{definition}
+
+\section{The case of local Dedekind domains}
+
+\begin{definition}
+    A ring \(A\) is called local if it contains a unique maximal ideal \(\mathfrak{m}\). Sometimes one says that the pair \((A, \mathfrak{m})\) is a local ring.
+\end{definition}
+
 \section{Chapter 5}
 
 How to compute the prime factorization \(I = \mathfrak{p}_1^{r_2} \cdot \ldots \cdot \mathfrak{p}_n^{r_n}\) of a nonzero ideal in a Dedekind domain \(I \subseteq A\)?
@@ -287,7 +316,7 @@ Another approch is
 \newpage
 
 \begin{definition}
-    Let \(A\) be a {\color{mathif}Dedekind domain}, \(K = \text{Quot}(A)\) its {\color{mathif}field of fraction}, \(L / K\) a {\color{mathif}finite separable field extension}, and \(B = \bar{A}\) the {\color{mathif}integral closure} of \(A\) in \(L\).
+    Let \(A\) be a {\color{mathif}Dedekind domain}, \(K = \text{Quot}(A)\) its {\color{mathif}field of fraction}, \(L / K\) a {\color{mathif}finite separable field extension}, and \(B = \overline{A}\) the {\color{mathif}integral closure} of \(A\) in \(L\).
     
     Moreover, let \(\mathfrak{p} \subset A\) and \(\mathfrak{q} \subset B\) be two {\color{mathif}prime ideals}. We say that \(\mathfrak{q}\) {\color{mathrem}lies over} \(\mathfrak{p}\) if \(\mathfrak{q} \, | \, \mathfrak{p}B\), i.e. \(\mathfrak{q} \cap A = \mathfrak{p}\). In this case, define
 
@@ -299,7 +328,7 @@ Another approch is
 \begin{example}
     Consider \(A = \mathbb{Z}\), \(K = \mathbb{Q}\), \(L = \mathbb{Q}(i)\), so that \(B = \mathcal{O}_L = \mathbb{Z}[i]\). For a nonzero prime ideal \(\mathfrak{p} = (p) \subseteq \mathbb{Z}\).
     \begin{enumerate}
-        \item \(p \mathbb{Z}[i] = \mathfrak{q}^2 = (1 + i)^2\)
+        \item \(p \mathbb{Z}[i] = \mathfrak{q}^2 = (1 + i)^2\) for \(p = 2\), i.e. \((2) \subseteq \mathbb{Z}\) is ramified (with ramification index \(e_{\mathfrak{q} | \mathfrak{p}} = 2\)). The residue class field \(\mathbb{F}_\mathfrak{q} \cong \mathbb{F}_2\), hence
     \end{enumerate}
 \end{example}
 
@@ -309,4 +338,31 @@ Another approch is
     Take a prime ideal \((2) \subseteq A\), then \((2) \mathcal{O}_K\)
 \end{example}
 
+
+\begin{theorem}
+    % A integral domain?
+    Let \(A\) be a ring and let \(B = A[\alpha]\), and let \(f(X) \in A[X]\) be the minimal polynomial of \(\alpha\). Moreover, let \(\mathfrak{p} \subseteq A\) be a nonzero prime ideal and \(g_1(X), \ldots, g_r(X) \in A[X]\) monic such that
+    \begin{equation}
+        \overline{f(X)} = \overline{g_1(X)}^{e_1} \cdot \ldots \cdot \overline{g_r(X)}^{e_r} \mod{p} \in A / \mathfrak{p} [X] = \mathbb{F}_p [X] \text{.}
+    \end{equation}
+    Then,
+    \begin{equation}
+        \mathfrak{p}B = \prod_{i=1}^r Q_i^{e_i} \qquad \text{with } Q_i = (\mathfrak{p}, g_i(\alpha)) \subseteq B
+    \end{equation}
+    is the prime factorization of \(\mathfrak{p}B\).
+\end{theorem}
+
+\begin{example}
+    Let \(D \in \mathbb{Z}\) be squarefree with \(D \equiv 2, 3 \mod{4}\) and \(L = \mathbb{Q}(\sqrt{D})\), such that \(B = O_L = \mathbb{Z}[\sqrt{D}]\) with the minimal polynomial \(f(X) = X^2 - D \in \mathbb{Z}[X]\).
+
+    Let \(p \in \mathbb{Z}\) be a prime number and look for the factorization of \(pB = p \mathcal{O}_L = p \mathbb{Z}[\sqrt{D}]\).
+
+    \noindent \textbf{Case A:} If \(p \neq 2\) consider the factorization of \(X^2 - D \in \mathbb{Z} / p \mathbb{Z} [X] = \mathbb{F}_p [X]\).
+
+    \noindent \textbf{Case A1:} If \(p \, | \, D\) then \(\overline{f(X)} = X^2\), so \(pB = (p, \sqrt{D})^2\), with \(B / (p, \sqrt{p}) \cong \mathbb{F}_p[X]/(X) \cong \mathbb{F}_p\).
+\end{example}
+
+\begin{example}
+    Denote \(\alpha = \sqrt[3]{2}\) and let \(A := \mathbb{Z}\), 
+\end{example}
 \end{document}
