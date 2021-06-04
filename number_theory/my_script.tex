@@ -245,4 +245,68 @@ which is a contradiction. Hence \(\Sigma = \varnothing\).
     The {\color{maththen}(ideal) class group} of a {\color{mathif}Dedekind domain} \(A\) is the quotient \(Cl(A) = Id(A) / P_A\) which is naturally an abelian group.
 \end{definition}
 
+\begin{remark}
+    Two crucial objects in the study of a Dedekind domain \(A\) are the group of units \(A^*\) and the class group \(Cl(A)\).
+    \begin{enumerate}
+        \item For example, \(A\) is a principal ideal domain if and only if the class group is trivial.
+        \item In general, it is immediate that the kernel of \(\varphi\) is the set of units \(A^*\). Hence there is an exact sequence of abelian groups
+        \begin{equation}
+            1 \rightarrow A^* \rightarrow K^* \rightarrow Id(A) \rightarrow Cl(A) \rightarrow 0 \text{.}
+        \end{equation}
+    \end{enumerate}
+\end{remark}
+
+\section{Chapter 5}
+
+How to compute the prime factorization \(I = \mathfrak{p}_1^{r_2} \cdot \ldots \cdot \mathfrak{p}_n^{r_n}\) of a nonzero ideal in a Dedekind domain \(I \subseteq A\)?
+
+One idea is to find a smaller Dedekind subring \(A^\prime \subseteq A\) where we can compute these factorizations and then
+
+\begin{enumerate}
+    \item Factorize \(I \cap A^\prime \subseteq A^\prime \Rightarrow I \cap A^\prime = \tilde{\mathfrak{p}}_1^{s_1}, \cdot \ldots \cdot \tilde{\mathfrak{p}}_k^{s_k}\).
+    \item Factorize \(\tilde{\mathfrak{p}}_i^{s_i} \cdot A \subset A \Rightarrow \tilde{\mathfrak{p}}_1^{s_1} \cdot A = \prod_{j=1}^{N_i} \mathfrak{p}_{i, j}^{e_{i, j}}\).
+    \item For each \(\mathfrak{p}_{i, j}\) find the right exponent, i.e. smallest \(k\) such that \(I \subseteq \mathfrak{p}_{i, j}^k\) (\(k \leq s_i \cdot e_{i, j}\)).
+\end{enumerate}
+
+Another approch is
+
+\begin{enumerate}
+    \item list all prime ideals \(\mathfrak{p} \subseteq A\), \(\mathfrak{p}_1, \mathfrak{p}_2, \mathfrak{p}_3, \ldots\).
+    \item localize at \(\mathfrak{p}_1\), compute \(r_1 = v_{\mathfrak{p}_1} (I \cdot A_{\mathfrak{p}_1})\) check if \(I = \mathfrak{p}_2^{r_1}\)
+    \item If not, then compute again
+    \item jadajadajada
+\end{enumerate}
+
+\begin{definition}
+    The spectrum of a ring \(A\) is
+    \begin{equation}
+        \text{Spec}(A) = \{\mathfrak{p} \subseteq A \mid \mathfrak{p} \text{ prime ideal}\}.
+    \end{equation}
+\end{definition}
+
+\newpage
+
+\begin{definition}
+    Let \(A\) be a {\color{mathif}Dedekind domain}, \(K = \text{Quot}(A)\) its {\color{mathif}field of fraction}, \(L / K\) a {\color{mathif}finite separable field extension}, and \(B = \bar{A}\) the {\color{mathif}integral closure} of \(A\) in \(L\).
+    
+    Moreover, let \(\mathfrak{p} \subset A\) and \(\mathfrak{q} \subset B\) be two {\color{mathif}prime ideals}. We say that \(\mathfrak{q}\) {\color{mathrem}lies over} \(\mathfrak{p}\) if \(\mathfrak{q} \, | \, \mathfrak{p}B\), i.e. \(\mathfrak{q} \cap A = \mathfrak{p}\). In this case, define
+
+    \begin{enumerate}
+        \item \(e_{\mathfrak{q} | \mathfrak{p}} = v_\mathfrak{q}(\mathfrak{p}B) \in \mathbb{Z}_{>0}\) the {\color{maththen}ramification index} of \(\mathfrak{q}\) over \(\mathfrak{p}\).
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Consider \(A = \mathbb{Z}\), \(K = \mathbb{Q}\), \(L = \mathbb{Q}(i)\), so that \(B = \mathcal{O}_L = \mathbb{Z}[i]\). For a nonzero prime ideal \(\mathfrak{p} = (p) \subseteq \mathbb{Z}\).
+    \begin{enumerate}
+        \item \(p \mathbb{Z}[i] = \mathfrak{q}^2 = (1 + i)^2\)
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Let \(\alpha := \sqrt[3]{2}\). Consider a Dedekind domain \(A := \mathbb{Z}\), \(K := \text{Quot}(A)\), \(L := \mathbb{Q}(\alpha)\), and \(B := \mathcal{O}_K\) the integral closure of \(\mathbb{Z}\) in \(\mathbb{Q}(\alpha)\).
+
+    Take a prime ideal \((2) \subseteq A\), then \((2) \mathcal{O}_K\)
+\end{example}
+
 \end{document}
