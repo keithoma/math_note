@@ -3,6 +3,10 @@
 
 Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems (but I will list general theory textbooks before books that are collection of excersies). Most of the stuff listed below are in English, but some are in German.
 
+## General
+
+* https://kconrad.math.uconn.edu/blurbs/
+
 ## Linear Algebra
 
 * 3Blue1Brown. *Essence of Linear Algebra*. 2021. ([Link](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) to the YouTube series. [Link](https://github.com/3b1b) to their GitHub.)
