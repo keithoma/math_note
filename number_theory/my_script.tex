@@ -121,14 +121,51 @@
 
 \chapter{Rings}
 
+\begin{definition}[Ring]
+    A {\color{maththen}ring} is a {\color{mathif}set} equipped with two {\color{mathif}binary operations} "\(+\)" ({\color{mathrem}addition}) and "\(\cdot\)" ({\color{mathrem}multiplication}) satisfying the following three sets of {\color{mathif}axioms}, called the {\color{mathrem}ring axioms}.
+\end{definition}
+
+\begin{remark}
+    \begin{itemize}
+        \item A nonzero commutative ring in which every nonzero element has a multiplicative inverse is a field.
+        \item A structure with the same axiomatic definition but omitting the requirement of a multiplicative identity is called a rng.
+    \end{itemize}
+\end{remark}
+
 \begin{example}
     \begin{enumerate}
         \item \((\mathbb{Z}, +, \cdot)\)
         \item All fields, such as \((\mathbb{Q}, +, \cdot)\), \((\mathbb{R}, +, \cdot)\), and \((\mathbb{C}, +, \cdot)\), are rings.
+        \item The zero ring, denoted \(\{0\}\) with the operations \(0 + 0 = 0\) and \(0 \cdot 0 = 0\) is a commutative ring.
         \item Let \(R\) be a commutative ring, then \(R[X]\), the set of polynomials with coefficients in \(R\), is again a ring, e.g. \(\mathbb{Z}[X]\), \(\mathbb{Q}[X]\), and \(\mathbb{R}[X]\).
         \item For any ring \(R\) and for any \(n \in \mathbb{N}\), the set of all square \(n\)-by-\(n\) matricies with entries from \(R\), forms a ring with matrix addition and matrix multiplication as operations. If \(n = 1\), this matrix ring is isomorphic to \(R\) itself. For \(n > 1\) (and \(R\) not a zero ring), this matrix is noncommutative. More concretely, \(\text{Mat}_{3 \times 3}(\mathbb{R})\) is a noncommutative ring. 
     \end{enumerate}
 \end{example}
+
+\newpage
+
+\section{Integral Domain}
+
+Integral domains are generalization of the ring of integers and provide a natural setting for studying divisibility. In an integral domain, every nonzero element \(a\) has the cancellation property, that is, if \(a \neq 0\), an equality \(ab = ac\) implies \(b = c\).
+
+\begin{definition}
+
+    \medskip
+
+    An {\color{maththen}integral domain} \(R\) is a {\color{mathif}nonzero commutative ring} in which the product of any two nonzero elements is nonzero, i.e. for all \(a, b \in R \setminus \{0\}\) it is \(a \cdot b \neq 0\). Equivalently:
+    \begin{enumerate}
+        % stop making nonzero blue
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}nonzero commutative ring} with no nonzero {\color{mathif}zero divisors}, i.e. there exists no element \(a \in R \setminus \{0\}\) such that \(a \cdot x = 0\) for some \(x \in R\).
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}commutative ring} in which the {\color{mathif}zero ideal} \(\{0\}\) is a {\color{mathif}prime ideal}.
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}nonzero commutative ring} for which every nonzero element is {\color{mathif}cancellable under multiplication}, i.e. if \(a \in R \setminus \{0\}\), an equality \(ab = ac\) implies \(b = c\).
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}ring} for which the {\color{mathif}set of nonzero elements} is a {\color{mathif}commutative monoid} under multiplication.
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}nonzero commutative ring} in which for every nonzero element \(r\), the {\color{mathif}function} that maps each element \(x\) of the ring to the product \(xr\) is {\color{mathif}injective}. Elements \(r\) with this property are called {\color{mathrem}regular}, so it is equivalent to require that every nonzero element of the ring be regular.
+        \item An {\color{maththen}integral domain} \(R\) is a {\color{mathif}ring} that is {\color{mathif}isomorphic} to a {\color{mathif}subring} of a {\color{mathif}field}.
+    \end{enumerate}
+    % proof should be elementary.
+\end{definition}
+
+\chapter{something}
 
 \section{No idea yet}
 
@@ -240,6 +277,8 @@ which is a contradiction. Hence \(\Sigma = \varnothing\).
         is a group homomorphism, whose image is the subgroup \(P_A\) of nonzero principal fractional ideals.
     \end{enumerate}
 \end{corollary}
+
+\newpage
 
 \begin{definition}
     The {\color{maththen}(ideal) class group} of a {\color{mathif}Dedekind domain} \(A\) is the quotient \(Cl(A) = Id(A) / P_A\) which is naturally an abelian group.
