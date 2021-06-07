@@ -120,7 +120,8 @@ as \(D \equiv 1 \mod{4}\). Now, we will aplly the theorem.
 \noindent \underline{Case 1:} Let \(p \mid D\). Then,
 
 \begin{align}
-    X^2 - X - \frac{D - 1}{4} &\equiv X^2 + (p - 1)X + \frac{1}{4} \mod{p} \\
+    f(X) &= X^2 - X - \frac{D - 1}{4}\\
+    &\equiv X^2 + (p - 1)X + \frac{1}{4} \mod{p} \\
     &\equiv \left(X + \frac{p-1}{2}\right)^2 \mod{p}
 \end{align}
 
@@ -132,11 +133,25 @@ We conclude \(p \mathcal{O}_L = (p, \sqrt{D})^2\).
 
 \bigskip
 
-\noindent \underline{Case 2:} Let \(p \nmid D\) but \(D \equiv m^2 \mod{p}\). We have \(D = m^2 + pn \equiv m^2 \mod{p}\) and hence \(\overline{f(X)} = X^2 - m^2 = (X + m)(X - m)\). With the theorem, we have \(p \mathcal{O}_L = (p, \sqrt{D} + m)(p, \sqrt{D} - m)\).
+\noindent \underline{Case 2:} Let \(p \nmid D\) but \(D \equiv m^2 \mod{p}\). We have \(D = m^2 + pn \equiv m^2 \mod{p}\) and hence 
+
+\begin{align}
+    f(X) &= X^2 - X - \frac{D - 1}{2} \\
+    &\equiv X^2 - X - \frac{ \cdot m^2 + 1}{4} \mod{p}\\
+    &\equiv (X + \frac{m - 1}{2})(X - \frac{m + 1}{2}) \mod{p} \text{.}
+\end{align}
+
+\noindent So we have \(\mathcal{O}_L = (p, \frac{\sqrt{D}+m}{2})(p, \frac{\sqrt{D}-m}{2})\). Similary as above, we can rewrite the ideals and get \(p\mathcal{O}_L = (p, \sqrt{D}+m)(p, \sqrt{D}-m)\).
 
 \bigskip
 
-\noindent \underline{Case 3:} Otherwise, we have \(D \not\equiv m^2 \mod{p}\) for any \(m \in \mathbb{Z}\). We have \(\overline{f(X)} = X^2 - D\)
+\noindent \underline{Case 3:} Otherwise, we have \(D \not\equiv m^2 \mod{p}\) for any \(m \in \mathbb{Z}\). We have
+
+\begin{align}
+    f(X) &= X^2 - X - \frac{D - 1}{4}
+\end{align}
+
+and since this polynomial mod \(p\) is irreducible, we have \(p\mathcal{O}_L = (p)\).
 
 \bigskip
 
