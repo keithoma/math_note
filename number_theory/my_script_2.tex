@@ -1,0 +1,165 @@
+\documentclass[a4paper]{book}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+% \usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+\usepackage[framemethod=tikz]{mdframed} 
+\usepackage{ntheorem}
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[sfdefault,light]{roboto}  %% Option 'sfdefault' only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+\renewcommand*{\rmdefault}{roboto}
+
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{defbg}{HTML}{fde5d6}
+
+\theoremstyle{break}
+% \theoremheaderstyle{\rmfamily}
+\theorembodyfont{\sffamily}
+
+\newmdtheoremenv[
+    ntheorem=true,
+    hidealllines=true,
+    backgroundcolor=defbg,
+    splittopskip=2\baselineskip,
+    middleextra={\node[anchor=north west,font=\bfseries,inner xsep=0pt,xshift=10pt] at (P-|O) {Example~\thetest\ (Continued)};},
+    secondextra={\node[anchor=north west,font=\bfseries,inner xsep=0pt,xshift=10pt] at (P-|O) {Example~\thetest\ (Continued)};}
+]{definition}{Definition}
+
+\newtheorem{example}{Example}
+
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem{remark}{Remark}
+
+
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+% taken from here: https://math.mit.edu/classes/18.785/2015fa/LectureNotes6.pdf
+% https://math.mit.edu/classes/18.785/2015fa/LectureNotes7.pdf
+\section{Ideal norms and the Dedekind-Kummer thoerem}
+
+\begin{theorem}[Dedekind-Kummer Theorem]
+    Assume \(AKLB\) with \(L = K(\alpha)\) and \(\alpha \in B\), let \(f \in A[X]\) be the minimal polynomial of \(\alpha\) and assume \(B = A[\alpha]\). Suppose \(g_1, \ldots, g_r \in A[X]\) are monic polynomials for which
+    \begin{equation}
+        \overline{f} = \overline{g_1}\,^{e_1} \cdots \overline{g_r}\,^{e_r}
+    \end{equation}
+    is a complete factorization of \(\overline{f} \in (A / \mathfrak{p}) [X]\), where \(\overline{\cdot}\) denotes reduction modulo \(\mathfrak{p}\), and let \(\mathfrak{q}_i := (\mathfrak{p}, g_i(\alpha))\) be the \(B\)-ideal genereated by \(\mathfrak{p}\) and \(g_i (\alpha)\). Then
+    \begin{equation}
+        pB = \mathfrak{q}_1^{e_1} \cdots \mathfrak{q}_r^{e^r} \text{,}
+    \end{equation}
+    is the prime factorization of \(\mathfrak{p}B\) in \(B\) and the residue degree of \(\mathfrak{q}_i\) is \(f_i := \deg{g_i}\).
+\end{theorem}
+
+\begin{definition}[Conductor]
+    Let \(S/R\) be an {\color{mathif}extension of rings}. The {\color{maththen}conductor} \(\mathfrak{c}\) of \(R\) in \(S\) is the {\color{mathif}largest \(S\)-ideal} that is also an {\color{mathif}\(R\)-ideal}, i.e.,
+    \begin{equation}
+        \mathfrak{c} := \mathfrak{c}_{S / R} := \{ \, \alpha \in S \, \mid \, \alpha S \subseteq R \, \} = \{ \, \alpha \in R \, \mid \, a S \subseteq R \, \} \text{.}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}
+    The assumption \(B = A[\alpha]\) in the Dedekind-Kummer theorem can be replaced with the assumption that \(\mathfrak{p}A[\alpha]\) is prime to the conductor of \(A[\alpha]\) in \(B\), i.e,
+    \begin{equation}
+        asdf
+    \end{equation}
+\end{proposition}
+
+\section{Orders in Dedekind domains, primes in Galois extensions}
+
+\begin{lemma}
+    Let \(R\) be a noetherian domain. The conductor of \(R\) in its integral closure \(S\) is nonzero if and only if \(S\) is finitely generated as an \(R\)-module.
+\end{lemma}
+
+\begin{definition}[Order]
+    An order \(\mathcal{O}\) is a noetherian domain of dimension one whose conductor is nonzero, equivalently, whose integral closure is finitely generated as an \(\mathcal{O}\)-module.
+\end{definition}
+
+\begin{lemma}
+    Let \(\mathcal{O}\) be an order with integral closure \(B\) and conductor \(\mathfrak{c}\). A prime \(\mathfrak{q}\) of \(B\) contains \(\mathfrak{c}\) if and only if the prime \(\mathfrak{p} = \mathfrak{q} \cap \mathcal{O}\) of \(\mathfrak{O}\) contains \(\mathfrak{c}\). In particular, only finitely many primes \(\mathfrak{p}\) of \(\mathcal{O}\) contain \(\mathfrak{c}\).
+\end{lemma}
+
+
+
+\end{document}
