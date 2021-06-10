@@ -21,6 +21,7 @@ Below are the books and other resources that I found useful. In general, I prefe
 * Mollin, Richard. *Algebraic Number Theory*. 2011. (PDF avaiable [here](https://www.maths.ed.ac.uk/~v1ranick/papers/mollin.pdf)).
 * Milne, James. *Algebraic Number Theory*. 2020. (PDF avaible [here](https://www.jmilne.org/math/CourseNotes/ANT.pdf)).
 * Murty, M. Ram, and Jody Esmonde. *Problems In Algebraic Number Theory*. Springer-Verlag New York Inc., 2006.
+* https://math.mit.edu/classes/18.785/2015fa/lectures.html
 
 ## Analysis
 ### Measure Theory
