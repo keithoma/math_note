@@ -99,20 +99,27 @@
 
 \noindent\textbf{Solution to 1.}
 
-\noindent We want to show that \(I_\alpha\) is a nonzero ideal. First we reformulate the statement to be proven.
+\noindent We want to show that \(I_\alpha\) is a nonzero ideal. First we reformulate the statement to be proven. Let \(n \in \mathbb{N}\) the smallest integer such that \(\alpha^{n + 1} \in A\). We have
 
 \begin{align}
-    & I_\alpha = \{a \in A \mid aB \subseteq A[\alpha]\} \neq {0} \\
+    & I_\alpha = \{a \in A \mid aB \subseteq A[\alpha]\} \neq \{0\} \\
     \iff & \exists \, a \in A \setminus \{0\} : aB \subseteq A[\alpha] \\
-    \iff & \exists \, a \in A \setminus \{0\}, \, \exists \, b \in B, \, \exists \, \lambda_1, \lambda_2 \in A : a b = \lambda_1 + \lambda_2 \alpha \text{.}
+    \iff & \exists \, a \in A \setminus \{0\}, \, \exists \, b \in B, \, \exists \, \lambda_1, \ldots, \lambda_n \in A : a b = \sum_{k=0}^n \lambda_k \alpha^k \\
+    \iff & \exists \, a \in A \setminus \{0\}, \, \exists \, b \in B, \, \exists \, \lambda_1, \ldots, \lambda_n \in A : b = \sum_{k=0}^n \frac{\lambda_k}{a} \alpha^k \text{.}
 \end{align}
 
-Consider the last equation \(ab = \lambda_1 a + \lambda_2 \alpha\). Since both sides of the equation are elements of a field and \(a\) is nonzero, we can cancel out \(a\) and get
+According to Theorem 4.1.11. (script), \(B\) is a Dedekind domain and with Remark 3.1.5.2 (script) it is also an \(A\)-module. As \(B\) is in particular noetherian, it is according to Corollary 4.1.5.1. finitely generated, i.e. there is a generating set
 
 \begin{equation}
-    b = \lambda_1 a + \lambda_2 a^{-1} \alpha \text{.}
+    \{b_1, \ldots, b_n\} \subseteq B \text{ for some \(n \in \mathbb{N}\).}
 \end{equation}
 
+For each \(i \in \mathbb{N}\), we have
 
+\begin{equation}
+    b_i = a_{i, 0} + a_{i, 1} \alpha + \cdots + a_{i, m} \alpha^m
+\end{equation}
+
+for \(a_{i, j} \in K\) and \(j, m \in \mathbb{N}\). As \(K\) is a quotient field, we can write \(a_{i,j} = \frac{p_{i,j}}{q_{i,j}}\) with \(p_{i,j}, q_{i,j} \in A\).
 
 \end{document}
