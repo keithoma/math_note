@@ -1,0 +1,153 @@
+\documentclass[a4paper]{article}
+\title{Integration and Integration}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{dsfont}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+  \newcounter{problem}
+  \newcounter{solution}
+  
+  \newcommand\Problem{%
+    \stepcounter{problem}%
+    \textbf{\theproblem.}~%
+    \setcounter{solution}{0}%
+  }
+  
+  \newcommand\TheSolution{%
+    \textbf{Solution:}\\%
+  }
+  
+  \newcommand\ASolution{%
+    \stepcounter{solution}%
+    \textbf{Solution \thesolution:}\\%
+  }
+  \parindent 0in
+  \parskip 1em
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\Problem{
+  Compute the values of the following sums.
+  \begin{enumerate}
+      \item \(\sum_{k=0}^\infty x^k\), for \(|x| < 1\),
+      \item \(\sum_{k=0}^\infty \frac{x^k}{k!}\),
+      \item \(\sum_{k=0}^n \binom{n}{k} a^k b^{n-k}\)
+  \end{enumerate}
+}
+
+\TheSolution{
+  \begin{enumerate}
+      \item The sum submits to the ratio test and converges to some number. Denote this number with \(S\). We have
+      \begin{align}
+          S = 
+      \end{align}
+  \end{enumerate}
+}
+
+\Problem{
+  For \(\lambda > 0\) let \(X \sim \text{Exp}(\lambda)\) and let
+  \begin{equation}
+    Y := \lceil{X} \rceil := \min \{\, n \in \mathbb{N} \, \mid \, n \geq X \, \}
+  \end{equation}
+  Show that for the parameter \(p = 1 - e^{-\lambda}\) holds \(Y \sim \text{Geo}(p)\).
+}
+
+\TheSolution{
+  For the random variable \(X\) we have the distribution \(f^X (x) = \lambda e^{-\lambda x} \mathds{1}_{[0, \infty)}(x)\) that generates the probability measure via
+  \begin{align}
+    \mathbb{P}( X \in (a, b]) = \int_a^b \lambda e^{-\lambda x} \mathds{1}_{[0, \infty)}(x) \diff x, \qquad \text{for all } a, b \in \mathbb{R} \text{.}
+  \end{align}
+}
+  If \(Y = \lceil{X} \rceil\), then we have
+  \begin{align}
+    \mathbb{P}( Y \in (a, b]) &= \mathbb{P} (\lceil{X} \rceil \in (a, b])
+  \end{align}
+\end{document}

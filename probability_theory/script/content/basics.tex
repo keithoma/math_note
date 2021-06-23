@@ -1,0 +1,25 @@
+\section{Probability Space}
+
+\begin{definition}[Sample Space]
+    An outcome is a possible result of an experiment or trial. The sample space (also called sample discription space or possibility space) of an experiment or random trial is the set of all possible outcomes or results of that experiment. A subset of a sample space is called an event. Moreover, we say the following.
+    \begin{itemize}
+        \item The empty event \(A = \varnothing\) is called the impossible event.
+        \item The sample space itself as an event \(A = \Omega\) is called the certain event.
+        \item The complementary event of any event \(A\) is the set of all outcomes not in \(A\).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Probability Measure]
+    Let \(\Omega\) be a set and \(\mathcal{A}\) a \(\sigma\)-algebra over \(\Omega\). A function \(\mathbb{P}: \mathcal{A} \rightarrow [0, 1]\) is a probability measure if it is a measure and if \(\mathbb{P}(\Omega) = 1\).
+\end{definition}
+
+\begin{definition}[Probability Space]
+    A probability space is the structrue \((\Omega, \mathcal{A}, \mathbb{P})\) consisting out of a sample space \(\Omega\), a \(\sigma\)-algebra over \(\Omega\) and a probability measure \(\mathbb{P}: \mathcal{A} \rightarrow [0, 1]\).
+\end{definition}
+
+\begin{definition}[Random Variable]
+    Let \((\Omega, \mathcal{A}, \mathbb{P})\) be a probability space and \((S, \mathcal{S})\) a measureable space. A random variable is a measure function \(X: \Omega \rightarrow S\). The distribution of a random variable \(X\) is given by the probability measure
+    \begin{equation}
+        \mathbb{P}^X (B) := \mathbb{P}(X \in B) = \mathbb{P}(X^{-1} (B)), \qquad B \in \mathcal{S} \text{.}
+    \end{equation}
+\end{definition}
