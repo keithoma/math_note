@@ -141,13 +141,9 @@
 }
 
 \TheSolution{
-  For the random variable \(X\) we have the distribution \(f^X (x) = \lambda e^{-\lambda x} \mathds{1}_{[0, \infty)}(x)\) that generates the probability measure via
+  For the distribution of \(Y\) we have
   \begin{align}
-    \mathbb{P}( X \in (a, b]) = \int_a^b \lambda e^{-\lambda x} \mathds{1}_{[0, \infty)}(x) \diff x, \qquad \text{for all } a, b \in \mathbb{R} \text{.}
+    f^Y (x) = \mathbb{P}(Y = x) = \mathbb{P}(\lceil{X} \rceil = x) = \mathbb{P}(x \leq X < x + 1) = F^X (x + 1) - F^X(x) \text{.}
   \end{align}
 }
-  If \(Y = \lceil{X} \rceil\), then we have
-  \begin{align}
-    \mathbb{P}( Y \in (a, b]) &= \mathbb{P} (\lceil{X} \rceil \in (a, b])
-  \end{align}
 \end{document}
