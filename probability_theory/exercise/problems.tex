@@ -141,9 +141,23 @@
 }
 
 \TheSolution{
-  For the distribution of \(Y\) we have
+  For the distribution of \(Y\) we have for all \(k \in \mathbb{N}_0\)
   \begin{align}
-    f^Y (x) = \mathbb{P}(Y = x) = \mathbb{P}(\lceil{X} \rceil = x) = \mathbb{P}(x \leq X < x + 1) = F^X (x + 1) - F^X(x) \text{.}
+    p^Y (k) = \mathbb{P}(Y = k) = \mathbb{P}(\lceil{X} \rceil = k) = \mathbb{P}(k - 1 < X \leq k) = F^X (k) - F^X(k - 1) \text{.}
   \end{align}
+  On the other hand, the CDF of \(X\) is
+  \begin{equation}
+    F^X (x) = \int_{-\infty}^x f^X(y) \diff y = \int_{-\infty}^x \lambda e^{-\lambda y} \mathds{1}_{[0, \infty)}(y) \diff y = 1 - e^{-\lambda x} \text{.}
+  \end{equation}
+  Therefore we have
+  \begin{align}
+    p^Y (k) &= F^X (k) - F^X(k - 1) \\
+    &= (1 - e^{-\lambda k}) - (1 - e^{-\lambda (k - 1)}) \\
+    &= - e^{-\lambda k} + e^{-\lambda (k - 1)} \\
+    &= - e^{-\lambda} \cdot e^{-\lambda (k - 1)} + e^{-\lambda (k - 1)} \\
+    &= e^{-\lambda (k - 1)} (1 - e^{-\lambda}) \\
+    &= \left(1 - \left(1 - e^{-\lambda}\right) \right)^{k - 1} (1 - e^{-\lambda})
+  \end{align}
+  Setting \(1 - e^{-\lambda} = p\) yields the desired result \(p^Y (k) = \left(1-p\right)^{k-1} p\).
 }
 \end{document}
