@@ -1,9 +1,62 @@
 \section{Discrete Distribution}
 
-\begin{definition}
+\begin{definition}[Discrete Probability Space]
+    
+\end{definition}
+
+\begin{lemma}
+    If \((\Omega, \mathcal{A}), \mathbb{P}\) is a discrete probability space, then \(\mathbb{P}\) is uniquely defined by its counting measure \(p: \Omega \rightarrow [0, 1]\) with \(p(\omega) = \mathbb{P}( \{\omega\} )\).
+
+    Similary, if \(X\) is a discretely distributed random varible, then \(\mathbb{P}^X\) is uniquely defined by its counting measure \(p^X (x) = \mathbb{P}(X = x)\).
+\end{lemma}
+\begin{proof}
+    Because \(\Omega\) is countable, its \(\sigma\)-algebra is simply \(\mathcal{P}(\Omega)\). We then have
+    \begin{equation}
+        \mathbb{P}(A) = \mathbb{P} \left(\bigcup_{\omega \in A} \{\omega\}\right) = \sum_{\omega \in A} \mathbb{P}( \{\omega \} ) = \sum_{\omega \in A} p(\omega) \text{.}
+    \end{equation}
+    Same argument can be applied on \(\mathbb{P}^X\).
+\end{proof}
+
+\begin{lemma}
+    Lemma 1.3.3.
+\end{lemma}
+
+\begin{theorem}[Results from Combinatorics]
+    
+\end{theorem}
+
+\begin{definition}[Uniform Distribution]
+    
+\end{definition}
+
+\begin{definition}[Hypergeometric Distribution]
+    
+\end{definition}
+
+\begin{definition}[Bernoulli-Chain]
+    
+\end{definition}
+
+\begin{definition}[Binomial Distribution]
+    
+\end{definition}
+
+\begin{definition}[Multinomial Distribution]
+    
+\end{definition}
+
+\begin{definition}[Geometric Distribution]
     The geometric distribution with success chance \(p \in (0, 1]\) on \(\Omega = \mathbb{N}\) is given by the discrete probability mass function
     \begin{equation}
         p_{\text{Geo}(p)} (k) = (1 - p)^{k - 1} p, \qquad k \in \mathbb{N}\text{.}
     \end{equation}
     If \(p^X = p_{\text{Geo}(p)}\) for a random variable \(X\), we say \(X\) is geometrically distributed and denote \(X \sim \text{Geo}(p)\).
 \end{definition}
+
+\begin{definition}[Poisson Distribution]
+    
+\end{definition}
+
+\begin{theorem}[Poisson Limit Theorem]
+    
+\end{theorem}
