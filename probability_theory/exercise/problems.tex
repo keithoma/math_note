@@ -162,9 +162,28 @@
 }
 
 \Problem{
+  Let \(X \sim N(\mu, \sigma^2)\) and \(Y = aX + b\) for some \(a, b \in \mathbb{R}\) with \(a \neq 0\).
   \begin{enumerate}
-    \item Let \(X \sim N(\mu, \sigma^2)\). Show that \(Y := aX + b \sim N(a \mu + b, a^2 \sigma^2)\) holds for \(a \neq 0\) and \(b \in \mathbb{R}\).
+    \item Show that \(Y \sim N(a \mu + b, a^2 \sigma^2)\).
     \item How must \(a\) and \(b\) be chosen so that \(Y \sim N(0, 1)\) holds?
   \end{enumerate}
+}
+
+\TheSolution{
+  \begin{enumerate}
+    \item Just use Transformationformula.
+    \item \(a = \sigma^{-1}\) and \(b = -\mu \sigma^{-1}\).
+  \end{enumerate}
+}
+
+\Problem{
+  Let \(\Phi = \Phi_{0, 1}\) the cumulative mass function of \(N(0, 1)\)-distribution and let \(\Phi^{-1}\) be its inverse. Show that the following equation hold.
+  \begin{equation}
+    \Phi^{-1} (p) = - \Phi^{-1} (1 - p), \qquad p \in (0, 1) \text{.}
+  \end{equation}
+}
+
+\TheSolution{
+  
 }
 \end{document}
