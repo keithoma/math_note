@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{book}
 \title{Integration and Integration}
 \author{K}
 
@@ -114,21 +114,16 @@
 }%
 
 \begin{document}
-\Problem{
-  Compute the values of the following sums.
-  \begin{enumerate}
-      \item \(\sum_{k=0}^\infty x^k\), for \(|x| < 1\),
-      \item \(\sum_{k=0}^\infty \frac{x^k}{k!}\),
-      \item \(\sum_{k=0}^n \binom{n}{k} a^k b^{n-k}\)
-  \end{enumerate}
-}
 
-\TheSolution{
+\chapter{Probability Space}
+
+\Problem{
+  \parskip 0em
+  Decide if the following statements are true or false.
   \begin{enumerate}
-      \item The sum submits to the ratio test and converges to some number. Denote this number with \(S\). We have
-      \begin{align}
-          S = 
-      \end{align}
+    \item If \(F^X\) is a CDF of a random variable \(X\) that has only values in \((0, 1)\), then \(F^X (0) = 0\).
+    \item Let \(\Omega = \{1, 2, \ldots, 6\}^6\) be the sample space that describes a six consequtive dice roles. The event \(\{\omega \in \Omega \mid \omega_1 < \omega_2 < \ldots < \omega_6\}\) is precisely the outcome in which a street \(1, 2, \ldots, 6\) is rolled.
+    \item Every probability measure is \(\sigma\)-finite.
   \end{enumerate}
 }
 
@@ -184,6 +179,39 @@
 }
 
 \TheSolution{
-  
+Consider the PMF of the standard normal distribution \(\Phi\) and let \(x \in \mathbb{R}^+_0\). Because of its symmetry on the \(y\)-axis, we have
+\begin{align}
+  1 &= \int_{-\infty}^\infty \phi(y) \diff y \\
+  &= \int_{-\infty}^{x} \phi(y) \diff y + \int_{x}^{\infty} \phi(y) \diff y \\
+  &= \int_{-\infty}^{x} \phi(y) \diff y + \int_{-\infty}^{-x} \phi(y) \diff y \\
+  &= \Phi(x) + \Phi(-x) \text{.}
+\end{align}
+Hence \(\Phi(-x) = 1 - \Phi(x)\). Using this and the bijectivity of \(\Phi\) we get
+\begin{align}
+  \Phi^{-1} (p) = - \Phi^{-1} (1 - p) &\iff \Phi \left( \Phi^{-1} (p) \right) = \Phi \left( - \Phi^{-1} (1 - p) \right) \\
+  &\iff p = 1 - \Phi(\Phi^{-1} (1 - p)) \\
+  &\iff p = p
+\end{align}
+
+\Problem{
+  Blatt 3 Aufgabe 3, Fabrik frage, easy
+}
+
+\chapter{Independence}
+
+\Problem{
+  Let \(X_1, \ldots, X_n\) be real-valued independent random variables with CDFs \(F_1, \ldots, F_n\).
+  \begin{enumerate}
+    \item Show that the CDFs of \(M = \max(X_1, \ldots, X_n)\) and \(m = \min(X_1, \ldots, X_n)\) are given by
+    \begin{align}
+      F^M (x) = \prod_{i=1}^n F_i(x) \qquad \text{and} \qquad F^m(x) = 1 - \prod_{i=1}^n \left(1 - F_i (x) \right) \text{.}
+    \end{align}
+  \end{enumerate}
+}
+
+\TheSolution{
+  \begin{align}
+  \{X_i \in A_i\}
+  \end{align}
 }
 \end{document}
