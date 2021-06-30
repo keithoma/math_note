@@ -29,6 +29,10 @@ Below are the books and other resources that I found useful. In general, I prefe
 * Salamon, Dietmar. *Measure And Integration*. European Mathematical Society, 2016. (PDF avaiable [here](https://people.math.ethz.ch/~salamon/PREPRINTS/measure.pdf))
 * Lo, Gane Samb. *Measure Theory And Integration By And For The Learner*. 2017. (PDF avaiable [here](https://arxiv.org/pdf/1711.04625.pdf))
 
+### Numerical Analysis
+
+* https://people.cs.uchicago.edu/~ridg/newna/nalrs.pdf
+
 ### Other Stuff
 
 * Baum, Helga. *Grundkurs Analysis*. 2012. (PDF avaiable [here](https://www.mathematik.hu-berlin.de/%7Ebaum/Skript/Analysis-BA-WS11-Summe.pdf))
