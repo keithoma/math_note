@@ -1,1 +1,15 @@
 \chapter{Interpolation}
+
+\begin{example}
+    Consider the domain \([2, 10]\) partitioned into \(5\) points, i.e. \(\{2, 4, 6, 8, 10\}\) and a function \(f: [0, 10] \rightarrow \mathbb{R}, \, x \mapsto f(x) = \ln(x)\). The y-values then are
+    \begin{equation}
+        \ln(2) \approx 0.6931 \quad \ln(4) \approx 1.3862 \quad \ln(6) \approx 1.7917 \quad \ln(8) \approx 2.0794 \quad \ln(10) \approx 2.3025 \text{.}
+    \end{equation}
+    Computing the Lagrange polynomials gives
+    \begin{align}
+        L_1 (x) &= \ln(2) \cdot \frac{x - 4}{2 - 4} \cdot \frac{x - 6}{2 - 6} \cdot \frac{x - 8}{2 - 8} \cdot \frac{x - 10}{2 - 10} \\
+        &= 5 \ln(2) - \frac{77}{24} x \ln(2) + \frac{71}{96} x^2 \ln(2) - \frac{7}{96} x^3 \ln(2) + \frac{1}{384} x^4 \ln(2) \\
+        L_2 (x) &= \ln(2) \cdot \frac{x - 2}{4 - 2} \cdot \frac{x - 6}{4 - 6} \cdot \frac{x - 8}{4 - 8} \cdot \frac{x - 10}{4 - 10} \\
+        &= -10 \ln(2) + \frac{107}{12} x \ln(2) - \frac{59}{24} x^2 \ln(2) + \frac{13}{48} x^3 \ln(2) - \frac{1}{96} x^4 \ln(2)
+    \end{align}
+\end{example}
