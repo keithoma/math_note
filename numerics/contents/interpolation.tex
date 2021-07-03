@@ -1,4 +1,4 @@
-\chapter{Interpolation}
+\section{Lagrange Interpolation}
 
 \begin{example}
     Consider the domain \([2, 10]\) partitioned into \(5\) points, i.e. \(\{2, 4, 6, 8, 10\}\) and a function \(f: [0, 10] \rightarrow \mathbb{R}, \, x \mapsto f(x) = \ln(x)\). The y-values then are
@@ -13,3 +13,26 @@
         &= -10 \ln(2) + \frac{107}{12} x \ln(2) - \frac{59}{24} x^2 \ln(2) + \frac{13}{48} x^3 \ln(2) - \frac{1}{96} x^4 \ln(2)
     \end{align}
 \end{example}
+
+\begin{example}
+    Let \(f(x) = x^8\). We want to interpolate \(f\) on the grid points \(\{-3, -2, -1, 0, 1, 2, 3\}\). The Lagrange polynomials are
+    \begin{align}
+        L_1(x) &= -6561 \cdot \frac{x + 2}{-3 + 2} \cdot \frac{x + 1}{-3 + 1} \cdot \frac{x + 0}{-3 + 0} \cdot \frac{x - 1}{-3 - 1}
+    \end{align}
+\end{example}
+
+\begin{example}
+    We interpolate \(\log_2(x)\) on the points \(\{16, 32, 64\}\). It is
+    \begin{align}
+        \log_2(16) L_1 (x) &= \log_2(16) \cdot \frac{x - 32}{16 - 32} \cdot \frac{x - 64}{16 - 64} \\
+        &= \frac{1}{192} x^2 - \frac{1}{2} x + \frac{32}{3} \\
+        \log_2(32) L_2 (x) &= \log_2(32) \cdot \frac{x - 16}{32 - 16} \cdot \frac{x - 64}{32 - 64} \\
+        &= -\frac{5}{512} x^2 + \frac{25}{32} x -10 \\
+        \log_2(64) L_3 (x) &= \log_2(64) \cdot \frac{x - 16}{64 - 16} \cdot \frac{x - 32}{64 - 32} \\
+        &= \frac{1}{256}x^2 - \frac{3}{16}x + 2 \text{.}
+        \intertext{Summing up yields}
+        p(x) &= -\frac{1}{1536}x^2 + \frac{3}{32}x + \frac{8}{3} \text{.}
+    \end{align}
+\end{example}
+
+\section{Spline Interpolation}
