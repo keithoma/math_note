@@ -1,5 +1,16 @@
 \section{Lagrange Interpolation}
 
+\begin{definition}
+    For \(n \in \mathbb{N}_0\), \(n + 1\) distinct \(x_0, \ldots, x_n \in \mathbb{K}\) and the index \(j \in \{0, \ldots, n\}\) the \(j\)-th Lagrange polynomials respective to the nodes \(x_0, \ldots, x_n\) are defined as
+    \begin{equation}
+        L_j = \prod_{\substack{k=0 \\ k \neq j}}^n \frac{x - x_k}{x_j - x_k} \in \mathbb{K}[x] \text{.}
+    \end{equation}
+    If \(f(x_0), \ldots, f(x_n)\) are now the data respective to the nodes \(x_0, \ldots, x_n\) then the Lagrange interpolation \(p\) is given by
+    \begin{equation}
+        p(x) = \sum_{j=0}^n f(x_j) L_j(x) \text{.}
+    \end{equation}
+\end{definition}
+
 \begin{example}
     Consider the domain \([2, 10]\) partitioned into \(5\) points, i.e. \(\{2, 4, 6, 8, 10\}\) and a function \(f: [0, 10] \rightarrow \mathbb{R}, \, x \mapsto f(x) = \ln(x)\). The y-values then are
     \begin{equation}
@@ -36,3 +47,75 @@
 \end{example}
 
 \section{Spline Interpolation}
+
+\begin{definition}
+    A function \(s \in C^q([a, b], \mathbb{K})\) is called a spline of degree \(p\) and the smoothness \(q\) respective to the partition \(\triangle\) if \(s\) is a polynomial on the subinterval \([x_{j-1}, x_j]\) with a degree equal or less than \(q\). We denote \(s \in \mathcal{S}_q^p(\triangle)\).
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item The space of linear spline functions is \(\mathcal{S}_0^1(\triangle)\). We have \(s \in C^0 ([a, b], \mathbb{K})\) so \(s\) is continuous but not necessarily differentiatable.
+        \item The space of cubic spline functions is \(\mathcal{S}_2^3(\triangle)\).
+    \end{itemize}
+\end{example}
+
+\begin{theorem}
+    \(\mathcal{S}_{m-1}^m(\triangle)\) is a \(\mathbb{R}\)-vector space. In particular, it contains all polynomials of degree \(\leq m\). Moreover, the dimension of \(\mathcal{S}_{m-1}^m (x_0, \ldots, x_n)\) is \(m + n\). 
+\end{theorem}
+
+% move this
+\begin{example}
+    Let \([-1, 1]\) be a domain partitioned into \([-1, 0] \cup [0, 1]\). Consider the function
+    \begin{equation}
+        f(x) = \cos \left( \frac{\pi}{2} x \right) \qquad x \in [-1, 1] \text{.}
+    \end{equation}
+\end{example}
+
+\subsection{Linear Splines}
+
+\subsection{Cubic Splines}
+
+\begin{definition}
+    \begin{enumerate}
+        \item hermitian
+        \item natural
+        \item periodic
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    If \(\triangle = (x_0, \ldots, x_n)\) is a partition of the interval \([a, b]\) and \(y_0, \ldots, y_n\) the respective data then there is exactly one interpolating natural cubic spline \(s \in \mathcal{S}_2^3(\triangle)\) with \(s^{\prime\prime} (a) = s^{\prime\prime}(b) = 0\).
+\end{theorem}
+
+\begin{example}
+    Given the data set \((0, 0)\), \((1, 0.5)\), \((2, 2)\) and \((3, 1.5)\) we want to find the interpolating cubic spline \(s(x)\) satisfying \(s^\prime (0) = 0.2\) and \(s^\prime (3) = -1\).
+
+    We start by finding \(s_i^{\prime\prime}\). Denote \(s_i^{\prime\prime}(x_i) = M_i\). With Lagrange interpolation we get the general formula
+    \begin{equation}
+        s_i^{\prime\prime} (x) = M_{i - 1} \frac{x - x_i}{x_{i - 1} - x_i} + M_i \frac{x - x_{x-1}}{x_i - x_{i-1}} \text{.}
+    \end{equation}
+    Plugging in the values for \(x_i\) gives
+    \begin{align}
+        s_1^{\prime\prime}(x) &= M_0 \frac{x - 1}{0 - 1} + M_1 \frac{x - 0}{1 - 0} \\
+        &= M_0 + (M_1 - M_0) x \\
+        s_2^{\prime\prime}(x) &= M_1 \frac{x - 2}{1 - 2} + M_2 \frac{x - 1}{2 - 1} \\
+        &= 2 M_1 - M_2 + (M_2 - M_1) x \\
+        s_3^{\prime\prime}(x) &= M_2 \frac{x - 3}{2 - 3} + M_3 \frac{x - 2}{3 - 2} \\
+        &= 3 M_2 -2 M_3 + (M_3 - M_2) x \text{.}
+        \intertext{Now we integrate.}
+        \int s_1^{\prime\prime}(x) \diff x = s_1^\prime (x) &= C_1 + M_0 x + \frac{M_1 - M_0}{2} x^2 \\
+        \int s_2^{\prime\prime}(x) \diff x = s_2^\prime(x) &= C_2 + (2M_1 - M_2) x + \frac{M_2 - M_1}{2} x^2 \\
+        \int s_3^{\prime\prime}(x) \diff x = s_3^\prime (x) &= C_3 + (3M_2 - 2M_3) x + \frac{M_3 - M_2}{2} x^2 \text{.}
+        \intertext{With the given values, we get}
+        s_1^\prime(0) = 0.2 &= C_1 \\
+        s_3^\prime(3) = -1 &= C_3 + (3M_2 - 2M_3) \cdot 3+ \frac{M_3 - M_2}{2} \cdot 3^2 \\
+        &= C_3 + \frac{9}{2} M_2 - \frac{3}{2} M_3
+    \end{align}
+
+    We start by finding \(s_1\). It is \(s_1(x) = a + bx + cx^2 + dx^3\) and \(s_1^\prime (x) = b + cx + dx^2\) for some \(a, b, c, d \in \mathbb{R}\). Plugging in the conditions gives
+    \begin{align}
+        s_1(0) &= a = 0 \\
+        s_1(1) &= a + b + c + d = 0.5 \\
+        s_1^\prime(0) &= b = 0.2
+    \end{align}
+\end{example}
