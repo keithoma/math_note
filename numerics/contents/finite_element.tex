@@ -1,0 +1,47 @@
+\begin{example}
+    Let \(K = [0, 1]\), \(\mathcal{P}\) be the set of linear polynomials and \(\mathcal{L} = \{L_1, L_2\}\) where \(L_1(p) = p(0)\) and \(L_2(p) = p(1)\) for all \(p \in \mathcal{L}\). Then \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
+\end{example}
+\begin{proof}
+    \begin{align*}
+        L_1 (p_1) = 1 & \iff a_1 \cdot 0 + b_1 = 1 \\
+        & \iff b_1 = 1 \\
+        L_2 (p_1) = 0 & \iff a_1 \cdot 1 + b_1 = 0 \\
+        & \iff a_1 = -1 \\
+        L_1 (p_2) = 0 & \iff a_2 \cdot 0 + b_2 = 0 \\
+        & \iff b_2 = 0 \\
+        L_2 (p_2) = 
+    \end{align*}
+\end{proof}
+
+\begin{example}[Counter Example to Nonconform \(P_2\)-FE]
+    Denote
+    \begin{equation}
+        P_1 = \begin{pmatrix}
+            x_1 \\ y_1
+        \end{pmatrix} \qquad
+        P_2 = \begin{pmatrix}
+            x_2 \\ y_2
+        \end{pmatrix} \qquad
+        P_3 = \begin{pmatrix}
+            x_3 \\ y_3
+        \end{pmatrix} \qquad
+    \end{equation}
+    and write \(p(x) = a_0 + a_1 x + a_2 y + a_3 x^2 + a_4 y^2 + a_5 xy\). Then, for \(L_1\) we have
+    \begin{align}
+        L_1 (p) &= p(Q_1) \\
+        &= p(\mu P_2 + (1 - \mu)P_3) \\
+        &= \mu p (P_2) + p (P_3) - \mu p (P_3) \\
+        \begin{split}
+            &= \mu \left( a_0 + a_1 x + a_2 y + a_3 x^2 + a_4 y^2 + a_5 xy \right) \\
+            & + \left( a_0 + a_1 x + a_2 y + a_3 x^2 + a_4 y^2 + a_5 xy \right) \\
+            & - \mu \left( a_0 + a_1 x + a_2 y + a_3 x^2 + a_4 y^2 + a_5 xy \right) \\
+        \end{split}
+    \end{align}
+    \begin{align}
+        \mu
+    \end{align}
+\end{example}
+
+\begin{example}
+    Let \(K\) be any rectangle, \(\mathcal{P} = \mathcal{Q}_k\) and \(\mathcal{N}\) denote point evaluations at \(\{(t_i, t_j) \mid 0 \leq i, j \leq k\}\) where \(0 = t_0 < t_1 < \cdots < t_{k-1} < t_k = 1\). Then \((K, \mathcal{P}, \mathcal{N})\) is a finite element.
+\end{example}
