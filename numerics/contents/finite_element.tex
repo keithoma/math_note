@@ -1,16 +1,25 @@
 \begin{example}
     Let \(K = [0, 1]\), \(\mathcal{P}\) be the set of linear polynomials and \(\mathcal{L} = \{L_1, L_2\}\) where \(L_1(p) = p(0)\) and \(L_2(p) = p(1)\) for all \(p \in \mathcal{L}\). Then \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
 \end{example}
-\begin{proof}
+\begin{proof}[First proof by verifying linearity]
+    Just check
     \begin{align*}
-        L_1 (p_1) = 1 & \iff a_1 \cdot 0 + b_1 = 1 \\
-        & \iff b_1 = 1 \\
-        L_2 (p_1) = 0 & \iff a_1 \cdot 1 + b_1 = 0 \\
-        & \iff a_1 = -1 \\
-        L_1 (p_2) = 0 & \iff a_2 \cdot 0 + b_2 = 0 \\
-        & \iff b_2 = 0 \\
-        L_2 (p_2) = 
+        \lambda_1 L_1 + \lambda_2 L_2 = 0
     \end{align*}
+\end{proof}
+\begin{proof}[Second proof by construction of a nodal basis]
+    We construct the nodal basis \(\{\phi_1, \phi_2\}\) of \(\mathcal{P}\) explicitly. Since \(\phi_j\) must fulfill \(L_i (\phi_j) = \delta_{ij}\), we have
+    \begin{align*}
+        L_1 (\phi_1) = 1 & \iff a_1 \cdot 0 + b_1 = 1 \\
+        & \iff b_1 = 1 \\
+        L_2 (\phi_1) = 0 & \iff a_1 \cdot 1 + b_1 = 0 \\
+        & \iff a_1 = -1 \\
+        L_1 (\phi_2) = 0 & \iff a_2 \cdot 0 + b_2 = 0 \\
+        & \iff b_2 = 0 \\
+        L_2 (\phi_2) = 1 & \iff a_2 \cdot 1 + b_2 = 1 \\
+        & \iff a_2 = 1
+    \end{align*}
+    Set \(\phi_1(x) = - x + 1\) and \(\phi_2(x) = x\), then \(\{\phi_1, \phi_2\}\) is a nodal basis of \(\mathcal{P}\) and \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
 \end{proof}
 
 \begin{example}[Counter Example to Nonconform \(P_2\)-FE]
