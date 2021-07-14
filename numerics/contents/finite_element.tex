@@ -1,3 +1,25 @@
+\begin{definition}
+    Let
+    \begin{enumerate}
+        \item \(K \subset \mathbb{R}^n\) be a {\color{mathif}bounded closed set} with {\color{mathif}nonempty interior} and {\color{mathif}piecewise smooth boundary} (the {\color{mathrem}element domain}),
+        \item \(\mathcal{P}\) be a {\color{mathif}finite-dimensional space of function} on \(K\) (the space of {\color{mathrem}shape functions}), and
+        \item \(\mathcal{L} = \{L_1, L_2, \ldots, L_k\}\) be a {\color{mathif}basis} for \(\mathcal{P}^\prime\) (the set of {\color{mathrem}nodal variables}).
+    \end{enumerate}
+    Then \((K, \mathcal{P}, \mathcal{L})\) is called a {\color{maththen}finite element}.
+\end{definition}
+
+\begin{definition}
+    Let \((K, \mathcal{P}, \mathcal{L})\) be a finite element. The basis \(\{\phi_1, \phi_2, \ldots, \phi_k\}\) of \(\mathcal{P}\) dual to \(\mathcal{L}\) (i.e. \(N_i(\phi_j) = \delta_{ij}\)) is called the nodal basis of \(\mathcal{P}\).
+\end{definition}
+
+\begin{lemma}
+    Let \(\mathcal{P}\) be a \(k\)-dimensional vector space and let \(\{L_1, L_2, \ldots, L_k\}\) be a subset of the dual space \(\mathcal{P}^\prime\). Then the following two statements are equivalent.
+    \begin{enumerate}
+        \item \(\{L_1, L_2, \ldots, L_k\}\) is a basis for \(\mathcal{P}^\prime\).
+        \item Given \(p \in \mathcal{P}\) with \(L_i(p) = 0\) for all \(i \in \{1, 2, \ldots, k\}\), then \(p = 0\).
+    \end{enumerate}
+\end{lemma}
+
 \begin{example}
     Let \(K = [0, 1]\), \(\mathcal{P}\) be the set of linear polynomials and \(\mathcal{L} = \{L_1, L_2\}\) where \(L_1(p) = p(0)\) and \(L_2(p) = p(1)\) for all \(p \in \mathcal{L}\). Then \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
 \end{example}
@@ -21,6 +43,10 @@
     \end{align*}
     Set \(\phi_1(x) = - x + 1\) and \(\phi_2(x) = x\), then \(\{\phi_1, \phi_2\}\) is a nodal basis of \(\mathcal{P}\) and \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
 \end{proof}
+\begin{proof}[Third proof with lemma]
+    Denote \(p \in \mathcal{P}\) with \(L_1(p) = L_2(p) = 0\) as \(p(x) = ax+b\). We have \(L_1(p) = b\) and \(L_2(p) = a + b\), so \(a = b = 0\) and \(p = 0\). By lemma XXX \(\{L_1, L_2\}\) is a basis for \(\mathcal{P}^\prime\).
+\end{proof}
+
 
 We can generalize the previous example.
 
@@ -33,9 +59,7 @@ We can generalize the previous example.
 \end{example}
 
 \begin{proof}
-    \begin{align}
-        L_i (\phi_j) = 0 & \iff \sum_{l=0}^k c_l \left( a + \frac{(b-a) i}{k} \right)^l = 0
-    \end{align}
+    Let \(p \in \mathcal{P}_k\) with \(L_1 (p) = L_2 (p) = \cdots = L_k (p) = 0\). So \(p\) has \(k + 1\) roots but is only of degree \(k\), therefore \(p\) must be the zero-polynomial.
 \end{proof}
 
 \begin{example}[Counter Example to Nonconform \(P_2\)-FE]
