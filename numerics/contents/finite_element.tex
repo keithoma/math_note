@@ -22,6 +22,22 @@
     Set \(\phi_1(x) = - x + 1\) and \(\phi_2(x) = x\), then \(\{\phi_1, \phi_2\}\) is a nodal basis of \(\mathcal{P}\) and \((K, \mathcal{P}, \mathcal{L})\) is a finite element.
 \end{proof}
 
+We can generalize the previous example.
+
+\begin{example}
+    Let \(K = [a, b]\), \(\mathcal{P}_k\) be the set of all polynomials of degree less than or equal to \(k\), and \(\mathcal{L} = \{L_0, L_1, \ldots, L_k\}\) where
+    \begin{equation}
+        L_i (p) = p \left( a + \frac{(b-a) i}{k} \right) \qquad \text{for all \(p \in \mathcal{P}_k\) and \(i \in \{0, 1, \ldots, k\}\).}
+    \end{equation}
+    Then \(K, \mathcal{P}_k, \mathcal{N}_k\) is a finite element.
+\end{example}
+
+\begin{proof}
+    \begin{align}
+        L_i (\phi_j) = 0 & \iff \sum_{l=0}^k c_l \left( a + \frac{(b-a) i}{k} \right)^l = 0
+    \end{align}
+\end{proof}
+
 \begin{example}[Counter Example to Nonconform \(P_2\)-FE]
     Denote
     \begin{equation}
