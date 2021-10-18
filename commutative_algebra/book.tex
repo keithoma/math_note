@@ -1,0 +1,160 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+% page layout
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+% theorems
+\usepackage{amsthm}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{definition}{Definition}
+
+\usepackage[lastexercise]{exercise}
+
+\begin{document}
+    \begin{definition}[Group of Units]
+        Let \(A\) be a ring. An element \(a \in A\) is called an unit if there is an element \(b \in A\) such that \(a \cdot b = 1\).
+
+        We denote the set of all units as following.
+        \begin{align}
+            A^\times := \{\, a \in A \, \mid\, \exists b \in A : a \cdot b = 1 \,\}
+        \end{align}
+    \end{definition}
+
+    \(A^\times\) forms a group.
+
+    \begin{enumerate}
+        \item Let \(a, b \in A^\times\). Then, there are \(a^\prime\) and \(b^\prime\) in \(A^\times\) such that \(a \cdot a^\prime = 1\) and \(b \cdot b^\prime = 1\) respectively. We have \(a \cdot b \cdot a^\prime \cdot b^\prime = 1\) hence \(a \cdot b \in A^\times\). In other words, \(A^\times\) is closed under multiplication.
+        \item Associativity is inherited from the ring \(A\).
+        \item The identity element is \(1\). It is included in \(A^\times\) as \(1 \cdot 1 = 1\). And the identity property \(a \cdot 1 = a\) for all \(a \in A^\times\) is inherited from \(A\).
+        \item Let \(a \in A^\times\). Then, there is a \(b \in A^\times\) such that \(a \cdot b = 1\). This \(b\) is precisely the inverse element of \(a\).
+    \end{enumerate}
+
+    If \(A\) is commutativ, then \(A^\prime\) is commutative.
+
+    My guess is that \(A^\prime\) being a commutative group does not imply that \(A\) is commutative.
+
+    Also, if \(A\) isn't commutative, there probably is a left unit group and a right unit group. Or are they the same?
+
+    Examples:
+
+    \begin{enumerate}
+        \item \(\mathbb{Z}^\times = \{ -1, 1 \}\)
+        \item For any field \(\mathbb{K}\), it is \(\mathbb{K}^\times = \mathbb{K}\).
+        \item Let \(A = \text{Mat}_{2 \times 2}(\mathbb{R})\). Then, the group of units \(A^\times\) is the set of all invertible matricies also called the general linear group \(\text{GL}_2(\mathbb{R})\). This should be true of the general case \(A = \text{Mat}_{n \times n}{(\mathbb{K})}\).
+        \item Let \(\mathbb{Q}[X]\) be a polynomial ring.
+    \end{enumerate}
+
+    \begin{definition}[Set of Zero Divisors]
+        \begin{align}
+            \text{ZD}(A) := \{\, a \in A \,\mid\, \exists b \in A \setminus \{0\} : a \cdot b = 0 \,\}.
+        \end{align}
+    \end{definition}
+
+    Examples:
+    \begin{enumerate}
+        \item \(\text{ZD}(\mathbb{Z}) = \{0\}\).
+        \item For any field \(\mathbb{K}\), it is \(\text{ZD}(\mathbb{K}) = \{0\}\).
+        \item 
+    \end{enumerate}
+
+    Proof of above:
+    Let \(\mathbb{K}\) be a field and assume there is a nonzero \(x \in \mathbb{K}\) such that \(x \cdot b = 0\) for a \(b \in \mathbb{K}\). The issue here is that \(\mathbb{K}\) contains the inverse of \(b\) and so we have \(x = 0 \cdot b^{-1} = 0\).
+
+    \begin{definition}[Integral Domain]
+        A ring \(A\) with \(\text{ZD}(A) = \{0\}\) is called an integral domain.
+    \end{definition}
+
+    \begin{definition}[Set of Nilpotent Elements]
+        \begin{align}
+            \text{Nil}(A) := \{\, a \in A \,\mid\, \exists n \in \mathbb{N} : a^n = 0 \,\}
+        \end{align}
+    \end{definition}
+
+    \begin{definition}[Reduced Ring]
+        A ring \(A\) with \(\text{Nil}(A) = \{0\}\) is called a reduced ring.
+    \end{definition}
+
+
+    Here some lemmas.
+
+    \(A \setminus \text{ZD}(A)\) is a semigroup containing \(A^\times\).
+
+    Proof:
+
+    \begin{enumerate}
+        \item Let \(x, y \in A \setminus \text{ZD}(A)\). Then \(x \cdot a \neq 0\) and \(y \cdot b \neq 0\) for all \(a, b \in A\). Assume there exists a \(c \in A\) such that \(x \cdot y \cdot c = 0\). This implies \(x \cdot c = 0\) or \(y \cdot c = 0\), but this is impossible. Conclude \(x \cdot y \in A \setminus \text{ZD}(A)\).
+        \item Let \(x \in A^\times\). By definition we have for some \(a \in A\) that \(x \cdot a = 1\). Assume \(x \in \text{ZD}(A)\). Then we have \(x \cdot b = 0\) for some \(b \in A \setminus \{0\}\). With the previous equation we get
+        \begin{align}
+            x \cdot a = 1 & \iff x \cdot a \cdot b = 1 \cdot b \\
+            & \iff x \cdot b \cdot a = b \\
+            & \iff 0 = b
+        \end{align}
+        But this is a contradiction. Hence \(x \not\in \text{ZD}(A)\).
+        \item We have to prove associativity and the identity element, but both are clear.
+    \end{enumerate}
+
+    More lemma: cancelation lemma, clear.
+
+    Here is one interesting:
+
+    \(\text{Nil}(A)\) is an ideal in \(A\).
+
+    Proof. Let \(x \in \text{Nil}(A)\) and \(a \in A\). Then \(x \cdot a \in \text{Nil}(A)\) (duh, obviously).
+
+    We have to show that \(\text{Nil}(A)\) is an addtive subgroup of \(A\).
+
+    \begin{enumerate}
+        \item Let \(x, y \in \text{Nil}(A)\). Then \(a^n = 0\) and \(b^m = 0\) for some \(n \in \mathbb{N}\). With the binominal theorem we get \((a + b)^{n + m}= 0\)
+    \end{enumerate}
+
+    I need the latex thingy for quotient ring.
+
+    Another lemma. The set \(A_{\text{red}} := A / \text{Nil}(A)\) is a reduced ring.
+
+    Proof. Assume there is an \(\overline{x} \in \text{Nil}(A_{\text{red}})\) but \(\overline{x} \neq 0\). So \(\overline{x}^n = 0\) for a suitable \(n \in \mathbb{N}\). We have \(0 = \overline{x}^n = (x + \text{Nil}(A))^n = \)
+
+
+
+    \begin{definition}[Sum of Ideals]
+        Let \(A\) be a ring and \(\{\mathfrak{a}_i\}_{i \in I}\) be a collection of ideals. We define the smallest ideal in \(A\) which contains each \(\mathfrak{a}_i\) by \(\sum_{i \in I} \mathfrak{a}_i\), i.e.
+        \begin{align}
+            \sum_{i \in I} \mathfrak{a}_i := \left\{ \sum_{i \in I} a_i \, \,\mid\, a_i \in \mathfrak{a}_i \text{ for all \(i \in I\), and \(a_i = 0\) for almost all i}\,\right\}
+        \end{align}
+    \end{definition}
+
+    This makes sense to me.
+
+    \begin{definition}[Intersection of Ideals]
+        We define the largest ideal in \(A\) which contains each \(\mathfrak{a}_i\) by
+        \begin{align}
+            \bigcap_{i \in I} \mathfrak{a}_i
+        \end{align}       
+    \end{definition}
+
+    Why is the sum the seemingly smaller ideal?
+\end{document}
+
+

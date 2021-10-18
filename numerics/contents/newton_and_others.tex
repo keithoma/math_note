@@ -1,0 +1,18 @@
+\begin{definition}[Newton's Method]
+    Let \(D \subset \mathbb{K}^n\) an nonempty open domain and \(x_0 \in D\). For \(j \in \mathbb{N}\) Newton's Method is recursively defined as
+    \begin{equation}
+        x_{j+1} = x_j - \frac{f(x_j)}{f'(x_j)}
+    \end{equation}
+    and stops if \(x_{j+1} \not\in D\) or \(f^\prime (x_j) = 0\).
+\end{definition}
+
+\begin{theorem}
+    Let \(x^* \in D\) be a root of \(f \in C^1 \left(D, \mathbb{K}^n\right)\) with \(f'(x^*)\) regular (if \(f\) is one-dimensional, then \(f^\prime (x^*) \neq 0\)), then the following hold.
+    \begin{enumerate}
+        \item There exists a \(\epsilon > 0\) such that the Newton's Method does not break for all \(x_0 \in \overline{B(x^*, \epsilon)}\). Moreover, we have the convergence
+        \begin{equation}
+            \lim_{j \rightarrow \infty} x_j = x^*
+        \end{equation}
+        \item Superlinear convergence. For all \(j \in \mathbb{N}\) and a null sequence \(q_j\)
+    \end{enumerate}
+\end{theorem}

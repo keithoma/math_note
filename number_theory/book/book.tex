@@ -1,0 +1,56 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amssymb}
+
+% page layout
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+% theorems
+\usepackage{amsthm}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{definition}{Definition}
+
+\usepackage[lastexercise]{exercise}
+
+
+\begin{document}
+    \begin{definition}[Characteristic of a Ring]
+        \textit{Some rings are inconvenient to work with, e.g. if \(1 + 1 = 0\), then \(2x = 0\) does not imply \(x = 0\), and the characteristic of a ring measures this inconvenience. Moreover, fields can be cartegorized through its characteristic, because crucially all fields have either prime or \(0\) characteristic.}
+        \vspace{3pt}
+
+        \noindent The characteristic of a ring \(R\), denoted char(\(R\)), is the smallest number of times the ring's multiplicative identity (\(1\)) is added to get to the additive identity (\(0\)). If this sum never reaches the additive identity the ring is said to have characteristic zero.
+
+        Equivalently, the characteristic of a ring \(R\) is defined as
+        \begin{enumerate}
+            \item The characteristic is the natural number \(n\) such that \(n\mathbb{Z}\) is the kernel of the unique ring homomorphism from \(\mathbb{Z}\) to \(R\).
+            \item The characteristic is the natural number \(n\) such that \(R\) contains a subring isomorphic to the factor ring \(\mathbb{Z}/n\mathbb{Z}\), which is the image of the above homomorphism.
+            \item When the non-negative integers \(\{0, 1, 2, 3, \ldots \}\) are partially ordered by divisibility, then \(1\) is the smallest and \(0\) is the largest. Then the characteristic of a ring is the smallest value of n for which \(n \cdot 1 = 0\). If nothing "smaller" (in this ordering) than \(0\) will suffice, then the characteristic is 0. This is the appropriate partial ordering because of such facts as that char(A × B) is the least common multiple of char A and char B, and that no ring homomorphism f : A → B exists unless char B divides char A.
+        \end{enumerate}
+    \end{definition}
+    Important notes: Fields only have prime or 0 characteristic!
+    \begin{Exercise}
+        Does a homomorphism between two fields of different characteristic exists?
+    \end{Exercise}
+    \begin{Answer}
+        No. Because char of \(R_1\) must divide char of \(R_2\), but fields always have prime chars.
+    \end{Answer}
+\end{document}
