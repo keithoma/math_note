@@ -148,13 +148,56 @@
     This makes sense to me.
 
     \begin{definition}[Intersection of Ideals]
-        We define the largest ideal in \(A\) which contains each \(\mathfrak{a}_i\) by
+        We define the largest ideal in \(A\) containing each \(\mathfrak{a}_i\) by
         \begin{align}
             \bigcap_{i \in I} \mathfrak{a}_i
         \end{align}       
     \end{definition}
 
-    Why is the sum the seemingly smaller ideal?
+    \begin{definition}[Product of Ideals]
+        
+    \end{definition}
+
+    \begin{definition}[Radical of Ideals]
+        The radical of an ideal \(\mathfrak{a}\) is given by
+        \begin{align}
+            \sqrt{\mathfrak{a}} := \left\{\, b \in A \, \mid \, \exists n \in \mathbb{N} : b^n = a \,\right\}
+        \end{align}
+    \end{definition}
+
+    Again some lemmas.
+
+    \(\sqrt{\mathfrak{a}}\) is an ideal.
+    \begin{enumerate}
+        \item We prove that \(\sqrt{\mathfrak{a}}\) is an additive subgroup of \(A\).
+        \begin{enumerate}
+            \item Let \(x, y \in \sqrt{\mathfrak{a}}\). Then for some \(n, m \in \mathbb{N}\) we have that \(x^n = y^m = a\). Consider
+            \begin{align}
+                (x + y)^{n + m}
+            \end{align}
+            This is a sum and product out of the elements in \(\sqrt{\mathfrak{a}}\).
+            \item Associativity and identity is inherited.
+            \item Inverse element is clear.
+        \end{enumerate}
+        This is also clear.
+    \end{enumerate}
+
+    Alternate way:
+
+    If \(\mathfrak{a} = A\), then \(\sqrt{\mathfrak{a}} = A\) and this is an ideal. Consider the case \(\mathfrak{a} \neq A\). Let \(\pi: A \longrightarrow A / \mathfrak{a}\) be the natural projection. Since \(A / \mathfrak{a}\) is an ideal, we can apply the lemma above and we know that \(\text{Nil}(A / \mathfrak{a})\) is an ideal.
+
+    The point here is that
+    \begin{align}
+        \pi^{-1} (\text{Nil}(A / \mathfrak{a})) = \sqrt{\mathfrak{a}}
+    \end{align}
+
+
+    The Chinese Remainder theorem
+
+    Let \(A\) be a ring, \(n \geq 2\) and \(\mathfrak{a}_1, \ldots, \mathfrak{a}_n\) be ideals in \(A\).
+    \begin{enumerate}
+        \item If the \(\mathfrak{a}_i\) are pairwise coprime, then \(\prod_{i=1}^n \mathfrak{a}_i = \bigcap_{i=1}^n \mathfrak{a}_i\)
+    \end{enumerate}
 \end{document}
 
 
