@@ -28,8 +28,24 @@
   {\topsep}% space after theorem head; " " = normal interword space
   {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
 
+  \newtheoremstyle{custom_theorem}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
 \theoremstyle{custom_definition}
 \newtheorem{definition}{Definition}
+
+\theoremstyle{custom_theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
 \usepackage[lastexercise]{exercise}
 
@@ -199,6 +215,37 @@
         \item If the \(\mathfrak{a}_i\) are pairwise coprime, then \(\prod_{i=1}^n \mathfrak{a}_i = \bigcap_{i=1}^n \mathfrak{a}_i\)
     \end{enumerate}
     something
+
+    \begin{theorem}[Universal Property of the Quotient]
+        For a ring homomorphism \(\varphi: R \longrightarrow S\), and an ideal \(I \subseteq \ker{\varphi}\), there exists a unique homomorphism \(\overline{\varphi}: \bigslant{R}{I} \longrightarrow S\) such that \(\overline{\varphi} \circ \pi = \varphi\), where \(\pi: R \longrightarrow \bigslant{R}{I}\) is the canonical projection.
+    \end{theorem}
+    \begin{proof}
+        If there is such a \(\overline{\varphi}\), then for all \(x \in R\) it must satisfy
+        \begin{equation}
+            \varphi(x) = \overline{\varphi}(\pi(x)) = \overline{\varphi}(\overline{x}) \text{.}
+        \end{equation}
+        We just have to make sure that the above \(\overline{\varphi}\) is well defined. Let \(x, y \in R\) such that \(\overline{x} = \overline{y}\), then by definition of the quotient ring we have that \(x - y \in \mathfrak{a} \subseteq \ker \varphi\). So \(\varphi(x - y) = 0\) and since \(\varphi\) is a ring homomorphism we have \(\varphi(x) = \varphi(y)\).
+    \end{proof}
+    \begin{lemma}[Prime Ideals and Integral Domains]
+        \(\mathfrak{p}\) is a prime ideal if and only if \(\bigslant{R}{\mathfrak{p}}\) is an integral domain.
+    \end{lemma}
+    \begin{proof}
+    Apparantly this is a tautology? See Bosch 41.
+    \end{proof}
+    \begin{lemma}
+        \(\mathfrak{m}\) is a maximal ideal if and only if \(\bigslant{R}{m}\) is a field.
+    \end{lemma}
+    \begin{lemma}
+        All maximal ideals are prime ideals.
+    \end{lemma}
+    \begin{lemma}
+        Let \(R\) be a ring, \(\mathfrak{a}\) an ideal in \(R\). Moreover, define the sets
+        \begin{align}
+            X &:= \{\, \text{Ideals in \(\bigslant{R}{\mathfrak{a}}\)} \,\} \\
+            Y &:= \{\, \bigslant{\mathfrak{b}}{\mathfrak{a}} \,\mid\, \mathfrak{b} \subset R, \, \mathfrak{b} \supseteq \mathfrak{a} \,\}
+        \end{align}
+        https://math.stackexchange.com/questions/69578/bijection-between-ideals-of-r-i-and-ideals-containing-i?rq=1
+    \end{lemma}
 \end{document}
 
 
