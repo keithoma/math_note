@@ -1,0 +1,101 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{mathtools}
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+% page layout
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+% theorems
+\usepackage{amsthm}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+  \newtheoremstyle{custom_theorem}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{definition}{Definition}
+
+\theoremstyle{custom_theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\usepackage[lastexercise]{exercise}
+
+\begin{document}
+    \begin{definition}[Chart]
+        An \(n\)-dimensional chart \((\mathcal{U}, x)\) on a set \(M\) consists of a subset \(\mathcal{U \subseteq M}\) and an injective map \(x: \mathcal{U} \longrightarrow \mathbb{R}^n\) whose image \(x(\mathcal{U}) \subseteq \mathbb{R}^n\) is an open set.
+    \end{definition}
+    \begin{definition}[Transition Maps]
+        Any two charts \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) determine a pair of transition maps
+        \begin{align}
+            x(\mathcal{U} \cap \mathcal{V}) \xrightarrow{y \circ x^{-1}} y(\mathcal{U} \cap \mathcal{V}) \\
+            y(\mathcal{U} \cap \mathcal{V}) \xrightarrow{x \circ y^{-1}} x(\mathcal{U} \cap \mathcal{V})
+        \end{align}
+        which are inverse to each other, and are thus bijections between subset of \(\mathbb{R}^n\).
+    \end{definition}
+    \begin{definition}[\(C^k\)-compatible]
+        We say that the two charts are \(C^k\)-compatible for some \(k \in \mathbb{N} \cup \{0, \infty\}\) if the sets \(x(\mathcal{U} \cap \mathcal{V})\) and \(y(\mathcal{U} \cap \mathcal{V})\) are both open and the transition maps \(y \circ x^{-1}\) and \(x \circ y^{-1}\) are both of class \(C^k\). If \(k = \infty\), we say the charts are smoothly compatible.
+    \end{definition}
+    \begin{definition}[Atlas]
+        An atlas of class \(C^k\) for the set \(M\) (or smooth atlas in the case \(k = \infty\)) is a collection of charts \(\mathcal{A} = \{(\mathcal{U}_\alpha, x_\alpha)\}_{\alpha \in I}\) that are all \(C^k\)-compatible with each other, such that \(\bigcup_{\alpha \in I} \mathcal{U} = M\).
+    \end{definition}
+    \begin{definition}
+        For a set \(M\) with an atlas \(\mathcal{A}\) of class \(C^k\) and \(r \in \mathbb{N} \cup \{0, \infty\}\) with \(r \leq k\), a function \(f: M \longrightarrow \mathbb{R}\) is said to be of class \(C^k\) if and only if the function
+        \begin{align}
+            f \circ x^{-1}: x(\mathcal{U}) \longrightarrow \mathbb{R}
+        \end{align}
+        is of class \(C^r\) for every chart \((\mathcal{U}, x) \in \mathcal{A}\).
+    \end{definition}
+    \begin{definition}
+        For \(k \in \mathbb{N} \cap \{\infty\}\), a \(C^k\)-structure or differentiable structure of class \(C^k\) on a set \(M\) is a maximal atlas \(\mathcal{A}\) of class \(C^k\) on \(M\). In the case \(k = \infty\), we also call this a smooth structure on \(M\). If \(M\) has been endowed with a \(C^k\)-structure \(\mathcal{A}\), then a chart \((\mathcal{U}, x)\) on \(M\) will be referred to as a \(C^k\)-chart if it belongs to the maximal atlas \(\mathcal{A}\).
+    \end{definition}
+    \begin{definition}[Topology]
+        A topology on a set \(X\) is a collection \(\mathcal{T}\) of subsets of \(X\) satisfying the following axioms:
+        \begin{enumerate}
+            \item \(\emptyset \in \mathcal{T}\) and \(X \in \mathcal{T}\).
+            \item For every subcollection \(I \subseteq \mathcal{T}\) it is \(\bigcup_{\mathcal{U} \in I} \mathcal{U} \in \mathcal{T}\).
+            \item For every pair \(\mathcal{U}_1, \mathcal{U}_2 \in \mathcal{T}\) it is \(\mathcal{U}_1 \cap \mathcal{U}_2 \in \mathcal{T}\).
+        \end{enumerate}
+        The pair \((X, \mathcal{T})\) is then called a topological space, and we call the sets \(\mathcal{U} \in \mathcal{T}\) the open subsets in \((X, \mathcal{T})\).
+    \end{definition}
+    \begin{definition}[Metrizable]
+        
+    \end{definition}
+    \begin{definition}[]
+        Assume \(k \in \mathbb{N} \cup \{\infty\}\). A differentiable manifold of class \(C^k\) or \(C^k\)-manifold is a set \(M\) endowed with a \(C^k\)-structure such that the induced topology on \(M\) is metrizable and separable. In the case \(k = \infty\), we also call \(M\) are smooth manifold.
+
+        We say that \(M\) is \(n\)-dimensional and refer to \(M\) as an \(n\)-manifold, written \(\text{dim}\, M = n\), if every chart in its differentiable structure is \(n\)-dimensional.
+    \end{definition}
+\end{document}
+
+
