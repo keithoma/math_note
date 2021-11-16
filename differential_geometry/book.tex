@@ -45,6 +45,7 @@
 \theoremstyle{custom_definition}
 \newtheorem{definition}{Definition}
 \newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
 
 \theoremstyle{custom_theorem}
 \newtheorem{lemma}{Lemma}
@@ -115,8 +116,63 @@
             \end{align}
         \end{enumerate}
     \end{exercise}
+    \begin{proof} % not done
+        \begin{align}
+            \beta_1:& (0, 2 \pi) \times \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \longrightarrow \mathbb{R}^3 \\
+            \beta_2:& (-\pi, \pi) \times \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \longrightarrow \mathbb{R}^3
+        \end{align}
+    \end{proof}
+    \begin{exercise}
+        For \(j = 0, \ldots, n\), define \(\mathcal{U}_j := \{[x_0 : \ldots : x_n] \in \mathbb{R}\mathbb{P}^n \mid x_j \neq 0\}\) and a map \(\varphi_j : \mathbb{R}^n \longrightarrow \mathbb{R}\mathbb{P}^n\) by
+        \begin{align}
+            \varphi_j (t_1, \ldots, t_n) := [t_1 : \ldots : t_j : 1 : t_{j+1} : \ldots : t_n] \text{.}
+        \end{align}
+        Show that \(\varphi_j\) is an injective map onto \(\mathcal{U}_j\), so \((\mathcal{U}_j, \varphi_j^{-1})\) is a chart, and compute the transition maps relating any two of the charts constructed in this way for different values of \(j = 0, \ldots, n\).
+    \end{exercise}
     \begin{proof}
-        hi
+        We begin by showing \(\varphi_j\) is injective. It is for some \(\lambda \in \mathbb{R}\)
+        \begin{align}
+            \varphi(t_1, \ldots, t_n) = \varphi(t_1^\prime, \ldots, t_n^\prime) \iff & [t_1 : \ldots : t_j : 1 : t_{j+1} : \ldots : t_n] = [t_1^\prime : \ldots : t_j^\prime : 1 : t_{j+1}^\prime : \ldots : t_n] \\
+            \iff & [t_1 : \ldots : t_j : 1 : t_{j+1} : \ldots : t_n] = \lambda [t_1^\prime : \ldots : t_j^\prime : 1 : t_{j+1}^\prime : \ldots : t_n] \text{,}
+        \end{align}
+        so we have \(\lambda = 1\). This means \((t_1, \ldots, t_n) = (t_1^\prime, \ldots, t_n^\prime)\) and \(\varphi_j\) is injective.
+
+        \(\varphi_j^{-1}(\mathcal{U}_j)\) is an open set. To show this, I think, we first have that \(\varphi_j(\mathbb{R}^n) = \mathcal{U}_j\) which is open because \(\varphi_j\) is continuous and injective. Therefore, the image of the inverse function is also open. We might have to check that is continuous, probably use the local inverse function theorem.
+
+        Transition maps. Consider \((\mathcal{U}_j, \varphi_j^{-1})\) and \((\mathcal{U}_k, \varphi_k^{-1})\) for \(k < j\). We have
+        \begin{align}
+            \varphi_k^{-1} \circ \varphi_j : \varphi_j^{-1}(\mathcal{U}_k \cap \mathcal{U}_j) \longrightarrow \varphi_k^{-1} (\mathcal{U}_k \cap \mathcal{U}_j)
+        \end{align}
+    \end{proof}
+    \begin{exercise}
+        Sheet 1 Problem 3
+    \end{exercise}
+    \begin{exercise}
+        Consider the two 1-dimensional charts \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) on \(\mathbb{R}\) defined by \(\mathcal{U} = \mathcal{V} := \mathbb{R}\), with \(x(t) := t\) and \(y(t) := t^3\).
+        \begin{enumerate}
+            \item Show that \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are \(C^0\)-compatible, but not \(C^1\)-compatible.
+        \end{enumerate}
+    \end{exercise}
+    \begin{proof}
+        1.
+        
+        Two charts \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are \(C^0\)-compatible if the sets \(x(\mathcal{U} \cap \mathcal{V})\) and \(y(\mathcal{U} \cap \mathcal{V})\) are both open and the transition maps \(y \circ x^{-1}\) and \(x \circ y^{-1}\) are both of class \(C^0\). First, we have \(\mathcal{U} = \mathcal{V} = \mathbb{R}\), therefore
+        \begin{align}
+            x(\mathcal{U} \cap \mathcal{V}) = x(\mathbb{R}) = \mathbb{R} \\
+            y(\mathcal{U} \cap \mathcal{V}) = y(\mathbb{R}) = \mathbb{R}
+        \end{align}
+        which are both open sets. Now consider the transition maps \(y \circ x^{-1}: \mathbb{R} \longrightarrow \mathbb{R}\) and \(x \circ y^{-1}: \mathbb{R} \longrightarrow \mathbb{R}\). It is
+        \begin{align}
+            \left( y \circ x^{-1} \right) (t) = y(x) = t^3 \\
+            \left( x \circ y^{-1} \right) (t) = x(\sqrt[3]{t}) = \sqrt[3]{t}
+        \end{align}
+        which are both continuous functions.
+
+        On the other hand, \(x \circ y^{-1}\) is not of class \(C^1\), because
+        \begin{align}
+            (x \circ y^{-1})^\prime (t) = \frac{1}{3t^{\frac{2}{3}}}
+        \end{align}
+        is not continuous.
     \end{proof}
 \end{document}
 
