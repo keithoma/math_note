@@ -82,6 +82,9 @@
         is of class \(C^r\) for every chart \((\mathcal{U}, x) \in \mathcal{A}\).
     \end{definition}
     \begin{definition}
+        We say that an atlas \(\mathcal{A} = \{(\mathcal{U}_\alpha, x_\alpha)\}_{\alpha \in I}\) of class \(C^k\) is maximal if it cannot be enlarged any further without sacrificing compatibility, i.e. every chart that is \(C^k\)-compatible with all of the charts in \(\mathcal{A}\) already belongs to \(\mathcal{A}\).
+    \end{definition}
+    \begin{definition}
         For \(k \in \mathbb{N} \cap \{\infty\}\), a \(C^k\)-structure or differentiable structure of class \(C^k\) on a set \(M\) is a maximal atlas \(\mathcal{A}\) of class \(C^k\) on \(M\). In the case \(k = \infty\), we also call this a smooth structure on \(M\). If \(M\) has been endowed with a \(C^k\)-structure \(\mathcal{A}\), then a chart \((\mathcal{U}, x)\) on \(M\) will be referred to as a \(C^k\)-chart if it belongs to the maximal atlas \(\mathcal{A}\).
     \end{definition}
     \begin{definition}[Topology]
@@ -102,6 +105,27 @@
         We say that \(M\) is \(n\)-dimensional and refer to \(M\) as an \(n\)-manifold, written \(\text{dim}\, M = n\), if every chart in its differentiable structure is \(n\)-dimensional.
     \end{definition}
 
+    \begin{lemma}
+        Suppose \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are two \(C^k\)-compatible charts on \(M\), and \(f: M \longrightarrow \mathbb{R}\) is a function. Then for each nonnegative integer \(r \leq k\), the function
+        \begin{align}
+            f \circ x^{-1}: x(\mathcal{U} \cap \mathcal{V}) \longrightarrow \mathbb{R}
+        \end{align}
+        is of class \(C^r\) if and only if the function
+        \begin{align}
+            f \circ y^{-1}: y(\mathcal{U} \cap \mathcal{V}) \longrightarrow \mathbb{R}
+        \end{align}
+        is of class \(C^r\).
+    \end{lemma}
+    \begin{proof}
+        Fix \(k\) and \(r\) with \(r \leq k\). Let \(f \circ x^{-1}\) be of class \(C^r\). We have
+        \begin{align}
+            f \circ y^{-1} = f \circ x^{-1} \circ x \circ y^{-1} \text{.}
+        \end{align}
+    \(f \circ x^{-1}\) is of class \(C^r\) and \(x \circ y^{-1}\) is of class \(C^k\). With the chain rule we have that \(f \circ y^{-1}\) is of class \(C^r\).
+    \end{proof}
+    \begin{lemma}
+        Given an atlas \(\mathcal{A} = \{(\mathcal{U}_\alpha, x_\alpha)\}_{\alpha \in I}\) of class \(C^k\) on \(M\), let \(\mathcal{A}^\prime\) denote the collection of all charts on \(M\) that are \(C^k\)-compatible with all the charts in \(\mathcal{A}\). Then \(\mathcal{A}^\prime\) is a maximal atlas of class \(C^k\), and it is the only one containing \(\mathcal{A}\).
+    \end{lemma}
     \begin{exercise}
         Let \(S^2 \in \mathbb{R}^3\) be the three dimensional unit sphere and set \(p_{\pm} := (0, 0, \pm 1) \in S^2\). Find two subsets \(\mathcal{U}_1, \mathcal{U}_2 \subset S^2\) with \(\mathcal{U}_1 \cup \mathcal{U}_2 = S^2 \setminus \{p_+, p_-\}\) such that for \(i = 1, 2\),
         \begin{enumerate}[a)]
@@ -152,11 +176,13 @@
         \begin{enumerate}
             \item Show that \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are \(C^0\)-compatible, but not \(C^1\)-compatible.
         \end{enumerate}
+        Since both charts are globally defined, they each define atlases \(\mathcal{A} := \{(\mathcal{U}, x)\}\) and \(\mathcal{A}^\prime := \{(\mathcal{V}, y)\}\) on \(\mathbb{R}\). Taking the unique maximal smooth atlas containing \(\mathcal{A}\) gives the standard smooth structure on \(\mathbb{R}\). If we instead take the unique maximal smooth atlas containing \(\mathcal{A}^\prime\), we obtain in this way \(\mathbb{R}^\prime\). It is the same set as \(\mathbb{R}\), but it carries a different smooth structure and is thus a different smooth manifold.
+        \begin{enumerate}[resume]
+            \item Show that the natural topologies induced on \(\mathbb{R}\) and \(\mathbb{R}^\prime\) by their respective smooth structures are the same. Equivalently, the identity map \(\mathbb{R} \longrightarrow \mathbb{R}^\prime\) is a homeomorphism.
+        \end{enumerate}
     \end{exercise}
     \begin{proof}
-        1.
-        
-        Two charts \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are \(C^0\)-compatible if the sets \(x(\mathcal{U} \cap \mathcal{V})\) and \(y(\mathcal{U} \cap \mathcal{V})\) are both open and the transition maps \(y \circ x^{-1}\) and \(x \circ y^{-1}\) are both of class \(C^0\). First, we have \(\mathcal{U} = \mathcal{V} = \mathbb{R}\), therefore
+        1. \space Two charts \((\mathcal{U}, x)\) and \((\mathcal{V}, y)\) are \(C^0\)-compatible if the sets \(x(\mathcal{U} \cap \mathcal{V})\) and \(y(\mathcal{U} \cap \mathcal{V})\) are both open and the transition maps \(y \circ x^{-1}\) and \(x \circ y^{-1}\) are both of class \(C^0\). First, we have \(\mathcal{U} = \mathcal{V} = \mathbb{R}\), therefore
         \begin{align}
             x(\mathcal{U} \cap \mathcal{V}) = x(\mathbb{R}) = \mathbb{R} \\
             y(\mathcal{U} \cap \mathcal{V}) = y(\mathbb{R}) = \mathbb{R}
@@ -173,6 +199,9 @@
             (x \circ y^{-1})^\prime (t) = \frac{1}{3t^{\frac{2}{3}}}
         \end{align}
         is not continuous.
+
+        \vspace{1cm}
+        \noindent 2. \space
     \end{proof}
 \end{document}
 
