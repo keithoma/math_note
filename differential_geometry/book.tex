@@ -8,6 +8,8 @@
 
 \usepackage{amssymb}
 
+\usepackage[shortlabels]{enumitem}
+
 % page layout
 \usepackage{geometry}
  \geometry{
@@ -42,10 +44,12 @@
 
 \theoremstyle{custom_definition}
 \newtheorem{definition}{Definition}
+\newtheorem{exercise}{Exercise}
 
 \theoremstyle{custom_theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
+
 
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
@@ -96,6 +100,24 @@
 
         We say that \(M\) is \(n\)-dimensional and refer to \(M\) as an \(n\)-manifold, written \(\text{dim}\, M = n\), if every chart in its differentiable structure is \(n\)-dimensional.
     \end{definition}
+
+    \begin{exercise}
+        Let \(S^2 \in \mathbb{R}^3\) be the three dimensional unit sphere and set \(p_{\pm} := (0, 0, \pm 1) \in S^2\). Find two subsets \(\mathcal{U}_1, \mathcal{U}_2 \subset S^2\) with \(\mathcal{U}_1 \cup \mathcal{U}_2 = S^2 \setminus \{p_+, p_-\}\) such that for \(i = 1, 2\),
+        \begin{enumerate}[a)]
+            \item there are 2-dimensional charts of the form \((\mathcal{U}_i, \alpha_i)\) with \(\alpha_i = (\theta_i, \phi_i)\), where the coordinate functions \(\theta_i, \phi_i: \mathcal{U}_i \longrightarrow \mathbb{R}\) are
+            \begin{enumerate}[i)]
+                \item continuous
+                \item and satisfy the spherical coordinate relations,
+            \end{enumerate}
+            \item and have images
+            \begin{align}
+                \alpha_1(\mathcal{U}_1) = (0, 2 \pi) \times (-\frac{\pi}{2}, \frac{\pi}{2}) \subset \mathbb{R}^3 \quad \text{and} \quad \alpha_2(\mathcal{U}_2) = (-\pi, \pi) \times (-\frac{\pi}{2}, \frac{\pi}{2}) \subset \mathbb{R}^3 \text{.}
+            \end{align}
+        \end{enumerate}
+    \end{exercise}
+    \begin{proof}
+        hi
+    \end{proof}
 \end{document}
 
 
