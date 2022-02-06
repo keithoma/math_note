@@ -71,6 +71,19 @@
 
       I think the above proof should work into both directions.
     \end{proof}
+    \item \((\mathfrak{b}_1 + \mathfrak{b}_2)^c \supseteq \mathfrak{b}_1^c + \mathfrak{b}_2^c\)
+    \begin{proof}
+      We have
+      \begin{equation}
+        (\mathfrak{b}_1 + \mathfrak{b}_2)^c = \makeset{x \in A}{\exists \, b_1 \in \mathfrak{b}_1 \exists \, b_2 \in \mathfrak{b}_2 : \varphi(x) = b_1 + b_2} \text{.}
+      \end{equation}
+      Now let \(x \in \mathfrak{b}_1^c + \mathfrak{b}_2^c\), then \(x = a_1 + a_2\) where \(\varphi(a_1) \in \mathfrak{b}_1\) and \(\varphi(a_2) \in \mathfrak{b}_2\). It is
+      \begin{align}
+        \varphi(x) =& \varphi(a_1 + a_2) & \\
+        =& \varphi(a_1) + \varphi(a_2) & \text{(by additivity)}
+      \end{align}
+      Since \(\varphi(a_1) \in \mathfrak{b}_1\) and \(\varphi(a_2) \in \mathfrak{b}_2\) we have that \(x \in (\mathfrak{b}_1 + \mathfrak{b}_2)^c\).
+    \end{proof}
   \end{enumerate}
 \end{exr}
 \end{document}
