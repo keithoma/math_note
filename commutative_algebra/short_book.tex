@@ -1,0 +1,76 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lmm}{Lemma}
+\newtheorem{prps}{prps}
+
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{exr}[thm]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{defn}[thm]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\begin{document}
+%
+%
+%
+\chapter{Commutative Rings}
+\begin{exr}
+  Let \(\varphi: A \longrightarrow B\) be a ring homomorphism, \(\mathfrak{a}_1, \mathfrak{a}_2, \mathfrak{a}_3\) ideals in \(A\), and \(\mathfrak{b}_1, \mathfrak{b}_2, \mathfrak{b}_3\) ideals of \(B\). Prove the following statements.
+  \begin{enumerate}
+    \item \((\mathfrak{a}_1 + \mathfrak{a}_2)^e = (\mathfrak{a}_1)^e + (\mathfrak{a}_2)^e\).
+    \begin{proof}
+      We show \((\mathfrak{a}_1 + \mathfrak{a}_2)^e \subseteq (\mathfrak{a}_1)^e + (\mathfrak{a}_2)^e\). Let \(x \in (\mathfrak{a}_1 + \mathfrak{b}_2)^e\), then we have for some index set \(I\)
+      \begin{equation}
+        x = \sum_{i \in I} \lambda_i x_i \text{,}
+      \end{equation}
+      where \(\lambda_i \in B\) and \(x_i \in \varphi(\mathfrak{a}_1 + \mathfrak{a}_2)\) for all \(i \in I\). For each \(i \in I\) it is \(x_i = \varphi(\mu_{i, 1} a_{i, 1} + \mu_{i, 2} a_{i, 2})\), hence
+      \begin{align}
+        x =& \sum_{i \in I} \lambda_i \varphi(\mu_{i, 1} a_{i, 1} + \mu_{i, 2} a_{i, 2}) &  \\
+        =& \sum_{i \in I} \lambda_i \left( \varphi(\mu_{i, 1} a_{i, 1}) + \varphi(\mu_{i, 2} a_{i, 2}) \right)&\text{(by linearity)} \\
+        =& \sum_{i \in I} \lambda_i \left( \mu_{i, 1} \varphi( a_{i, 1}) + \mu_{i, 2} \varphi( a_{i, 2}) \right)&\text{(by linearity)} \\
+        =& \sum_{i \in I} \lambda_i \mu_{i, 1}\varphi( a_{i, 1}) + \lambda_i \mu_{i, 2}\varphi( a_{i, 2}) & \text{(by distributivity)} \\
+        =& \sum_{i \in I} \lambda_i \mu_{i, 1} \varphi( a_{i, 1}) + \sum_{i \in I} \lambda_i \mu_{i, 2} \varphi( a_{i, 2}) & \text{(reordering the sum)} \text{.} \\
+      \end{align}
+      The last term is exactly the elements expressed by \(\mathfrak{a}_1^e + \mathfrak{a}_2^e\), therefore, \((\mathfrak{a}_1 + \mathfrak{a}_2)^e \subseteq (\mathfrak{a}_1)^e + (\mathfrak{a}_2)^e\).
+
+      I think the above proof should work into both directions.
+    \end{proof}
+  \end{enumerate}
+\end{exr}
+\end{document}

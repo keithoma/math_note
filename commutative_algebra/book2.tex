@@ -1,0 +1,218 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lmm}{Lemma}
+\newtheorem{prps}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{exr}[thm]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{defn}[thm]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\begin{document}
+%
+%
+%
+\chapter{Commutative Rings}
+\begin{defn}
+    \begin{equation}
+        A^\times := \makeset{a \in A}{\exists b \in A : a \cdot b = 1}
+    \end{equation}
+    is the group of units in \(A\).
+\end{defn}
+
+
+\begin{exmp}
+    Consider the ring \((\mathbb{Z}, +, \cdot)\).
+    \begin{enumerate}
+        \item \( \mathbb{Z}^\times = \set{-1, 1} \).
+        \item \( \text{ZD}(\mathbb{Z}) = \set{0} \).
+        \item \( \text{Nil}(\mathbb{Z}) = \set{0} \).
+    \end{enumerate}
+    \(\mathbb{Z}\) is therefore an integral domain and is reduced.
+\end{exmp}
+
+\begin{exmp}
+    Consider an arbitary field \(\mathbb{K}\) as a ring.
+    \begin{enumerate}
+        \item \( \mathbb{K}^\times = \set{-1, 1} \).
+        \item \( \text{ZD}(\mathbb{K}) = \set{0}\).
+        \item \( \text{Nil}(\mathbb{Z}) = \set{0} \).
+    \end{enumerate}
+    All fields are therefore an integral domain and are reduced.
+\end{exmp}
+
+\begin{exmp}
+    Consider the set of all continuous real-valued functions defined on the real numbers \(C(\mathbb{R})\) with the operations of addition and multiplication.
+    \begin{enumerate}
+        \item \((C(\mathbb{R}))^\times = ???\) % = C(\mathbb{R})?
+    \end{enumerate}
+\end{exmp}
+
+\begin{exmp}
+    Consider \(\mathbb{Z}[c]\) with \(c \in \mathbb{C}\).
+    \begin{enumerate}
+        \item \( (\mathbb{Z}[c])^\times = \set{-1, 1}\).
+        \item \( \text{ZD}(\mathbb{Z}[c]) = \set{ 0 } \).
+        \item \( \text{Nil}(\mathbb{Z}[c]) = \set{0} \).
+    \end{enumerate}
+\end{exmp}
+
+\begin{lmm}
+    \begin{enumerate}
+        \item \((A \setminus \text{ZD}(A), \cdot)\) is a semigroup containing \(A^\times\).
+        \item For \(a \in A \setminus \text{ZD}(A)\) and \(b_1, b_2 \in A\) with \(a \cdot b_1 = a \cdot b_2\) one can clear, so we have \(b_1 = b_2\).
+        \item \(\text{Nil}(A)\) is an ideal in \(A\).
+        \item The set \(A_\text{red} := \bigslant{A}{\text{Nil}(A)}\) is a reduced ring.
+        \item \(\set{0} \subseteq \text{Nil}(A) \subseteq \text{ZD}(A) \subseteq A \setminus A^\times\)
+    \end{enumerate}
+\end{lmm}
+\begin{proof}
+    \begin{enumerate}
+        \item Consider \((A \setminus \text{ZD}(A), \cdot)\). The associativity of the multiplication is inherited from \(A\), hence the only thing to show is that the operation is well-defined. Let \(a, b \in \text{ZD}(A)\), then there is a \(x \in \text{ZD}(A)\) such that \(x \cdot a = 0\). We have
+        \begin{align}
+            x \cdot a = 0 \iff x \cdot a \cdot b = 0 \text{.}
+        \end{align}
+        This means that \(a \cdot b \in \text{ZD}(A)\) or in other words the set is closed under multiplication.
+
+        Now let \(u \in A^\times\) be an unit, hence we have \(u \cdot u^{-1} = 1\) for some \(u^{-1} \in A^\times\). Assume \(u \in \text{ZD}(A)\). Then, there is a \(x \in \text{ZD}(A)\) with \(x \neq 0\) such that \(x \cdot u = 0\). We have
+        \begin{align}
+            u \cdot u^{-1} = 1 &\iff x \cdot u \cdot u^{-1} = x \\
+            &\iff 0 \cdot u^{-1} = x \\
+            &\iff 0 = x \text{.}
+        \end{align}
+        This is a contradiction with the assumption \(x \neq 0\).
+        %
+        \item
+    \end{enumerate}
+\end{proof}
+
+\begin{defn}
+    Two integers \(a\) and \(b\) are coprime if the only positive integer that is a divisor of both of them is \(1\). Equivalently, their greatest common divisor is \(1\).
+
+    Two ideals \(\mathfrak{a}_1\) and \(\mathfrak{a}_2\) in \(A\) are called coprime if \(\mathfrak{a}_1 + \mathfrak{a}_2 = A\).
+\end{defn}
+
+\begin{prps}
+
+\end{prps}
+
+\begin{exr}
+    \begin{enumerate}
+        \item \(\mathfrak{a} \subseteq (\mathfrak{a} : \mathfrak{b})\).
+        \item \((\mathfrak{a} : \mathfrak{b}) \mathfrak{b} \subseteq \mathfrak{a}\).
+    \end{enumerate}
+\end{exr}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Fix an \(a \in \mathfrak{a}\). We want to show that \(a \in (\mathfrak{a} : \mathfrak{b}) = \makeset{x \in A}{x \mathfrak{b} \subseteq \mathfrak{a}}\) or in other words \(a \mathfrak{b} \subseteq \mathfrak{a}\). For all \(b \in \mathfrak{b}\) we have \(a \cdot b \in \mathfrak{a}\), therefore, \(a \mathfrak{b} \subseteq \mathfrak{b}\). Conclude \(\mathfrak{a} \subseteq (\mathfrak{a} : \mathfrak{b})\).
+    \end{enumerate}
+\end{proof}
+
+\begin{exr}
+    Let \(x\) be a nilpotent element of a ring \(A\). Show that \(1 + x\) is a unit of \(A\). Deduce that the sum of a nilpotent element and unit is a unit.
+\end{exr}
+
+\begin{proof}
+    Let \(x \in \text{Nil}(A)\). Since the nilradical is the intersection of all prime ideals, we have \(x \in \mathfrak{p}\) for all \(\mathfrak{p} \in \text{Spec}(A)\). All prime ideals are contained in some maximal ideal \(\mathfrak{m}\), therefore, we have \(x \in \text{Jac}(A)\). It follows that \(1 - xy \in A^\times\) for all \(y \in A\). Choose \(y = -1\) and conclude \(1 + x\) is a unit.
+\end{proof}
+
+\begin{exr}
+    Let \(A\) be a ring and let \(A[X]\) be the ring of polynomials in an indeterminate \(X\) with coefficients in \(A\). Let
+    \begin{equation}
+        f = a_0 + a_1 X + a_2 X^2 + \ldots + a_n x^n \in A[X] \text{.}
+    \end{equation}
+    Prove that
+    \begin{enumerate}
+        \item \(f\) is a unit in \(A[X]\) if and only if \(a_0\) is a unit in \(A\) and \(a_1, \ldots, a_n\) are nilpotent.
+    \end{enumerate}
+\end{exr}
+
+\begin{exr}[Robert's Lemma]
+    Let \(a \in A\) and \(b \in \text{ZD}(A) \cup \set{0}\) and \(a + b \in A^\times\), then \(a \in A^\times\).
+\end{exr}
+
+\chapter{Modules}
+
+\begin{defn}[\(A\)-module]
+    \textit{Modules are the generazation of vector spaces. While vector spaces are defined over a field, modules are over a ring. Modules is also a generalization of abelian groups.}
+
+    An \(A\)-module is an abelian group \((M, +)\), together with a map \(A \times M \longrightarrow M\), given by \((a, m) \mapsto a \cdot m\), satisfying for all \(m, m_1, m_2 \in M\) and all \(a, a_1, a_2 \in A\) the following:
+\end{defn}
+
+\begin{defn}[\(A\)-submodules]
+\end{defn}
+
+\begin{defn}[\(A\)-module homomorphism]
+    \textit{\(A\)-module homomorphism or \(A\)-linear maps are structure perserving maps between two \(A\)-modules.}
+\end{defn}
+
+\begin{prps}[\(\text{Hom}(M, N)\) is an \(A\)-module]
+\end{prps}
+
+\begin{prps}[Quotient with submodule forms an module]
+    Let \(M\) be an \(A\)-module an \(N\) its submodule. Then \(\bigslant{M}{N}\) is an \(A\)-module.
+\end{prps}
+
+\begin{prps}
+    Let \(M\) be an \(A\)-module and \(\mathfrak{a} \subseteq A\) an ideal with \(am = 0\) for all \(a \in \mathfrak{a}\), then \(M\) is a an \(\bigslant{A}{\mathfrak{a}}\)-module by means of \((a + \mathfrak{a})m := am\) (for \(m \in M\), \(a \in A\)).
+\end{prps}
+
+\begin{thm}[Isomorphism Theorems]
+    Let \(M\) and \(N\) be \(A\)-modules, \(S\) and \(T\) submodules of \(M\), and \(\varphi: M \longrightarrow N\) be a module homomorphism. Then:
+    \begin{enumerate}
+        \item \(\bigslant{M}{\text{ker}(\varphi)} \cong \text{im}(\varphi)\).
+        \item \(\bigslant{(S + T)}{S} \cong \bigslant{S}{(S \cap T)}\).
+        \item If \(T \subseteq S \subseteq M\), then \(\bigslant{\bigslant{M}{T}}{\bigslant{S}{T}} \cong \bigslant{M}{S}\).
+    \end{enumerate}
+\end{thm}
+
+\begin{defn}
+    For a ring \(A\) and an index set \(I\) put
+    \begin{align}
+        A^{(I)} := \makeset{f: I \longrightarrow A}{f(i) = 0 \text{ for almost all } i \in I} \text{.}
+    \end{align}
+\end{defn}
+
+\begin{thm}[Nakayama's Lemma]
+    Let \(A\) be a ring, \(\mathfrak{a}\) be an ideal in \(A\), and \(M\) a finitely-generated module over \(A\). If \(\mathfrak{a}M = M\), then there exists an \(x \in A\) with \(x \equiv 1 \mod \mathfrak{a}\), such that \(x M = 0\).
+\end{thm}
+
+\end{document}
