@@ -40,7 +40,7 @@
 
 %%%%%
 \newcommand{\set}[1]{\left\{\, #1 \,\right\}}
-\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\Big|} #2 \,\right\}}
 
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
@@ -50,6 +50,13 @@
 %
 %
 \chapter{Commutative Rings}
+
+Definitions
+\begin{enumerate}
+  \item prime, coprime, relatively prime, irreducible
+\end{enumerate}
+
+
 \begin{exr}
   Let \(\varphi: A \longrightarrow B\) be a ring homomorphism, \(\mathfrak{a}_1, \mathfrak{a}_2, \mathfrak{a}_3\) ideals in \(A\), and \(\mathfrak{b}_1, \mathfrak{b}_2, \mathfrak{b}_3\) ideals of \(B\). Prove the following statements.
   \begin{enumerate}
@@ -86,4 +93,40 @@
     \end{proof}
   \end{enumerate}
 \end{exr}
+
+\begin{exr}
+  Let \(\varphi: A \longrightarrow B\) be a ring homomorphism, \(\mathfrak{a}\) an ideal of \(A\), and \(\mathfrak{b}\) an ideal of \(B\). Prove the following statements:
+  \begin{enumerate}
+    \item Then \(\mathfrak{a} \subseteq \mathfrak{a}^{ec}\).
+    \begin{proof}
+      It is
+      \begin{align}
+        \mathfrak{a}^{ec} = & \makeset{x \in A}{\varphi(x) \in \mathfrak{a}^e} \\
+        = & \makeset{x \in A}{\varphi(x) \in \langle \varphi(\mathfrak{a}) \rangle} \\
+        = & \makeset{x \in A}{\forall i \in I \, \exists a_i \in \mathfrak{a}_1 : \varphi(x) = \sum_{i \in I} \lambda_i \varphi(a_i)} \text{.}
+      \end{align}
+      Let \(a \in \mathfrak{a}\) and choose \(I = \set{1}\), \(\lambda_1\), and \(a_i = a\), then \(a \in \mathfrak{a}^{ec}\).
+    \end{proof}
+    \item \(\mathfrak{b}^{ce} \subseteq \mathfrak{b}\).
+    \item \(\mathfrak{a}^{ece} = \mathfrak{a}^e\).
+    \item \(\mathfrak{b}^{cec} = \mathfrak{b}^c\).
+    \item If \(\mathfrak{b}\) is an extension, then \(\mathfrak{b}^c\) is the largest ideal of \(A\) with extension \(\mathfrak{b}\).
+    \item If two extensions have the same contraction, then they are equal.
+    \begin{proof}
+      a
+    \end{proof}
+  \end{enumerate}
+\end{exr}
+
+\begin{exr}
+  Let \(A\) be a ring, \(A[\mathcal{X}, \mathcal{Y}]\) the polynomial ring in two sets of variables \(\mathcal{X}\) and \(\mathcal{Y}\). Show that \(\langle \mathcal{X} \rangle\) is prime if and only if \(A\) is a domain.
+\end{exr}
+\begin{proof}
+  It should be noted here, that \(A[\mathcal{X}]\) does not contain \(X_1 X_2\) for example. It does contain \(X_1 + X_2\) however. The rest is easy.
+\end{proof}
+\begin{exr}
+  Show that, in a PID, nonzero elements \(x\) and \(y\) are relatively prime (share no prime factor) if and only if they're coprime.
+\end{exr}
+
+
 \end{document}
