@@ -51,11 +51,49 @@
 %
 \chapter{Commutative Rings}
 
-Definitions
+List of Definitions
 \begin{enumerate}
-  \item prime, coprime, relatively prime, irreducible
+  \item Rings
+  \item Ring Homomorphism
+  \item Ideal
+  \item prime ideal
+  \item coprime
+  \item irreducible
+  \item zero divisor
+  \item nilpotent
+  \item spe
+  \item jacobson radical
+  \item ideal operation
 \end{enumerate}
 
+\begin{defn}[Ring]
+  A ring is a set \(R\) equipped with two binary operations \(+\) (addition) and \(\cdot\) (multiplication) satisfying the following three sets of axioms, called the ring axioms.
+  \begin{enumerate}
+    \item \((R, +)\) is an abelian group.
+    \item \((R, \cdot)\) is a semigroup.
+    \item Multiplication is distributive with respect to addition, meaning that
+    \begin{itemize}
+      \item \(a \cdot (b + c) = (a \cdot b) + (a \cdot c)\) for all \(a, b, c \in R\) (left distributivity).
+      \item \((b + c) \cdot a = (b \cdot a) + (c \cdot a)\) for all \(a, b, c \in R\) (right distributivity).
+    \end{itemize}
+  \end{enumerate}
+  A ring is called unitary if it contains the multiplicative identity and commutative if multiplication is commutative.
+\end{defn}
+From here, all rings are unitary commutative rings.
+
+\begin{defn}[Ring Homomorphism]
+\end{defn}
+
+\begin{defn}[Ideal]
+\end{defn}
+
+\begin{defn}[Prime Ideal]
+\end{defn}
+
+\begin{defn}[Zero Divisor]
+\end{defn}
+
+\part{Exercises}
 
 \begin{exr}
   Let \(\varphi: A \longrightarrow B\) be a ring homomorphism, \(\mathfrak{a}_1, \mathfrak{a}_2, \mathfrak{a}_3\) ideals in \(A\), and \(\mathfrak{b}_1, \mathfrak{b}_2, \mathfrak{b}_3\) ideals of \(B\). Prove the following statements.
@@ -263,4 +301,11 @@ Definitions
   \end{align}
   and I'm to lazy the show it for the multiplication and \(\varphi_a(1) = 1\). Morover, \(\varphi_a\) is surjective. So we have \(\varphi^{-1}_a(R^\times) \subseteq (R[X])^\times\). From there, if \(H(a)\) is a unit, so must \(H(X)\) be. In that case, \(H(X)\) and \((X - a)^n\) are obviously coprime.
 \end{proof}
+
+\begin{exr}
+  Let \(R\) be a ring, \(X\) a variable, \(F \in P := R[X]\), and \(a \in R\). Set \(F' := \partial F / \partial X\). Show the following statements are equivalent:
+  \begin{enumerate}
+    \item \(a\) is a supersimple root of \(F\).
+  \end{enumerate}
+\end{exr}
 \end{document}
