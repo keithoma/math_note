@@ -210,9 +210,23 @@ Definitions
   \begin{enumerate}
     \item \(\mathfrak{p}R[\mathcal{X}]\) and \(\mathfrak{p}[\mathcal{X}]\) and \(\mathfrak{p}R[\mathcal{X}] + \langle \mathcal{X} \rangle\) are primes of \(R[\mathcal{X}]\), which contract to \(\mathfrak{p}\).
     \begin{proof}
-      We have \(\bigslant{R[\mathcal{X}]}{\mathfrak{p}R[\mathcal[X]]} \simeq \left(\bigslant{R}{\mathfrak{p}}\right)[\mathcal{X}]\). The latter one is a domain because it is the polynomial ring of a domain. Therefore, \(\mathfrak{p}R[\mathcal{X}]\) is prime.
+      We have \(\bigslant{R[\mathcal{X}]}{\mathfrak{p}R[\mathcal{X}]} \simeq \left(\bigslant{R}{\mathfrak{p}}\right)[\mathcal{X}]\). The latter one is a domain because it is the polynomial ring of a domain. Therefore, \(\mathfrak{p}R[\mathcal{X}]\) is prime.
 
       We also have \(\mathfrak{p}R[\mathcal{X}] = \mathfrak{p}[\mathcal{X}]\).
+
+      For the contraction let \(\varphi: R \longrightarrow R[\mathcal{X}]\). Then \(\varphi^{-1} \left( \mathfrak{p}[\mathcal{X}] \right) = \mathfrak{p}\).
+
+      For the last part, consider
+      \begin{equation}
+        \varphi: R[\mathcal{X}] \longrightarrow \bigslant{R}{\mathfrak{p}}
+      \end{equation}
+      with the natural definition \(\varphi\left(a_0 + a_1 X + \ldots + a_n X^n\right) = a_0 + \mathfrak{p}\). Then, the kernel is all the polynomials with \(a_0 \in \mathfrak{p}\) so \(\mathfrak{p}R[\mathcal{X}] + \langle \mathcal{X} \rangle\). Since \(\varphi\) is obviously surjective, we have the isomorphism
+      \begin{equation}
+        \bigslant{R[\mathcal{X}]}{\mathfrak{p}R[\mathcal{X}]+ \langle \mathcal{X} \rangle} \simeq \bigslant{R}{\mathfrak{p}}
+      \end{equation}
+      The latter is a domain, so is the former, hence \(\mathfrak{p}R[\mathcal{X}]+ \langle \mathcal{X} \rangle\) is prime.
+
+      Again for the contraction we have \(\varphi^{-1}(\mathfrak{p}R[\mathcal{X}] + \langle \mathcal{X} \rangle) = \mathfrak{p}\) (because we are basically only caring about \(a_0\)).
     \end{proof}
   \end{enumerate}
 \end{exr}
