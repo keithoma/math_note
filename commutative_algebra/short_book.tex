@@ -305,7 +305,16 @@ From here, all rings are unitary commutative rings.
 \begin{exr}
   Let \(R\) be a ring, \(X\) a variable, \(F \in P := R[X]\), and \(a \in R\). Set \(F' := \partial F / \partial X\). Show the following statements are equivalent:
   \begin{enumerate}
-    \item \(a\) is a supersimple root of \(F\).
+    \item \(a\) is a supersimple root of \(F\). (\(a\) is a supersimple root if \(F(a) = 0\) and \(F'(a) \neq 0\) is a unit.)
+    \item \(a\) is a root of \(F\), and \(X - a\) and \(F'\) are coprime.
+    \item \(F = (X - a)G\) for some \(G\) in \(P\) coprime to \(X - a\).
   \end{enumerate}
+  Show that if 3. holds, then \(G\) is unique.
 \end{exr}
+
+\begin{proof}
+  "1. to 2.": Immideately, we have that \(a\) is a root of \(F\).Since \(F'(a)\) is a unit, by the previous exercise, we have that \((X - a)^n\) and \(F'\) are coprimes. In particular, if we choose \(n = 1\), we get the desired result.
+
+  "2. to 1.":
+\end{proof}
 \end{document}
