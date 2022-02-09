@@ -242,4 +242,17 @@ Definitions
 \begin{exr}
   Let \(R\) be a ring, \(X\) a variable, \(H \in P := R[X]\), and \(a \in R\). Given \(n \geq 1\), show \((X - a)^n\) and \(H\) are coprime if and only if \(H(a)\) is a unit.
 \end{exr}
+\begin{proof}
+  Let \(H(a)\) be a unit in \(R\). Consider the map \(\varphi_a: R[X] \longrightarrow R\) with
+  \begin{equation}
+    p(X) \mapsto \varphi_a(p(X)) := p(a) \text{.}
+  \end{equation}
+  \(\varphi_a\) is a ring homomorphism because
+  \begin{align}
+    \varphi_a(p(X) + q(X)) = p(a) + q(a) = \varphi_a(p(X)) + \varphi_a(q(X))
+  \end{align}
+  and I'm to lazy the show it for the multiplication and \(\varphi_a(1) = 1\). Morover, \(\varphi_a\) is surjective. So we have \(\varphi^{-1}_a(R^\times) \subseteq (R[X])^\times\). From there, if \(H(a)\) is a unit, so must \(H(X)\) be. In that case, \(H(X)\) and \((X - a)^n\) are obviously coprime.
+
+
+\end{proof}
 \end{document}
