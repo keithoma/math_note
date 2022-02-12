@@ -384,4 +384,49 @@ From here, all rings are unitary commutative rings.
 
 \chapter{Exact Sequences}
 
+\begin{exr}
+  Let \(M'\) and \(M''\) be modules, \(N \subseteq M'\) a submodule. Prove
+  \begin{equation}
+    \bigslant{M}{N} \simeq \bigslant{M'}{N \oplus M''}
+  \end{equation}
+\end{exr}
+
+\begin{proof}
+  Consider the two sequences
+  \begin{align}
+    0 \longrightarrow N \longrightarrow M' \longrightarrow \bigslant{M'}{N} \longrightarrow 0 \\
+    0 \longrightarrow 0 \longrightarrow M'' \longrightarrow M'' \longrightarrow M'' \longrightarrow 0 \text{.}
+  \end{align}
+  with
+  \begin{align}
+    f_0(x) = 0 & f_1(x) = x & f_2(x) = x + N & f_3(x) = 0 \\
+    g_0(x) = 0 & g_1(x) = 0 & g_2(x) = x & g_3 = 0 \text{,}
+  \end{align}
+  then the two sequences are exact because
+  \begin{align}
+    \text{im}(f_0) = 0 = \text{ker}(f_1) & \text{im}(f_1) = N = \text{ker}(f_2) & \text{im}(f_2) = \bigslant{M'}{N} = \text{ker}(f_3) \\
+    \text{im}(g_0) = 0 = \text{ker}(g_1) & \text{im}(g_1) = 0 \text{ker}(g_2) & \text{im}(g_2) = M'' = \text{ker}(g_3).
+  \end{align}
+  Since both sequences are exact, so is their direct sum. Note that \(N \oplus 0 \simeq N\) and the maps between the chain are the composition of \(f\) and \(g\).
+  \begin{equation}
+    0 \longrightarrow N \longrightarrow M' \oplus M'' \longrightarrow \bigslant{M'}{N} \oplus M'' \longrightarrow 0
+  \end{equation}
+  Both \(f_2\) and \(g_2\) are surjective, so with the first isomorphism theorem, we have
+  \begin{equation}
+    \bigslant{M'}{N} \oplus M'' \simeq \bigslant{M}{N}
+  \end{equation}
+  as desired.
+\end{proof}
+
+\begin{exr}
+  Let \(M'\) and \(M''\) be modules, and set \(M = M' \oplus M''\). Let \(N\) be a submodule of \(M\) containing \(M'\), and set \(N'' := N \cup M''\). Prove \(N = M' \oplus N''\).
+\end{exr}
+
+\begin{proof}
+  t.s.: \(N = M' \oplus (N \cup M'')\)
+
+  \begin{equation}
+    0 \longrightarrow M' \longrightarrow N
+  \end{equation}
+\end{proof}
 \end{document}
