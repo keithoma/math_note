@@ -53,9 +53,16 @@
 
 \newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
 \newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
+\newcommand{\Imag}[1]{ \mathrm{Im} \left( #1 \right)}
 
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
+\newcommand{\restr}[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
 
 \begin{document}
 %
@@ -443,31 +450,45 @@ From here, all rings are unitary commutative rings.
       \draw[->] (ka) edge (A)
                 (kb) edge (B)
                 (kc) edge (C)
-                (A) edge (B)
-                (B) edge (C)
+                (A) edge node[auto] {\(\alpha_1\)} (B)
+                (B) edge node[auto] {\(\alpha_2\)} (C)
                 (C) edge (01)
                 (A) edge node[auto] {\(\gamma_1\)} (A')
                 (B) edge node[auto] {\(\gamma_2\)} (B')
                 (C) edge node[auto] {\(\gamma_3\)} (C')
                 (02) edge (A')
-                (A') edge (B')
-                (B') edge (C')
+                (A') edge node[auto] {\(\beta_1\)} (B')
+                (B') edge node[auto] {\(\beta_2\)} (C')
                 (A') edge (ca)
                 (B') edge (cb)
                 (C') edge (cc)
       ;
-      \draw[->,gray] (ka) edge node[auto, text=black] {\(\varphi\)} (kb)
-                    (kb) edge node[auto, text=black] {\(\psi\)} (kc)
-                    (ca) edge node[auto, text=black] {\(\varphi\prime\)} (cb)
-                    (cb) edge node[auto, text=black] {\(\psi\prime\)} (cc)
+      \draw[->,gray] (ka) edge node[auto, text=black] {\(\varphi_1\)} (kb)
+                    (kb) edge node[auto, text=black] {\(\varphi_2\)} (kc)
+                    (ca) edge node[auto, text=black] {\(\psi_1\)} (cb)
+                    (cb) edge node[auto, text=black] {\(\psi_2\)} (cc)
       ;
       \draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
-      {\(\partial\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
+      {\(\delta\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
       ($(02.west)+(-.5,0)$) |- (ca);
     \end{tikzpicture}
   \end{center}
   \begin{enumerate}
-    \item 
+    \item Define \(\varphi_1: \Ker{\gamma_1} \longrightarrow \Ker{\gamma_2}\) as \(\varphi_1 := \restr{\alpha_1}{\Ker{\gamma_1}}\) and \(\varphi_2: \Ker{\gamma_2} \longrightarrow \Ker{\gamma_3}\) as \(\varphi_2 := \restr{\alpha_2}{\Ker{\gamma_2}}\). Let \(x \in \Ker{\gamma_1}\), then it is
+    \begin{align}
+      \gamma_2(\varphi_1(x)) &= \gamma_2 \left( \restr{\alpha_1}{\Ker{\gamma_1}}(x) \right) & \text{(definition of \(\varphi_1\))} \\
+      &= \beta_1(\gamma_1(x)) & \text{(diagram is commutative)} \\
+      &= \beta_1(0) & \text{(\(a \in \Ker{\gamma_1})\)} \\
+      &= 0 & \text{(\(\beta_1\) is \(A\)-linear)}
+    \end{align}
+    therefore, \(x \in \Ker{\gamma_2}\) and we see that \(\varphi_1\) is well-defined.
+    %
+    \item Define \(\psi_1: \Coker{\gamma_1} \longrightarrow \Coker{\gamma_2}\) and \(\psi_2: \Coker{\gamma_2} \longrightarrow \Coker{\gamma_3}\) as
+    \begin{align}
+      \psi_1(n_1 + \Imag{\gamma_1}) = \beta_1(n_1) + \Imag{\beta} \\
+      \psi_2(n_2 + \Imag{\gamma_2}) = \beta_2(n_2) + \Imag{\gamma_3}
+    \end{align}
+    \item We now define \(\delta: \Ker{\gamma_3} \longrightarrow \Coker{\gamma_1}\).
   \end{enumerate}
 \end{proof}
 
