@@ -38,9 +38,21 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{%
+  matrix,%
+  calc,%
+  arrows%
+}
+
 %%%%%
 \newcommand{\set}[1]{\left\{\, #1 \,\right\}}
 \newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\Big|} #2 \,\right\}}
+
+
+\newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
+\newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
 
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
@@ -383,6 +395,83 @@ From here, all rings are unitary commutative rings.
 \end{proof}
 
 \chapter{Exact Sequences}
+
+\begin{thm}[Snake Lemma]
+  Given a following commutative diagram with exact rows
+  \begin{center}
+    \begin{tikzpicture}[>=triangle 60]
+      \matrix[matrix of math nodes,column sep={60pt,between origins},row
+      sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+      {
+      &|[name=A]| M_1 &|[name=B]| M_2 &|[name=C]| M_3 &|[name=01]| 0 \\
+      %
+      |[name=02]| 0 &|[name=A']| N_1 &|[name=B']| N_2 &|[name=C']| N_3 \\
+      };
+      \draw[->] (A) edge (B)
+                (B) edge (C)
+                (C) edge (01)
+                (A) edge (A')
+                (B) edge (B')
+                (C) edge (C')
+                (02) edge (A')
+                (A') edge (B')
+                (B') edge (C')
+      ;
+    \end{tikzpicture}
+  \end{center}
+  Then the following sequence is exact.
+  \begin{align}
+    \Ker{\gamma_1} \longrightarrow \Ker{\gamma_2} \longrightarrow \Ker{\gamma_3} \longrightarrow \Coker{\gamma_1} \longrightarrow \Coker{\gamma_2} \longrightarrow \Coker{\gamma_3}
+  \end{align}
+\end{thm}
+
+\begin{proof}
+  We first name the arrows.
+  \begin{center}
+    \begin{tikzpicture}[>=triangle 60]
+      \matrix[matrix of math nodes,column sep={80pt,between origins},row
+      sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+      {
+      &|[name=ka]| \Ker{\gamma_1} &|[name=kb]| \Ker{\gamma_2} &|[name=kc]| \Ker{\gamma_3} \\
+      %
+      &|[name=A]| M_1 &|[name=B]| M_2 &|[name=C]| M_3 &|[name=01]| 0 \\
+      %
+      |[name=02]| 0 &|[name=A']| N_1 &|[name=B']| N_2 &|[name=C']| N_3 \\
+      %
+      &|[name=ca]| \Coker{\gamma_1} &|[name=cb]| \Coker{\gamma_2} &|[name=cc]| \Coker{\gamma_3} \\
+      };
+      \draw[->] (ka) edge (A)
+                (kb) edge (B)
+                (kc) edge (C)
+                (A) edge (B)
+                (B) edge (C)
+                (C) edge (01)
+                (A) edge node[auto] {\(\gamma_1\)} (A')
+                (B) edge node[auto] {\(\gamma_2\)} (B')
+                (C) edge node[auto] {\(\gamma_3\)} (C')
+                (02) edge (A')
+                (A') edge (B')
+                (B') edge (C')
+                (A') edge (ca)
+                (B') edge (cb)
+                (C') edge (cc)
+      ;
+      \draw[->,gray] (ka) edge node[auto, text=black] {\(\varphi\)} (kb)
+                    (kb) edge node[auto, text=black] {\(\psi\)} (kc)
+                    (ca) edge node[auto, text=black] {\(\varphi\prime\)} (cb)
+                    (cb) edge node[auto, text=black] {\(\psi\prime\)} (cc)
+      ;
+      \draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
+      {\(\partial\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
+      ($(02.west)+(-.5,0)$) |- (ca);
+    \end{tikzpicture}
+  \end{center}
+  \begin{enumerate}
+    \item 
+  \end{enumerate}
+\end{proof}
+
+
 
 \begin{exr}
   Let \(M'\) and \(M''\) be modules, \(N \subseteq M'\) a submodule. Prove
