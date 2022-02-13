@@ -490,13 +490,22 @@ From here, all rings are unitary commutative rings.
     \end{align}
     \item We now define \(\delta: \Ker{\gamma_3} \longrightarrow \Coker{\gamma_1}\).
     
-    Let \(c \in \Ker{\gamma_3}\), then since \(\alpha_2\) is surjective (because of the exact sequence), there is a \(b \in M_2\) such that \(\alpha_2(b) = c\).
+    Let \(x_3 \in \Ker{\gamma_3}\), then since \(\alpha_2\) is surjective (because of the exact sequence), there is a \(x_2 \in M_2\) such that \(\alpha_2(x_2) = x_3\).
     \begin{align}
-      \beta_2(\gamma_2(b)) &= \gamma_3(\alpha_2(b)) \\
-      &= \gamma_3(c) \\
+      \beta_2(\gamma_2(x_2)) &= \gamma_3(\alpha_2(x_2)) \\
+      &= \gamma_3(x_3) \\
       &= 0
     \end{align}
-    
+    So \(\gamma_2(x_2) \in \Ker{\beta_2} = \Imag{\beta_1}\) because the second row is exact. Therefore, we find \(y_1 \in N_1\) such that \(\beta_1(y_1) = \gamma_2(x_2)\). We know that \(\beta_1\) is injective, therefore \(y_1 \in N_1\) with \(\beta_1(y_1) = \gamma_2(x_2)\) is unique.
+
+    Now define
+
+    \begin{equation}
+      \delta(x_3) = y_1 + \Imag{\gamma_1}
+    \end{equation}
+
+    We have constructed \(y_1\) in the following manner: \(\alpha_2(x_2) = x_3\) for some \(x_2 \in M_2\) and \(\gamma_2(x_2) = \beta_1(y_1)\) for unique \(y_1 \in N_1\)
+    \item We show \(\delta\) as defined above is well-defined.
   \end{enumerate}
 \end{proof}
 
