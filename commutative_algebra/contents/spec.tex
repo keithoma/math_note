@@ -29,7 +29,7 @@
 
     Given an element \(f \in R\), we call the open set
     \begin{equation}
-        D(f) := \mathrm{Spec}(R) - \mathbf{V}(\langle f \rangle)
+        \mathbf{D}(f) := \mathrm{Spec}(R) - \mathbf{V}(\langle f \rangle)
     \end{equation}
     a principal open set. These sets form a basis for the topology of \(\mathrm{Spec}(R)\); indeed, given any prime \(\mathfrak{a} \not\subset \mathfrak{p}\), there is an \(f \in \mathfrak{a} - \mathfrak{p}\), and so \(\mathfrak{p} \in \mathbf{D}(f) \subset \mathrm{Spec}(R) - \mathbf{V}(\mathfrak{a})\). Further, \(f, g \not\in \mathfrak{p}\) if and only if \(fg \not\in \mathfrak{p}\) for any \(f, g \in R\) and prime \(\mathfrak{p}\), in other words
     \begin{equation}
@@ -95,4 +95,14 @@
         \item \(\mathrm{Spec}(\mathbb{R}[X])\) has the ideals above and all polynomials of degree two with complex roots.
     \end{enumerate}
     For any PID \(R\), the points \(x_p\) of \(\mathrm{Spec}(R)\) represents the ideals \(\langle p \rangle\) with \(p\) prime or \(0\). The closed sets are the \(\mathbf{V}(\langle a \rangle)\) with \(a \in R\); moreover, \(\mathbf{V}(\langle a \rangle) = \emptyset\) if \(a\) is a unit, \(\mathbf{V}(\langle 0 \rangle) = R\), and \(\mathbf{V}(\langle a \rangle) = x_{p_1} \cup \ldots \cup x_{p_s}\) if \(a = p_1^{n_1} \cdots p_s^{n_s}\) with \(p_i\) a prime and \(n_i \leq 1\).
+\end{proof}
+\begin{exr}
+    Let \(R\) be a ring, and let \(X_1, X_2 \subset \mathrm{Spec}(R)\) closed subsets. Show that the following four statements are equivalent:
+    \begin{enumerate}
+        \item Then \(X_1 \sqcup X_2 = \mathrm{Spec}(R)\); that is, \(X_1 \cup X_2 = \mathrm{Spec}(R)\) and \(X_1 \cap X_2 = \emptyset\).
+        \item There are complementary idempotents \(e_1, e_2 \in R\) with \(\mathrm{V}(\langle e_i \rangle) = X_i\).
+    \end{enumerate}
+\end{exr}
+\begin{proof}
+    
 \end{proof}
