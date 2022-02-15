@@ -83,3 +83,16 @@
         \end{proof}
     \end{enumerate}
 \end{exr}
+
+\begin{exr}
+    Describe \(\mathrm{Spec}(\mathbb{R})\), \(\mathrm{Spec}(\mathbb{Z})\), \(\mathrm{Spec}(\mathbb{C}[X])\), and \(\mathrm{Spec}(\mathbb{R}[X])\).
+\end{exr}
+\begin{proof}
+    \begin{enumerate}
+        \item \(\mathrm{Spec}(\mathbb{R}) = \set{\langle 0 \rangle}\) because the only ideals in a field are the zeroideal and the field itself.
+        \item \(\mathrm{Spec}(\mathbb{Z}) = \makeset{p \mathbb{Z}}{\text{\(p\) is a prime number}}\).
+        \item \(\mathrm{Spec}(\mathbb{C}[X]) = \makeset{\langle X - z \rangle}{z \in \mathbb{C}}\) because \(\mathbb{C}[X]\) is a PID and because of the fundamental theorem of algebra.
+        \item \(\mathrm{Spec}(\mathbb{R}[X])\) has the ideals above and all polynomials of degree two with complex roots.
+    \end{enumerate}
+    For any PID \(R\), the points \(x_p\) of \(\mathrm{Spec}(R)\) represents the ideals \(\langle p \rangle\) with \(p\) prime or \(0\). The closed sets are the \(\mathbf{V}(\langle a \rangle)\) with \(a \in R\); moreover, \(\mathbf{V}(\langle a \rangle) = \emptyset\) if \(a\) is a unit, \(\mathbf{V}(\langle 0 \rangle) = R\), and \(\mathbf{V}(\langle a \rangle) = x_{p_1} \cup \ldots \cup x_{p_s}\) if \(a = p_1^{n_1} \cdots p_s^{n_s}\) with \(p_i\) a prime and \(n_i \leq 1\).
+\end{proof}
