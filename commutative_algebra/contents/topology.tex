@@ -1,0 +1,107 @@
+\begin{defn}[Topology and Topological Space]
+    Let \(X\) be a nonempty set. A set \(\mathcal{T}\) of subsets of \(X\) is said to be a topology on \(X\) if
+    \begin{enumerate}
+        \item \(X\) and the empty set \(\emptyset\) belong to \(\mathcal{T}\)
+        \item the union of arbitary many number of sets in \(\mathcal{T}\) belong to \(\mathcal{T}\)
+        \item the intersection of any two sets in \(\mathcal{T}\) belongs to \(\mathcal{T}\)
+    \end{enumerate}
+    The pair \((X, \mathcal{T})\) is called a topological space.
+\end{defn}
+
+\begin{defn}[Discrete Topology]
+    Let \(X\) be any nonemoty set and \(\mathcal{T}\) be the collection of all subsets of \(X\). Then \(\mathcal{T}\) is called the discrete topology on the set \(X\). The topological space \((X, \mathcal{T})\) is called a discrete space.
+\end{defn}
+
+\begin{defn}[Indiscrete Topology]
+    Let \(X\) be any nonempty set and \(\mathcal{T} = \{\mathcal{T}, \emptyset\}\). Then \(\mathcal{T}\) is called the indiscrete topology and \((X, \mathcal{T})\) is said to be an indiscrete space.
+\end{defn}
+
+\begin{prps}
+    If \((X, \mathcal{T})\) is a topological space such that for every \(x \in X\) the singleton set \(\{x\}\) is in \(\mathcal{T}\) then \(\mathcal{T}\) is the discrete topology.
+\end{prps}
+
+\begin{defn}
+    Let \((X, \mathcal{T})\) be any topological space. Then the members of \(\mathcal{T}\) are said to be open sets.
+\end{defn}
+
+\begin{prps}
+    If \((X, \mathcal{T})\) is any topological space, then
+    \begin{enumerate}
+        \item \(X\) and \(\emptyset\) are open sets.
+        \item The union of arbitary many number of open sets is an open set.
+        \item The intersection of finitely many number of open sets is an open set.
+    \end{enumerate}
+\end{prps}
+
+\begin{defn}
+    Let \((X, \mathcal{T})\) be a topological space. A subset \(S\) of \(X\) is said to be a closed set in \((X, \mathcal{T})\) if its complment in \(X\), namely \(X - S\) is open in \((X, \mathcal{T})\).
+\end{defn}
+
+\begin{prps}
+    If \((X, \mathcal{T})\) is any topological space, then
+    \begin{enumerate}
+        \item \(\emptyset\) and \(X\) are closed set.
+        \item The intersection of arbitary many number of closed sets is a closed set.
+        \item The union of finitely many number of closed sets is a closed set.
+    \end{enumerate}
+\end{prps}
+
+\begin{defn}
+    A subset \(S\) of a topological space \((X, \mathcal{T})\) is said to be clopen if it is both open and closed in \((X, \mathcal{T})\).
+\end{defn}
+
+\begin{defn}
+    Let \(X\) be any nonempty set. A topology \(\mathcal{T}\) on \(X\) is called the finite-closed topology or the cofinite topology if the closed subsets of \(X\) are \(X\) and all finite subsets of \(X\); that is, the open sets are \(\emptyset\) and all subsets of \(X\) which have finite complments.
+\end{defn}
+
+\begin{defn}[Euclidean Topology]
+    A subset \(S\) of \(\mathbb{R}\) is said to be open in the euclidean topology on \(\mathbb{R}\) if for each \(x \in S\), there exist \(a, b \in \mathbb{R}\), with \(a < b\), such that \(x \in (a, b) \subseteq S\).
+\end{defn}
+
+\begin{prps}
+    A subset \(S\) of \(\mathbb{R}\) is open if and only if it is a union of open intervals.
+\end{prps}
+
+\begin{defn}[Basis for a Topology]
+    Let \((X, \mathcal{T})\) be a topological space. A collection \(\mathcal{B}\) of open subsets of \(X\) is said to be a basis for the topology \(\mathcal{T}\) if every open set is a union of members in \(\mathcal{B}\).
+\end{defn}
+
+\begin{exmp}
+    Let \(\mathcal{B} = \makeset{(a, b)}{a, b \in \mathbb{R}, a < b}\). Then \(\mathcal{B}\) is a basis for the euclidean topology on \(\mathbb{R}\).
+\end{exmp}
+
+\begin{exmp}
+    Let \((X, \mathcal{T})\) be a discrete space and \(\mathcal{B}\) the family of all singleton subsets of \(X\); that is, \(\mathcal{B} = \makeset{\{x\}}{x \in X}\).
+\end{exmp}
+
+\begin{exmp}
+    Let \(X = \set{a, b, c, d, e, f}\) and
+    \begin{equation}
+        \mathcal{T}_1 = \set{X, \emptyset, \{a\}, \{c, d\}, \{a, c, d\}, \{b, c, d, e, f\}}
+    \end{equation}
+    Then \(\mathcal{B} = \set{{a}, {c, d}, {b, c, d, e, f}}\) is a basis for \(\mathcal{T}_1\) as \(\mathcal{B} \subseteq \mathcal{T}_1\) and every member of \(\mathcal{T}_1\) can be expressed as a union of members of \(\mathcal{B}\). Note that \(\mathcal{T}_1\) itself is also a basis for \(\mathcal{T}_1\).
+\end{exmp}
+
+\begin{prps}
+    Let \(X\) be a nonempty set and let \(\mathcal{B}\) be a collection of subsets of \(X\). Then \(\mathcal{B}\) is a basis for a topology on \(X\) if and only if \(\mathcal{B}\) has the following properties:
+    \begin{enumerate}
+        \item \(X = \bigcup_{B \in \mathcal{B}} B\)
+        \item for any \(B_1, B_2 \in \mathcal{B}\) the set \(B_1 \cap B_2\) is a union of members of \(\mathcal{B}\)
+    \end{enumerate}
+\end{prps}
+
+\begin{prps}
+    Let \((X, \mathcal{T})\) be a topological space. A family \(\mathcal{B}\) of open subsets of \(X\) is a basis for \(\mathcal{T}\) if and only if for any point \(x\) belonging to any open set \(U\) there is a \(B \in \mathcal{B}\) such that \(x \in B \subseteq U\)
+\end{prps}
+
+\begin{prps}
+    Let \(\mathcal{B}\) be a basis for a topology \(\mathcal{T}\) on a set \(X\). Then a subset \(U\) of \(X\) is open if and only if for each \(x \in U\) there exists a \(B \in \mathcal{B}\) such that \(x \in B \subseteq U\).
+\end{prps}
+
+\begin{prps}
+    Let \(\mathcal{B}_1\) and \(\mathcal{B}_2\) be bases for topologies \(\mathcal{T}_1\) and \(\mathcal{T}_2\) respectively, on a nonempty set \(X\). Then \(\mathcal{T}_1 = \mathcal{T}_2\) if and only if
+    \begin{enumerate}
+        \item for each \(B \in \mathcal{B}_1\) and each \(x \in \mathcal{B}\), there exists a \(B' \in \mathcal{B}_2\) such that \(x \in B' \subseteq B\)
+        \item for each \(B \in \mathcal{B}_2\) and each \(x \in \mathcal{B}\), there exists a \(B' \in \mathcal{B}_1\) such that \(x \in B' \subseteq B\)
+    \end{enumerate}
+\end{prps}

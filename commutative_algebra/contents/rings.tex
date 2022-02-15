@@ -32,10 +32,10 @@
     
 \end{defn}
 
-\begin{defn}
+\begin{defn}[Variety]
     Let \(A\) be a ring and \(\mathfrak{a}\) an ideal. Let \(\mathbf{V}(\mathfrak{a})\) denote the subset of \(\mathrm{Spec}(A)\) consisting of those primes that contain \(\mathfrak{a}\), i.e.
     \begin{equation}
-        \mathbf{V}(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(A)}{\mathfrak{a} \subseteq \mathfrak{p}}
+        \mathbf{V}(\mathfrak{a}) := \makeset{S \in \mathcal{P}(\mathrm{Spec}(A))}{\text{for all \(\mathfrak{p} \in S\) it is \(\mathfrak{a} \subseteq \mathfrak{p}\)}}
     \end{equation}
     We call \(\mathbf{V}(\mathfrak{a})\) the variety of \(\mathfrak{a}\).
 \end{defn}
@@ -86,3 +86,9 @@
 \end{thm}
 
 \section{Exercises}
+\begin{exr}
+    Let \(R\) be a ring and \(\mathfrak{p}, \mathfrak{q} \in \mathrm{Spec}(R)\). Show:
+    \begin{enumerate}
+        \item The closure \(\overline{\{\mathfrak{p}\}}\) of \(\mathfrak{p}\) is equal to \(\mathbf{V}(\mathfrak{p})\); that is, \(\mathfrak{q} \in \overline{\{\mathfrak{p}\}}\) if and only if \(\mathfrak{p} \subseteq \mathfrak{q}\).
+    \end{enumerate}
+\end{exr}
