@@ -1,0 +1,57 @@
+\chapter{Spectrum}
+
+\begin{defn}[Spectrum]
+    Let \(R\) be a ring. We denote the set of all prime ideals of \(R\) by \(\mathrm{Spec}(R)\) and the set of all maximal ideals of \(R\) by \(\mathrm{Spm}(R)\).
+\end{defn}
+
+\begin{defn}[Variety]
+    Let \(R\) be a ring and \(\mathfrak{a}\) an ideal in \(R\). Let \(\mathbf{V}(\mathfrak{a})\) denote the subset of \(\mathrm{Spec}(R)\) consisting of those primes that contain \(\mathfrak{a}\), i.e.
+    \begin{equation}
+        \mathbf{V}(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\mathfrak{a} \subseteq \mathfrak{p}}\text{.}
+    \end{equation}
+    We call \(\mathbf{V}(\mathfrak{a})\) the variety of \(\mathfrak{a}\).
+\end{defn}
+
+\begin{prps}
+    Let \(R\) be a ring, and \(\mathfrak{a}\) and \(\mathfrak{b}\) two ideals in \(R\).
+    \begin{enumerate}
+        \item If \(\mathfrak{a} \subset \mathfrak{b}\), then \(\mathbf{V}(b) \subset \mathbf{V}(a)\).
+        \item If \(\mathbf{V}(b) \subset \mathbf{V}(a)\), then \(\mathfrak{a} \subset \sqrt{\mathfrak{b}}\).
+        \item \(\mathbf{V}(\mathfrak{a}) = \mathbf{V}(\mathfrak{b})\) if and only if \(\sqrt{\mathfrak{a}} = \sqrt{\mathfrak{b}}\).
+        \item \(\mathbf{V}(\mathfrak{a}) \cup \mathbf{V}(\mathfrak{b}) = \mathbf{V}(\mathfrak{a} \cap \mathfrak{b}) = \mathbf{V}(\mathfrak{a}\mathfrak{b})\).
+        \item For any index set \(I\), it is \(\bigcap_{i \in I}\mathbf{V}(\mathfrak{a}_i) = \mathbf{V}(\sum_{i \in I}\mathfrak{a}_i)\).
+        \item \(\mathbf{V}(R) = \emptyset\).
+        \item \(\mathbf{V}(\langle 0 \rangle) = \mathrm{Spec}(R)\).
+    \end{enumerate}
+\end{prps}
+
+\begin{defn}[Zariski Topology]
+    Let \(\mathfrak{a} \subseteq A\) be an ideal. Declaring the sets
+    \begin{equation}
+        Z(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(A)}{\mathfrak{a} \subseteq \mathfrak{p}}
+    \end{equation}
+    to be closed induces a topology on \(\mathrm{Spec}(A)\), the Zariski Topology.
+
+    Given an element \(f \in R\), we call the open set
+    \begin{equation}
+        D(f) := \mathrm{Spec}(R) - \mathbf{V}(\langle f \rangle)
+    \end{equation}
+    a principal open set. These sets form a basis for the topology of \(\mathrm{Spec}(R)\); indeed, given any prime \(\mathfrak{a} \not\subset \mathfrak{p}\)
+\end{defn}
+
+\section{Proofs}
+
+\begin{prps}
+    The Zariski topology is indeed a topology.
+\end{prps}
+\begin{proof}
+    
+\end{proof}
+
+\section{Exercises}
+\begin{exr}
+    Let \(R\) be a ring and \(\mathfrak{p}, \mathfrak{q} \in \mathrm{Spec}(R)\). Show:
+    \begin{enumerate}
+        \item The closure \(\overline{\{\mathfrak{p}\}}\) of \(\mathfrak{p}\) is equal to \(\mathbf{V}(\mathfrak{p})\); that is, \(\mathfrak{q} \in \overline{\{\mathfrak{p}\}}\) if and only if \(\mathfrak{p} \subseteq \mathfrak{q}\).
+    \end{enumerate}
+\end{exr}
