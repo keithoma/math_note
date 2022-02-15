@@ -1,4 +1,4 @@
-\chapter{Spectrum}
+\chapter{Zariski Topology}
 
 \begin{defn}[Spectrum]
     Let \(R\) be a ring. We denote the set of all prime ideals of \(R\) by \(\mathrm{Spec}(R)\) and the set of all maximal ideals of \(R\) by \(\mathrm{Spm}(R)\).
@@ -104,5 +104,10 @@
     \end{enumerate}
 \end{exr}
 \begin{proof}
-    
+    "1. to 2." Since \(X_1\) and \(X_2\) are closed subsets, there are ideals \(\mathfrak{a}_1\) and \(\mathfrak{a}_2\) such that
+    \begin{align}
+        \mathrm{Spec}(R) = \mathbf{V}(\mathfrak{a}_1) \cup \mathbf{V}(\mathfrak{a}_2) = \mathbf{V}(\mathfrak{a}_1 \mathfrak{a}_2) \\
+        \emptyset = \mathbf{V}(\mathfrak{a}_1) \cap \mathbf{V}(\mathfrak{a}_2) = \mathbf{V}(\mathfrak{a_1} + \mathfrak{a}_2)
+    \end{align}
+    If two variety are equal, the radical of the generating ideals are equal, hence \(\sqrt{\langle 0 \rangle} = \sqrt{\mathfrak{a}_1 \mathfrak{a}_2}\) and \(\sqrt{R} = \sqrt{\mathfrak{a}_1 + \mathfrak{a}_2}\).
 \end{proof}
