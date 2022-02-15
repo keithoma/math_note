@@ -24,19 +24,17 @@
     \end{enumerate}
 \end{prps}
 
-
 \begin{defn}[Zariski Topology]
-    Let \(\mathfrak{a} \subseteq A\) be an ideal. Declaring the sets
-    \begin{equation}
-        Z(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(A)}{\mathfrak{a} \subseteq \mathfrak{p}}
-    \end{equation}
-    to be closed induces a topology on \(\mathrm{Spec}(A)\), the Zariski Topology.
+    Declaring \(\mathbf{V}(\mathfrak{a})\) to be closed sets induces a topology on \(\mathrm{Spec}(R)\), the Zariski topology.
 
     Given an element \(f \in R\), we call the open set
     \begin{equation}
         D(f) := \mathrm{Spec}(R) - \mathbf{V}(\langle f \rangle)
     \end{equation}
-    a principal open set. These sets form a basis for the topology of \(\mathrm{Spec}(R)\); indeed, given any prime \(\mathfrak{a} \not\subset \mathfrak{p}\)
+    a principal open set. These sets form a basis for the topology of \(\mathrm{Spec}(R)\); indeed, given any prime \(\mathfrak{a} \not\subset \mathfrak{p}\), there is an \(f \in \mathfrak{a} - \mathfrak{p}\), and so \(\mathfrak{p} \in \mathbf{D}(f) \subset \mathrm{Spec}(R) - \mathbf{V}(\mathfrak{a})\). Further, \(f, g \not\in \mathfrak{p}\) if and only if \(fg \not\in \mathfrak{p}\) for any \(f, g \in R\) and prime \(\mathfrak{p}\), in other words
+    \begin{equation}
+        \mathbf{D}(f) \cap \mathbf{D}(g) = \mathbf{D}(fg)
+    \end{equation}
 \end{defn}
 
 \section{Proofs}
@@ -80,5 +78,8 @@
     Let \(R\) be a ring and \(\mathfrak{p}, \mathfrak{q} \in \mathrm{Spec}(R)\). Show:
     \begin{enumerate}
         \item The closure \(\overline{\{\mathfrak{p}\}}\) of \(\mathfrak{p}\) is equal to \(\mathbf{V}(\mathfrak{p})\); that is, \(\mathfrak{q} \in \overline{\{\mathfrak{p}\}}\) if and only if \(\mathfrak{p} \subseteq \mathfrak{q}\).
+        \begin{proof}
+            Let \(\mathfrak{q} \in \overline{\{\mathfrak{p}\}}\). If \(f \in R - \mathfrak{p}\), then \(\mathfrak{q} \in \mathbf{D}(f)\).
+        \end{proof}
     \end{enumerate}
 \end{exr}
