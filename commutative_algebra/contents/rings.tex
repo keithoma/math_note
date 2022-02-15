@@ -1,0 +1,88 @@
+\begin{defn}[Ring]
+    A ring is a set \(R\) equipped with two binary operations \(+\) (addition) and \(\cdot\) (multiplication) satisfying the following three sets of axioms, called the ring axioms.
+    \begin{enumerate}
+      \item \((R, +)\) is an abelian group.
+      \item \((R, \cdot)\) is a semigroup.
+      \item Multiplication is distributive with respect to addition, meaning that
+      \begin{itemize}
+        \item \(a \cdot (b + c) = (a \cdot b) + (a \cdot c)\) for all \(a, b, c \in R\) (left distributivity).
+        \item \((b + c) \cdot a = (b \cdot a) + (c \cdot a)\) for all \(a, b, c \in R\) (right distributivity).
+      \end{itemize}
+    \end{enumerate}
+    A ring is called unitary if it contains the multiplicative identity and commutative if multiplication is commutative.
+\end{defn}
+
+\begin{defn}[Ideal]
+    
+\end{defn}
+
+\begin{defn}[Ideal Arithmetic]
+    
+\end{defn}
+
+\begin{defn}[Prime Ideal]
+    
+\end{defn}
+
+\begin{defn}[Maximal Ideal]
+    
+\end{defn}
+
+\begin{defn}[Spectrum]
+    
+\end{defn}
+
+\begin{defn}
+    Let \(A\) be a ring and \(\mathfrak{a}\) an ideal. Let \(\mathbf{V}(\mathfrak{a})\) denote the subset of \(\mathrm{Spec}(A)\) consisting of those primes that contain \(\mathfrak{a}\), i.e.
+    \begin{equation}
+        \mathbf{V}(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(A)}{\mathfrak{a} \subseteq \mathfrak{p}}
+    \end{equation}
+    We call \(\mathbf{V}(\mathfrak{a})\) the variety of \(\mathfrak{a}\).
+\end{defn}
+
+\begin{defn}[Zariski Topology]
+    Let \(\mathfrak{a} \subseteq A\) be an ideal. Declaring the sets
+    \begin{equation}
+        Z(\mathfrak{a}) := \makeset{\mathfrak{p} \in \mathrm{Spec}(A)}{\mathfrak{a} \subseteq \mathfrak{p}}
+    \end{equation}
+    to be closed induces a topology on \(\mathrm{Spec}(A)\), the Zariski Topology.
+\end{defn}
+
+\begin{defn}[Quotient Ring]
+    Given a ring \(A\) and two-sided ideal \(\mathfrak{a}\) in \(A\), we may define an congruence relation \(\sim\) on \(A\) as follows:
+    \begin{equation}
+        x \sim y :\Longleftrightarrow x - y \in \mathfrak{a} \text{.}
+    \end{equation}
+    The equivalence class of the element \(x\) in \(A\) is given by
+    \begin{equation}
+        [x] = x + \mathfrak{a} := \makeset{x + a}{a \in \mathfrak{a}}
+    \end{equation}
+    and the set of all such equivalence classes is denoted by \(A / \mathfrak{a}\); it becomes a ring, the factor ring or the quotient ring of \(A\) modulo \(\mathfrak{a}\), if one defines
+    \begin{enumerate}
+        \item \((a + \mathfrak{a}) + (b + \mathfrak{a}) = (a + b) + \mathfrak{a}\)
+        \item \((a + \mathfrak{a}) (b + \mathfrak{a}) = (ab) + \mathfrak{a}\)
+    \end{enumerate}
+    The map \(\pi: R \longrightarrow A / \mathfrak{a}, \, x \mapsto \pi(x) := x + \mathfrak{a}\) is a surjective ring homomorphism and is sometimes called the natural quotient map or the canonical homomorphism.
+\end{defn}
+
+\begin{prps}[Universal Property]
+    Let \(A\) and \(B\) be rings, \(\mathfrak{a}\) an ideal, and \(f: A \longrightarrow B\) a ring homomorphism with \(\mathfrak{a} \subseteq \Ker{f}\). Then there exists a unique ring homomorphism \(\tilde{f}: A / \mathfrak{a} \longrightarrow B\) such that \(f = \tilde{f} \circ \pi\).
+\end{prps}
+
+\begin{defn}[Integral Domain]
+    
+\end{defn}
+
+\begin{thm}
+    \begin{itemize}
+        \item prime ideal, quotient is integral domain
+        \item same as above, but if prime maximal, then quotient is a fields
+        \item Maximal ideals are prime ideals.
+        \item There is a 1:1 correspondence
+        \begin{equation}
+            \set{\text{Ideals in \(A / \mathfrak{a}\)}} \longleftrightarrow \makeset{\mathfrak{b} / \mathfrak{a}}{\mathfrak{a} \subseteq \mathfrak{b} \subseteq A}
+        \end{equation}
+    \end{itemize}
+\end{thm}
+
+\section{Exercises}
