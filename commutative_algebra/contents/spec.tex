@@ -20,10 +20,10 @@
         \item \(\mathbf{V}(\mathfrak{a}) = \mathbf{V}(\mathfrak{b})\) if and only if \(\sqrt{\mathfrak{a}} = \sqrt{\mathfrak{b}}\).
         \item \(\mathbf{V}(\mathfrak{a}) \cup \mathbf{V}(\mathfrak{b}) = \mathbf{V}(\mathfrak{a} \cap \mathfrak{b}) = \mathbf{V}(\mathfrak{a}\mathfrak{b})\).
         \item For any index set \(I\), it is \(\bigcap_{i \in I}\mathbf{V}(\mathfrak{a}_i) = \mathbf{V}(\sum_{i \in I}\mathfrak{a}_i)\).
-        \item \(\mathbf{V}(R) = \emptyset\).
         \item \(\mathbf{V}(\langle 0 \rangle) = \mathrm{Spec}(R)\).
     \end{enumerate}
 \end{prps}
+
 
 \begin{defn}[Zariski Topology]
     Let \(\mathfrak{a} \subseteq A\) be an ideal. Declaring the sets
@@ -40,6 +40,33 @@
 \end{defn}
 
 \section{Proofs}
+
+\begin{prps}
+    Let \(R\) be a ring, and \(\mathfrak{a}\) and \(\mathfrak{b}\) two ideals in \(R\).
+    \begin{enumerate}
+        \item If \(\mathfrak{a} \subset \mathfrak{b}\), then \(\mathbf{V}(b) \subset \mathbf{V}(a)\).
+        \item If \(\mathbf{V}(b) \subset \mathbf{V}(a)\), then \(\mathfrak{a} \subset \sqrt{\mathfrak{b}}\).
+        \item \(\mathbf{V}(\mathfrak{a}) = \mathbf{V}(\mathfrak{b})\) if and only if \(\sqrt{\mathfrak{a}} = \sqrt{\mathfrak{b}}\).
+        \item \(\mathbf{V}(\mathfrak{a}) \cup \mathbf{V}(\mathfrak{b}) = \mathbf{V}(\mathfrak{a} \cap \mathfrak{b}) = \mathbf{V}(\mathfrak{a}\mathfrak{b})\).
+        \begin{proof}
+            \begin{align}
+                \mathbf{V}(\mathfrak{a}) \cup \mathbf{V}(\mathfrak{b}) &= \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\mathfrak{a} \subset \mathfrak{p}} \cup \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\mathfrak{b} \subset \mathfrak{p}} \\
+                &= \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\mathfrak{a} \subset \mathfrak{p} \text{ or } \mathfrak{b} \subset \mathfrak{p}} \\
+                &= \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\mathfrak{a} \cap \mathfrak{b} \subset \mathfrak{p}} \\
+                &= \mathbf{V}(\mathfrak{a} \cap \mathfrak{b})
+            \end{align}
+        \end{proof}
+        \item For any index set \(I\), it is \(\bigcap_{i \in I}\mathbf{V}(\mathfrak{a}_i) = \mathbf{V}(\sum_{i \in I}\mathfrak{a}_i)\).
+        \item \(\mathbf{V}(R) = \emptyset\).
+        \begin{proof}
+            \(\mathbf{V}(R) = \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{R \subset \mathfrak{p}} = \emptyset\) because by definition a prime ideal must not be the whole ring.
+        \end{proof}
+        \item \(\mathbf{V}(\langle 0 \rangle) = \mathrm{Spec}(R)\).
+        \begin{proof}
+            \(\mathbf{V}(\langle 0 \rangle) = \makeset{\mathfrak{p} \in \mathrm{Spec}(R)}{\langle 0 \rangle \subset \mathfrak{p}} = \mathrm{Spec}(R)\) because all ideals contain the zeroideal.
+        \end{proof}
+    \end{enumerate}
+\end{prps}
 
 \begin{prps}
     The Zariski topology is indeed a topology.
