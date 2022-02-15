@@ -68,6 +68,31 @@
 %
 %
 %
+\chapter{Category Theory}
+%
+\begin{defn}[Category]
+  A category \(C\) consists of:
+  \begin{enumerate}
+    \item A class \(\mathrm{Ob}(C)\) of objects. % for now, it doesn't matter what a class means, just think it's the same as sets
+    \item For every two objects \(A\) and \(B\) of \(C\), a set \(\mathrm{Hom}_C(A, B)\) of morphism, with the properties listed
+    \begin{enumerate}
+      \item For every object \(A\) of \(C\), there exists (at least) one morphism \(1_A \in \mathrm{Hom}_C(A, A)\), the identity on \(A\).
+      \item For every triple of objects \(A\), \(B\), and \(C\) of \(C\) there is a function (of sets)
+      \begin{equation}
+        \mathrm{Hom}_C(A, B) \times \mathrm{Hom}_C(B, C) \longrightarrow \mathrm{Hom}_C(A, C)
+      \end{equation}
+      \item The composition law is associative.
+      \item The identity morphism is commutative.
+      \item \(\mathrm{Hom}_C(A, B) = \mathrm{Hom}_C(C, D)\) if and only if \(A = C\) and \(B = D\).
+    \end{enumerate}
+  \end{enumerate}
+\end{defn}
+
+\begin{exmp}
+  Let \(S\) be a set and \(\sim\) a relation on \(S\) satisfying the reflexive and transitive properties, then \(\mathrm{Ob}(C) = S\) and if \(a, b \in S\), then let \(\mathrm{Hom}(a, b) = \set{(a, b)}\) if \(a \sim b\) and \(\mathrm{Hom}(a, b) = \emptyset\).
+\end{exmp}
+
+
 \chapter{Commutative Rings}
 
 List of Definitions
