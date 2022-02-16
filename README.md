@@ -1,7 +1,5 @@
 # My Math Notes
-*There might be mistakes in the documents I wrote. I take no responsibility.*
-
-Below are the books and other resources that I found useful. In general, I prefer books with a lot of excersies and problems (but I will list general theory textbooks before books that are collection of excersies). Most of the stuff listed below are in English, but some are in German.
+Links to resources I've enjoyed, and incomplete and wrong notes that I abandone after exams.
 
 ## General
 
