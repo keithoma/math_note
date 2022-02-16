@@ -119,6 +119,10 @@
     \end{itemize}
 \end{thm}
 
+\begin{proof}
+    For the last point, it is easier to understand with extension and contraction.
+\end{proof}
+
 \section{Examples}
 
 \begin{exmp}
@@ -140,6 +144,13 @@
         \item \(\mathrm{ZD}(2^S) = 2^S - S\) since \(A \cap A^c = \emptyset\) (also minus the empty set) (this seems to be true for all boolean rings)
         \item \(\mathrm{Nil}(2^S) = \emptyset\) (seems to be true for all boolean rings)
         \item \(\langle A \rangle = 2^A\) contains all subset of \(A\)
+    \end{enumerate}
+\end{exmp}
+
+\begin{exmp}[Integral Domains]
+    \begin{enumerate}
+        \item \(\mathbb{Z}[i]\) the Gaussian integers, \((\mathbb{Z}[i])^\times = {\{\pm 1, \pm i\}}\)
+        \item \(\mathbb{Z}/n\mathbb{Z}\), \((\mathbb{Z}/n\mathbb{Z})^\times = \makeset{\overline{a}}{\mathrm{gcd}(a, n)=1}\), \(|(\mathbb{Z}/n\mathbb{Z})^\times| = \phi(n)\) (Euler totient function)
     \end{enumerate}
 \end{exmp}
 
