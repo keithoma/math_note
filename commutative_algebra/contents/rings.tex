@@ -16,7 +16,19 @@
     A ring is called unitary if it contains the multiplicative identity and commutative if multiplication is commutative.
 \end{defn}
 
+\begin{defn}[Unit]
+    
+\end{defn}
+
 \begin{defn}[Zerodivisors]
+    
+\end{defn}
+
+\begin{defn}[Nilpotent]
+    
+\end{defn}
+
+\begin{defn}[Idempotent]
     
 \end{defn}
 
@@ -24,7 +36,7 @@
     
 \end{defn}
 
-\begin{defn}[Ideal Arithmetic]
+\begin{defn}[Operations on Ideals]
     Let \(R\) be a ring \(\{\mathfrak{a}_i\}_{i \in I}\) be a collection of ideals in \(R\).
     \begin{enumerate}
         \item
@@ -82,6 +94,54 @@
         \end{equation}
     \end{itemize}
 \end{thm}
+
+\begin{defn}[Unique Factorization Domain]
+    
+\end{defn}
+
+\begin{defn}[Principal Ideal Domain]
+    
+\end{defn}
+
+\begin{prps}
+    Commutative Rings \(\supset\) Unique Factorization Domain \(\supset\) Principal Ideal Domain \(\supset\) Fields
+\end{prps}
+
+\begin{thm}
+    \begin{itemize}
+        \item prime ideal, quotient is integral domain
+        \item same as above, but if prime maximal, then quotient is a fields
+        \item Maximal ideals are prime ideals.
+        \item There is a 1:1 correspondence
+        \begin{equation}
+            \set{\text{Ideals in \(A / \mathfrak{a}\)}} \longleftrightarrow \makeset{\mathfrak{b} / \mathfrak{a}}{\mathfrak{a} \subseteq \mathfrak{b} \subseteq A}
+        \end{equation}
+    \end{itemize}
+\end{thm}
+
+\section{Examples}
+
+\begin{exmp}
+    \begin{enumerate}
+        \item \(\mathbb{Z}\)
+        \item All fields.
+        \item Let \(S\) be any set, then \((\mathcal{P}(S), \triangle, \cap)\) is a ring.
+        \item continuous \(f: I \longrightarrow \mathbb{R}\) with a real interval I forms a ring.
+        \item cartesian product of rings
+    \end{enumerate}
+\end{exmp}
+
+\begin{exmp}
+    Let \(S\) be any set, then \((2^S, \triangle, \cap)\) is a ring.
+    \begin{enumerate}
+        \item \(0 = \emptyset\) and \(-A = A\)
+        \item The neutral element of the multiplication is \(S\).
+        \item \((2^S)^\times = \{S\}\)
+        \item \(\mathrm{ZD}(2^S) = 2^S - S\) since \(A \cap A^c = \emptyset\) (also minus the empty set) (this seems to be true for all boolean rings)
+        \item \(\mathrm{Nil}(2^S) = \emptyset\) (seems to be true for all boolean rings)
+        \item \(\langle A \rangle = 2^A\) contains all subset of \(A\)
+    \end{enumerate}
+\end{exmp}
 
 \section{Proofs}
 
