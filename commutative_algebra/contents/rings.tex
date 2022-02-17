@@ -79,6 +79,13 @@
     Let \(A\) and \(B\) be rings, \(\mathfrak{a}\) an ideal, and \(f: A \longrightarrow B\) a ring homomorphism with \(\mathfrak{a} \subseteq \Ker{f}\). Then there exists a unique ring homomorphism \(\tilde{f}: A / \mathfrak{a} \longrightarrow B\) such that \(f = \tilde{f} \circ \pi\).
 \end{prps}
 
+\begin{thm}
+    There is a bijection between the sets
+    \begin{equation}
+        \makeset{\mathfrak{}}{}
+    \end{equation}
+\end{thm}
+
 \begin{defn}[Integral Domain]
     
 \end{defn}
@@ -88,10 +95,6 @@
         \item prime ideal, quotient is integral domain
         \item same as above, but if prime maximal, then quotient is a fields
         \item Maximal ideals are prime ideals.
-        \item There is a 1:1 correspondence
-        \begin{equation}
-            \set{\text{Ideals in \(A / \mathfrak{a}\)}} \longleftrightarrow \makeset{\mathfrak{b} / \mathfrak{a}}{\mathfrak{a} \subseteq \mathfrak{b} \subseteq A}
-        \end{equation}
     \end{itemize}
 \end{thm}
 
@@ -157,3 +160,38 @@
 \section{Proofs}
 
 \section{Exercises}
+\begin{exr}
+    Let \(\varphi: R \longrightarrow R'\) be a ring homomorphism, \(\mathfrak{a}_1\), \(\mathfrak{a}_2\), \(\mathfrak{a}_3\) ideals of \(R\), and \(\mathfrak{b}_1\),\(\mathfrak{b}_2\), \(\mathfrak{b}_3\) ideals of \(R'\). Prove the following statements. Prove the following statements:
+    \begin{enumerate}
+        \item \((\mathfrak{a}_1 + \mathfrak{a}_2)^e = \mathfrak{a}_1^e + \mathfrak{a}_2^e\)
+        \begin{proof}
+            We show \((\mathfrak{a}_1 + \mathfrak{a}_2)^e \subseteq \mathfrak{a}_1^e + \mathfrak{a}_2^e\). Let \(x \in (\mathfrak{a}_1 + \mathfrak{b}_2)^e\), then we have for some index set \(I\)
+            \begin{equation}
+              x = \sum_{i \in I} \lambda_i x_i \text{,}
+            \end{equation}
+            where \(\lambda_i \in R'\) and \(x_i \in \varphi(\mathfrak{a}_1 + \mathfrak{a}_2)\) for all \(i \in I\). For each \(i \in I\) we find and \(a_{i, 1}, a_{i, 2} \in \mathfrak{a}\) such that \(x_i = \varphi(a_{i, 1} +  a_{i, 2})\), hence
+            \begin{align}
+              x =& \sum_{i \in I} \lambda_i (a_{i, 1} +  a_{i, 2}) &  \\
+              =& \sum_{i \in I} \lambda_i \left( \varphi(a_{i, 1}) + \varphi(a_{i, 2}) \right)&\text{(by linearity)} \\
+              =& \sum_{i \in I} \lambda_i \varphi( a_{i, 1}) + \lambda_i \varphi( a_{i, 2}) & \text{(by distributivity)} \\
+              =& \sum_{i \in I} \lambda_i \varphi( a_{i, 1}) + \sum_{i \in I} \lambda_i  \varphi( a_{i, 2}) & \text{(reordering the sum)} \text{.} \\
+            \end{align}
+            The last term is exactly the elements expressed by \(\mathfrak{a}_1^e + \mathfrak{a}_2^e\), therefore, \((\mathfrak{a}_1 + \mathfrak{a}_2)^e \subset \mathfrak{a}_1^e + \mathfrak{a}_2^e\).
+      
+            I think the above proof should work into both directions. If not, just notice that \(\mathfrak{a}_1^e \subset (\mathfrak{a}_1 + \mathfrak{a}_2)^e\).
+          \end{proof}
+          \item \((\mathfrak{b}_1 + \mathfrak{b}_2)^c \supseteq \mathfrak{b}_1^c + \mathfrak{b}_2^c\)
+          \begin{proof}
+            We have
+            \begin{equation}
+              (\mathfrak{b}_1 + \mathfrak{b}_2)^c = \makeset{x \in A}{\exists \, b_1 \in \mathfrak{b}_1 \exists \, b_2 \in \mathfrak{b}_2 : \varphi(x) = b_1 + b_2} \text{.}
+            \end{equation}
+            Now let \(x \in \mathfrak{b}_1^c + \mathfrak{b}_2^c\), then \(x = a_1 + a_2\) where \(\varphi(a_1) \in \mathfrak{b}_1\) and \(\varphi(a_2) \in \mathfrak{b}_2\). It is
+            \begin{align}
+              \varphi(x) =& \varphi(a_1 + a_2) & \\
+              =& \varphi(a_1) + \varphi(a_2) & \text{(by additivity)}
+            \end{align}
+            Since \(\varphi(a_1) \in \mathfrak{b}_1\) and \(\varphi(a_2) \in \mathfrak{b}_2\) we have that \(x \in (\mathfrak{b}_1 + \mathfrak{b}_2)^c\).
+          \end{proof}
+    \end{enumerate}
+\end{exr}
