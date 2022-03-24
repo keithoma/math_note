@@ -1,0 +1,26 @@
+\chapter{Modules}
+
+\section{Exercise}
+
+\begin{exr}
+    Let \(R\) be a ring, \(\mathfrak{a}\) and \(\mathfrak{b}\) ideals, \(M\) and \(N\) modules. Set
+    \begin{equation}
+        \Lambda_{\mathfrak{a}}(M) := \makeset{m \in M}{\mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)}}
+    \end{equation}
+    \begin{enumerate}
+        \item If \(\mathfrak{a} \supset \mathfrak{b}\), then \(\Lambda_\mathfrak{a}(M) \subset \Lambda_\mathfrak{b}(M)\).
+        \begin{proof}
+            Clear.
+        \end{proof}
+        \item If \(M \subset N\), then \(\Lambda_\mathfrak{a}(M) =  \Lambda_\mathfrak{a}(N) \cap M\).
+        \begin{proof}
+            Let \(m \in \Lambda_\mathfrak{a}(M)\), then we have immediately \(m \in M\). \(m\) is also contained in \(\Lambda_\mathfrak{a}(N)\) because \(M \subset N\). Hence one side of the inclusion holds.
+
+            For the other side, let \(m \in \Lambda_\mathfrak{a}(N)\) and \(m \in M\). The other inclusion follows immediately.
+        \end{proof}
+    \end{enumerate}
+\end{exr}
+
+\begin{exr}
+    Let \(R\) be a ring, \(M\) a module, \(x \in \mathrm{Jac}(M)\), and \(m \in M\). If \((1 + x)m = 0\), then \(m = 0\).
+\end{exr}
