@@ -97,6 +97,20 @@ A Gröbner basis \(G\) of an ideal \(I\) in a polynomial ring over a field is a 
         \end{enumerate}
     \end{exmp}
     \item the multivariate division of any polynomial in the polynomial ring \(R\) by \(G\) gives unique remainder;
+    \begin{exmp}
+        Consider \(p_1 = y - x^2\) and \(p_2 = z - x^3\). Set \(I := (p_1, p_2)\).
+        \begin{enumerate}
+            \item I have no idea why this would make it a Gröbner basis.
+            \item If the lexicographic ordering is \(x > y > z\), then 
+        \end{enumerate}
+    \end{exmp}
+    \item the multivariate division by \(G\) of any polynomial in the ideal \(I\) gives the remainder \(0\).
+    \begin{exmp}
+        Consider \(p_1 = y - x^2\) and \(p_2 = z - x^3\). Set \(I := (p_1, p_2)\).
+        \begin{enumerate}
+            \item If the lexicographic ordering is \(x > y > z\), then \(x \cdot p_1 - p_2 = xy - z \in I\), but it is not divisible by \(G\).
+        \end{enumerate}
+    \end{exmp}
 \end{itemize}
 \end{defn}
 \end{document}
