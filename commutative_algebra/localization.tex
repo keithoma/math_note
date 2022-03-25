@@ -1,0 +1,91 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lmm}{Lemma}
+\newtheorem{prps}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{exr}[thm]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{defn}[thm]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{%
+  matrix,%
+  calc,%
+  arrows%
+}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\mid} #2 \,\right\}}
+
+
+\newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
+\newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
+\newcommand{\Imag}[1]{ \mathrm{Im} \left( #1 \right)}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand{\restr}[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\begin{document}
+\begin{exr}
+    Let \(S\) be a multiplicatively closed subset of a ring \(A\), and let \(M\) be a finitely generated \(A\)-module. Prove that \(S^{-1}M = 0\) if and only if there exists \(s \in S\) such that \(sM = 0\).
+\end{exr}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(S^{-1}M = 0\), then for all \(s \in S\) and for all \(m \in M\) we have that
+        \begin{align}
+            \frac{m}{s} = 0 \text{,}
+        \end{align}
+        or in other words, \((m, s) \equiv (0, s')\) for some \(s' \in S\).
+        By definition, there exists a \(t \in S\) such that
+        \begin{align}
+            t(s\cdot 0 - s'm) = 0 &\iff t(0 - s'm) = 0 \\
+            &\iff t s' m = 0 \text{.}
+        \end{align}
+        Choose \(t s'\) to be the factor and we get \(sM = 0\).
+        \item If there is an \(s \in S\) such that \(sM = 0\), then we can write for all \(m \in M\) that \(s \cdot m = 0\). We have
+        \begin{align}
+            0 = s \cdot m = s (1 \cdot m - 1 \cdot 0)
+        \end{align}
+        which means again \((m, 1) \equiv (0, 1)\), hence \(S^{-1}M = 0\).
+    \end{enumerate}
+\end{proof}
+\end{document}
