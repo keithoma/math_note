@@ -88,4 +88,30 @@
         which means again \((m, 1) \equiv (0, 1)\), hence \(S^{-1}M = 0\).
     \end{enumerate}
 \end{proof}
+
+\begin{exr}
+    3.2
+
+    Hints
+    \begin{enumerate}
+        \item To show that \(x \in S^{-1}\mathfrak{a}\) is contained in the Jacobson radical of \(S^{-1}A\), use Proposition 1.9., i.e.
+        \begin{equation}
+            x \in \mathrm{Jac}(A) \iff 1 - xy \in A^\times \text{ for all } y \in A \text{.}
+        \end{equation}
+        \item If \(s \in S\), then the
+    \end{enumerate}
+\end{exr}
+\begin{proof}
+    We want to show that \(S^{-1} \mathfrak{a}\) is contained in the Jacobson radical of \(S^{-1} A\). Let \(x \in S^{-1}\mathfrak{a}\). From Proposition 1.9. we have that \(x \in \mathrm{Jac}(S^{-1} A)\) if and only if \(1 - xy \in (S^{-1}A)^\times\) for all \(y \in S^{-1}A\). Because \(S = 1 + \mathfrak{a}\), we can write
+    \begin{equation}
+        x = \frac{a_1}{1 + a_2}
+    \end{equation}
+    for some \(a_1, a_2 \in \mathfrak{a}\). With this, it is
+    \begin{align}
+        1 - xy = 1 - \frac{a_1}{1 + a_2} y = \frac{1 + a_2}{1 + a_2} - \frac{a_1 y}{1 + a_2} = \frac{1 + a_2 - a_1 y}{1 + a_2} \text{.}
+    \end{align}
+    Now, \(a_2 - a_1 y\) is contained in \(\mathfrak{a}\), hence the whole numerator \(1 + a_2 - a_1 y\) is contained in \(S\), and in turn, this means the whole expression is a unit in \(S^{-1}A\).
+
+    We want to give an alternative proof to Corollary 2.5.
+\end{proof}
 \end{document}
