@@ -114,4 +114,40 @@
 
     We want to give an alternative proof to Corollary 2.5. If \(\mathfrak{a}M = M\), then \((S^{-1} \mathfrak{a}) (S^{-1} M) = (S^{-1}M)\) because modules of fractions are determined uniquely up to isomorphisms. From above, we have that \(S^{-1}\mathfrak{a}\) is contained in the Jacobson radical of \(S^{-1}A\). By Nakayama's lemma, we get \(S^{-1}M = 0\). Now applying Exercise 3.1 yields that there is a \(s \in S\) such that \(sM = 0\). Since \(S = 1 + \mathfrak{a}\), it is clearly \(s \equiv 1 \mod{\mathfrak{a}}\).
 \end{proof}
+
+\begin{exr}[3.5.i)]
+\end{exr}
+\begin{proof}
+    Let \(S\) be saturated. We show \(A - S\) is a union of prime ideals.
+    \begin{enumerate}
+        \item Let \(x \in A - S\) and \(\Sigma\) be a collection of ideals that contain \(a\), but disjoint with \(S\).
+        \item We show that \(\Sigma\) is nonempty has a maximal elements.
+        \begin{enumerate}
+            \item Consider the ideal \((a)\). Its elements are in the form \(xa\) with \(x \in A\). If \(xa \in S\), then because \(S\) is saturated, we would have \(a \in S\) which is impossible. So \((a) \cap S = \emptyset\) and we have \((a) \in \Sigma\).
+            \item For each ideal chain ordered by inclusion, we can construct an upper bound via the union of the ideals in the chain. Zorn's lemma now gurantees the existence of maximal elements.
+        \end{enumerate}
+        \item Let \(\mathfrak{p} \in \Sigma\) be a maximal element. We show \(\mathfrak{p}\) is prime by contrapositive.
+        \begin{enumerate}
+            \item Let \(x, y \not\in \mathfrak{p}\).
+            \item \((x) + \mathfrak{p}\) and \((y) + \mathfrak{p}\) contain \(\mathfrak{p}\) strictly.
+            \item Since \(\mathfrak{p}\) was maximal in \(\Sigma\), these two ideals \((x) + \mathfrak{p}\) and \((y) + \mathfrak{p}\) are not in \(\Sigma\).
+            \item But \(a\) is contained in \((x) + \mathfrak{p}\) and \((y) + \mathfrak{p}\), therefore these two ideals are not disjoint from \(S\).
+            \item Let \(s \in ((x) + \mathfrak{p}) \cap S\) and \(t \in ((y) + \mathfrak{p}) \cap S\).
+        \end{enumerate}
+    \end{enumerate}
+%
+    Let \(A - S\) be a union of prime ideals. We show \(S\) is saturated.
+    \begin{enumerate}
+        \item Let \(xy \in S\). We show that \(x \in S\) and \(y \in S\) by contradiction.
+        \begin{enumerate}
+            \item Let \(xy \in S\) and assume \(x \not\in S\).
+            \item The assumptions implies \(x \in A - S\).
+            \item Since \(A - S\) is a union of prime ideals, there is a prime ideal \(\mathfrak{p}\) that contains \(x\).
+            \item If an ideal contains \(x\), it must also contain \(xy\).
+            \item So \(xy \in A - S\), or in other words, \(xy \not\in S\) which is a contradiction.
+        \end{enumerate}
+        \item Let \(x \in S\) and \(y \in S\), clearly \(xy \in S\) because \(S\) is multiplicatively closed.
+    \end{enumerate}
+\end{proof}
+
 \end{document}
