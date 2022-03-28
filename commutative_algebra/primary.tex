@@ -1,0 +1,105 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lmm}{Lemma}
+\newtheorem{prps}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{exr}[thm]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{defn}[thm]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{%
+  matrix,%
+  calc,%
+  arrows%
+}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\mid} #2 \,\right\}}
+
+
+\newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
+\newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
+\newcommand{\Imag}[1]{ \mathrm{Im} \left( #1 \right)}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand{\restr}[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\begin{document}
+\begin{defn}
+    An ideal \(q\) in \(A\) is primary if \(q \neq A\) and if
+    \begin{equation}
+        xy \in q \Rightarrow \text{ either } x \in q \text{ or } y^n \in q \text{ for some } n > 0
+    \end{equation}
+\end{defn}
+
+\begin{prps}
+    \(q\) is primary \(\iff\) \(A/q \neq 0\) and every zero-divisor in \(A/q\) is nilpotent
+\end{prps}
+
+\begin{proof}
+    Let \(q\) be a primary ideal.
+    \begin{enumerate}
+        \item Let \(x \in A/q\) be a zero-divisor, then there is a \(y \in A/q\) such that \((x + q)(y + q) = xy + q = \overline{0}\).
+        \item So \(xy \in q\) and by definition, we either have \(x \in q\) or \(y^n \in q\) for some \(n > 0\).
+        \item \(x \in q\) and \(y \in q\) cannot be, because we required \(x\) to be a zero-divisor in \(A/q\).
+        \item The only other option is \(x^n = 0\) for some \(n > 0\).
+        \item Hence, \(x\) is nilpotent in \(A/q\).
+    \end{enumerate}
+\end{proof}
+
+\begin{prps}
+    Every prime ideal is primary.
+\end{prps}
+
+\begin{prps}
+    Contraction of primary ideals are primary.
+\end{prps}
+
+\begin{prps}
+    Let \(q\) be a primary ideal in a ring \(A\). Then \(\sqrt{q}\) is the smallest prime ideal containing \(q\).
+\end{prps}
+
+\begin{proof}
+    The nilradical of \(A\) is the intersection of all the prime ideals of \(A\).
+\end{proof}
+\end{document}

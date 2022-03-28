@@ -1,0 +1,105 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lmm}{Lemma}
+\newtheorem{prps}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{exr}[thm]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{definition}[thm]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{%
+  matrix,%
+  calc,%
+  arrows%
+}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\mid} #2 \,\right\}}
+
+
+\newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
+\newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
+\newcommand{\Imag}[1]{ \mathrm{Im} \left( #1 \right)}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand{\restr}[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\begin{document}
+
+\chapter{Rings}
+
+Concepts
+\begin{enumerate}
+    \item zero-Divisors
+    \item nilpotent
+    \item ideals
+\end{enumerate}
+
+Properties of Ring
+\begin{enumerate}
+    \item local ring
+    \item noetherian ring
+    \item artinian ring
+    \item principal ideal domain
+    \item unique factorization domain
+    \item integral domain
+\end{enumerate}
+
+\part{Ideals}
+\chapter{Ideal Operation}
+\begin{definition}
+    Let \(R\) be a ring and \(\{\mathfrak{a}_i\}_{i \in I}\) a collection of ideals for an arbitary index set \(I\).
+    \begin{enumerate}
+        \item The sum of ideals is the smallest ideal in \(R\) containing each \(\mathfrak{a}_i\), i.e.
+        \begin{equation}
+            \sum_{i \in I} \mathfrak{a}_i := \makeset{\sum_{i \in I} a_i}{a_i \in \mathfrak{a}_i \text{ for all } i \in I \text{, and } a_i = 0 \text{ for almost all } i \in I} \text{.}
+        \end{equation}
+        If \(\mathfrak{a}\) and \(\mathfrak{b}\) are ideals, then
+        \begin{equation}
+            \mathfrak{a} + \mathfrak{b} = \makeset{a + b}{a \in \mathfrak{a} \text{ and } b \in \mathfrak{b}}\text{.}
+        \end{equation}
+        \item The product of ideals is the smallest ideal in \(R\)
+    \end{enumerate}
+
+\end{definition}
+\end{document}
