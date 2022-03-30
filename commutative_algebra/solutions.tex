@@ -1,0 +1,106 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% page layout
+\usepackage{geometry}
+    \geometry{
+        a4paper,
+        total={170mm,257mm},
+        left=20mm,
+        top=20mm,
+    }
+
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example} % same for example numbers
+\newtheorem{exercise}[theorem]{Exercise}
+
+\newtheoremstyle{custom_definition}% name of the style to be used
+  {\topsep} % measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep} % measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont} % name of font to use in the body of the theorem
+  {} % measure of space to indent
+  {\bfseries} % name of head font
+  {.\newline} % punctuation between head and body
+  {\topsep}% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2} --- \thmnote{#3}} % Manually specify head
+
+\theoremstyle{custom_definition}
+\newtheorem{definition}[theorem]{Definition} 
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{%
+  matrix,%
+  calc,%
+  arrows%
+}
+
+%%%%%
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\mid} #2 \,\right\}}
+
+
+\newcommand{\Ker}[1]{ \mathrm{Ker} \left( #1 \right) }
+\newcommand{\Coker}[1]{ \mathrm{Coker} \left( #1 \right) }
+\newcommand{\Imag}[1]{ \mathrm{Im} \left( #1 \right)}
+
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand{\restr}[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\begin{document}
+
+\begin{definition}[Saturation]
+    Let \(A\) be a ring and \(S\) be a multiplicative closed subset. The complement in \(A\) of the union of prime ideals that do not meet \(S\) is denoted by \(\overline{S}\) and is called the saturation of \(S\). It is the smallest and unique multiplicativly closed subset that contains \(S\).
+\end{definition}
+
+\begin{exercise}[3.8]
+    \begin{itemize}
+        \item ii) \(\Rightarrow\) iii): For each \(t \in T\), \(t/1\) is a unit in \(S^{-1}A\). We show that for each \(t \in T\) there exists \(x \in A\) such that \(xt \in S\).
+        \begin{enumerate}
+            \item Let \(t \in T\), then \(t/1\) is a unit in \(S^{-1}A\), so there exists a \(a/s \in S^{-1}A\) such that \(t/1 \cdot a/s = 1\).
+            \item We have
+            \begin{align}
+                & 1 = \frac{t}{1} \cdot \frac{a}{s} = \frac{t a}{s} \\
+                \iff & 1 \cdot s = \frac{t a}{s} s \\
+                \iff & s = t a \text{.}
+            \end{align}
+            \item If we set \(x := a\), then there exists a \(x \in A\) such that \(xt \in S\).
+        \end{enumerate}
+        \item iii) \(\Rightarrow\) iv): For each \(t \in T\) there exists \(x \in A\) such that \(xt \in S\). We show that \(T\) is contained in the saturation of \(S\).
+        \begin{enumerate}
+            \item Let \(t \in T\), \(x \in A\) such that \(xt \in S\), and \(\mathfrak{p}\) be a prime ideal that contains \(t\).
+            \item Then \(xt \in \mathfrak{p}\), so \(\mathfrak{p} \cap S \neq \emptyset\), or in other words, prime ideals that contain \(t\) do not meet \(S\).
+            \item Hence, \(t\) is also not contained in the union of prime ideals that do not meet \(S\).
+            \item But it is contained in the complement of the union of prime ideals that do not meet \(S\).
+            \item So \(t\) is in the saturation of \(S\).
+        \end{enumerate}
+        \item iv) \(\Rightarrow\) v): Let \(T\) be contained in the saturation of \(S\). We show that every prime ideal that meets \(T\) also meets \(S\).
+        \begin{enumerate}
+            \item Let \(\mathfrak{p}\) be a prime ideal such that \(\mathfrak{p} \cap T \neq \emptyset\).
+            \item Then there is a \(x \in \mathfrak{p}\) with \(x \in T\).
+            \item \(x\) is also in \(\overline{S}\) because \(T\) is contained in the saturation of \(S\).
+            \item This means that \(x\) is not in the union of prime ideals that do not meet \(S\).
+            \item So if \(x \in \mathfrak{p}\), then \(\mathfrak{p}\) must meet \(S\).
+        \end{enumerate}
+        \item v) \(\Rightarrow\) i): Every prime ideal that meets \(T\) also meets \(S\). We show \(\)
+    \end{itemize}
+\end{exercise}
+
+\end{document}
