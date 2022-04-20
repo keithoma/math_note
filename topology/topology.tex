@@ -1,0 +1,157 @@
+\documentclass[a4paper]{book}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}[definition]
+\newtheorem{proposition}{Proposition}[definition]
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\maketitle
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}[Topological Space]
+    A {\color{maththen}topological space} is an ordered pair \((X, \tau)\), where \(X\) is a {\color{mathif}set} and \(\tau\) is a {\color{mathif}collection of subsets} that satisfies the following axioms.
+    \begin{enumerate}
+        \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}whole set} \(X\) belongs to \(\tau\).
+        \item Any {\color{mathif}arbitary union} of members of \(\tau\) belongs to \(\tau\).
+        \item The {\color{mathif}intersection of finite number} of members of \(\tau\) belongs to \(\tau\).
+    \end{enumerate}
+    The {\color{mathif}collection} \(\tau\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathif}elements} of \(\tau\) are called {\color{maththen}open sets}. A {\color{mathif}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
+\end{definition}
+
+%TODO: There are other equivalent definitions
+
+\begin{example}
+    Let \(X\) be a set.
+    \begin{enumerate}
+        \item \(\tau = \mathcal{P}(X)\) is called the {\color{maththen}discrete topology}. In this case, \((X, \tau)\) is called the {\color{maththen}discrete space}. It is the finest topology. (One can define an ordering of topologies.)
+        \item \(\tau = \{\varnothing, \mathcal{P}(X)\}\) is called the {\color{maththen}trivial topology}.
+        \item Let \((X, d)\) be a {\color{mathif}metric space}. Set
+        \begin{equation}
+            \tau_d := \makeset{U \in X}{U \text{ is a open subset in the metric space } (X, d)} \text{.}
+        \end{equation}
+        Recall that \(U\) being an open subset in the metric space \((X, d)\) means that for all \(x \in U\) there is an \(r > 0\) such that \(B_d(x, r)\) is contained in \(U\).
+
+        Here, \(\tau\) is a topology. In other words, a metric induces a topology.
+
+        (Proof as homework.)
+        \item The Zariski-topology.
+    \end{enumerate}
+
+    \begin{definition}[Continuous Maps]
+        Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
+        \begin{equation}
+            \text{for all } U \in \tau_Y \text{ it is } f^{-1}(U) \in \tau_X \text{.}
+        \end{equation}
+    \end{definition}
+
+    \begin{lemma}
+        The different definitions of continuity in a topological space and a metric space are equivalent, i.e. if \(X\) and \(Y\) are metric spaces, then \(f: X \longrightarrow Y\) is \(\epsilon\)-\(\delta\)-continuous if and only if \(f\) is continuous.
+    \end{lemma}
+
+    \begin{definition}[Homeomorphism]
+        Let \(X\) and \(Y\) be topological spaces. A map \(f: X \longrightarrow Y\) is a homeomorphism if it has the following properties.
+
+        \begin{enumerate}
+            \item \(f\) is {\color{mathif}bijective}.
+            \item \(f\) is {\color{mathif}continuous}.
+            \item The inverse map \(f^{-1}\) is {\color{mathif}continuous}.
+        \end{enumerate}
+
+        If such function exists, \(X\) and \(Y\) are said to be {\color{maththen}homeomorphic}.
+
+        We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
+    \end{definition}
+\end{example}
+\end{document}
