@@ -128,6 +128,7 @@
         (Proof as homework.)
         \item The Zariski-topology.
     \end{enumerate}
+\end{example}
 
     \begin{definition}[Continuous Maps]
         Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
@@ -153,5 +154,20 @@
 
         We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
     \end{definition}
-\end{example}
+
+    \begin{definition}
+        Let \((X, \tau)\) a {\color{mathif}topological space}.
+        \begin{enumerate}
+            \item \(\mathcal{B} \subset \mathcal{O}\) is a {\color{maththen}basis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of subsets} from \(\mathcal{B}\).
+            \item \(\mathcal{S} \subset \mathcal{O}\) is a {\color{maththen}subbasis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of finite intersections of subsets} from \(\mathcal{S}\).
+        \end{enumerate}
+        We say that \(\mathcal{B}\) and \(\mathcal{S}\) {\color{maththen}generates} \(\mathcal{O}\) and write \(\overline{\mathcal{S}} = \overline{\mathcal{B}} = \mathcal{O}\).
+    \end{definition}
+
+    \begin{lemma}
+        Let \(\mathcal{S} \subset \mathcal{P}(X)\), then there exists exactly one topology \(\mathcal{O} \subset \mathcal{P}(X)\) of \(X\) such that
+        \begin{enumerate}
+            \item \(\mathcal{S} \subset \mathcal{O}\)
+        \end{enumerate}
+    \end{lemma}
 \end{document}
