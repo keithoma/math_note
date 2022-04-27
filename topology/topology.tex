@@ -59,6 +59,7 @@
 \definecolor{mathif}{HTML}{0000A0} % for conditions
 \definecolor{maththen}{HTML}{CC5500} % for consequences
 \definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
 
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -103,17 +104,23 @@
 \maketitle
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}[Topological Space]
-    A {\color{maththen}topological space} is an ordered pair \((X, \tau)\), where \(X\) is a {\color{mathif}set} and \(\tau\) is a {\color{mathif}collection of subsets} that satisfies the following axioms.
-    \begin{enumerate}
-        \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}whole set} \(X\) belongs to \(\tau\).
-        \item Any {\color{mathif}arbitary union} of members of \(\tau\) belongs to \(\tau\).
-        \item The {\color{mathif}intersection of finite number} of members of \(\tau\) belongs to \(\tau\).
-    \end{enumerate}
-    The {\color{mathif}collection} \(\tau\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathif}elements} of \(\tau\) are called {\color{maththen}open sets}. A {\color{mathif}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
-\end{definition}
-
+\chapter{Topological Space}
+\begin{defbox}
+    \begin{definition}[Topological Space]
+        A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \tau)\), where \(X\) is a {\color{mathif}set} and \(\tau\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
+        \begin{enumerate}
+            \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}entire set} \(X\) belongs to \(\tau\).
+            \item Any \textbf{arbitary} {\color{mathif}union} of members of \(\tau\) belongs to \(\tau\).
+            \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\tau\) belongs to \(\tau\).
+        \end{enumerate}
+        The {\color{mathobj}collection} \(\tau\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\tau\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
+    \end{definition}
+\end{defbox}
 %TODO: There are other equivalent definitions
+
+\begin{remark}
+    We write \(X\) for \((X, \tau)\). % work to be done
+\end{remark}
 
 \begin{example}
     Let \(X\) be a set.
@@ -132,32 +139,41 @@
         \item The Zariski-topology.
     \end{enumerate}
 \end{example}
-
+\begin{defbox}
     \begin{definition}[Continuous Maps]
         Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
         \begin{equation}
             \text{for all } U \in \tau_Y \text{ it is } f^{-1}(U) \in \tau_X \text{.}
         \end{equation}
     \end{definition}
+\end{defbox}
 
     \begin{lemma}
         The different definitions of continuity in a topological space and a metric space are equivalent, i.e. if \(X\) and \(Y\) are metric spaces, then \(f: X \longrightarrow Y\) is \(\epsilon\)-\(\delta\)-continuous if and only if \(f\) is continuous.
     \end{lemma}
 
+\begin{defbox}
     \begin{definition}[Homeomorphism]
-        Let \(X\) and \(Y\) be topological spaces. A map \(f: X \longrightarrow Y\) is a homeomorphism if it has the following properties.
-
+        Let \(X\) and \(Y\) be {\color{mathif}topological spaces}.
         \begin{enumerate}
-            \item \(f\) is {\color{mathif}bijective}.
-            \item \(f\) is {\color{mathif}continuous}.
-            \item The inverse map \(f^{-1}\) is {\color{mathif}continuous}.
+            \item A {\color{mathobj}map} \(f: X \longrightarrow Y\) is a {\color{maththen}homeomorphism} if it has the following properties.
+
+            \begin{enumerate}
+                \item \(f\) is {\color{mathif}bijective}.
+                \item \(f\) and the {\color{mathif}inverse map} \(f^{-1}\) is {\color{mathif}continuous}.
+            \end{enumerate}
+
+            \item Two topological spaces \(X\) and \(Y\) are said to be {\color{maththen}homeomorphic} if a homeomorphism exists.
+
+            \item We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). If \(Y = X\) we also write \(\mathrm{Homeo}(X)\).
         \end{enumerate}
-
-        If such function exists, \(X\) and \(Y\) are said to be {\color{maththen}homeomorphic}.
-
-        We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
     \end{definition}
+\end{defbox}
+\begin{remark}
+    The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
+\end{remark}
 
+\begin{defbox}
     \begin{definition}
         Let \((X, \tau)\) a {\color{mathif}topological space}.
         \begin{enumerate}
@@ -166,6 +182,7 @@
         \end{enumerate}
         We say that \(\mathcal{B}\) and \(\mathcal{S}\) {\color{maththen}generates} \(\mathcal{O}\) and write \(\overline{\mathcal{S}} = \overline{\mathcal{B}} = \mathcal{O}\).
     \end{definition}
+\end{defbox}
 
     \begin{lemma}
         Let \(\mathcal{S} \subset \mathcal{P}(X)\), then there exists exactly one topology \(\mathcal{O} \subset \mathcal{P}(X)\) of \(X\) such that
@@ -179,7 +196,7 @@
     \chapter{Connected Spaces and Sets}
     \begin{defbox}
         \begin{definition}[Def 9]
-            A {\color{mathif}topological space} \(X\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
+            A {\color{mathobj}topological space} \(X\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
             \begin{enumerate}
                 \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}disjoint} sets.
                 \item The \textbf{only} {\color{mathif}subsets} of \(X\) that are \textbf{both} {\color{mathif}open} and {\color{mathif}closed} ({\color{mathrem}clopen}) are the emptyset \(\varnothing\) and the entire set \(X\).
