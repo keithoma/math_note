@@ -1,0 +1,119 @@
+\documentclass[a4paper]{article}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section*{Exercise 2}
+    Show that \(\mathcal{O} \subset \mathcal{B}(\mathbb{R})\) given by
+    \begin{align}
+        \mathcal{O} := \{\varnothing\} \cup \makeset{\bigcup_{i \in I}[a_i, b_i)}{-\infty < a_i < b_i < +\infty}
+    \end{align}
+    defines a topology that is not the discrete topology. Show that the connected components in \((\mathbb{R}, \mathcal{O})\) consists of only one point.
+
+    \begin{proof}
+        \begin{enumerate}
+            \item We show that \(\mathcal{O}\) is a topology by verifying the axioms of a topology.
+            \begin{enumerate}
+                \item Clearly, \(\varnothing \in \mathcal{O}\). \(\mathbb{R}\), on the other hand, is a union of all \([k, k + 1)\) with \(k \in \mathbb{Z}\), so \(\mathbb{R} \in \mathcal{O}\).
+                \item Let \(I\) be an arbitary index set and \(\{A_i\}_{i \in I}\) be a family of subsets in \(\mathcal{O}\). Each \(A_i\) consists of unions of right-open intervals, hence \(\bigcup_{i \in I}A_i\) is also a union of right-open intervals, and therefore, included in \(\mathcal{O}\).
+                \item Now let \(I\) be a finite index set and \(A_i\) be subsets of \(\mathcal{O}\) with \(i \in I\). Again, each \(A_i\) is a union of right-open intervals. A finite intersection of such subsets will again be an union of right-open intervals (one could show this by going through each possible case). Hence, \(\bigcap_{i\in I}A_i \in \mathcal{O}\).
+            \end{enumerate}
+            \item \(\mathcal{O}\) is not discrete because for example it does not contain \((a, b)\) for \(a \neq b\) and \(a < b\).
+            \item We will show that each connected component in \((\mathbb{R}, \mathcal{O})\) is a singleton. Let \(A \in \mathcal{O}\) be connected and set \(p_1 := \inf A\) and \(p_2 := \sup A\). \([p_1, p_2)\) is connected because all intervals in \(\mathbb{R}\) are connected. Assume there is a \(p_1 \leq c \leq p_2\), but then \([p_1, p_2) = [p_1, c) \cup [c, p_2)\). Because of connectedness of \([p_1, p_2)\) this is only possible if \(p_1 = c = p_2\), therefore \(A = \{p_1\} = \{p_2\}\).
+        \end{enumerate}
+    \end{proof}
+    \section*{Exercise 3}
+    \begin{enumerate}
+        \item Show that \(\makeset{(x, \sin(\frac{1}{x}))}{x > 0} \cup \{0\} \times [-1, 1] \subset \mathbb{R}^2\) is connected, but not path-connected.
+        \begin{proof}
+            Denote \(S := \makeset{(x, \sin(\frac{1}{x}))}{x > 0} \cup \{0\} \times [-1, 1]\).
+            \begin{enumerate}
+                \item We show \(S\) is connected. Assume otherwise. Then, there are disjoint open subsets \(A, B \subset \mathbb{R}^2\) such that \(S = A \sqcup B\).
+            \end{enumerate}
+        \end{proof}
+    \end{enumerate}
+\end{document}
