@@ -244,7 +244,7 @@
 
     \chapter{Connected Spaces and Sets}
     \begin{defbox}
-        \begin{definition}[Def 9]
+        \begin{definition}[Def 8]
             A {\color{mathobj}topological space} \(X\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
             \begin{enumerate}
                 \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}disjoint} sets.
@@ -257,17 +257,19 @@
     \end{defbox}
     % proof missing
 
+\begin{thmbox}
     \begin{lemma}
         Any {\color{mathif}interval} \(I \subset \mathbb{R}\) is {\color{maththen}connected}.
     \end{lemma}
+\end{thmbox}
 
-    \begin{proof}
-        Let \(I = A \cup B\) with \(A\) and \(B\) being nonempty disjoint sets in \(\mathbb{R}\) that are open, and let \(a \in A\) and \(b \in B\). Without loss of generality, assume \(a < b\). If we set
-        \begin{align}
-            s := \inf \makeset{x \in B}{a < x}
-        \end{align}
-        then \(s \in [a, b] \subset I\) because \(I\) is an interval. %proof missing
-    \end{proof}
+\begin{proof}
+    Fix an interval \(I \subset \mathbb{R}\), and let \(A, B \subset \mathbb{R}\) be two nonempty, open and disjoint subsets such that \(A \sqcup B = I\). Moreover, let \(a \in A\) and \(b \in B\) and assume without loss of generality that \(a < b\). If we set
+    \begin{align}
+        s := \inf \makeset{x \in B}{a < x} \text{,}
+    \end{align}
+    then \(s \in [a, b] \subset I\) because \(I\) is an interval.   
+\end{proof}
 
     \begin{example}
         The general linear group \(\mathrm{GL}_n(K)\) for a field \(K\) and \(n \in \mathbb{N}\) is not connected for \(K = \mathbb{R}\) and \(K = \mathbb{C}\).
@@ -330,18 +332,16 @@
         missing
     \end{remark}
 
-    \chapter{Trennungsaxiome}
-    Literature: Groessere Liste in Sten, Seibeck
+\chapter{Separation Axioms}
+Literature: Groessere Liste in Sten, Seibeck
 
-    \begin{defbox}
-        \begin{definition}
-            \((X, \tau)\) fullfills
-            \begin{enumerate}
-                \item For all \(x \in X\) and \(y \in X\) with \(x \neq y\) there is a subset \(U \in X\) open such that \(y \in U\) but \(x \not\in U\).
-                \item Hausdorff
-            \end{enumerate}
-        \end{definition}
-    \end{defbox}
+\begin{defbox}
+    \begin{definition}[\(T_1\) Space]
+        A {\color{mathobj}topological space} \((X, \tau)\) is a \(T_1\) space if any two distinct points in \(X\) are separable, i.e. if each lies in a neighborhood that does not contain the other point.
+    \end{definition}
+\end{defbox}
+
+
     \begin{lemma}
         \begin{enumerate}
             \item \(X\) is from type 1 if and only if \(\{x\}\) is closed.
