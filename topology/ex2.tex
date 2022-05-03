@@ -87,6 +87,27 @@
 }%
 
 \begin{document}
+\section*{Problem 1}
+\begin{enumerate}
+    \item Show that the product topology \(\mathcal{O}_{X \times Y}\) is the coarsest topology on \(X \times Y\) such that both projections are continuous.
+    \begin{proof}
+        Assume there is a topology coarser than the product topology that meets the given condition, i.e. say \(\mathcal{O} \subset \mathcal{O}_{X \times Y}\). Then, there is a \(U \times V\) that is contained in \(\mathcal{O}_{X \times Y}\), but not in \(\mathcal{O}\). Because both projections are continuous for \(\mathcal{O}\), we have
+        \begin{align*}
+            \pi_X^{-1}(U) &= U \times Y \in \mathcal{O} \\
+            \pi_Y^{-1}(V) &= X \times V \in \mathcal{O} \text{.}
+        \end{align*}
+        Now, intersection of open subsets should be open again, but \((U \times Y) \cup (X \times V) = U \times V\) will not do.
+    \end{proof}
+    \item Show that the topology \(\mathcal{O}_{X \sqcup Y}\) of the topological sum is the finest scotch on the disjoint union such that both inclusions are continuous.
+    \begin{proof}
+        The idea is the same as above. Again, assume there is a scotch finer than the topological sum and denote it by \(\mathcal{O}\). Then, there is a \(U \sqcup V\) in \(\mathcal{O}\), but not in \(\mathcal{O}_{X \sqcup Y}\). We have
+        \begin{align*}
+            i_X^{-1}(U \sqcup {0}) = U \in \mathcal{O}_X \\
+            i_Y^{-1}({1} \sqcup V) = V \in \mathcal{O}_Y
+        \end{align*}
+    \end{proof}
+\end{enumerate}
+
 \section*{Exercise 2}
     Show that \(\mathcal{O} \subset \mathcal{B}(\mathbb{R})\) given by
     \begin{align}
@@ -114,6 +135,24 @@
             \begin{enumerate}
                 \item We show \(S\) is connected. Assume otherwise. Then, there are disjoint open subsets \(A, B \subset \mathbb{R}^2\) such that \(S = A \sqcup B\).
             \end{enumerate}
+        \end{proof}
+    \end{enumerate}
+    \section*{Exercise 4}
+    \begin{enumerate}
+        \item Let \((X, \mathcal{O})\) be a topological space with a basis \(\mathcal{B}\). Prove the following.
+        \begin{enumerate}
+            \item For any two basis elements \(B_1, B_2 \in \mathcal{B}\) and a point \(x \in B_1 \cap B_2\) there exists \(B \in \mathcal{B}\) with \(x \in B \subset B_1 \cap B_2\).
+            \begin{proof}
+                Since the intersection of two open subset is again open, \(B_1 \cap B_2\) is open. This means that \(x\) is contained in at least one open subset. Now assume that none of the open subsets that contains \(x\) and is contained by \(B_1 \cap B_2\) is not a basis element of \(\mathcal{B}\). But such a subset cannot be constructed through unions of basis elements even though at least one of such subsets must exist. Hence the assumption was false and a \(x \in B \subset B_1 \cap B_2\) is contained in \(\mathcal{B}\).
+            \end{proof}
+            \item For any \(x \in X\) there exists a \(B \in \mathcal{B}\) with \(x \in B\).
+            \begin{proof}
+                Fix an \(x \in X\). Since \(X\) itself is open, \(x\) is contained in at least one open subset. Assume there is no \(B \in \mathcal{B}\) that contains \(x\). Then again, none of the open subsets that contain \(x\) can be constructed through unions of basis elements, but at least one open subset that contains \(x\) exists. As above, conclude that there is a \(B \in \mathcal{B}\) with \(x \in B\).
+            \end{proof}
+        \end{enumerate}
+        \item Let \(\mathcal{B} \subset \mathcal{B}(X)\) satisfy the two conditions above. Show that \(\mathcal{B}\) is a basis of a topology on \(X\).
+        \begin{proof}
+            Let \(A \in \mathcal{O}\). If \(A = \varnothing\), then \(A\) is a union of the basis elements vacuously. In any other case, for all \(x \in A\), we find a \(B_x \in \mathcal{B}\) such that \(x \in B_x \subset A\)
         \end{proof}
     \end{enumerate}
 \end{document}
