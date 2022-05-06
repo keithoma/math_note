@@ -130,4 +130,25 @@ Let \(A \subset B\) be an integral extension of rings and assume that \(B\) is a
     This is clear.
   \end{proof}
 \end{enumerate}
+\section*{Exercise 1.2}
+Let \(K\) be a number field with \([K:\mathbb{Q}] = 2\).
+\begin{enumerate}
+  \item Show that \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is square-free.
+  \begin{proof}
+    Since every extension of a field of characteristic \(0\) is separable, \(K\) is separable, and by the primitive element thoerem, we know that \(K\) is simple. Now the algebraic closure of \(\mathbb{Q}\) is \(\mathbb{C}\), there is an element in \(x \in \mathbb{C}\) such that \(K = \mathbb{Q}(x)\). If \(x^2\) is not rational, then \([K : \mathbb{Q}] > 2\). Now assume that \(x^2\) is not square-free, i.e. there is a prime \(p \in \mathbb{N}\) such that \(n \cdot p^2 = x^2\) for some \(n \in \mathbb{Z}\). Then, \(K = \mathbb{Q}(p \sqrt{n}) = \mathbb{Q}(\sqrt{n})\). Moreover, if \(x^2\) is not an integer, another primitive element that is an integer can be found. All in all, there is a square-free integer \(d\) such that \(K = \mathbb{Q}(\sqrt{d})\).
+  \end{proof}
+  \item In this setting, show that \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
+  \begin{equation}
+    \alpha = \begin{cases}
+      \frac{1+\sqrt{d}}{2} &\qquad \text{ if } d \equiv 1 \mod{4}\\
+      \sqrt{d} &\qquad \text{ if } d \not\equiv 1 \mod{4}
+    \end{cases} \text{.}
+  \end{equation}
+  \begin{proof}
+    Use minimal polynomials
+  \end{proof}
+  \item No.
+\end{enumerate}
+\section*{Exercise 1.3}
+Consider \(R = \mathbb{Z}[\sqrt{3}]\) with the norm 
 \end{document}
