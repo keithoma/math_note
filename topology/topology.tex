@@ -54,7 +54,7 @@
 \newtheorem{theorem}{Theorem}[definition]
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}[definition]{Lemma}
-\newtheorem{proposition}{Proposition}[definition]
+\newtheorem{proposition}[definition]{Proposition}
 
 \newtheorem*{remark}{Remark}
 
@@ -108,113 +108,6 @@
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{content/topological_space.tex}
-    \chapter{Connected Spaces and Sets}
-    \begin{defbox}
-        \begin{definition}[Def 8]
-            A {\color{mathobj}topological space} \(X\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
-            \begin{enumerate}
-                \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}disjoint} sets.
-                \item The \textbf{only} {\color{mathif}subsets} of \(X\) that are \textbf{both} {\color{mathif}open} and {\color{mathif}closed} ({\color{mathrem}clopen}) are the emptyset \(\varnothing\) and the entire set \(X\).
-                % commented out as the other 3 conditions are not mentioned in the lecture
-                % \item The \textbf{only} {\color{mathif}subsets} of \(X\) with empty {\color{mathif}boundary} are the emptyset \(\varnothing\) and the entire set \(X\).
-                % \item All {\color{mathif}continuous} maps from \(X\) to the two point space \(\{0, 1\}\) endowed with the {\color{mathif}discrete} topology is {\color{mathif}constant}. 
-            \end{enumerate}
-        \end{definition}
-    \end{defbox}
-    % proof missing
-
-\begin{thmbox}
-    \begin{lemma}
-        Any {\color{mathif}interval} \(I \subset \mathbb{R}\) is {\color{maththen}connected}.
-    \end{lemma}
-\end{thmbox}
-
-\begin{proof}
-    Fix an interval \(I \subset \mathbb{R}\), and let \(A, B \subset \mathbb{R}\) be two nonempty, open and disjoint subsets such that \(A \sqcup B = I\). Moreover, let \(a \in A\) and \(b \in B\) and assume without loss of generality that \(a < b\). If we set
-    \begin{align}
-        s := \inf \makeset{x \in B}{a < x} \text{,}
-    \end{align}
-    then \(s \in [a, b] \subset I\) because \(I\) is an interval.   
-\end{proof}
-
-    \begin{example}
-        The general linear group \(\mathrm{GL}_n(K)\) for a field \(K\) and \(n \in \mathbb{N}\) is not connected for \(K = \mathbb{R}\) and \(K = \mathbb{C}\).
-    \end{example}
-
-    \begin{defbox}
-        \begin{definition}
-            A connected component of a topological space is a maximally connected subset \(X_0 \subseteq X\), i.e. \(X_0\) connected and for all \(X_0 \subsetneq X_1\) then \(X_1\) is not connected.
-        \end{definition}
-    \end{defbox}
-
-    \begin{remark}
-        Let \(f: X \longrightarrow Y\) be continuous and \(X\) be connected, then \(f(X) \subset Y\) is connected.
-    \end{remark}
-    \begin{proof}
-        Let \(f(X) = A \sqcup B\) with \(A\) and \(B\) being two open disjoint sets. \(f^{-1}(A)\) and \(f^{-1}(B)\) are open since \(f\) is continuous. We also have \(f^{-1}(A) \cap f^{-1}B = f^{-1}(A \cap B) = \varnothing\) so \(f^{-1}(A) = \varnothing\) or \(f^{-1}(B) = \varnothing\), so \(A = \varnothing\) or \(B = \varnothing\) and we are done.
-    \end{proof}
-    \begin{proposition}
-        Connected components are closed subsets.
-    \end{proposition}
-    \begin{proof}
-        % proof missing
-    \end{proof}
-    \begin{example}
-        For \(\mathbb{Q} \subset \mathbb{R}\) the connected components are points and those are not open.
-    \end{example}
-    \begin{lemma}[Lemma 11]
-        Let \(X\) be connected and \(f: X \longrightarrow Y\) and locally constant, i.e. for all \(x \in X\) there exists a \(U_x \in \mathcal{O}_X\), \(x \in U_x\) such that \(f\) restricted on \(U_x\) is identical to \(f(x)\)., then \(f\) is constant.
-    \end{lemma}
-    \begin{proof}
-        Locally constant implies continuous with regards to the discrete topology on \(Y\). Let \(x \in X\), \(X = f^{-1}(f(x)) \cup f^{-1}(Y \setminus \{f(x)\})\) is a disjoint union and since \(X\) is connected \(f^{-1}(Y \setminus \{f(x)\}) = \varnothing\). Conclude \(f\) is identical to \(f(x)\).
-    \end{proof}
-
-    \textbf{Application:} \(f: X \longrightarrow \{0, 1\}\), \(X\) is connected, \(f\) locally constant, there is a \(x \in X\) such that \(f(x) = 1\), then \(f\) is identical to \(1\).
-
-    \begin{defbox}
-        \begin{definition}
-            \(X\) is said to be {\color{maththen}path connected}, if for every pair of points \(x\) and \(x_0\) in \(X\) there is a continuous map (called path) \(\gamma: [0, 1] \longrightarrow X\) with \(\gamma(0) = x_0\) and \(\gamma(1) = x\).
-        \end{definition}
-    \end{defbox}
-
-    \begin{lemma}
-        If \(X\) is path connected, then it is also connected.
-    \end{lemma}
-    \begin{proof}
-        Let \(A\) and \(B\) two disjoint open sets such that \(A \sqcup B = X\), and let \(a \in A\) and \(b \in B\). Let \(\gamma: [0, 1] \longrightarrow X\) be continuous path with \(\gamma(0) = x_0\) and \(\gamma(1) = x_1\). We have that \(\gamma^{-1}\)
-    \end{proof}
-
-    \begin{remark}
-        The converse statement is not true in general.
-    \end{remark}
-
-    \begin{example}
-        \(X = \makeset{(x, \sin(\frac{1}{x}))}{x > 0} \cup \{0\} \times [-1, 1] \subset \mathbb{R}^2\) is connected but not path connected.
-    \end{example}
-    \begin{proof}
-        Homework
-    \end{proof}
-    \begin{remark}
-        missing
-    \end{remark}
-
-\chapter{Separation Axioms}
-Literature: Groessere Liste in Sten, Seibeck
-
-\begin{defbox}
-    \begin{definition}[\(T_1\) Space]
-        A {\color{mathobj}topological space} \((X, \tau)\) is a \(T_1\) space if any two distinct points in \(X\) are separable, i.e. if each lies in a neighborhood that does not contain the other point.
-    \end{definition}
-\end{defbox}
-
-
-    \begin{lemma}
-        \begin{enumerate}
-            \item \(X\) is from type 1 if and only if \(\{x\}\) is closed.
-        \end{enumerate}
-    \end{lemma}
-    \begin{remark}
-        The type 1 and type 2 properties are inherited to subspaces, topological sums and products.
-        Metric spaces are from type 2.
-    \end{remark}
+\input{content/connected_spaces.tex}
+\input{content/separation_axioms.tex}
 \end{document}
