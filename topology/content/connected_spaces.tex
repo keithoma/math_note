@@ -19,6 +19,12 @@
     \end{lemma}
 \end{thmbox}
 %
+\begin{thmbox}
+    \begin{lemma}
+        Let \(X\) and \(Y\) be {\color{mathif}topological spaces} and \(f: X \longrightarrow Y\) a {\color{mathif}continuous function}. If \(X\) is {\color{mathif}connected}, then \(f(X) \subset Y\) is {\color{maththen}connected}.
+    \end{lemma}
+\end{thmbox}
+%
 \begin{defbox}
     \begin{definition}
         A connected component of a topological space is a maximally connected subset \(X_0 \subseteq X\), i.e. \(X_0\) connected and for all \(X_0 \subsetneq X_1\) then \(X_1\) is not connected.
@@ -89,7 +95,13 @@
     
     But we also have \(s \in A\) because the infimum cannot be contained in an open set, but \(s \in I = A \sqcup B\).
 \end{proof}
-
+%
+\begin{thmbox}
+    \begin{lemma}
+        Let \(X\) and \(Y\) be {\color{mathif}topological spaces} and \(f: X \longrightarrow Y\) a {\color{mathif}continuous function}. If \(X\) is {\color{mathif}connected}, then \(f(X) \subset Y\) is {\color{maththen}connected}.
+    \end{lemma}
+\end{thmbox}
+%
 \begin{example}
     The general linear group \(\mathrm{GL}_n(K)\) for a field \(K\) and \(n \in \mathbb{N}\) is not connected for \(K = \mathbb{R}\) and \(K = \mathbb{C}\).
 \end{example}
@@ -165,7 +177,21 @@ If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topologic
     and see figure XXX. \(X\) is connected, but it is not path-connected.
 \end{example}
 \begin{proof}
+    Denote
+    \begin{equation*}
+        A := \makeset{\left(x, \sin\left(\frac{1}{x}\right)\right)}{x > 0} \qquad B := \{0\} \cup [-1, 1] \text{,}
+    \end{equation*}
+    then \(X = A \sqcup B\).
     \begin{enumerate}
+        \item First, define \(f: \mathbb{R}^+ \longrightarrow \mathbb{R}^2\) as
+        \begin{equation*}
+            f(x) := \left(x,\, \sin\left(\frac{1}{x}\right)\right) \text{.}
+        \end{equation*}
+        \(f\) is continuous, \(\mathbb{R}^+\) is an interval, therefore connected, so \(f(\mathbb{R}^+) = A\) is connected. On the other hand, \(\{0\}\) and \([-1, 1]\) are connected and so is their product \(B\).
+        
+        Assume there is a clopen subset \(S \subset X\) that is not empty. Without loss of generality, we have that \((0, 0) \in U\) (otherwise, consider the complement of \(U\) which also must be clopen). Since \(A\) is clopen in \(A\), the intersection \(A \cap U\) must also be clopen in \(A\), but \(A\) is connected, so \(A\) is contained in \(U\).
+
+        Moreover, the closure of \(A\) is also contained in \(U\). So there is an \(\epsilon > 0\) such that the ball \(B(p, \epsilon)\) that contains \((0, 0)\) is in \(U\). I got lazy to go into the details, but this ball contains a point of \(B\). Follow the same reason as above.
         \item 
     \end{enumerate}
 \end{proof}
