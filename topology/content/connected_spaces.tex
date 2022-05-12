@@ -49,13 +49,22 @@
 \end{thmbox}
 
 \section{Proofs, Remarks, and Examples}
-
+\begin{thmbox}
+    \begin{lemma}
+        Any {\color{mathif}interval} \(I \subset \mathbb{R}\) is {\color{maththen}connected}.
+    \end{lemma}
+\end{thmbox}
+%
 \begin{proof}
     Fix an interval \(I \subset \mathbb{R}\), and let \(A, B \subset \mathbb{R}\) be two nonempty, open and disjoint subsets such that \(A \sqcup B = I\). Moreover, let \(a \in A\) and \(b \in B\) and assume without loss of generality that \(a < b\). If we set
     \begin{align}
         s := \inf \makeset{x \in B}{a < x} \text{,}
     \end{align}
-    then \(s \in [a, b] \subset I\) because \(I\) is an interval.   
+    then \(s \in I\) because \(s\) is between \(a\) and \(b\) and we have \([a, b] \subset I\).
+
+    Now, on one side, we have \(s \in \mathrm{cl}(B)\) and since the complement of \(B\) is an open subset \(A\), so \(B = \mathrm{cl}(B)\). It is therefore \(x \in B\).
+    
+    But we also have \(s \in A\) because the infimum cannot be contained in an open set, but \(s \in I = A \sqcup B\).
 \end{proof}
 
 \begin{example}
@@ -98,3 +107,10 @@
 \begin{remark}
     missing
 \end{remark}
+\newpage
+\section{Exercises and Notes}
+% exercise
+If \(X\) and \(Y\) are two connected topological spaces, then their product \(X \times Y\) is also connected.
+\begin{proof}
+    
+\end{proof}
