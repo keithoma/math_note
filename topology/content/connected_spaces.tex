@@ -1,4 +1,12 @@
 \chapter{Connected Spaces and Sets}
+% $$$$$$\  $$\                            $$\     
+% $$  __$$\ $$ |                           $$ |    
+% $$ /  \__|$$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\   
+% $$ |      $$  __$$\ $$  __$$\ $$  __$$\\_$$  _|  
+% $$ |      $$ |  $$ |$$$$$$$$ |$$$$$$$$ | $$ |    
+% $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
+% \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
+%  \______/ \__|  \__| \_______| \_______|  \____/
 \section{Definition and Theorems}
 \begin{defbox}
     \begin{definition}
@@ -54,7 +62,15 @@
         If \(X\) is path connected, then it is also connected.
     \end{lemma}
 \end{thmbox}
-
+\newpage
+% $$$$$$$\                                 $$$$$$\  
+% $$  __$$\                               $$  __$$\ 
+% $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
+% $$$$$$$  |$$  __$$\ $$  __$$\ $$  __$$\ $$$$\     
+% $$  ____/ $$ |  \__|$$ /  $$ |$$ /  $$ |$$  _|    
+% $$ |      $$ |      $$ |  $$ |$$ |  $$ |$$ |      
+% $$ |      $$ |      \$$$$$$  |\$$$$$$  |$$ |      
+% \__|      \__|       \______/  \______/ \__|
 \section{Proofs, Remarks, and Examples}
 \begin{defbox}
     \begin{definition}
@@ -102,22 +118,36 @@
     \end{lemma}
 \end{thmbox}
 %
+\begin{proof}
+    Let \(f(X) = A \sqcup B\) with \(A\) and \(B\) being two open disjoint sets. \(f^{-1}(A)\) and \(f^{-1}(B)\) are open since \(f\) is continuous. We also have \(f^{-1}(A) \cap f^{-1}B = f^{-1}(A \cap B) = \varnothing\) so \(f^{-1}(A) = \varnothing\) or \(f^{-1}(B) = \varnothing\), so \(A = \varnothing\) or \(B = \varnothing\) and we are done.
+\end{proof}
+%
+\begin{rembox}
+    \begin{remark}
+        The two lemma above are handy to show that images of functions are connected.
+    \end{remark}
+\end{rembox}
+%
 \begin{example}
     The general linear group \(\mathrm{GL}_n(K)\) for a field \(K\) and \(n \in \mathbb{N}\) is not connected for \(K = \mathbb{R}\) and \(K = \mathbb{C}\).
 \end{example}
 
-\begin{remark}
-    Let \(f: X \longrightarrow Y\) be continuous and \(X\) be connected, then \(f(X) \subset Y\) is connected.
-\end{remark}
-\begin{proof}
-    Let \(f(X) = A \sqcup B\) with \(A\) and \(B\) being two open disjoint sets. \(f^{-1}(A)\) and \(f^{-1}(B)\) are open since \(f\) is continuous. We also have \(f^{-1}(A) \cap f^{-1}B = f^{-1}(A \cap B) = \varnothing\) so \(f^{-1}(A) = \varnothing\) or \(f^{-1}(B) = \varnothing\), so \(A = \varnothing\) or \(B = \varnothing\) and we are done.
-\end{proof}
-\begin{proof}
-    % proof missing
-\end{proof}
+\begin{defbox}
+    \begin{definition}
+        A connected component of a topological space is a maximally connected subset \(X_0 \subseteq X\), i.e. \(X_0\) connected and for all \(X_0 \subsetneq X_1\) then \(X_1\) is not connected.
+    \end{definition}
+\end{defbox}
+%
 \begin{example}
     For \(\mathbb{Q} \subset \mathbb{R}\) the connected components are points and those are not open.
 \end{example}
+%
+\begin{thmbox}
+    \begin{proposition}
+        Connected components are closed subsets.
+    \end{proposition}
+\end{thmbox}
+%
 
 \begin{proof}
     Locally constant implies continuous with regards to the discrete topology on \(Y\). Let \(x \in X\), \(X = f^{-1}(f(x)) \cup f^{-1}(Y \setminus \{f(x)\})\) is a disjoint union and since \(X\) is connected \(f^{-1}(Y \setminus \{f(x)\}) = \varnothing\). Conclude \(f\) is identical to \(f(x)\).
@@ -129,20 +159,15 @@
     Let \(A\) and \(B\) two disjoint open sets such that \(A \sqcup B = X\), and let \(a \in A\) and \(b \in B\). Let \(\gamma: [0, 1] \longrightarrow X\) be continuous path with \(\gamma(0) = x_0\) and \(\gamma(1) = x_1\). We have that \(\gamma^{-1}\)
 \end{proof}
 
-\begin{remark}
-    The converse statement is not true in general.
-\end{remark}
-
-\begin{example}
-    \(X = \makeset{(x, \sin(\frac{1}{x}))}{x > 0} \cup \{0\} \times [-1, 1] \subset \mathbb{R}^2\) is connected but not path connected.
-\end{example}
-\begin{proof}
-    Homework
-\end{proof}
-\begin{remark}
-    missing
-\end{remark}
 \newpage
+% $$\   $$\            $$\                         
+% $$$\  $$ |           $$ |                        
+% $$$$\ $$ | $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$$\ 
+% $$ $$\$$ |$$  __$$\\_$$  _|  $$  __$$\ $$  _____|
+% $$ \$$$$ |$$ /  $$ | $$ |    $$$$$$$$ |\$$$$$$\  
+% $$ |\$$$ |$$ |  $$ | $$ |$$\ $$   ____| \____$$\ 
+% $$ | \$$ |\$$$$$$  | \$$$$  |\$$$$$$$\ $$$$$$$  |
+% \__|  \__| \______/   \____/  \_______|\_______/
 \section{Exercises and Notes}
 % exercise
 \begin{remark}
