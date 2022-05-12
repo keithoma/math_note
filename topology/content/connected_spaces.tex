@@ -58,13 +58,17 @@
             \item The \textbf{only} {\color{mathif}subsets} of \(X\) with empty {\color{mathif}boundary} are the emptyset \(\varnothing\) and the entire set \(X\).
             \item All {\color{mathif}continuous} maps from \(X\) to the two point space \(\{0, 1\}\) endowed with the {\color{mathif}discrete} topology is {\color{mathif}constant}. 
         \end{enumerate}
+        A {\color{mathobj}subset} of \(X\) is {\color{maththen}connected} if it is a {\color{mathif}connected space} when viewed as a {\color{mathif}subspace} of \(X\).
     \end{definition}
 \end{defbox}
 \begin{proof}
-    We verify the equivalence of the different definitions. So, let \(X\) be a topological space.
+    We verify the equivalence of the different definitions. So, let \((X, \mathcal{O})\) be a topological space.
     \begin{itemize}
         \item ``\textit{1. \(\Rightarrow\) 2.}'': Assume that \(X\) is not a union of two nonempty, disjoint, and open subsets. Fix a subset \(A \in X\) that is clopen. If \(A\) is neither the empty set nor \(X\), then \(X \setminus A\) is also not the empty set nor \(X\). Clearly, \(A\) and \(X \setminus A\) are disjoint and they are also open because \(A\) is clopen. But \(A \sqcup B = X\), so our assumption was absurd. It must be that \(A = \varnothing\) or \(A = X\).
+        \item ``\textit{2. \(\Rightarrow\)} 1.'': Now let the only clopen set contained in \(X\) be the empty set or \(X\) itself. Assume there are \(A, B \in \mathcal{O}\) with \(A, B \neq \varnothing\) and \(A \cap B = \varnothing\) such that \(A \sqcup B = X\). Then, \(A\) is open, but also closed because \(X \setminus A = B\) is open. Furthermore, \(A\) is not empty and since \(B\) is also not empty, \(A \neq X\). Hence our assumption was wrong and there no nonempty, disjoint, and open subsets \(A\) and \(B\) such that \(A \sqcup B = X\).
         \item ``\textit{2. \(\iff\) 3.}'': This is one of the properties of clopen subsets and was proven in remark XXX.
+        \item ``\textit{1. \(\Rightarrow\) 4.}'': Let \(X\) not be a union of two nonempty, disjoint, and open subsets. Assume there exists a continuous function \(f: X \longrightarrow \{0, 1\}\) with regards to the discrete topology that is not constant. Then, \(f^{-1}(\{0\})\) and \(f^{-1}(\{1\})\) are nonempty sets that are also disjoint. Since \(f\) is continuous, these are also open subsets. But we also have \(f^{-1}(\{0\}) \sqcup f^{-1}(\{1\}) = X\).
+        \item ``\textit{4. \(\Rightarrow\) 1.}'': Let all continuous functions with regards to the discrete topology be constant. Assume there are two nonempty, disjoint, and open subsets \(A, B \in \mathcal{O}\) such that \(A \sqcup B = X\). Define \(f: X \longrightarrow \{0, 1\}\) as \(f(A) = 0\) and \(f(B) = 1\). This definition is well-defined because \(A, B \in \mathcal{O}\) are nonempty, disjoint, and \(A \sqcup B = X\). \(f\) is also continuous as the preimage of \(\{0\}\) and \(\{1\}\) are \(A\) and \(B\) respectively which are open subsets. Hence our assumption was wrong.
     \end{itemize}
 \end{proof}
 \begin{thmbox}
@@ -128,7 +132,19 @@
 \newpage
 \section{Exercises and Notes}
 % exercise
+\begin{remark}
 If \(X\) and \(Y\) are two connected topological spaces, then their product \(X \times Y\) is also connected.
+\end{remark}
 \begin{proof}
     
 \end{proof}
+
+\begin{example}
+    Clearly, the union of two connected sets need not be connected. Take for example \([0, 1] \subset \mathbb{R}\) and \([2, 3] \subset \mathbb{R}\). Their union \([0, 1] \cup [2, 3]\) is not connected.
+
+    More interestingly, the intersection of two connected sets also need not be connected. Consider the unit circle around the origin \(S^1 = \makeset{(x, y)}{x^2 + y^2 = 1}\) and another unit circle around \((1, 0)\) \(A := \makeset{(x, y)}{(x-1)^2 + y^2 = 1}\). They are both connected, but their intersection is a two point set
+    \begin{equation*}
+        \set{\left(\frac{1}{2}, \frac{1}{2}\sqrt{3}\right),\, \left(\frac{1}{2}, -\frac{1}{2}\sqrt{3}\right)}
+    \end{equation*}
+    which is not connected.
+\end{example}
