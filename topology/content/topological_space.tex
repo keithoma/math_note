@@ -1,14 +1,24 @@
+% $$$$$$\  $$\                            $$\     
+% $$  __$$\ $$ |                           $$ |    
+% $$ /  \__|$$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\   
+% $$ |      $$  __$$\ $$  __$$\ $$  __$$\\_$$  _|  
+% $$ |      $$ |  $$ |$$$$$$$$ |$$$$$$$$ | $$ |    
+% $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
+% \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
+%  \______/ \__|  \__| \_______| \_______|  \____/
 \chapter{Topological Space}
 \section{Definitions and Theorems}
 \begin{defbox}
     \begin{definition}[Topological Space]
-        A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \tau)\), where \(X\) is a {\color{mathif}set} and \(\tau\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
+        A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \mathcal{O})\), where \(X\) is a {\color{mathif}set} and \(\mathcal{O}\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
         \begin{enumerate}
-            \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}entire set} \(X\) belongs to \(\tau\).
-            \item Any \textbf{arbitary} {\color{mathif}union} of members of \(\tau\) belongs to \(\tau\).
-            \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\tau\) belongs to \(\tau\).
+            \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}entire set} \(X\) belongs to \(\mathcal{O}\).
+            \item Any \textbf{arbitary} {\color{mathif}union} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
+            \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
         \end{enumerate}
-        The {\color{mathobj}collection} \(\tau\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\tau\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
+        The {\color{mathobj}collection} \(\mathcal{O}\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\mathcal{O}\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
+
+        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
     \end{definition}
 \end{defbox}
 %TODO: There are other equivalent definitions
@@ -100,14 +110,30 @@
     \end{definition}
 \end{defbox}
 \newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% $$$$$$$\                                 $$$$$$\  
+% $$  __$$\                               $$  __$$\ 
+% $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
+% $$$$$$$  |$$  __$$\ $$  __$$\ $$  __$$\ $$$$\     
+% $$  ____/ $$ |  \__|$$ /  $$ |$$ /  $$ |$$  _|    
+% $$ |      $$ |      $$ |  $$ |$$ |  $$ |$$ |      
+% $$ |      $$ |      \$$$$$$  |\$$$$$$  |$$ |      
+% \__|      \__|       \______/  \______/ \__|
 \section{Proofs, Remarks, and Examples}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{defbox}
+    \begin{definition}[Topological Space]
+        A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \mathcal{O})\), where \(X\) is a {\color{mathif}set} and \(\mathcal{O}\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
+        \begin{enumerate}
+            \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}entire set} \(X\) belongs to \(\mathcal{O}\).
+            \item Any \textbf{arbitary} {\color{mathif}union} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
+            \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
+        \end{enumerate}
+        The {\color{mathobj}collection} \(\mathcal{O}\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\mathcal{O}\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
 
+        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
+    \end{definition}
+\end{defbox}
+%
 \begin{example}
     Let \(X\) be a {\color{mathif}set}.
     \begin{enumerate}
@@ -125,7 +151,7 @@
         \item The Zariski-topology.
     \end{enumerate}
 \end{example}
-
+%
 \begin{example}
     List of natural topologies.
     \begin{enumerate}
@@ -134,12 +160,52 @@
             A = \bigcup_{i \in I} B_r(p) = \bigcup_{i \in I} \makeset{x \in \mathbb{R}^n}{d(p, x) < r} \text{.}
         \end{equation*}
         This definition agrees with the topology endowed on arbitary metric spaces.
+        \item The matrix space \(\mathrm{Mat}_{n \times m}(\mathbb{K})\) for a field \(\mathbb{K}\) does not have one canonical topology. Depending on the context and literature different ones are used.
+        \begin{itemize}
+            \item Since \(\mathrm{Mat}_{n \times m}(\mathbb{K})\) is isomorphic to \(\mathbb{R}^{n \cdot m}\), one could use the Euclidean topology as defined above.
+            \item \(\mathrm{Mat}_{n \times m}(\mathbb{K})\) is a metric space via multitude of operator norms. The metric space induces the topology.
+            \item Another metric on \(\mathrm{Mat}_{n \times m}(\mathbb{K})\) is the rank distance for \(A, B \in \mathrm{Mat}_{n \times m}\) defined as \(d(A, B) := \mathrm{rank}(B - A)\) which again would induce a topology.
+        \end{itemize}
     \end{enumerate}
 \end{example}
+%
+\begin{defbox}
+    \begin{definition}[Continuous Maps]
+        Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
+        \begin{equation}
+            \text{for all } U \in \tau_Y \text{ it is } f^{-1}(U) \in \tau_X \text{.}
+        \end{equation}
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{lemma}
+        The different definitions of continuity in a topological space and a metric space are equivalent, i.e. if \(X\) and \(Y\) are metric spaces, then \(f: X \longrightarrow Y\) is \(\epsilon\)-\(\delta\)-continuous if and only if \(f\) is continuous.
+    \end{lemma}
+\end{thmbox}
 
-\begin{remark}
-    The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
-\end{remark}
+\begin{defbox}
+    \begin{definition}[Homeomorphism]
+        Let \(X\) and \(Y\) be {\color{mathif}topological spaces}.
+        \begin{enumerate}
+            \item A {\color{mathobj}map} \(f: X \longrightarrow Y\) is a {\color{maththen}homeomorphism} if it has the following properties.
+
+            \begin{enumerate}
+                \item \(f\) is {\color{mathif}bijective}.
+                \item \(f\) and the {\color{mathif}inverse map} \(f^{-1}\) is {\color{mathif}continuous}.
+            \end{enumerate}
+
+            \item Two topological spaces \(X\) and \(Y\) are said to be {\color{maththen}homeomorphic} if a homeomorphism exists.
+
+            \item We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). If \(Y = X\) we also write \(\mathrm{Homeo}(X)\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
+    \end{proposition}
+\end{thmbox}
 
 \begin{remark}
     This lemma does not hold for basis.
@@ -163,3 +229,13 @@
 \begin{proof}
     Let \(A \subset X\) be clopen. Because \(A\) is closed, we have \(\mathrm{cl}(A) = A\), but on the other hand, \(A\) is open, so we also have \(\mathrm{int}(A) = A\). Then, the boundary of \(A\) is \(\partial A = \mathrm{cl}(A) \setminus \mathrm{int}(A) = A \setminus A = \varnothing\). All steps we have taken are not just implications, but equivalencies, therefore we have proven the statement.
 \end{proof}
+\newpage
+% $$\   $$\            $$\                         
+% $$$\  $$ |           $$ |                        
+% $$$$\ $$ | $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$$\ 
+% $$ $$\$$ |$$  __$$\\_$$  _|  $$  __$$\ $$  _____|
+% $$ \$$$$ |$$ /  $$ | $$ |    $$$$$$$$ |\$$$$$$\  
+% $$ |\$$$ |$$ |  $$ | $$ |$$\ $$   ____| \____$$\ 
+% $$ | \$$ |\$$$$$$  | \$$$$  |\$$$$$$$\ $$$$$$$  |
+% \__|  \__| \______/   \____/  \_______|\_______/
+\section{Exercises and Notes}
