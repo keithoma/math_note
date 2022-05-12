@@ -2,13 +2,14 @@
 \section{Definition and Theorems}
 \begin{defbox}
     \begin{definition}
-        A {\color{mathobj}topological space} \(X\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
+        A {\color{mathobj}topological space} \((X, \mathcal{O})\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
         \begin{enumerate}
-            \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}disjoint} sets.
-            \item The \textbf{only} {\color{mathif}subsets} of \(X\) that are \textbf{both} {\color{mathif}open} and {\color{mathif}closed} ({\color{mathrem}clopen}) are the emptyset \(\varnothing\) and the entire set \(X\).
+            \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}nonempty}, {\color{mathif}disjoint}, and {\color{mathif} open subsets}, i.e. there are no open subsets \(A, B \in \mathcal{O}\) with \(A, B \neq \varnothing\) and \(A \cap B = \varnothing\) such that \(A \sqcup B = X\).
+            \item The \textbf{only} {\color{mathif}subsets} of \(X\) that are \textbf{both} {\color{mathif}open} and {\color{mathif}closed} ({\color{mathrem}clopen}) are the empty set \(\varnothing\) and the entire set \(X\), i.e. if \(A \subset X\) is a subset with \(A \in \mathcal{O}\) and \(X \setminus A \in \mathcal{O}\), then \(A = \varnothing\) or \(A = X\).
             \item The \textbf{only} {\color{mathif}subsets} of \(X\) with empty {\color{mathif}boundary} are the emptyset \(\varnothing\) and the entire set \(X\).
             \item All {\color{mathif}continuous} maps from \(X\) to the two point space \(\{0, 1\}\) endowed with the {\color{mathif}discrete} topology is {\color{mathif}constant}. 
         \end{enumerate}
+        A {\color{mathobj}subset} of \(X\) is {\color{maththen}connected} if it is a {\color{mathif}connected space} when viewed as a {\color{mathif}subspace} of \(X\).
     \end{definition}
 \end{defbox}
 
@@ -133,14 +134,20 @@
 \section{Exercises and Notes}
 % exercise
 \begin{remark}
-If \(X\) and \(Y\) are two connected topological spaces, then their product \(X \times Y\) is also connected.
+If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topological spaces, then their product \(X \times Y\) with the product topology \(\mathcal{O}_{X \times Y}\)is also connected.
 \end{remark}
 \begin{proof}
+    We will use the definition that all continuous maps from \(X \times Y\) to \(\{0, 1\}\) endowed with the discrete topology must be constant. Fix a continuous \(f: X \longrightarrow \{0, 1\}\).
     
+    First, consider the image \(f(\{x\} \times Y)\) with \(x \in X\). Assume \(f\) is not constant on \(\{x\} \times Y\), then \(f(\{x\} \times Y) = \{0, 1\}\). So we have the preimages \(f^{-1}(\{0\}) = \{x\} \times U\) and \(f^{-1}(\{1\}) = \{x\} \times V\) with \(U, V \subset Y\), \(U, V \neq \varnothing\), and \(U \cap V = \varnothing\). Because \(f\) is continuous, \(U\) and \(V\) must also be open. This would however mean that \(U \sqcup V = Y\) and \(Y\) would not be connected, therefore, \(f\) is constant on \(\{x\} \times Y\). Similary, we get that \(f\) is constant on \(X \times \{y\}\) for all \(y \in Y\).
+
+    Let \((x, y) \in X \times Y\) and \((x', y') \in X \times Y\) be two arbitary points. We have \(f(x, y) = f(x, y')\) because \(f\) is constant on \(\{x\} \times Y\) and similary \(f(x, y') = f(x', y')\) because \(f\) is constant on \(X \times \{y\}\). Putting everything together, it is \(f(x, y) = f(x',y')\), therefore all continuous \(f: X \times Y \longrightarrow \{0, 1\}\) are constant.
 \end{proof}
 
 \begin{example}
     Clearly, the union of two connected sets need not be connected. Take for example \([0, 1] \subset \mathbb{R}\) and \([2, 3] \subset \mathbb{R}\). Their union \([0, 1] \cup [2, 3]\) is not connected.
+
+    Set difference of connected sets are also not necessarily connected, e.g. \([0, 2] \subset \mathbb{R}\) and \(\{1\} \subset \mathbb{R}\) are connected, but \([0, 2] \setminus \{1\} = [0, 1) \cup (1, 2]\) is not.
 
     More interestingly, the intersection of two connected sets also need not be connected. Consider the unit circle around the origin \(S^1 = \makeset{(x, y)}{x^2 + y^2 = 1}\) and another unit circle around \((1, 0)\) \(A := \makeset{(x, y)}{(x-1)^2 + y^2 = 1}\). They are both connected, but their intersection is a two point set
     \begin{equation*}
@@ -148,3 +155,17 @@ If \(X\) and \(Y\) are two connected topological spaces, then their product \(X 
     \end{equation*}
     which is not connected.
 \end{example}
+
+\begin{example}
+    Connectedness does not imply path-connectedness. Let \(\mathbb{R}^2\) be endowed with the Euclidean topology and consider 
+    \begin{equation*}
+        X = \makeset{\left(x, \sin\left(\frac{1}{x}\right)\right)}{x > 0} \cup \left(\,\{0\} \times [-1, 1]\,\right) \subset \mathbb{R}^2 \text{.}
+    \end{equation*}
+    %\includegraphics[width=0.5\textwidth]{image/desmos-graph.png}
+    and see figure XXX. \(X\) is connected, but it is not path-connected.
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
