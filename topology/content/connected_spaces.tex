@@ -49,6 +49,24 @@
 \end{thmbox}
 
 \section{Proofs, Remarks, and Examples}
+\begin{defbox}
+    \begin{definition}
+        A {\color{mathobj}topological space} \((X, \mathcal{O})\) is said to be {\color{maththen}connected}, if one of the following {\color{mathrem}equivalent} conditions is met.
+        \begin{enumerate}
+            \item \(X\) is \textbf{not} a {\color{mathif}union} of two {\color{mathif}nonempty}, {\color{mathif}disjoint}, and {\color{mathif} open subsets}, i.e. there are no open subsets \(A, B \in \mathcal{O}\) with \(A, B \neq \varnothing\) and \(A \cap B = \varnothing\) such that \(A \sqcup B = X\).
+            \item The \textbf{only} {\color{mathif}subsets} of \(X\) that are \textbf{both} {\color{mathif}open} and {\color{mathif}closed} ({\color{mathrem}clopen}) are the empty set \(\varnothing\) and the entire set \(X\), i.e. if \(A \subset X\) is a subset with \(A \in \mathcal{O}\) and \(X \setminus A \in \mathcal{O}\), then \(A = \varnothing\) or \(A = X\).
+            \item The \textbf{only} {\color{mathif}subsets} of \(X\) with empty {\color{mathif}boundary} are the emptyset \(\varnothing\) and the entire set \(X\).
+            \item All {\color{mathif}continuous} maps from \(X\) to the two point space \(\{0, 1\}\) endowed with the {\color{mathif}discrete} topology is {\color{mathif}constant}. 
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+\begin{proof}
+    We verify the equivalence of the different definitions. So, let \(X\) be a topological space.
+    \begin{itemize}
+        \item ``\textit{1. \(\Rightarrow\) 2.}'': Assume that \(X\) is not a union of two nonempty, disjoint, and open subsets. Fix a subset \(A \in X\) that is clopen. If \(A\) is neither the empty set nor \(X\), then \(X \setminus A\) is also not the empty set nor \(X\). Clearly, \(A\) and \(X \setminus A\) are disjoint and they are also open because \(A\) is clopen. But \(A \sqcup B = X\), so our assumption was absurd. It must be that \(A = \varnothing\) or \(A = X\).
+        \item ``\textit{2. \(\iff\) 3.}'': This is one of the properties of clopen subsets and was proven in remark XXX.
+    \end{itemize}
+\end{proof}
 \begin{thmbox}
     \begin{lemma}
         Any {\color{mathif}interval} \(I \subset \mathbb{R}\) is {\color{maththen}connected}.

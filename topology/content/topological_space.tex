@@ -155,3 +155,11 @@
 
     %%% lecture 2 missing
     Note about product topology: \(\makeset{U \times V}{U \in \mathcal{O}_X, V \in \mathcal{O}_Y}\); often \(W \subset X \times Y \iff \forall (x, y) \in W \exists U_X \in \mathcal{O}_X, V_Y \in \mathcal{O}_Y, x \in U_X, y \in V_Y\)
+
+\begin{remark}\footnote{The following is a definition and a small proposition.}
+    Let \((X, \mathcal{O})\) be a {\color{mathobj}topological space}. A {\color{mathobj}subset} that is \textbf{both} {\color{mathif}open} and {\color{mathif}closed} is called {\color{maththen}clopen}. Moreover, a subset is {\color{maththen}clopen} if and only if its {\color{maththen}boundary} is {\color{maththen}empty}.
+\end{remark}
+%
+\begin{proof}
+    Let \(A \subset X\) be clopen. Because \(A\) is closed, we have \(\mathrm{cl}(A) = A\), but on the other hand, \(A\) is open, so we also have \(\mathrm{int}(A) = A\). Then, the boundary of \(A\) is \(\partial A = \mathrm{cl}(A) \setminus \mathrm{int}(A) = A \setminus A = \varnothing\). All steps we have taken are not just implications, but equivalencies, therefore we have proven the statement.
+\end{proof}
