@@ -46,7 +46,7 @@
 \end{thmbox}
 %
 \begin{thmbox}
-    \begin{lemma}[Lemma 11]
+    \begin{lemma}
         Let \(X\) be connected and \(f: X \longrightarrow Y\) and locally constant, i.e. for all \(x \in X\) there exists a \(U_x \in \mathcal{O}_X\), \(x \in U_x\) such that \(f\) restricted on \(U_x\) is identical to \(f(x)\)., then \(f\) is constant.
     \end{lemma}
 \end{thmbox}
@@ -160,13 +160,42 @@
     For \(\mathbb{Q} \subset \mathbb{R}\) the connected components are points and those are not open.
 \end{example}
 %
+\begin{proof}
+    Assume there is a connected set \(A \subset \mathbb{Q}\) that contains more than one point. Let \(x \in A\) be a point in \(A\). We show that \(\{x\}\) is a clopen set.
+
+    Denote another point in \(A\) that is closest to \(x\) as \(x_0\), i.e. for all \(y \in A\) it is \(d(x, y) \geq d(x, x_0)\). Now set \(\epsilon := d(x, x_0)\). Then, \(B_\epsilon(x) \cap \mathbb{Q} = \{x\}\) is an open subset.
+
+    I think showing closedness is quite similar.
+\end{proof}
+%
 \begin{thmbox}
     \begin{proposition}
         Connected components are closed subsets.
     \end{proposition}
 \end{thmbox}
 %
-
+\begin{proof}
+    
+\end{proof}
+%
+\begin{thmbox}
+    \begin{lemma}
+        Let \(X\) be connected and \(f: X \longrightarrow Y\) and locally constant, i.e. for all \(x \in X\) there exists a \(U_x \in \mathcal{O}_X\), \(x \in U_x\) such that \(f\) restricted on \(U_x\) is identical to \(f(x)\)., then \(f\) is constant.
+    \end{lemma}
+\end{thmbox}
+%
+\begin{defbox}
+    \begin{definition}
+        \(X\) is said to be {\color{maththen}path connected}, if for every pair of points \(x\) and \(x_0\) in \(X\) there is a continuous map (called path) \(\gamma: [0, 1] \longrightarrow X\) with \(\gamma(0) = x_0\) and \(\gamma(1) = x\).
+    \end{definition}
+\end{defbox}
+%
+\begin{thmbox}
+    \begin{lemma}
+        If \(X\) is path connected, then it is also connected.
+    \end{lemma}
+\end{thmbox}
+%
 \begin{proof}
     Locally constant implies continuous with regards to the discrete topology on \(Y\). Let \(x \in X\), \(X = f^{-1}(f(x)) \cup f^{-1}(Y \setminus \{f(x)\})\) is a disjoint union and since \(X\) is connected \(f^{-1}(Y \setminus \{f(x)\}) = \varnothing\). Conclude \(f\) is identical to \(f(x)\).
 \end{proof}
@@ -232,7 +261,13 @@
         \item Let \(X\) be a set containing more than one element and \(\mathcal{O} = \mathcal{P}(X)\) be the discrete topology of \(X\). Let \(A \subset X\) be a nonempty proper subset, then \(B := X \setminus A\) is also not empty. Both are open subsets, but \(A \sqcup B = X\), so \(X\) is not connected.
     \end{enumerate}
 \end{proof}
-
+%
+\begin{thmbox}
+    \begin{proposition}
+        Every singleton set in \(\mathbb{R}^n\) endowed with the Euclidean topology is clopen. ??? IDK IF THIS IS TRUE
+    \end{proposition}
+\end{thmbox}
+%
 \subsection{Path-Connectedness}
 \begin{example}
     Connectedness does not imply path-connectedness. Let \(\mathbb{R}^2\) be endowed with the Euclidean topology and consider 
@@ -258,6 +293,10 @@
         Assume there is a clopen subset \(S \subset X\) that is not empty. Without loss of generality, we have that \((0, 0) \in U\) (otherwise, consider the complement of \(U\) which also must be clopen). Since \(A\) is clopen in \(A\), the intersection \(A \cap U\) must also be clopen in \(A\), but \(A\) is connected, so \(A\) is contained in \(U\).
 
         Moreover, the closure of \(A\) is also contained in \(U\). So there is an \(\epsilon > 0\) such that the ball \(B(p, \epsilon)\) that contains \((0, 0)\) is in \(U\). I got lazy to go into the details, but this ball contains a point of \(B\). Follow the same reason as above.
-        \item 
+        \item Assume \(X\) is path-connected. 
+        
+        
+        
+        Choose two points \(x_0 = (0, 1) \in A\) and \(x_1 = (1, 1) \in B\) and a path \(\gamma: [0, 1] \longrightarrow X\) with \(\gamma(0) = x_0\) and \(\gamma(1) = x_1\). Let \(\epsilon \in (0, 1)\), then \(B_\epsilon(x_0) \cap X\) is an open subset that contains \(x_0\), therefore, \(\gamma^{-1}(B_\epsilon(x_0) \cap X)\) is also open.
     \end{enumerate}
 \end{proof}
