@@ -133,8 +133,22 @@
 \end{example}
 %
 \begin{proof}
-    
+    % what to do in the case of n = 0?
+    Define the following partition of \(\mathrm{GL}_n(\mathbb{K})\)
+    \begin{align*}
+        A &:= \makeset{M \in \mathrm{Mat}_{n \times n}(\mathbb{K})}{\mathrm{det}(M) > 0} \\
+        B &:= \makeset{M \in \mathrm{Mat}_{n \times n}(\mathbb{K})}{\mathrm{det}(M) < 0} \text{,}
+    \end{align*}
+    then, \(A\) and \(B\) are disjoint, nonempty, and \(\mathrm{GL}_n(\mathbb{K}) = A \sqcup B\). We show that \(A\) and \(B\) are open sets.
+
+    The determinant function \(\mathrm{det}: \mathrm{Mat}_{n \times n}(\mathbb{K}) \longrightarrow \mathbb{C}\) is continuous because it is a multivariate polynomial. \(\mathbb{R}^+\) is an interval, therefore open, and so \(\mathrm{det}^{-1}(\mathbb{R}^+) = A\) is also open. Similary \(B\) is an open subset. Hence \(\mathrm{GL}_n(\mathbb{K})\) is not connected.
 \end{proof}
+%
+\begin{rembox}
+    \begin{remark}
+        In the proof above, the topology of \(\mathrm{Mat}_{n \times n}(\mathbb{K})\) matters because the continuity of the determinant function depends on the underlying topology.
+    \end{remark}
+\end{rembox}
 %
 \begin{defbox}
     \begin{definition}
@@ -174,9 +188,13 @@
 % \__|  \__| \______/   \____/  \_______|\_______/
 \section{Exercises and Notes}
 % exercise
-\begin{remark}
-If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topological spaces, then their product \(X \times Y\) with the product topology \(\mathcal{O}_{X \times Y}\)is also connected.
-\end{remark}
+\subsection{Connectedness}
+\begin{thmbox}
+    \begin{lemma}
+    If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topological spaces, then their product \(X \times Y\) with the product topology \(\mathcal{O}_{X \times Y}\)is also connected.
+    \end{lemma}
+\end{thmbox}
+%
 \begin{proof}
     We will use the definition that all continuous maps from \(X \times Y\) to \(\{0, 1\}\) endowed with the discrete topology must be constant. Fix a continuous \(f: X \longrightarrow \{0, 1\}\).
     
@@ -184,7 +202,7 @@ If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topologic
 
     Let \((x, y) \in X \times Y\) and \((x', y') \in X \times Y\) be two arbitary points. We have \(f(x, y) = f(x, y')\) because \(f\) is constant on \(\{x\} \times Y\) and similary \(f(x, y') = f(x', y')\) because \(f\) is constant on \(X \times \{y\}\). Putting everything together, it is \(f(x, y) = f(x',y')\), therefore all continuous \(f: X \times Y \longrightarrow \{0, 1\}\) are constant.
 \end{proof}
-
+%
 \begin{example}
     Clearly, the union of two connected sets need not be connected. Take for example \([0, 1] \subset \mathbb{R}\) and \([2, 3] \subset \mathbb{R}\). Their union \([0, 1] \cup [2, 3]\) is not connected.
 
@@ -196,7 +214,26 @@ If \((X, \mathcal{O_X})\) and \((Y, \mathcal{O}_Y)\) are two connected topologic
     \end{equation*}
     which is not connected.
 \end{example}
+%
+%
+\begin{thmbox}
+    \begin{proposition}
+        \begin{enumerate}
+            \item Every trivial topological space is connected.
+            \item Every discrete topological space with at least two elements is disconnected.
+            \item Trivially, every singleton set and the empty set are connected spaces vacuously.
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+%
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(X\) be an arbitary set and \(\mathcal{O} = \set{\varnothing, X}\) be the trivial topology. If \(S \subset X\) is a clopen subset, then it is trivially either \(\varnothing\) or \(X\), therefore, \(X\) is connected.
+        \item Let \(X\) be a set containing more than one element and \(\mathcal{O} = \mathcal{P}(X)\) be the discrete topology of \(X\). Let \(A \subset X\) be a nonempty proper subset, then \(B := X \setminus A\) is also not empty. Both are open subsets, but \(A \sqcup B = X\), so \(X\) is not connected.
+    \end{enumerate}
+\end{proof}
 
+\subsection{Path-Connectedness}
 \begin{example}
     Connectedness does not imply path-connectedness. Let \(\mathbb{R}^2\) be endowed with the Euclidean topology and consider 
     \begin{equation*}
