@@ -1,3 +1,4 @@
+\chapter{Topological Space}
 % $$$$$$\  $$\                            $$\     
 % $$  __$$\ $$ |                           $$ |    
 % $$ /  \__|$$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\   
@@ -6,7 +7,6 @@
 % $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
 % \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
 %  \______/ \__|  \__| \_______| \_______|  \____/
-\chapter{Topological Space}
 \section{Definitions and Theorems}
 \begin{defbox}
     \begin{definition}[Topological Space]
@@ -57,7 +57,7 @@
 \end{defbox}
 
 \begin{defbox}
-    \begin{definition}[Homeomorphism]
+    \begin{definition}[Base]
         Let \((X, \tau)\) a {\color{mathif}topological space}.
         \begin{enumerate}
             \item \(\mathcal{B} \subset \mathcal{O}\) is a {\color{maththen}basis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of subsets} from \(\mathcal{B}\).
@@ -177,6 +177,15 @@
         \end{equation}
     \end{definition}
 \end{defbox}
+\begin{rembox}
+    \begin{definition}
+        There are many equivalent ways to define continuity.
+        \begin{itemize}
+            \item \textit{\(\epsilon\)-\(\delta\)-continuity}:
+            \item \textit{sequential continuity}:
+        \end{itemize}
+    \end{definition}
+\end{rembox}
 \begin{thmbox}
     \begin{lemma}
         The different definitions of continuity in a topological space and a metric space are equivalent, i.e. if \(X\) and \(Y\) are metric spaces, then \(f: X \longrightarrow Y\) is \(\epsilon\)-\(\delta\)-continuous if and only if \(f\) is continuous.
@@ -206,6 +215,60 @@
         The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
     \end{proposition}
 \end{thmbox}
+
+\begin{defbox}
+    \begin{definition}[Base]
+        Let \((X, \tau)\) a {\color{mathif}topological space}.
+        \begin{enumerate}
+            \item \(\mathcal{B} \subset \mathcal{O}\) is a {\color{maththen}basis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of subsets} from \(\mathcal{B}\).
+            \item \(\mathcal{S} \subset \mathcal{O}\) is a {\color{maththen}subbasis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of finite intersections of subsets} from \(\mathcal{S}\).
+        \end{enumerate}
+        We say that \(\mathcal{B}\) and \(\mathcal{S}\) {\color{maththen}generates} \(\mathcal{O}\) and write \(\overline{\mathcal{S}} = \overline{\mathcal{B}} = \mathcal{O}\).
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{lemma}
+    Let \(\mathcal{S} \subset \mathcal{P}(X)\) be a {\color{mathobj}collection of subsets}, then there {\color{maththen}exists} \textbf{exactly one} topology \(\tau \subset \mathcal{P}(X)\) of \(X\) such that
+    \begin{enumerate}
+        \item \(\mathcal{S} \subset \tau\)
+        \item If \(\tau' \subset \mathcal{P}(X)\) a topology with \(S \subset \tau'\), then \(\tau \subset \tau'\).
+    \end{enumerate}
+    \end{lemma}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item Given \((X, \tau)\) be a {\color{mathif}topological space}, \(S \subset X\) a subset, the {\color{maththen}subspace topology} (also the induced topology or the relative topology) on \(S\) is defined by
+            \begin{equation*}
+                \tau_S = \makeset{S \cap U}{U \in \tau} \text{.}
+            \end{equation*}
+            \item Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be two {\color{mathif}topological spaces}. The product topology of \(X\) and \(Y\) is defined by
+            \begin{equation*}
+                \tau_{X \times Y} := \makeset{U \times V}{U \in \tau_X \text{ and } V \in \tau_Y} \text{.}
+            \end{equation*}
+            \item Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be two {\color{mathif}topological spaces}. The topological sum of \(X\) and \(Y\) is defined by
+            \begin{align*}
+                \tau_{X \sqcup Y} := \makeset{U \sqcup V}{U \in \tau_X \text{ and } V \in \tau_Y} \text{.}
+            \end{align*}
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        Let \((X, \tau)\) be a topological space.
+        \begin{enumerate}
+            \item Given a {\color{mathobj}point} \(p \in X\), a subset \(U \subset X\) is a neighborhood of \(p\) if there is an open subset \(V \in U\) such that \(p \in V\). If such a neighborhood exists, \(p\) is called a interior point of \(U\).
+            \item Let \(S \subset X\) be a subset. The interior of \(S\), denoted by \(\mathring{S}\) or \(\mathrm{int}(S)\), is the {\color{mathobj}set} of all interior points of \(S\).
+            \item Let \(S \subset X\) be a subset. The closure of \(S\), denoted by \(\overline{S}\) or \(\mathrm{cl}(S)\), is defined by
+            \begin{equation*}
+                \mathrm{cl}(S) := X \setminus \mathrm{int}(X \setminus S) \text{.}
+            \end{equation*}
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
 
 \begin{remark}
     This lemma does not hold for basis.
