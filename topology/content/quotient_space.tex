@@ -10,12 +10,12 @@
 \section{Definitions and Theorems}
 \begin{defbox}
     \begin{definition}
-        Let \((X, \mathcal{O})\) be a topological space, and let \(\sim\) be an equivalence relation on \(X\). The quotient set, \(X / \sim\) is the set of equivalence classes of elements of \(X\). The equivalence class of \(x \in X\) is denoted \([x]\). The projection map (also quotient or canonical map) associated with \(\sim\) refers to the following surjective map:
+        Let \((X, \mathcal{O})\) be a {\color{mathif}topological space}, and let \(\sim\) be an {\color{mathif}equivalence relation} on \(X\). The {\color{maththen}quotient set}, \(X / \sim\) is the {\color{mathobj}set} of {\color{mathobj}equivalence classes} of elements of \(X\). The equivalence class of \(x \in X\) is {\color{mathrem}denoted} \([x]\). The {\color{maththen}projection map} (also {\color{mathrem}quotient} or {\color{mathrem}canonical map}) associated with \(\sim\) refers to the following {\color{mathif}surjective map}:
         \begin{align*}
             \pi: X \longrightarrow X / \sim, \qquad x \mapsto [x]
         \end{align*}
         For any subset \(S \subset X / \sim\) (so in particular, \(s \subset X\) for every \(s \in S\))
-        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology
+        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset Y = X / \sim\) such that \(\makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u\) is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
     \end{definition}
 \end{defbox}
 \begin{thmbox}
@@ -23,6 +23,13 @@
         \(\mathcal{O}_{X / \sim}\) is the {\color{maththen}finest} {\color{mathobj}topology} in which the {\color{mathif}projection map} \(\pi: X \longrightarrow X / \sim\) is {\color{mathif}continuous}.
     \end{proposition}
 \end{thmbox}
+\begin{defbox}
+    Let \(X\) and \(Y\) be topological spaces and let \(p: X \longrightarrow Y\) be a surjective map. The map is a quotient map (also said strong continuity) if one of the equivalent condition hold.
+    \begin{enumerate}
+        \item A subset \(U \subset Y\) is open in \(Y\) if and only if the preimage \(p^{-1}(U)\) is open in \(X\).
+        \item A subset \(U \subset Y\) is closed in \(Y\) if and only if the preimage \(p^{-1}(U)\) is closed in \(X\).
+    \end{enumerate}
+\end{defbox}
 \newpage
 % $$$$$$$\                                 $$$$$$\  
 % $$  __$$\                               $$  __$$\ 
@@ -33,6 +40,31 @@
 % $$ |      $$ |      \$$$$$$  |\$$$$$$  |$$ |      
 % \__|      \__|       \______/  \______/ \__|
 \section{Proofs, Remarks, and Examples}
+\begin{defbox}
+    \begin{definition}
+        Let \((X, \mathcal{O})\) be a {\color{mathif}topological space}, and let \(\sim\) be an {\color{mathif}equivalence relation} on \(X\). The {\color{maththen}quotient set}, \(X / \sim\) is the {\color{mathobj}set} of {\color{mathobj}equivalence classes} of elements of \(X\). The equivalence class of \(x \in X\) is {\color{mathrem}denoted} \([x]\). The {\color{maththen}projection map} (also {\color{mathrem}quotient} or {\color{mathrem}canonical map}) associated with \(\sim\) refers to the following {\color{mathif}surjective map}:
+        \begin{align*}
+            \pi: X \longrightarrow X / \sim, \qquad x \mapsto [x]
+        \end{align*}
+        For any subset \(S \subset X / \sim\) (so in particular, \(s \subset X\) for every \(s \in S\))
+        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset Y = X / \sim\) such that \(\makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u\) is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{proposition}
+        \(\mathcal{O}_{X / \sim}\) is the {\color{maththen}finest} {\color{mathobj}topology} in which the {\color{mathif}projection map} \(\pi: X \longrightarrow X / \sim\) is {\color{mathif}continuous}.
+    \end{proposition}
+\end{thmbox}
+\begin{defbox}
+    Let \(X\) and \(Y\) be topological spaces and let \(p: X \longrightarrow Y\) be a surjective map. The map is a quotient map (also said strong continuity) if one of the equivalent condition hold.
+    \begin{enumerate}
+        \item A subset \(U \subset Y\) is open in \(Y\) if and only if the preimage \(p^{-1}(U)\) is open in \(X\).
+        \item A subset \(U \subset Y\) is closed in \(Y\) if and only if the preimage \(p^{-1}(U)\) is closed in \(X\).
+    \end{enumerate}
+\end{defbox}
+\begin{remark}
+    Quotient maps are continuous. There are quotient maps that are neither open nor closed maps.
+\end{remark}
 \newpage
 % $$\   $$\            $$\                         
 % $$$\  $$ |           $$ |                        
