@@ -19,7 +19,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{textcomp}
-%\usepackage{MnSymbol} % for \cupdot
+% \usepackage{MnSymbol} % for \cupdot
 
 % extra
 \usepackage{xcolor}
@@ -28,6 +28,12 @@
 % ---------------------------------------------------------------------
 % S E T T I N G
 % ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
 
 % typography and formatting
 \geometry{margin=3cm}
@@ -40,14 +46,16 @@
 }
 
 % mathematics
+\newcounter{global}
+
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
+\newtheorem{definition}{Definition}[]
 \newtheorem{example}{Example}[definition]
 
-\newtheorem{theorem}{Theorem}[definition]
+\newtheorem{theorem}[definition]{Theorem}
 \newtheorem{corollary}{Corollary}
-\newtheorem{lemma}{Lemma}[definition]
-\newtheorem{proposition}{Proposition}[definition]
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
 
 \newtheorem*{remark}{Remark}
 
@@ -55,6 +63,7 @@
 \definecolor{mathif}{HTML}{0000A0} % for conditions
 \definecolor{maththen}{HTML}{CC5500} % for consequences
 \definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
 
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -69,7 +78,6 @@
 
 \newcommand{\set}[1]{\left\{\, #1 \,\right\}}
 \newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
-
 
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand*\Diff{\mathop{}\!\mathrm{D}}
@@ -100,29 +108,7 @@
 \maketitle
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{theorem}[Fundamental Theorem of Arithmetic]
-    
-\end{theorem}
-
-Question: To what extent does this hold for other kind of numbers such as \(\mathbb{Z}[i]\) or \(\mathbb{Z}[\sqrt{5}]\).
-
-\begin{definition}[Number Field]
-    A {\color{maththen}number field} is an {\color{mathif}algebraic extension} of \(\mathbb{Q}\) of {\color{mathif}finite degree}.
-
-    Let \(k\) be a {\color{mathif}number field}, then the {\color{maththen}ring of integers} \(\mathcal{O}_k\) is the {\color{mathif}subset} formed by the elements 
-\end{definition}
-% TODO: here is a lot of things to do.
-
-\begin{example}
-    \begin{enumerate}
-        \item Set \(k = \mathbb{Q}[\sqrt{5}]\).
-        
-        Question: Is \(\mathcal{O}_k = \mathbb{Z}[\sqrt{5}]\)?
-
-        Answer: No. Consider \(a + b \sqrt{5} \in \mathbb{Q}[\sqrt{5}]\), then it satisfies \((x-a)^2 = b^2 5\).
-    \end{enumerate}
-    
-\end{example}
-
-
+\input{content/overview.tex}
+\input{content/ring_of_integers.tex}
+\input{content/discriminant.tex}
 \end{document}

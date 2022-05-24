@@ -1,0 +1,111 @@
+\chapter{Overview}
+% $$$$$$\  $$\                            $$\     
+% $$  __$$\ $$ |                           $$ |    
+% $$ /  \__|$$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\   
+% $$ |      $$  __$$\ $$  __$$\ $$  __$$\\_$$  _|  
+% $$ |      $$ |  $$ |$$$$$$$$ |$$$$$$$$ | $$ |    
+% $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
+% \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
+%  \______/ \__|  \__| \_______| \_______|  \____/
+\section{Definitions and Theorems}
+%
+\newpage
+% $$$$$$$\                                 $$$$$$\  
+% $$  __$$\                               $$  __$$\ 
+% $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
+% $$$$$$$  |$$  __$$\ $$  __$$\ $$  __$$\ $$$$\     
+% $$  ____/ $$ |  \__|$$ /  $$ |$$ /  $$ |$$  _|    
+% $$ |      $$ |      $$ |  $$ |$$ |  $$ |$$ |      
+% $$ |      $$ |      \$$$$$$  |\$$$$$$  |$$ |      
+% \__|      \__|       \______/  \______/ \__|
+\section{Proofs, Remarks, and Examples}
+\begin{thmbox}
+    \begin{theorem}
+        Every integer greater than \(1\) can be represented uniquely as a product of prime numbers, up to the order of factors.
+
+        In other words, if \(n \in \mathbb{Z}\), then there are prime numbers \(p_1, \ldots, p_k \in \mathbb{Z}\) and positive integers \(r_1, \ldots, r_k \in \mathbb{N}^+\) such that
+        \begin{equation*}
+            n = p_1^{r_1} \cdot \ldots \cdot p_k^{r_k}
+        \end{equation*}
+        is unique, up to the order of factors.
+    \end{theorem}
+\end{thmbox}
+\begin{remark}
+    This theorem is also called the unique factorization theorem and prime factorization theorem.
+\end{remark}
+%
+\begin{defbox}
+    \begin{definition}
+        A field extension is a pair of fields \(E \subset F\), such that the operations of \(E\) are those of \(F\) restricted to \(E\). In this case, \(F\) is an extension field of \(E\) and \(E\) is a subfield of \(F\). Such a field extension is denoted \(F / E\) (read as ``\(F\) over \(E\)'').
+    \end{definition}
+\end{defbox}
+%
+\begin{defbox}
+    \begin{definition}
+        Let \(F / E\) be a field extension and \(\alpha \in F\). We say \(\alpha\) is algebraic over \(E\) if \(\alpha\) is a root of a non-zero polynomial with coefficients in \(E\). Moreover, if all elements of the extension field is algebraic, we say algebraic extension.
+    \end{definition}
+\end{defbox}
+% there is equivalent definitions
+%
+\begin{defbox}
+    \begin{definition}
+        A number field is an an algebraic extension of \(\mathbb{Q}\) of finite degree.
+    \end{definition}
+\end{defbox}
+%
+\begin{defbox}
+    \begin{definition}
+        Let \(K\) be a number field. An algebraic integer \(\alpha\) in \(K\) is a root of a monic polynomial with integer coefficients, i.e.
+        \begin{equation}
+            \alpha^n + c_{n-1} \alpha^{n-1} + \cdots + c_0 = 0 \text{,}
+        \end{equation}
+        with \(c_{0}, \ldots, c_{n-1} \in \mathbb{Z}\).
+
+        The ring of integers of a number field \(K\), denoted by \(\mathcal{O}_K\), is the ring of all algebraic integers.
+    \end{definition}
+\end{defbox}
+\begin{example}
+    Let \(K = \mathbb{Q}(\sqrt{5})\). What is \(\mathcal{O}_K\)? Generalize this to \(\sqrt{d}\).
+\end{example}
+%
+\begin{defbox}
+    \begin{definition}
+        Let \(A\) be a ring. A non-unit element \(a \in A\) is irreducible if \(a = xy\) implies that \(x\) or \(y\) is a unit in \(A\).
+    \end{definition}
+\end{defbox}
+%
+\begin{thmbox}
+    \begin{theorem}
+        Let \(K\) be a number field and \(\mathcal{O}_K\) its ring of integers. Then, for any \(x \in \mathcal{O}_K\) we have
+        \begin{equation*}
+            x = y_1^{r_1} \cdot \ldots \cdot y_k^{r_k}
+        \end{equation*}
+        where \(y_1, \ldots, y_k\) are irreducible.
+    \end{theorem}
+\end{thmbox}
+% Dedekind and Kurman considered ideal factors.
+\begin{defbox}
+    \begin{definition}
+        Let \(A\) be a ring. Then, an ideal factor \(\mathfrak{a} \subset A\) is a subset of \(A\) with (some properties) but its just an ideal.
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(\mathcal{O}_K\) be the ring of integers and let \(\mathfrak{a}\) an ideal, then
+        \begin{equation*}
+            \mathfrak{a} = \mathfrak{p}_1^{r_1} \cdot \ldots \cdot \mathfrak{p}_k^{r_k}
+        \end{equation*}
+        where \(\mathfrak{p}_i\) are prime ideals and this decomposition is basically unique.
+    \end{theorem}
+\end{thmbox}
+%
+\newpage
+% $$\   $$\            $$\                         
+% $$$\  $$ |           $$ |                        
+% $$$$\ $$ | $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$$\ 
+% $$ $$\$$ |$$  __$$\\_$$  _|  $$  __$$\ $$  _____|
+% $$ \$$$$ |$$ /  $$ | $$ |    $$$$$$$$ |\$$$$$$\  
+% $$ |\$$$ |$$ |  $$ | $$ |$$\ $$   ____| \____$$\ 
+% $$ | \$$ |\$$$$$$  | \$$$$  |\$$$$$$$\ $$$$$$$  |
+% \__|  \__| \______/   \____/  \_______|\_______/
+\section{Exercises and Notes}
