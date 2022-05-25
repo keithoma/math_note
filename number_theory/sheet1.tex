@@ -213,6 +213,23 @@ Show that \(R\) is Euclidean with respect to this norm.
 \end{proof}
 \newpage
 \section*{Exercise 1.4}
+Let \(R = \mathbb{Z}[\sqrt{-5}]\). Show that \(R\) is not a unique factorization domain by taking the following steps.
+\begin{enumerate}
+  \item Compute the group of units \(R^\times\).
+  \begin{proof}
+    Define a norm \(N: R \longrightarrow \mathbb{N}_0\) as \(N(a + b\sqrt{5}) = a^2 + 5b^2\) and let \(x + y \sqrt{5} \in \mathbb{Z}[\sqrt{5}]\). If \(x + y \sqrt{5}\) is a unit, then \(N(x + y \sqrt{5}) = 1\), and the only integers that satisfy \(a^2 + 5b^2 = 1\) is \(a = \pm 1\) and \(b = 0\). Therefore, the only units in \(R\) is \(\pm 1\).
+  \end{proof}
+  \item Find two different factorizations of \(6 \in R\) into irreducible factors.
+  \begin{proof}
+    Trivially, \(2 \cdot 3 = 6\). Also, it is not hard to find \((1 + \sqrt{-5})(1 - \sqrt{-5}) = 6\).
+  \end{proof}
+  \item Show that the factors appearing are pairwise non-associated.
+  \begin{proof}
+    This is clear. Conclude that there are distinct factorizations in \(\mathbb{Z}[\sqrt{-5}]\), hence it is not a unique factorization domain.
+  \end{proof}
+\end{enumerate}
+\newpage
+\section*{Exercise 1.4+}
 Let \(R = \mathbb{Z}[\sqrt{5}]\). Show that \(R\) is not a unique factorization domain by taking the following steps.
 \begin{enumerate}
   \item Compute the group of units \(R^\times\).
