@@ -19,6 +19,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{textcomp}
+\usepackage{mathtools}
 %\usepackage{MnSymbol} % for \cupdot
 
 % extra
@@ -173,43 +174,78 @@ Consider \(R = \mathbb{Z}[\sqrt{3}]\) with the norm \(N: R \longrightarrow \math
 \begin{equation*}
   N(a + b\sqrt{3}) = |a^2 - 3b^2| \text{.}
 \end{equation*}
-Show that \(R\) is euclidian with respect to this norm.
+Show that \(R\) is Euclidean with respect to this norm.
 \begin{proof}
+  Let \(x, y \in R\) and write \(x = x_a + x_b \sqrt{3}\) and \(y = y_a + y_b \sqrt{3}\). We have
   \begin{align*}
-    x_a + x_b \sqrt{3} &= q (y_a + y_b \sqrt{3}) + r \\
-    &= (q_a + q_b \sqrt{3})(y_a + y_b \sqrt{3}) + r \\
-    &= q_a y_a + q_a y_b \sqrt{3} + q_b y_a \sqrt{3} + 3 q_b y_b + r \\
-    &= q_a y_a + 3 q_b y_b + (q_a y_b + q_b y_a) \sqrt{3} + r \\
-    &= q_a y_a + 3 q_b y_b + r_a + (q_a y_b + q_b y_a + r_b) \sqrt{3}
+    \frac{x}{y} &= \frac{x_a + x_b \sqrt{3}}{y_a + y_b \sqrt{3}} \\
+    &= \frac{x_a + x_b \sqrt{3}}{y_a + y_b \sqrt{3}} \cdot \frac{y_a - y_b \sqrt{3}}{y_a - y_b \sqrt{3}} \\
+    &= \frac{x_a y_a - 3x_b y_b + (x_b y_a - x_a y_b) \sqrt{3}}{y^2_a - 3y_b^2} \\
+    &= \underbrace{\frac{x_a y_a - 3x_b y_b}{y^2_a - 3y_b^2}}_{=: \alpha} + \underbrace{\frac{x_b y_a - x_a y_b}{y^2_a - 3y_b^2}}_{=: \beta} \sqrt{3} \text{.}
   \end{align*}
-  So
+  Set \(z_\alpha \in \mathbb{Z}\) to be the closest integer to \(\alpha\) and \(z_\beta \in \mathbb{Z}\) to be the closest integer to \(\beta\).
+
+  To show that \(R\) is Euclidean, we want to find \(p, r \in \mathbb{Z}[\sqrt{3}]\) such that \(x = p y + r\). Set \(\theta := (\alpha - z_\alpha) + (\beta - z_\beta)\sqrt{3}\). We claim that
   \begin{align*}
-    x_a &= q_a y_a + 3 q_b y_b + r_a \\
-    x_b &= q_a y_b + q_b y_a + r_b
+    p = (z_\alpha + z_\beta \sqrt{3}) \qquad \text{and} \qquad r = y \theta \text{.}
   \end{align*}
-  Say \(r \neq 0\). We want to show \(|r_a^2 - 3r_b^2| < |y_a^2 - 3y_b^2|\).
+  We have
   \begin{align*}
-    |r^2_a - 3r^2_b| &= |(x_a - q_a y_a - 3 q_b y_b)^2 - 3(x_b - q_a y_b - q_b y_a)^2| \\
-    &= |x_a^2 - 2x_a q_a y_a - 6x_a q_b y_b + q_a^2 y_a^2 + 6q_a y_a q_b y_a + 9q_b^2 y_b^2|
+    r &= y \theta \\
+    &= y ((\alpha - z_\alpha) + (\beta - z_\beta) \sqrt{3}) \\
+    &= y (\alpha - z_\alpha + \beta \sqrt{3} - z_\beta \sqrt{3}) \\
+    &= y ((\alpha + \beta \sqrt{3}) - (z_\alpha + z_\beta \sqrt{3})) \\
+    &=  y(\alpha + \beta \sqrt{3}) - y(z_\alpha + z_\beta \sqrt{3}) \\
+    &= y \frac{x}{y} - py \\
+    &= x - py
   \end{align*}
-  It is
+  Addint \(py\) on both ends yields the representation \(x = py + r\) as desired.
+
+  We show \(N(r) < N(y)\). Because \(|\alpha - z_\alpha| < 2\) and \(|\beta - z_\beta| < 2\), we have
   \begin{align*}
-    r_a^2 &= (x_a - q_a y_a - 3 q_b y_b)^2 \\
-    &= x_a^2 - 2x_a q_a y_a - 6x_a q_b y_b + q_a^2 y_a^2 + 6q_a q_b y_a y_b + 9q_b^2 y_b^2 \\
-    %
-    %
-    %
-    -3r_b^2 &= -3(x_b - q_a y_b - q_b y_a)^2 \\
-    &= -3(x_b^2 - 2x_b q_a y_b - 2x_b q_b y_a + q_a^2 y_b^2 + 2 q_a q_b y_a q_b + q_b^2 y_a^2) \\
-    &= -3x_b^2 + 6x_b q_a y_b + 6 x_b q_b y_a - 3q_a^2 y_b^2 - 6 q_a q_b y_a q_b - 3q_b^2 y_a^2 \\
-    %
-    %
-    %
-    r_a^2 - 3r_b^2 &= x_a^2 - 2x_a q_a y_a - 6x_a q_b y_b -3x_b^2 + 6x_b q_a y_b + 6 x_b q_b y_a + q_a^2 y_a^2 + 9q_b^2 y_b^2 - 3q_a^2 y_b^2 - 3q_b^2 y_a^2
-  \end{align*}
-  It is enough to show
-  \begin{align*}
-    x_a^2 - 2x_a q_a y_a - 6x_a q_b y_b + q_a^2 y_a^2 + 6q_a q_b y_a y_b + 9q_b^2 y_b^2 < |y^2_a - 3y_b^2|
+    N(r) &= N(y \theta) \\
+    &= N(y) N(\theta) \\
+    &= N(y) \cdot |(\alpha - z_\alpha)^2 - 3 (\beta - z_\beta)^2| \\
+    &\leq N(y) \cdot \max\{(\alpha - z_\alpha)^2, 3 (\beta - z_\beta)^2\} \\
+    &\leq N(y) \cdot \frac{3}{4} \\
+    &\leq N(y)
   \end{align*}
 \end{proof}
+\newpage
+\section*{Exercise 1.4}
+Let \(R = \mathbb{Z}[\sqrt{5}]\). Show that \(R\) is not a unique factorization domain by taking the following steps.
+\begin{enumerate}
+  \item Compute the group of units \(R^\times\).
+  \begin{proof}
+    Let \(a + b \sqrt{5} \in \mathbb{Z}[\sqrt{5}]\). We want to find another element \(x + y \sqrt{5} \in \mathbb{Z}[\sqrt{5}]\) such that their product is \(1\). We have
+    \begin{align*}
+      1 &= (a + b \sqrt{5}) (x + y \sqrt{5}) \\
+      &= ax + ay\sqrt{5} + bx \sqrt{5} + 5 by \\
+      &= (ax + 5by) + (bx + ay) \sqrt{5}
+    \end{align*}
+    So we have a system of linear equations
+    \begin{align*}
+      ax + 5 by &= 1 \\
+      bx + ay &= 0 \\
+    \end{align*}
+    where \(x\) and \(y\) are the variables.
+
+    If \(b = 0\), then
+    \begin{align*}
+      ax &= 1 \\
+      ay &= 0 \text{.}
+    \end{align*}
+    Because \(a \neq 0\), we have \(y = 0\), and since \(x \in \mathbb{Z}\), the only units in \(\mathbb{Z}[\sqrt{5}]\) with \(b = 0\) is \(\pm 1\).
+
+    If \(b \neq 0\), then multiplying the second equation yields
+    \begin{align*}
+      \begin{rcases*}
+        ax + 5by &= 1 \\
+        ax + \frac{a^2}{b}y &= 0
+      \end{rcases*}
+      \, \Rightarrow \, \frac{b}{5b^2 - a^2} = y
+    \end{align*}
+    so \((5b - a^2 b^{-1})^{-1} = y\). But \(y\) can 
+  \end{proof}
+\end{enumerate}
 \end{document}
