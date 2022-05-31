@@ -88,18 +88,32 @@
 }%
 
 \begin{document}
+Some notes: I have an issue with Exercise 1.1.3. The proof is not rigorous enough for me.
 \section*{Exercise 1.1}
 Let \(A \subset B\) be an integral extension of rings and assume that \(B\) is an integral domain. Suppose \(\mathfrak{q} \subset B\) is a prime ideal and let \(\mathfrak{p} := 
 \mathfrak{q} \cap A \subset A\).
 \begin{enumerate}
   \item Prove that \(A\) is a field if and only if \(B\) is a field.
   \begin{proof}
-    Assume \(A\) is a field. Let \(\mathfrak{m}\) be a maximal ideal in \(B\) and fix a nonzero element \(b \in \mathfrak{m}\). Because \(b\) is integral over \(A\), we have an expression with some \(a_0, \ldots, a_n \in A\)
+    Let \(A\) be a field and \(b \in B\) an element. Because \(B\) is an integral extension, we have
+    \begin{equation*}
+      0 = b^n + a_{n-1} b^{n-1} + \cdots + a_0
+    \end{equation*}
+    for some \(a_0, \ldots, a_{n-1} \in A\). Now \(A\) is a field, so there is a multiplicative inverse of \(a_0\) such that \(a_0 \cdot a_0^{-1} = 1\). Multiplying both sides with \(a_0^{-1}\) we get
     \begin{align*}
-      0 = a_0 + a_1 b + a_2 b^2 + \cdots + a_n b^n \iff -a_0 = a_1 b + a_2 b^2 + \cdots + a_n b^n \text{.}
+      0 &= a_0^{-1} b^n + a_0^{-1} a_{n-1} b^{n-1} + \cdots + a_0^{-1}a_0 \\
+      &= a_0^{-1} b^n + a_0^{-1} a_{n-1} b^{n-1} + \cdots + 1 \text{.}
     \end{align*}
-    On the right side, for each \(1 \leq i \leq n\), we have that \(a_i b^i\) is in \(\mathfrak{m}\), so the whole sum \(\sum_{i=1}^n a_i b^i\) is in \(\mathfrak{m}\).
-    
+    Now we move every summand except for the \(1\) to the left side and factor out \(b\).
+    \begin{align*}
+      1 &= -(a_0^{-1} b^n + a_0^{-1} a_{n-1} b^{n-1} + \cdots + a_0^{-1} a_1 b) \\
+      &= -(a_0^{-1} b^{n-1} + a_0^{-1} a_{n-1} b^{n-2} + \cdots + a_0^{-1} a_1) \cdot b
+    \end{align*}
+    So we found a multiplicative inverse of \(b\) namely
+    \begin{equation*}
+      b^{-1} = -(a_0^{-1} b^{n-1} + a_0^{-1} a_{n-1} b^{n-2} + \cdots + a_0^{-1} a_1)\text{.}
+    \end{equation*}
+
     For the other direction of the implication, let \(B\) be a field and fix an \(x \in A\). \(x\) is a unit in \(B\), so there is a \(y \in B\) with \(xy = 1\). Again, for \(y\) we have the expression
     \begin{align*}
       0 = a_0 + a_1 y + a_2 y^2 + \cdots + a_n y^n
@@ -112,7 +126,6 @@ Let \(A \subset B\) be an integral extension of rings and assume that \(B\) is a
     \end{align*}
     In other words, \(y\) is in \(A\) or in different words, \(A\) is a field.
   \end{proof}
-  \newpage
   \item Show that \(\mathfrak{p}\) is a prime ideal of \(A\) and that \(A / \mathfrak{p}\) can be viewed as a subring of \(B / \mathfrak{q}\).
   \begin{proof}
     Consider \(A + \mathfrak{q}\). This is a subring of \(B\) and \(\mathfrak{q}\) is also prime in \(A + \mathfrak{q}\). With the second isomorphism theorem we have
@@ -126,7 +139,6 @@ Let \(A \subset B\) be an integral extension of rings and assume that \(B\) is a
   %
   %
   %
-  \newpage
   \item Show that \(B / \mathfrak{q}\) is integral over \(A / \mathfrak{p}\).
   \begin{proof}
     Fix a \((b + \mathfrak{q}) \in B/\mathfrak{q}\). Because \(B\) is an integral extension, we have an equation for \(b\) with some \(a_0, \ldots, a_n \in A\)
@@ -142,7 +154,6 @@ Let \(A \subset B\) be an integral extension of rings and assume that \(B\) is a
     \end{align*}
     so \(B/\mathfrak{q}\) is integral over \(A / \mathfrak{p}\).
   \end{proof}
-  \newpage
   \item Deduce that \(\mathfrak{q}\) is maximal in \(B\) if and only if \(\mathfrak{p}\) is maximal \(A\).
   \begin{proof}
     \(\mathfrak{q}\) is maximal in \(B\) if and only if \(B/\mathfrak{q}\) is a field. We know from 2. that \(A/\mathfrak{p}\) is a subring of \(B/\mathfrak{q}\) and from 3. that \(B/\mathfrak{q}\) is an integral extension of \(A/\mathfrak{p}\). Applying 1. yields that \(A/\mathfrak{p}\) is a field if and only if \(B/\mathfrak{q}\) is a field. Hence \(\mathfrak{p}\) is maximal in \(A\).
