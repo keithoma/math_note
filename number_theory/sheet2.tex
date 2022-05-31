@@ -1,0 +1,147 @@
+\documentclass[a4paper]{article}
+\title{Number Theory}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section*{Exercise 2.1}
+Let \(d \in \mathbb{Z}\) be a square-free integer and consider \(K = \mathbb{Q}(\sqrt{d})\).
+\begin{enumerate}
+  \item Find an integral basis for \(K\).
+  \begin{proof}
+    From exercise 1.2.2. we have that \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
+    \begin{equation*}
+      \alpha = \begin{cases}
+        \frac{1 + \sqrt{d}}{2} &\qquad d \equiv 1 \mod{4} \\
+        \sqrt{d} &\qquad d \not\equiv 1 \mod{4} \text{.}
+      \end{cases}
+    \end{equation*}
+    so the integral basis is \(\mathcal{B} = \set{1, \alpha}\).
+  \end{proof}
+  \item Using the basis, compute the discriminant of \(K / \mathbb{Q}\).
+  \begin{proof}
+    We have
+    \begin{align*}
+      \Delta_K = \det \begin{pmatrix}
+        \sigma_1(b_1) & \sigma_1(b_2) \\
+        \sigma_2(b_1) & \sigma_2(b_2)
+      \end{pmatrix}^2
+    \end{align*}
+    where \(\sigma_1\) and \(\sigma_2\) are the set of embeddings of \(K\) onto the complex numbers, and \(b_1\) and \(b_2\) are the integral basis of \(\mathcal{O}_K\). If \(d \equiv 1 \mod{4}\), we have
+    \begin{align*}
+      \Delta_K = \det \begin{pmatrix}
+        \sigma_1(b_1) & \sigma_1(b_2) \\
+        \sigma_2(b_1) & \sigma_2(b_2)
+      \end{pmatrix}^2
+      = \det \begin{pmatrix}
+        1 & \frac{1 + \sqrt{d}}{2} \\
+        1 & \frac{1 - \sqrt{d}}{2}
+      \end{pmatrix}^2
+      = (-\sqrt{d})^2 = d \text{.}
+    \end{align*}
+    If \(d \not\equiv 1 \mod{4}\), we have
+    \begin{align*}
+      \Delta_K = \det \begin{pmatrix}
+        \sigma_1(b_1) & \sigma_1(b_2) \\
+        \sigma_2(b_1) & \sigma_2(b_2)
+      \end{pmatrix}^2
+      = \det \begin{pmatrix}
+        1 & \sqrt{d} \\
+        1 & -\sqrt{d}
+      \end{pmatrix}^2
+      = (-2\sqrt{d})^2 = 4d \text{.}
+    \end{align*}
+    So the discriminant is
+    \begin{equation}
+      \Delta_K = \begin{cases}
+        d & \qquad d \equiv 1 \mod{4}\\
+        4d & \qquad d \not\equiv 1 \mod{4}
+      \end{cases}
+    \end{equation}
+  \end{proof}
+\end{enumerate}
+\end{document}
