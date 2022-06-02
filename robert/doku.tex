@@ -121,14 +121,35 @@ The objects of this class represent fractions.
     \begin{itemize}
         \item Arguments
         \begin{enumerate}
-            \item 
+            \item other (Bruch): another fraction
         \end{enumerate}
         \item Returns (Bruch): the sum of the two fractions
     \end{itemize}
-    \item \texttt{\_\_repr\_\_(self)}
-    \item \texttt{check\_validity(self)}
+    \item \texttt{\_\_repr\_\_(self)} returns a printable string.
+    \begin{itemize}
+        \item Arguments: none except for self
+        \item Returns (str): printable string
+    \end{itemize}
+    \item \texttt{check\_validity(self)} checks the fraction for validity. Returns false if the denominator is \(0\).
+    \begin{itemize}
+        \item Arguments: none except for self
+        \item Returns (boolean): false if the denominator is \(0\), in any other case true
+    \end{itemize}
 \end{itemize}
 
+\subsubsection{Free Functions}
+
+\begin{itemize}
+    \item \texttt{addiere(bruch\_1, bruch\_2)} adds two fractions into a new fractions
+    \begin{itemize}
+        \item Arguments
+        \begin{enumerate}
+            \item \texttt{bruch\_1} (Bruch): first summand
+            \item \texttt{bruch\_2} (Bruch): second summand
+        \end{enumerate}
+        \item Returns (Bruch): the sum of the two fractions
+    \end{itemize}
+\end{itemize}
 
 \begin{thebibliography}{9}
 	\bibitem{bosch} 
