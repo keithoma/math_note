@@ -1,0 +1,33 @@
+\documentclass[13pt]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{endnotes}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\title{Bruch}
+\author{Robert Bedard}
+\begin{document}
+
+
+\section{Der Euklidische Algorithmus als Flussbild}
+\begin{tikzpicture}[node distance=4cm]
+\node (start) [startstop] {Start};
+\node (in1) [io, below of=start] {a, b};
+\node (pro1) [process, below of=in1] {a mod b = c};
+\node (dec1) [decision, right of=pro1, xshift=4cm] {if c = 0};
+\node (out1) [io, below of=dec1] {c};
+\node (out2) [io, above of=dec1] {a = b , b = c};
+\node (stop) [startstop, below of=out1] {Stop};
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -- (dec1);
+\draw [arrow] (dec1) -- node[anchor=east] {no}(out2);
+\draw [arrow] (out2) -- (in1);
+\draw [arrow] (dec1) -- node[anchor=east] {yes}(out1);
+\draw [arrow] (out1) -- (stop);
+\end{tikzpicture}
+\end{document}

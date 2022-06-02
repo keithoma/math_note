@@ -1,12 +1,20 @@
 \documentclass[refman]{scrartcl}
 
-\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{endnotes}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
 \usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor} 
 \usepackage{epigraph}
+
 
 
 \usepackage{amsmath}
@@ -39,6 +47,7 @@
 
 \newcommand{\mymod}{\text{\ \ mod\ \ }}
 
+
 \begin{document}
 
 % ----------------------------------------------------------------------------------------------------------
@@ -54,7 +63,7 @@
 	\vspace{1.5cm}
 	{\huge\bfseries Documentation of Fraction Application Programming Interface and Command Line Interface Calculator\par}
 	\vspace{2cm}
-	{\Large\itshape Christian Parpart \& Kei Thoma \par}
+	{\Large\itshape Robert A. Bedard \par}
 	\vfill
 
 	\vfill
@@ -67,7 +76,13 @@
 \newpage
 
 \section{User Manual}
+Name of the program: bruch
 
+\noindent This program allows the user to enter fractions and reduce and add them.
+
+\noindent The module tools.3 is required.
+
+\noindent After starting it, the user must simply follow the instructions.
 \section{Documentation}
 
 \subsection{tools3.py}
@@ -151,16 +166,30 @@ The objects of this class represent fractions.
     \end{itemize}
 \end{itemize}
 
+\section{Euclidean Algorithm}
+\begin{tikzpicture}[node distance=4cm]
+    \node (start) [startstop] {Start};
+    \node (in1) [io, below of=start] {a, b};
+    \node (pro1) [process, below of=in1] {a mod b = c};
+    \node (dec1) [decision, right of=pro1, xshift=4cm] {if c = 0};
+    \node (out1) [io, below of=dec1] {c};
+    \node (out2) [io, above of=dec1] {a = b , b = c};
+    \node (stop) [startstop, below of=out1] {Stop};
+    \draw [arrow] (start) -- (in1);
+    \draw [arrow] (in1) -- (pro1);
+    \draw [arrow] (pro1) -- (dec1);
+    \draw [arrow] (dec1) -- node[anchor=east] {no}(out2);
+    \draw [arrow] (out2) -- (in1);
+    \draw [arrow] (dec1) -- node[anchor=east] {yes}(out1);
+    \draw [arrow] (out1) -- (stop);
+\end{tikzpicture}
+    
+
 \begin{thebibliography}{9}
-	\bibitem{bosch} 
-	Bosch, Siegfried. 
-	\textit{Algebra}. 
-	Springer-Verlag Berlin Heidelberg, 7th Edition, 2009.
-	
-	\bibitem{knuth} 
-	Knuth, Donald. 
-	\textit{The Art of Computer Programming Volume 2}. 
-	Prentice Hall, 3rd Edition, 1997.
+	\bibitem{Rabus} 
+	Rabus, Helga. 
+	\textit{EWR Vorlesung}. 
+	Humboldt-Universität zu Berlin, 2022.
 	
 \end{thebibliography}
 
