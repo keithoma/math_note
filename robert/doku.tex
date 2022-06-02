@@ -1,0 +1,146 @@
+\documentclass[refman]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor} 
+\usepackage{epigraph}
+
+
+\usepackage{amsmath}
+
+\usepackage{listings}
+
+\pagestyle{fancy}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{Fuchsia},
+    numberstyle=\tiny\color{gray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+
+\newcommand{\mymod}{\text{\ \ mod\ \ }}
+
+\begin{document}
+
+% ----------------------------------------------------------------------------------------------------------
+% PREAMBLE
+% ----------------------------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.15\textwidth]{graphics/huberlin_logo}\par\vspace{1cm}
+	{\scshape\LARGE Humboldt University of Berlin \par}
+	\vspace{1cm}
+	{\scshape\Large Einf{\"u}hrung in das wissenschaftliche Rechnen \par}
+	\vspace{1.5cm}
+	{\huge\bfseries Documentation of Fraction Application Programming Interface and Command Line Interface Calculator\par}
+	\vspace{2cm}
+	{\Large\itshape Christian Parpart \& Kei Thoma \par}
+	\vfill
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{User Manual}
+
+\section{Documentation}
+
+\subsection{tools3.py}
+
+In this module, we have the two functions to compute the greatest common divisor and the least common multiple. Here, there are no classes, just free functions.
+
+\begin{itemize}
+    \item \texttt{ggt(arg1, arg2)}
+    computes the greatest common divisor via Euclidean algorithm.
+    \begin{itemize}
+        \item Arguments
+        \begin{enumerate}
+            \item \texttt{arg1} (int): first integer
+            \item \texttt{arg2} (int): second integer
+        \end{enumerate}
+        \item Returns (int): greatest common divisor of the first and second integer
+    \end{itemize}
+    \item \texttt{kgv(arg1,arg2)}
+    determines the least common multiple, utilizing the greatest common divisor, computed by the function \texttt{ggt(arg1, arg2)}.
+    \begin{itemize}
+        \item Arguments
+        \begin{enumerate}
+            \item \texttt{arg1} (int): first integer
+            \item \texttt{arg2} (int): second integer
+        \end{enumerate}
+        \item Returns (int): least common multiple of the first and second integer.
+    \end{itemize}
+    \item \texttt{main()} for testing purposes. Takes no arguments and returns none.
+\end{itemize}
+
+\subsection{bruch.py}
+
+In this module, we have implemented the class Bruch that represents fractions.
+
+\subsubsection{class Bruch()}
+
+The objects of this class represent fractions.
+
+\noindent\textbf{Attributes}
+
+\begin{itemize}
+    \item zaehler (int): the numerator
+    \item nenner (int): the denominator
+\end{itemize}
+
+\noindent\textbf{Methodes}
+
+\begin{itemize}
+    \item \texttt{kuerzen(self)} reduces the fraction. Takes no arguments except for self and returns none.
+    \item \texttt{\_\_add\_\_(self, other)} adds two fractions together via finding the greatest common divisor and reduces afterwards. The result is a new Bruch object.
+    \begin{itemize}
+        \item Arguments
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
+        \item Returns (Bruch): the sum of the two fractions
+    \end{itemize}
+    \item \texttt{\_\_repr\_\_(self)}
+    \item \texttt{check\_validity(self)}
+\end{itemize}
+
+
+\begin{thebibliography}{9}
+	\bibitem{bosch} 
+	Bosch, Siegfried. 
+	\textit{Algebra}. 
+	Springer-Verlag Berlin Heidelberg, 7th Edition, 2009.
+	
+	\bibitem{knuth} 
+	Knuth, Donald. 
+	\textit{The Art of Computer Programming Volume 2}. 
+	Prentice Hall, 3rd Edition, 1997.
+	
+\end{thebibliography}
+
+\end{document}
