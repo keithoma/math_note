@@ -148,6 +148,18 @@ Let \(d \in \mathbb{Z}\) be a square-free integer and consider \(K = \mathbb{Q}(
 Let \(K = \mathbb{Q}(\sqrt{-5})\), so \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\). Consider the ideals \(\mathfrak{p}: = (2, 1 + \sqrt{-5})\) and \(\mathfrak{q} = (3, 1 + \sqrt{-5})\) in \(\mathcal{O}_K\) and let \(\overline{\mathfrak{p}}\) and \(\overline{\mathfrak{q}}\) denote the ideals obtained by elementwise complex conjugation.
 \begin{enumerate}
   \item Show that \(\mathfrak{p}\) and \(\mathfrak{q}\) are prime but not principal. Prove \(\mathfrak{p} = \overline{\mathfrak{p}}\).
+  \begin{proof}
+    Consider \(\mathbb{Z}[\sqrt{-5}] / (2, 1 + \sqrt{-5})\). We want to show that this is an integral domain. We have
+    \begin{align*}
+      \mathbb{Z}[\sqrt{-5}] / (2, 1 + \sqrt{-5}) &\simeq (\mathbb{Z}[X] / (2, 1 + X)) / (X^2 + 5) \\
+      & \simeq (\mathbb{Z} / (2)) [X] / (X + 1, X^2 + 5) \\
+      & \simeq (\mathbb{Z} / (2)) [X] / (X + 1, X^2 + 1) \\
+      & \simeq (\mathbb{Z} / (2)) [X] / (X + 1) \\
+      & \simeq (\mathbb{Z} / (2)) [X] / (X) \\
+      & \simeq (\mathbb{Z} / (2))
+    \end{align*}
+    And the last expression is an integral domain.
+  \end{proof}
   \item Verify that \(\mathfrak{p}\mathfrak{q} = (1 + \sqrt{-5})\) and \(\mathfrak{p}\overline{\mathfrak{q}} = 1 - \sqrt{-5}\).
   \item Show that \(\mathfrak{p}^2 \mathfrak{q}\overline{\mathfrak{q}} = (6)\).
 \end{enumerate}
