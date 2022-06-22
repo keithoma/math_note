@@ -219,6 +219,16 @@ Dedekind's proof is much easier to understand, lol.
         N(a_1 + b_1 \sqrt{d})N(a_2 + b_2 \sqrt{d}) &= |a_1^2 - d b_1^2||a_2^2 - d b_2^2| \\
         &= |a_1^2 a_2^2 - a_1^2 b_2^2 d - a_2^2 b_1^2 d + b_1^2 b^2 d^2 |
     \end{align*}
-    so we have \(N((a_1 + b_1 \sqrt{d}) (a_2 + b_2 \sqrt{d})) = N(a_1 + b_1 \sqrt{d})N(a_2 + b_2 \sqrt{d})\). Moreover, 
+    so we have \(N((a_1 + b_1 \sqrt{d}) (a_2 + b_2 \sqrt{d})) = N(a_1 + b_1 \sqrt{d})N(a_2 + b_2 \sqrt{d})\). Moreover, let \(u \in \mathbb{Z}[\sqrt{d}]\) be a unit, then there is an element \(v \in \mathbb{Z}[\sqrt{d}]\) such that \(u v = 1\). Applying the function defined above, we get
+    \begin{align*}
+        1 = N(1) = N(u v) = N(u) N(v)
+    \end{align*}
+    so \(N(u) = 1\). Now suppose \(N(a + b \sqrt{d}) = 1\) with \(a, b \in \mathbb{Z}\). Consider
+    \begin{align*}
+        (a + b \sqrt{d})(a - b \sqrt{d}) = a^2 - d b^2 = \pm 1
+    \end{align*}
+    and therefore \(a + b \sqrt{d}\) is a unit.
+
+    We have shown that \(N\) is a norm map. \(R\) is also an integral domain because if \(x \in R\) is a zero-divisor, then we have \(0 = N(x) = |a^2 - d b^2|\), but this is impossible since \(d\) is square-free. Applying the example before, we get the desired result.
 \end{proof}
 \end{document}
