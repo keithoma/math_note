@@ -192,4 +192,34 @@ Now take \(\alpha\) and \(\beta\) integral over \(A\) and denote \(\alpha M \sub
 \end{enumerate}
 
 Dedekind's proof is much easier to understand, lol.
+
+\section*{Integral Elements}
+
+\begin{proposition}
+    Let \(K\) be the field of fractions of \(A\), and let \(L\) be a field containing \(K\). If \(\alpha \in L\) is algebraic over \(K\), then there exists a nonzero \(d \in A\) such that \(d \alpha \) is integral over \(A\).
+\end{proposition}
+
+\begin{corollary}
+    Let \(A\) be an integral domain with field of fractions \(K\), and let \(B\) be the integral closure of \(A\) in a field \(L\) containing \(K\). If \(L\) is algebraic over \(K\), then it is the field of fractions \(B\).
+\end{corollary}
+
+\part{Exercise}
+
+\begin{example}
+    Let \(d\) be a square-free integer. Consider \(A = \mathbb{Z}[\sqrt{d}]\). Show that every element of \(R\) can be written as a product of irreducible elements.
+\end{example}
+\begin{proof}
+    Define \(N: R \longrightarrow \mathbb{N}\) as \(N(a + b \sqrt{d}) = a^2 + d b^2\) where \(a, b \in \mathbb{Z}\). Let \(a_1 + b_1 \sqrt{d}\) and \(a_2 + b_2 \sqrt{d}\) be two elements in \(\mathbb{Z}[\sqrt{d}]\) with \(a_1, b_1, a_2, b_2 \in \mathbb{Z}\), then
+    \begin{align*}
+        N((a_1 + b_1 \sqrt{d}) (a_2 + b_2 \sqrt{d})) &= N((a_1 a_2 + b_1 b_2 d) + (a_1 b_2 + a_2 b_1) \sqrt{d}) \\
+        &= (a_1 a_2 + b_1 b_2 d)^2 + d (a_1 b_2 + a_2 b_1)^2 \\
+        &= a_1^2 a_2^2 + 2 a_1 a_2 b_1 b_2 d + b_1^2 b_2^2 d^2 + a_1^2 b_2^2 d + 2 a_1 a_2 b_1 b_2 d + a_2^2 b_1^2 d \\
+        &= a_1^2 a_2^2 + b_1^2 b_2^2 d^2 + a_1^2 b_2^2 d + a_2^2 b_1^2 d + 4 a_1 a_2 b_1 b_2 d
+    \end{align*}
+    and on the other hand
+    \begin{align*}
+        N(a_1 + b_1 \sqrt{d}) N(a_2 + b_2 \sqrt{d}) &= (a_1^2 + d b_1^2) (a_2^2 + d b_2^2) \\
+        &= a_1^2 a_2^2 + a_1^2 b_2^2 d + a_2^2 b_1^2 d + b_1^2 b_2^2 d^2
+    \end{align*}
+\end{proof}
 \end{document}
