@@ -209,17 +209,16 @@ Dedekind's proof is much easier to understand, lol.
     Let \(d\) be a square-free integer. Consider \(A = \mathbb{Z}[\sqrt{d}]\). Show that every element of \(R\) can be written as a product of irreducible elements.
 \end{example}
 \begin{proof}
-    Define \(N: R \longrightarrow \mathbb{N}\) as \(N(a + b \sqrt{d}) = a^2 + d b^2\) where \(a, b \in \mathbb{Z}\). Let \(a_1 + b_1 \sqrt{d}\) and \(a_2 + b_2 \sqrt{d}\) be two elements in \(\mathbb{Z}[\sqrt{d}]\) with \(a_1, b_1, a_2, b_2 \in \mathbb{Z}\), then
+    Define \(N: R \longrightarrow \mathbb{N}\) as \(N(a + b \sqrt{d}) = |a^2 - d b^2|\) where \(a, b \in \mathbb{Z}\). Let \(a_1 + b_1 \sqrt{d}\) and \(a_2 + b_2 \sqrt{d}\) be two elements in \(\mathbb{Z}[\sqrt{d}]\) with \(a_1, b_1, a_2, b_2 \in \mathbb{Z}\), then
     \begin{align*}
         N((a_1 + b_1 \sqrt{d}) (a_2 + b_2 \sqrt{d})) &= N((a_1 a_2 + b_1 b_2 d) + (a_1 b_2 + a_2 b_1) \sqrt{d}) \\
-        &= (a_1 a_2 + b_1 b_2 d)^2 + d (a_1 b_2 + a_2 b_1)^2 \\
-        &= a_1^2 a_2^2 + 2 a_1 a_2 b_1 b_2 d + b_1^2 b_2^2 d^2 + a_1^2 b_2^2 d + 2 a_1 a_2 b_1 b_2 d + a_2^2 b_1^2 d \\
-        &= a_1^2 a_2^2 + b_1^2 b_2^2 d^2 + a_1^2 b_2^2 d + a_2^2 b_1^2 d + 4 a_1 a_2 b_1 b_2 d
+        &= |(a_1 a_2 + b_1 b_2 d)^2 - d (a_1 b_2 + a_2 b_1)^2| \\
+        &= |a_1^2 a_2^2 + 2 a_1 a_2 b_1 b_2 d + b_1^2 b_2^2 d^2 - a_1^2 b_2^2 d - 2 a_1 a_2 b_1 b_2 d - a_2^2 b_1^2 d | \\
+        &= |a_1^2 a_2^2 - a_1^2 b_2^2 d - a_2^2 b_1^2 d + b_1^2 b_2^2 d^2| \\
+        \intertext{on the other hand}
+        N(a_1 + b_1 \sqrt{d})N(a_2 + b_2 \sqrt{d}) &= |a_1^2 - d b_1^2||a_2^2 - d b_2^2| \\
+        &= |a_1^2 a_2^2 - a_1^2 b_2^2 d - a_2^2 b_1^2 d + b_1^2 b^2 d^2 |
     \end{align*}
-    and on the other hand
-    \begin{align*}
-        N(a_1 + b_1 \sqrt{d}) N(a_2 + b_2 \sqrt{d}) &= (a_1^2 + d b_1^2) (a_2^2 + d b_2^2) \\
-        &= a_1^2 a_2^2 + a_1^2 b_2^2 d + a_2^2 b_1^2 d + b_1^2 b_2^2 d^2
-    \end{align*}
+    so we have \(N((a_1 + b_1 \sqrt{d}) (a_2 + b_2 \sqrt{d})) = N(a_1 + b_1 \sqrt{d})N(a_2 + b_2 \sqrt{d})\). Moreover, 
 \end{proof}
 \end{document}
