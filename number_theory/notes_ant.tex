@@ -1,0 +1,195 @@
+\documentclass[a4paper]{book}
+\title{Number Theory}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A\) be an integral domain, and let \(L\) be a field containing \(A\). The elements of \(L\) integral over \(A\) form a ring.
+    \end{theorem}
+\end{thmbox}
+\begin{remark}
+    The immediate consequence of this theorem is that the ring of integers is indeed a ring.
+\end{remark}
+\begin{defbox}
+    \begin{definition}
+        Symmetric polynomials and elementary symmetric polynomials.
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A\) be a ring. Every symmetric polynomial \(P(X_1, \ldots, X_r)\) in \(A[X_1, \ldots, X_n]\) can be represented with a linear combination of elementary symmetric polynomials with coeffcients in \(A\).
+    \end{theorem}
+\end{thmbox}
+Proof is constructive and inductive by reducing the polynomial over the lexicographically highest monomial. Not a hard proof, but the indecies are anoying.
+
+The above proof implies:
+
+Let \(f(X) = X^n + a_1 X^{n-1} + \cdots + a_n \in A[X]\), and let \(\alpha_1, \ldots, \alpha_n\) be the roots of \(f(X)\) in some ring containing \(A\), so that \(f(X) = \prod (X - \alpha_i)\) in the larger ring. Then
+\begin{align*}
+    a_1 = -S_1(\alpha_1, \ldots, \alpha_n), \qquad a_2 = S_2(\alpha_1, \ldots, \alpha_n), \qquad a_n = \pm S_n(\alpha_1, \ldots, \alpha_n) \text{.}
+\end{align*}
+(I'm not quite sure why this is the case. Maybe use the multi-binomial theorem.)
+
+Thus the elementary symmetric polynomials in the roots of \(f\) lie in \(A\). And so the theorem implies that every symmetric polynomial in the roots of \(f(X)\) lies in \(A\).
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a integral domain and \(\Omega\) be an algebraically closed field containing \(A\). If \(\alpha_1, \ldots, \alpha_n\) are the roots in \(\Omega\) of a monic polynomial in \(A[X]\), then every polynomial \(g(\alpha_1, \ldots, \alpha_n)\) in \(A[\alpha_1, \ldots, \alpha_n]\) is a root of a monic polynomial in \(A[X]\).
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    Clearly,
+    \begin{align*}
+        h(X) := \prod_{\sigma \in \mathrm{Sym}_n} (X -  g(\alpha_{\sigma(1)}, \ldots, \alpha_{\sigma(n  )}))
+    \end{align*}
+    is a monic polynomial whose coeffcients are symmetric polynomials in the \(\alpha_i\), and therefore lie in \(A\). But \(g(\alpha_1, \ldots, \alpha_n)\) is one of the roots.
+\end{proof}
+With this we can prove that the above theorem. I don't quite understand few steps ...
+
+\section*{Dedekind's Proof}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(L\) be a field containing \(A\). An element \(\alpha\) of \(L\) is integral over \(A\) if and only if there exists a nonzero finitely generated \(A\)-submodule of \(L\) such that \(\alpha M \subset M\) (in fact, we can take \(M = A[\alpha]\), the \(A\)-subalgebra generated by \(\alpha\)).
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    \begin{itemize}
+        \item Let \(\alpha \in L\) be integral over \(A\). The \(A\)-submodule \(A[\alpha]\) in \(L\) is generated by \(1, \alpha, \ldots, \alpha^{n-1}\), thus finitely generated and clearly nonzero. \(\alpha A[\alpha] \subset A[\alpha]\) also holds.
+        \item Let \(M\) be a nonzero, finitely generated \(A\)-submodule in \(L\) such that \(\alpha M \subset M\). Since \(M\) is finitely generated, there is a set of generators \(v_1, \ldots, v_n \in M\). From \(\alpha M \subset M\) we have that
+        \begin{align*}
+            \alpha v_i = \sum_{j = 1}^n a_{i, j} v_j
+        \end{align*}
+        for some \(a_{i, j} \in A\). We rewrite this system of equations
+        \begin{align*}
+            (\alpha - a_{i, i}) v_i \sum_{j = 1, j \neq i}^n a_{i, j} v_j = 0
+        \end{align*}
+        We have the matrix
+        \begin{align*}
+            \begin{pmatrix}
+                (\alpha - a_{1, 1}) & a_{1, 2} & \cdots & a_{1, n}\\
+                a_{2,1} & (\alpha - a_{2, 2}) & \cdots & a_{2, n} \\
+                \vdots & & & \vdots \\
+                a_{n, 1} & a_{n, 2} & \cdots & (\alpha - a_{n,n})
+            \end{pmatrix}
+        \end{align*}
+        Applying Cramer's Rule we get \(v_i = \frac{\det(C_i)}{\det{C}}\), but \(C_i\) is always \(0\), and at least one \(v_i\) is nonzero, so we have that \(\det(C) = 0\).
+
+        But calculating the determinant of \(C\) gives us
+
+        \begin{align*}
+            \alpha^n + c_1 \alpha^{n-1} + \cdots + c_n = 0
+        \end{align*}
+        as desired.
+    \end{itemize}
+\end{proof}
+Now take \(\alpha\) and \(\beta\) integral over \(A\) and denote \(\alpha M \subset M\) and \(\beta N \subset N\).
+
+\begin{enumerate}
+    \item \(MN\) is an \(A\)-submodule of \(L\).
+\end{enumerate}
+
+Dedekind's proof is much easier to understand, lol.
+\end{document}
