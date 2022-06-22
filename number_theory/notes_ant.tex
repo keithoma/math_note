@@ -231,4 +231,21 @@ Dedekind's proof is much easier to understand, lol.
 
     We have shown that \(N\) is a norm map. \(R\) is also an integral domain because if \(x \in R\) is a zero-divisor, then we have \(0 = N(x) = |a^2 - d b^2|\), but this is impossible since \(d\) is square-free. Applying the example before, we get the desired result.
 \end{proof}
+
+\begin{example}
+    2.1.3. did it before
+\end{example}
+
+\begin{example}
+    Let \(R\) be a domain in which every element can be written as a product of irreducibles. Show that the following are equivalent.
+    \begin{enumerate}
+        \item this factorization is unique
+        \item if \(\pi\) is irreducible and \(\pi\) divides \(ab\), then \(\pi | a\) or \(\pi | b\)
+    \end{enumerate}
+\end{example}
+\begin{proof}
+    Let the factorization be unique, \(\pi \in R\) be irreducible and divide \(ab\). Then \(ab = \pi x\) for some \(x \in R\). On the other hand, \(ab\) has a unique factorization that is the product of the factorization of \(a\) and \(b\) but must contain \(\pi\).
+
+    For the other side let \(p_1^{r_1} \cdot \ldots \cdot p_n^{r_n}\) and \(q_1^{s_1} \cdot \ldots \cdot q_m^{r_m}\) be two factorizations of an element in \(R\). Then \(p_1\) divides \(q_1^{s_1} \cdot \ldots \cdot q_m^{r_m}\) so \(p_1\) divides some \(q_i\). But \(q_i\) is irreducible, so we have \(p_1 = q_i\). Induction yields the desired result.
+\end{proof}
 \end{document}
