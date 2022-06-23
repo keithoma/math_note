@@ -257,6 +257,34 @@ Dedekind's proof is much easier to understand, lol.
 \end{proof}
 
 \begin{example}
-    
+    If \(F\) is a field, prove that \(F[x]\) is Euclidean.
 \end{example}
+\begin{proof}
+    Define \(\phi: F[x] \longrightarrow \mathbb{N}\) as \(\phi(f) = \mathrm{deg}(f)\). Fix two polynomials \(f, g \in F[x]\). If \(\mathrm{deg}(f) >= \mathrm{g}\), then we can do polynomial division to get \(f = g p + r\) where \(\mathrm{deg}(g) > \mathrm{r}\).
+\end{proof}
+
+\begin{example}
+    Show that \(\mathbb{Z}[i]\) is Euclidean.
+\end{example}
+\begin{proof}
+    Fix two elements \(x, y \in \mathbb{Z}[i]\) and write \(x = a_x + i b_x\) and \(y = a_y + i b_y\). It is
+    \begin{align*}
+        \frac{x}{y} &= \underbrace{\frac{a_x a_y + b_x b_y}{a_y^2 + b_y^2}}_{=: \alpha} + i \underbrace{\frac{a_y b_x - a_x b_y}{a_y^2 + b_y^2}}_{=: \beta}
+    \end{align*}
+    Set \(p_x\) to be the closest integer to \(\alpha\) and \(p_y\) to be the closest integer to \(\beta\) and \(p = p_x + i p_y\). Moreover, set \(r = ((\alpha - p_x) + i (\beta - p_y)) y\).
+
+    It is
+    \begin{align*}
+        r &= y(\alpha + i \beta) - y (p_x + i p_y) \\
+        &= y \frac{x}{y} - py \\
+        &= x - py
+    \end{align*}
+    so we got the desired representation.
+
+    Furthermore, we have
+    \begin{align*}
+        N(r) &= N(y) ((\alpha - p_x)^2 + (\beta - p_y)^2)\\
+        &\leq N(y) \frac{1}{2}
+    \end{align*}
+\end{proof}
 \end{document}
