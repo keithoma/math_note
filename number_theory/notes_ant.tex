@@ -311,4 +311,16 @@ Dedekind's proof is much easier to understand, lol.
 \begin{proof}
     If \(x\) is even, then \(4 | x^3\), so \(x^3 - 1 \equiv 3 \mod 4\) which cannot be a square since all squares are congruent to either \(0\) or \(1\) \(\mod{4}\). So \(x\) is odd and \(y\) is even. Write \(y^2 + 1 = (y + i)(y - i)\). If a prime divides \((y + i)(y - i)\), then the prime divides also their difference \(2i\). So \(p = 2\) up to units. But then \(p\) divides \(y\) as \(y\) was even, but this is impossible since \(p\) also divides \(y + i\).
 \end{proof}
+
+\begin{example}
+    What are the primes of \(\mathbb{Z}[i]\)?
+\end{example}
+\begin{proof}
+    We have two types of primes in \(\mathbb{Z}[i]\).
+    \begin{enumerate}
+        \item \(p\) and \(ip\) where \(p \equiv 3 \mod{4}\).
+        \item \(a + i b\) with \(a^2 + b^2 \equiv 1 \mod{4}\) and prime.
+    \end{enumerate}
+    This is because of the norm function \(N(a + ib) = a^2 + b^2\).
+\end{proof}
 \end{document}
