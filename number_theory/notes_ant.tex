@@ -362,4 +362,18 @@ Dedekind's proof is much easier to understand, lol.
         \item Distributive law is again inherited.
     \end{enumerate}
 \end{proof}
+\begin{example}
+    \begin{enumerate}
+        \item Show that \(\mathbb{Z}[\rho]\) is Euclidean.
+        \begin{proof}
+            Fix two elements \(x_1 + x_2 \rho\) and \(y_1 + y_2 \rho\) of \(\mathbb{Z}[\rho]\). We have
+            \begin{align*}
+                \frac{x_1 + x_2 \rho}{y_1 + y_2 \rho} &= \frac{x_1 + x_2 \rho}{y_1 + y_2 \rho} \frac{y_1 - y_2 \rho}{y_1 - y_2 \rho} \\
+                &= \frac{x_1 y_1 - x_2 y_2 \overline{\rho}  - x_1 y_2 \rho + x_2 y_1 \rho}{y_1^2 + y_2^2 \overline{\rho}}
+            \end{align*}
+            I think this should work at the end of the day, but I'm too lazy to write it out.
+        \end{proof}
+        \item Show that the only units in \(\mathbb{Z}[\rho]\) are \(\pm 1\), \(\pm \rho\), and \(\pm \overline{\rho}\).
+    \end{enumerate}
+\end{example}
 \end{document}
