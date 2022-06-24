@@ -376,4 +376,47 @@ Dedekind's proof is much easier to understand, lol.
         \item Show that the only units in \(\mathbb{Z}[\rho]\) are \(\pm 1\), \(\pm \rho\), and \(\pm \overline{\rho}\).
     \end{enumerate}
 \end{example}
+
+\chapter{Algebraic Numbers and Integers}
+
+\begin{example}
+    Show that
+    \begin{equation*}
+        \alpha := \frac{\sqrt{2}}{3}
+    \end{equation*}
+    is an algebraic number, but not an algebraic integer.
+\end{example}
+\begin{proof}
+    First of all, \(\alpha\) is the root of
+    \begin{equation*}
+        X^2 - \frac{2}{9} \in \mathbb{Q}[X] \text{,}
+    \end{equation*}
+    so it is an algebraic number.
+
+    Now assume \(\alpha\) is an algebraic integer. Then, there is a monic polynomial \(f \in \mathbb{Z}[X]\) such that \(f(\alpha) = 0\). It is
+    \begin{align*}
+        f(\alpha) = \left(\frac{\sqrt{2}}{3}\right)^n + a_{n-1}\left(\frac{\sqrt{2}}{3}\right)^{n - 1} + \cdots + a_1 \frac{\sqrt{2}}{3} + a_0 &= 0 \\
+        (\sqrt{2})^n + 3 a_{n-1} (\sqrt{2})^{n-1} + \cdots + 3^{n-1} a_1 \sqrt{2} + 3^n a_0 &= 0
+    \end{align*}
+    If \(n\) is odd, then \(\sqrt{2}\) is not an integer, therefore, we can separate the sum into two smaller ones.
+    \begin{align*}
+        \sum_{k \text{ even}} 3^{n - k} a_k (\sqrt{2})^k = 0
+    \end{align*}
+    and
+    \begin{align*}
+        \sum_{k \text{ odd}} 3^{n - k} a_k (\sqrt{2})^k = \sqrt{2} \sum_{k \text{ even}} 3^{n - k} a_k (\sqrt{2})^{\frac{k - 1}{2}} = 0\text{.}
+    \end{align*}
+    Both sums are divisible by \(3\) as \(3\) divides \(0\) and since all summands except for the very last one contains multiples of \(3\), they are divisible by \(3\), so the last summand must be divisible by \(3\) as well. But this cannot be. Hence \(\alpha\) is not an algebraic integer.
+\end{proof}
+
+\begin{example}
+    Show that if \(r \in \mathbb{Q}\) is an algebraic integer, then \(r \in \mathbb{Z}\).
+\end{example}
+\begin{proof}
+    Write \(r = \frac{p}{q}\) such that \(q \not| p\) and we have
+    \begin{align*}
+        p^n + q a_{n-1}p^{n-1} + \cdots + q^n a_0 = 0
+    \end{align*}
+    \(q\) divides the whole sum, it divides all summands, but it does not divide \(p^n\), therefore \(q = 1\).
+\end{proof}
 \end{document}
