@@ -328,5 +328,38 @@ Dedekind's proof is much easier to understand, lol.
     A positive integer \(a\) is the sum of two squares if and only if \(a = b^2 c\) where \(c\) is not divisible by any positive prime \(p \equiv 3 \mod{4}\).
 \end{example}
 \begin{proof}
+    I don't know.
+\end{proof}
+
+\begin{example}
+    \(\mathbb{Z}[\rho]\) is a ring where
+    \begin{align*}
+        \rho = \frac{-1 + \sqrt{-3}}{2} \text{.}
+    \end{align*}
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item \((\mathbb{Z}[\rho], +)\) is an abelian group.
+        \begin{enumerate}
+            \item If \(a_1 + b_1 \rho\) and \(a_2 + b_2 \rho\) are elements of \(\mathbb{Z}[\rho]\), then \(a_1 + b_1 \rho + a_2 + b_2 \rho = a_1 + a_2 + (b_1 + b_2) \rho\), so the addition is well-defined.
+            \item Associativity and commutativity is inhereted from the addition of integers.
+            \item The additive identity is \(0\).
+            \item If \(a + b \rho\) is in \(\mathbb{Z}[\rho]\), then its inverse is \(-a - b \rho\).
+        \end{enumerate}
+        \item \((\mathbb{Z}[\rho], \cdot)\) is a monoid.
+        \begin{enumerate}
+            \item If \(a_1 + b_1 \rho\) and \(a_2 + b_2 \rho\) are two elements of \(\mathbb{Z}[\rho]\), then we have
+            \begin{align*}
+                (a_1 + b_1 \rho)(a_2 + b_2 \rho) &= a_1 a_2 + b_1 b_2 \rho^2 + (a_1 b_2 + a_2 b_1) \rho \\
+                &= a_1 a_2 + b_1 b_2 \overline{\rho} + (a_1 b_2 + a_2 b_1) \rho \\
+                &= a_1 a_2 + b_1 b_2 \frac{-1 - \sqrt{3}}{2} + (a_1 b_2 + a_2 b_1) \frac{-1 + \sqrt{3}}{2} \\
+                &= a_1 a_2 - \frac{b_1 b_2}{2} - \frac{a_1 b_2 + a_2 b_1}{2} - \frac{b_1 b_2 \sqrt{-3}}{2} + \frac{(a_1 b_2 + a_2 b_1) \sqrt{-3}}{2} \\
+                &= a_1 a_2 + \frac{-a_1 b_2 - a_2 b_2 -b_1 b_2}{2} + \frac{(a_1 b_2 + a_2 b_1 - b_1 b_2) \sqrt{-3}}{2}
+            \end{align*}
+            I made some mistake, but should be right.
+            \item The multiplicative identity is \(1\)
+        \end{enumerate}
+        \item Distributive law is again inherited.
+    \end{enumerate}
 \end{proof}
 \end{document}
