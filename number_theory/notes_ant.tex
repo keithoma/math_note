@@ -440,6 +440,26 @@ Dedekind's proof is much easier to understand, lol.
 \end{proof}
 
 \begin{example}
-    
+    Let \(K = \mathbb{Q}(i)\). Show that \(i \in \mathcal{O}_K\) and verify that \(\mathrm{Tr}_K(i)\) and \(\mathrm{N}_K(i)\) are integers.
 \end{example}
+\begin{proof}
+    \(X^2 + 1 \in \mathbb{Z}[X]\) has the root \(i\), so \(i\) is in \(\mathcal{O}_K\). Since the \(\mathbb{Q}\)-basis of \(\mathbb{Q}(i)\) is \(\set{1, i}\), we have
+    \begin{align*}
+        \Phi_i(a + ib) = -b + a_i
+    \end{align*}
+    therefore, the matrix is
+    \begin{align*}
+        \Phi_i =
+        \begin{pmatrix}
+            0 & 1 \\ -1 & 0
+        \end{pmatrix}
+    \end{align*}
+    and hence its trace is \(\mathrm{Tr}_K(i) = 0\). Similary, its norm is \(\mathrm{N}_K(i) = 1\).
+\end{proof}
+\begin{example}
+    Determine the algebraic integers of \(\mathbb{Q}(\sqrt{-5})\).
+\end{example}
+\begin{proof}
+    
+\end{proof}
 \end{document}
