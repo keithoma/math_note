@@ -426,7 +426,17 @@ Dedekind's proof is much easier to understand, lol.
     If \(K\) is an algebraic number field of degree \(n\) over \(\mathbb{Q}\), and \(\alpha \in \mathcal{O}_K\) its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
 \end{lemma}
 \begin{proof}
-    
+    Let \(\omega_1, \ldots, \omega_n\) be a \(\mathbb{Q}\)-basis for \(K\), then for all \(1 \leq i \leq n\) it is
+    \begin{align*}
+        \alpha \omega_i = \sum_{j = 1}^n a_{i, j} \omega_j \text{.}  
+    \end{align*}
+    Then we have for all \(1 \leq i \leq n\) and \(k\)
+    \begin{align*}
+        \alpha^{(k)} \omega_i^{(k)} = \sum_{j = 1}^n a_{i, j} \omega_j^{(k)}
+    \end{align*}
+    where \(\alpha^{(k)}\) is the \(k\)-th conjugate of \(\alpha\).
+
+    Missing, but I kinda get it.
 \end{proof}
 
 \begin{example}
