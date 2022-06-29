@@ -454,6 +454,10 @@ Dedekind's proof is much easier to understand, lol.
 
 \chapter{Integral Bases}
 
+\section{Overview}
+
+\section{Details}
+
 \begin{defbox}
     \begin{definition}[Trace and Norm]
         Let \(K\) be an algebraic number field with degree \(n\). Then, \(K\) can be viewed as an finite-dimensional vector space over \(\mathbb{Q}\). If \(\alpha \in K\), we can define a linear operator
@@ -470,9 +474,25 @@ Dedekind's proof is much easier to understand, lol.
 
 \begin{thmbox}
     \begin{lemma}
-        If \(K\) is an algebraic number field of degree \(n\) over \(\mathbb{Q}\), and \(\alpha \in \mathcal{O}_K\) its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
+        If \(K\) is an algebraic number field, and \(\alpha \in \mathcal{O}_K\) an element in its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
     \end{lemma}
 \end{thmbox}
+
+\begin{proof}
+    Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
+    \begin{align*}
+        \alpha e_i = \sum_{j=1}^n a_{i, j} e_j
+    \end{align*}
+    for all \(1 \leq i \leq n\) and \(a_{i, j} \in \mathbb{Q}\). Taking the conjugates, we get
+    \begin{align*}
+        \alpha^{(k)} e_i^{(k)} = \sum_{j=1}^n a_{i, j} e_j^{(k)}
+    \end{align*}
+    and with Kronecker delta we can write
+    \begin{align*}
+        \sum_{j=1}^n \delta_{j, k} \alpha^{(j)} e_i^{(j)} = \sum_{j=1}^n a_{i, j} e_j^{(k)} \text{.}
+    \end{align*}
+    Now set \(\Phi_A := (a_{i, j})\)
+\end{proof}
 
 \begin{example}
     Let \(K = \mathbb{Q}(i)\). Show that \(i \in \mathcal{O}_K\) and verify that \(\mathrm{Tr}_K(i)\) and \(\mathrm{N}_K(i)\) are integers.
@@ -545,6 +565,12 @@ I'll skip exercises that require bilinear form for now.
     \end{definition}
 \end{defbox}
 
+\begin{proof}
+    We show that the discriminant is well-defined. In other words, the discriminant is independent of the choice of integral basis.
+
+    Let \(\omega_1, \ldots, \omega_n\) and \(\theta_1, \ldots, \theta_n\) be two integral basis for \(K\).
+\end{proof}
+
 \begin{example}
     Let \(d\) be a square-free integer and consider the algebraic number field \(K = \mathbb{Q}(\sqrt{d})\). The discriminant of \(K\) is
     \begin{align*}
@@ -590,6 +616,7 @@ I'll skip exercises that require bilinear form for now.
             = \left(-2\sqrt{d}\right)^2 = 4d \text{.}
         \end{align*}
     \end{enumerate}
+    Conclude the stated result above.
 \end{proof}
 
 \end{document}
