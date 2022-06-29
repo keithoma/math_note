@@ -420,6 +420,24 @@ Dedekind's proof is much easier to understand, lol.
     \(q\) divides the whole sum, it divides all summands, but it does not divide \(p^n\), therefore \(q = 1\).
 \end{proof}
 
+\chapter{3}
+
+\begin{example}
+    Let \(K\) be an algebraic number field. If \(\alpha \in K\), then there is a nonzero integer \(m \in \mathbb{Z}\) such that \(m \alpha \in \mathcal{O}_K\).
+\end{example}
+\begin{proof}
+    Since \(\alpha\) is an algebraic number, we have
+    \begin{equation*}
+        \alpha^n + a_{n-1} \alpha^{n-1} + \cdots + a_1 \alpha + a_0 = 0
+    \end{equation*}
+    with \(a_0, \ldots, a_{n-1} \in \mathbb{Q}\). So choose \(m \in \mathbb{Z}\) such that \(m \alpha_i\) is an integer for all \(i\). We have
+    \begin{align*}
+        m^n \alpha^n + m^n a_{n-1} \alpha^{n-1} + \cdots + m^n a_1 \alpha + m^n a_0 = 0 \\
+        (m \alpha)^n + m a_{n-1} (m \alpha)^{n-1} + \cdots + m^{n-1} a_1 (m \alpha) + m^n a_0 = 0
+    \end{align*}
+    so \(m \alpha \in \mathcal{O}_K\).
+\end{proof}
+
 \chapter{Integral Bases}
 
 \begin{lemma}
@@ -479,4 +497,11 @@ Dedekind's proof is much easier to understand, lol.
     4.1.5 I'll skip this.
 \end{example}
 
+\begin{example}
+    Show that there exist \(\omega_1^*, \ldots, \omega_n^* \in K\) such that
+    \begin{equation*}
+        \mathcal{O}_K \subset \mathbb{Z}\omega_1^* + \cdots + \mathbb{Z} \omega_n^* \text{.}
+    \end{equation*}
+\end{example}
+    Let \(\omega_1, \ldots, \omega_n\) be a \(\mathbb{Q}\)-basis for \(K\). For any \(\alpha \in K\), there is a nonzero integer \(m \in \mathbb{Z}\) such that \(m \alpha \in \mathcal{O}_K\).
 \end{document}
