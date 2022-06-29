@@ -473,41 +473,77 @@ Dedekind's proof is much easier to understand, lol.
 \end{defbox}
 
 \begin{example}
-    Let \(K = \mathbb{Q}(i)\), then \(\mathcal{O}_K = \mathbb{Z}[i]\). If \(\alpha = a + ib\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+    In this example, we will compute the traces and norms of some concrete algebraic number fields.
+    \begin{enumerate}
+    \item Let \(K = \mathbb{Q}(i)\). If \(\alpha = a + ib\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+    \begin{proof}
+        A basis of \(K\) is \(\{1, i\}\). Then \(\Phi_\alpha\) is defined by
+        \begin{align*}
+            1 + 0 \cdot i &\mapsto \alpha = a + ib\\
+            0 + 1 \cdot i &\mapsto \alpha i = -b + i a
+        \end{align*}
+        and we may represent \(\Phi\) by a \(2 \times 2\) matrix
+        \begin{align*}
+            A_\Phi = \begin{pmatrix}
+                a & -b \\ b & a
+            \end{pmatrix} \text{.}
+        \end{align*}
+        Therefore, \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+    \end{proof}
+    \item Let \(K = \mathbb{Q}(\sqrt{2})\). If \(\alpha = a + \sqrt{2}b\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+    \begin{proof}
+        A basis of \(K\) is \(\{1, \sqrt{2}\}\). Define \(\Phi_\alpha\) by
+        \begin{align*}
+            1 + 0 \cdot \sqrt{2} &\mapsto \alpha = a + \sqrt{2} b \\
+            0 + 1 \cdot \sqrt{2} &\mapsto \sqrt{2} \alpha = 2b + \sqrt{2}a
+        \end{align*}
+        then the matrix belonging to \(\Phi_\alpha\) is
+        \begin{align*}
+            A_\Phi = \begin{pmatrix}
+                a & 2b \\
+                b & a
+            \end{pmatrix} \text{.}
+        \end{align*}
+        So we have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+    \end{proof}
+    \item Let \(K = \mathbb{Q}(\sqrt{5})\). If \(\alpha = a + \sqrt{5}b\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 5b^2\).
+    \begin{proof}
+        A basis\footnote{ The given basis is not an integral basis, but an integral basis is not required to find the field trace and field norm of an element.} of \(K\) is \(\{1, \sqrt{5}\}\). As before, the linear operator \(\Phi\) is defined by
+        \begin{align*}
+            1 + 0 \cdot \omega &\mapsto \alpha = a + \sqrt{5} b \\
+            0 + 1 \cdot \omega &\mapsto \omega \alpha = 5b + \sqrt{5}a
+        \end{align*}
+        and the matrix belonging to \(\Phi\) is given by
+        \begin{align*}
+            A_\Phi = \begin{pmatrix}
+                a & 5b \\
+                b & a
+            \end{pmatrix}
+        \end{align*}
+        hence it is \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 5b^2\).
+    \end{proof}
+    \item In more general terms, let \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is a square-free integer. If \(\alpha = a + \sqrt{d}b\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - db^2\).
+    \begin{proof}
+        A basis of \(K\) is \({1, \sqrt{d}}\). Let \(\Phi_\alpha\) be a linear operator defined by
+        \begin{align*}
+            1 + 0 \cdot \sqrt{d} &\mapsto \alpha = a + \sqrt{d}b \\
+            0 + 1 \cdot \sqrt{d} &\mapsto \sqrt{d}\alpha = db + \sqrt{d}a
+        \end{align*}
+        which we may represent by a \(2 \times 2\) matrix
+        \begin{align*}
+            A_{\Phi} = \begin{pmatrix}
+                a & db \\
+                b & a
+            \end{pmatrix} \text{.}
+        \end{align*}
+        We have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - db^2\) matching the results in our previous examples.
+    \end{proof}
+    \item Let \(\mathbb{Q}(\sqrt[3]{2})\).
+    \begin{proof}
+        
+    \end{proof}
+    \end{enumerate}
 \end{example}
-\begin{proof}
-    A basis of \(K\) is \(\{1, i\}\). Then \(\Phi_\alpha\) is defined by
-    \begin{align*}
-        1 + 0 \cdot i &\mapsto \alpha = a + ib\\
-        0 + 1 \cdot i &\mapsto \alpha i = -b + i a
-    \end{align*}
-    and we may represent \(\Phi\) by a \(2 \times 2\) matrix
-    \begin{align*}
-        A_\Phi = \begin{pmatrix}
-            a & b \\ -b & a
-        \end{pmatrix} \text{.}
-    \end{align*}
-    Therefore, \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
-\end{proof}
-
-\begin{example}
-    Let \(K = \mathbb{Q}(\sqrt{2})\), then \(\mathcal{O}_K = \mathbb{Z}[\sqrt{2}]\). If \(\alpha = a + \sqrt{2}b\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
-\end{example}
-\begin{proof}
-    A basis of \(K\) is \(\{1, \sqrt{2}\}\). Define \(\Phi_\alpha\) by
-    \begin{align*}
-        1 + 0 \cdot \sqrt{2} &\mapsto \alpha = a + \sqrt{2} b \\
-        0 + 1 \cdot \sqrt{2} &\mapsto \sqrt{2} \alpha = 2b + \sqrt{2}a
-    \end{align*}
-    then the matrix belonging to \(\Phi_\alpha\) is
-    \begin{align*}
-        A_\Phi = \begin{pmatrix}
-            a & b \\
-            2b & a
-        \end{pmatrix} \text{.}
-    \end{align*}
-    So we have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
-\end{proof}
 
 \begin{thmbox}
     \begin{lemma}
