@@ -472,6 +472,43 @@ Dedekind's proof is much easier to understand, lol.
     \end{definition}
 \end{defbox}
 
+\begin{example}
+    Let \(K = \mathbb{Q}(i)\), then \(\mathcal{O}_K = \mathbb{Z}[i]\). If \(\alpha = a + ib\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+\end{example}
+\begin{proof}
+    A basis of \(K\) is \(\{1, i\}\). Then \(\Phi_\alpha\) is defined by
+    \begin{align*}
+        1 + 0 \cdot i &\mapsto \alpha = a + ib\\
+        0 + 1 \cdot i &\mapsto \alpha i = -b + i a
+    \end{align*}
+    and we may represent \(\Phi\) by a \(2 \times 2\) matrix
+    \begin{align*}
+        A_\Phi = \begin{pmatrix}
+            a & b \\ -b & a
+        \end{pmatrix} \text{.}
+    \end{align*}
+    Therefore, \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+\end{proof}
+
+\begin{example}
+    Let \(K = \mathbb{Q}(\sqrt{2})\), then \(\mathcal{O}_K = \mathbb{Z}[\sqrt{2}]\). If \(\alpha = a + \sqrt{2}b\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+\end{example}
+\begin{proof}
+    A basis of \(K\) is \(\{1, \sqrt{2}\}\). Define \(\Phi_\alpha\) by
+    \begin{align*}
+        1 + 0 \cdot \sqrt{2} &\mapsto \alpha = a + \sqrt{2} b \\
+        0 + 1 \cdot \sqrt{2} &\mapsto \sqrt{2} \alpha = 2b + \sqrt{2}a
+    \end{align*}
+    then the matrix belonging to \(\Phi_\alpha\) is
+    \begin{align*}
+        A_\Phi = \begin{pmatrix}
+            a & b \\
+            2b & a
+        \end{pmatrix} \text{.}
+    \end{align*}
+    So we have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+\end{proof}
+
 \begin{thmbox}
     \begin{lemma}
         If \(K\) is an algebraic number field, and \(\alpha \in \mathcal{O}_K\) an element in its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
