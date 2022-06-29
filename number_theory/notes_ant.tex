@@ -105,6 +105,20 @@
 }%
 
 \begin{document}
+\part{Cheet Sheet}
+
+
+\noindent \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is a square-free integer.
+\begin{enumerate}
+    \item \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
+    \begin{align*}
+        \alpha := \begin{cases}
+            \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
+            \sqrt{d} & d \equiv 2, 3 \mod{4}
+        \end{cases}
+    \end{align*}
+\end{enumerate}
+
 \begin{thmbox}
     \begin{theorem}
         Let \(A\) be an integral domain, and let \(L\) be a field containing \(A\). The elements of \(L\) integral over \(A\) form a ring.
@@ -440,22 +454,25 @@ Dedekind's proof is much easier to understand, lol.
 
 \chapter{Integral Bases}
 
-\begin{lemma}
-    If \(K\) is an algebraic number field of degree \(n\) over \(\mathbb{Q}\), and \(\alpha \in \mathcal{O}_K\) its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
-\end{lemma}
-\begin{proof}
-    Let \(\omega_1, \ldots, \omega_n\) be a \(\mathbb{Q}\)-basis for \(K\), then for all \(1 \leq i \leq n\) it is
-    \begin{align*}
-        \alpha \omega_i = \sum_{j = 1}^n a_{i, j} \omega_j \text{.}  
-    \end{align*}
-    Then we have for all \(1 \leq i \leq n\) and \(k\)
-    \begin{align*}
-        \alpha^{(k)} \omega_i^{(k)} = \sum_{j = 1}^n a_{i, j} \omega_j^{(k)}
-    \end{align*}
-    where \(\alpha^{(k)}\) is the \(k\)-th conjugate of \(\alpha\).
+\begin{defbox}
+    \begin{definition}[Trace and Norm]
+        Let \(K\) be an algebraic number field with degree \(n\). Then, \(K\) can be viewed as an finite-dimensional vector space over \(\mathbb{Q}\). If \(\alpha \in K\), we can define a linear operator
+        \begin{equation*}
+            \Phi_\alpha: K \longrightarrow K, \qquad v \mapsto \alpha v \text{,}
+        \end{equation*}
+        which may be represented by \(n \times n\) matrices \(A_\Phi = (a_{i, j})_{1 \leq i, j \leq n}\) by requiring
+        \begin{equation*}
+            \alpha e_i = \sum_{j=1}^n a_{i, j} e_j\text{,} \qquad a_{i, j} \in \mathbb{Q} \text{.}
+        \end{equation*}
+        We define trace of \(\alpha\) by \(\mathrm{Tr}_K(\alpha) := \mathrm{Tr}(\Phi_\alpha)\) and the norm of \(\alpha\) by \(N(\alpha) := \det(\Phi_\alpha)\).
+    \end{definition}
+\end{defbox}
 
-    Missing, but I kinda get it.
-\end{proof}
+\begin{thmbox}
+    \begin{lemma}
+        If \(K\) is an algebraic number field of degree \(n\) over \(\mathbb{Q}\), and \(\alpha \in \mathcal{O}_K\) its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
+    \end{lemma}
+\end{thmbox}
 
 \begin{example}
     Let \(K = \mathbb{Q}(i)\). Show that \(i \in \mathcal{O}_K\) and verify that \(\mathrm{Tr}_K(i)\) and \(\mathrm{N}_K(i)\) are integers.
@@ -503,5 +520,76 @@ Dedekind's proof is much easier to understand, lol.
         \mathcal{O}_K \subset \mathbb{Z}\omega_1^* + \cdots + \mathbb{Z} \omega_n^* \text{.}
     \end{equation*}
 \end{example}
+\begin{proof}
     Let \(\omega_1, \ldots, \omega_n\) be a \(\mathbb{Q}\)-basis for \(K\). For any \(\alpha \in K\), there is a nonzero integer \(m \in \mathbb{Z}\) such that \(m \alpha \in \mathcal{O}_K\).
+\end{proof}
+
+I'll skip exercises that require bilinear form for now.
+
+\begin{defbox}
+    \begin{definition}
+        Let \(K\) be an algebraic number field of degree \(n\) and \(\mathcal{O}_K\) be its ring of integers. We say that \(\omega_1, \ldots, \omega_n\) is an integral basis for \(K\) if \(\omega_i \in \mathcal{O}_K\) for all \(1 \leq i \leq n\) and \(\mathcal{O}_K = \mathbb{Z}\omega_1 + \cdots + \mathbb{Z}\omega_n\).
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    Show that \(\det{\mathrm{Tr}(\omega_i \omega_j)}\) is independent of the choice of integral basis.
+\end{example}
+
+\begin{defbox}
+    \begin{definition}[Discriminant]
+        Let \(K\) be an algebraic number field of degree \(n\) and \(\omega_1, \ldots, \omega_n\) an integral basis. The discriminant of \(K\) is defined as
+        \begin{equation*}
+            d_K := \det\left(\omega_i^{(j)}\right)^2 \text{.}
+        \end{equation*}
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    Let \(d\) be a square-free integer and consider the algebraic number field \(K = \mathbb{Q}(\sqrt{d})\). The discriminant of \(K\) is
+    \begin{align*}
+        \Delta_K = \begin{cases}
+            d & \text{if \(d \equiv 1 \mod{4}\)}\\
+            4d & \text{if \(d \equiv 2, 3 \mod{4}\).}
+        \end{cases}
+    \end{align*}
+\end{example}
+\begin{proof}
+    The ring of integers of \(K\) is \(\mathbb{Z}[\alpha]\) where
+    \begin{align*}
+        \alpha := \begin{cases}
+            \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
+            \sqrt{d} & d \equiv 2, 3 \mod{4} \text{.}
+        \end{cases}
+    \end{align*}
+    We will look at each case one by one.
+    \begin{enumerate}
+        \item If \(\alpha = 2^{-1}(1 + \sqrt{d})\), then a integral basis and its conjugate are
+        \begin{align*}
+            \set{1, \frac{1 + \sqrt{d}}{2}} \text{ and } \set{1, \frac{1 - \sqrt{d}}{2}} \text{,}
+        \end{align*}
+        therefore, the discriminant is
+        \begin{align*}
+            \Delta_K = \begin{pmatrix}
+                1 & 1 \\
+                \frac{1 + \sqrt{d}}{2} & \frac{1 - \sqrt{d}}{2}
+            \end{pmatrix}^2
+            = \left(\frac{1 - \sqrt{d}}{2} - \frac{1 + \sqrt{d}}{2}\right)^2
+            = \left(-\frac{2 \sqrt{d}}{2}\right)^2 = d \text{.}
+        \end{align*}
+        \item On the other hand, if \(\alpha = \sqrt{d}\), then a integral basis and its conjugate are
+        \begin{align*}
+            \set{1, \sqrt{d}} \text{ and } \set{1, -\sqrt{d}}
+        \end{align*}
+        and hence we have
+        \begin{align*}
+            \Delta_K = \begin{pmatrix}
+                1 & 1 \\
+                \sqrt{d} & -\sqrt{d}
+            \end{pmatrix}^2
+            = \left(-2\sqrt{d}\right)^2 = 4d \text{.}
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
 \end{document}
