@@ -655,7 +655,6 @@ Dedekind's proof is much easier to understand, lol.
     \end{enumerate}
 \end{example}
 
-I'm still unsure about this below.
 \begin{thmbox}
     \begin{proposition}
         If \(\alpha\) is an algebraic number, then its characteristic polynomial is its minimal polynomial, i.e. let \(K\) be an algebraic number field and \(\alpha \in K\) an algebraic number, then
@@ -673,13 +672,37 @@ I'm still unsure about this below.
     The characteristic polynomial and the minimal polynomial share a root and because of minimality of the minimal polynomial, the minimal polynomial divides the characteristic polynomial, but because they are of the same degree, we have that these polynomials are identical.
 \end{proof}
 
+\begin{example}
+    Let \(K = \mathbb{Q}(\sqrt{2}, \sqrt{3})\) and \(\alpha = \sqrt{2}+ \sqrt{3}\). The minimal polynomial of \(\alpha\) is
+\end{example}
+\begin{proof}
+    A basis of \(K\) is \(\{1, \sqrt{2}, \sqrt{3}, \sqrt{6}\}\). Define a linear mapping \(\Phi_\alpha\) by
+    \begin{align*}
+        1 + 0 \cdot \sqrt{2} + 0 \cdot \sqrt{3} + 0 \cdot \sqrt{6} \mapsto (\sqrt{2} + \sqrt{3}) 1 &= 0 + \sqrt{2} + \sqrt{3} + 0 \\
+        0 + 1 \cdot \sqrt{2} + 0 \cdot \sqrt{3} + 0 \cdot \sqrt{6} \mapsto (\sqrt{2} + \sqrt{3}) \sqrt{2} &= 2 + 0 + 0 + \sqrt{6} \\
+        0 + 0 \cdot \sqrt{2} + 1 \cdot \sqrt{3} + 0 \cdot \sqrt{6} \mapsto (\sqrt{2} + \sqrt{3}) \sqrt{3} &= 3 + 0 + 0 + \sqrt{6} \\
+        0 + 0 \cdot \sqrt{2} + 0 \cdot \sqrt{3} + 0 \cdot \sqrt{6} \mapsto (\sqrt{2} + \sqrt{3}) \sqrt{6} &= 0 + 3 \sqrt{2} + 2 \sqrt{3} + 0
+    \end{align*}
+    which is represented by
+    \begin{align*}
+        A_\phi = \begin{pmatrix}
+            0 & 2 & 3 & 0 \\
+            1 & 0 & 0 & 3 \\
+            1 & 0 & 0 & 2 \\
+            0 & 1 & 1 & 0
+        \end{pmatrix} \text{.}
+    \end{align*}
+    This gives us the minimal polynomial \(m_\alpha(X) = X^4 - 10 X + 1\) of \(\alpha\).
+\end{proof}
+
 \begin{thmbox}
     \begin{lemma}
         If \(K\) is an algebraic number field, and \(\alpha \in \mathcal{O}_K\) an element in its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
     \end{lemma}
 \end{thmbox}
 \begin{enumerate}
-    \item 
+    \item \begin{proof} Let \(\alpha\) be an algebraic integer. Since the characteristic polynomial of \(\alpha\) is its the minimal polynomial, it has integer coeffcients. Moreover, we have \(N(\alpha) = (-1)^n \chi_\alpha(0) = (-1)^n a_0\) which again is an integer.
+    \end{proof}
     \item \begin{proof}
         Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
         \begin{align*}
