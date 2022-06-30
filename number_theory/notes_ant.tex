@@ -486,7 +486,7 @@ Dedekind's proof is much easier to understand, lol.
 \section{Details}
 
 \begin{defbox}
-    \begin{definition}[Trace and Norm]
+    \begin{definition}[Trace, Norm, and Characteristic Polynomial]
         Let \(K\) be an algebraic number field with degree \(n\). Then, \(K\) can be viewed as an finite-dimensional vector space over \(\mathbb{Q}\). If \(\alpha \in K\), we can define a linear operator
         \begin{equation*}
             \Phi_\alpha: K \longrightarrow K, \qquad v \mapsto \alpha v \text{,}
@@ -495,14 +495,14 @@ Dedekind's proof is much easier to understand, lol.
         \begin{equation*}
             \alpha e_i = \sum_{j=1}^n a_{i, j} e_j\text{,} \qquad a_{i, j} \in \mathbb{Q} \text{.}
         \end{equation*}
-        We define trace of \(\alpha\) by \(\mathrm{Tr}_K(\alpha) := \mathrm{Tr}(\Phi_\alpha)\) and the norm of \(\alpha\) by \(N(\alpha) := \det(\Phi_\alpha)\).
+        We define trace of \(\alpha\) by \(\mathrm{Tr}_K(\alpha) := \mathrm{Tr}(\Phi_\alpha)\), the norm of \(\alpha\) by \(N(\alpha) := \det(\Phi_\alpha)\) and the characteristic polynomial of \(\alpha\) by \(\chi_K(X) := \det(XI - \Phi_\alpha)\). If 
     \end{definition}
 \end{defbox}
 
 \begin{example}
-    In this example, we will compute the traces and norms of some concrete algebraic number fields.
+    In this example, we will compute the traces, norms and characteristic polynomials of some elements in concrete algebraic number fields.
     \begin{enumerate}
-    \item Let \(K = \mathbb{Q}(i)\). If \(\alpha = a + ib\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+    \item Let \(K = \mathbb{Q}(i)\). If \(\alpha = a + ib\) with \(a, b \in \mathbb{Q}\), then the trace of \(\alpha\) is \(\mathrm{Tr}_K(\alpha) = 2a\), the norm of \(\alpha\) is \(\mathrm{N}_K(\alpha) = a^2 + b^2\), and the characteristic polynomial of \(\alpha\) is \(\chi_\alpha (X) = X^2 - 2a X + a^2 + b^2\).
     \begin{proof}
         A basis of \(K\) is \(\{1, i\}\). Then \(\Phi_\alpha\) is defined by
         \begin{align*}
@@ -515,9 +515,9 @@ Dedekind's proof is much easier to understand, lol.
                 a & -b \\ b & a
             \end{pmatrix} \text{.}
         \end{align*}
-        Therefore, \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 + b^2\).
+        Therefore, \(\mathrm{Tr}_K(\alpha) = 2a\), \(\mathrm{N}_K(\alpha) = a^2 + b^2\), and \(\chi_\alpha (X) = X^2 - 2a X + a^2 + b^2\).
     \end{proof}
-    \item Let \(K = \mathbb{Q}(\sqrt{2})\). If \(\alpha = a + \sqrt{2}b\) with \(a, b \in \mathbb{Q}\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+    \item Let \(K = \mathbb{Q}(\sqrt{2})\). If \(\alpha = a + \sqrt{2}b\) with \(a, b \in \mathbb{Q}\), then the trace of \(\alpha\) is \(\mathrm{Tr}_K(\alpha) = 2a\), the norm of \(\alpha\) is \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\), and the characteristic polynomial of \(\alpha\) is \(\chi_\alpha = X^2 - 2a X + a^2 - 2b^2\).
     \begin{proof}
         A basis of \(K\) is \(\{1, \sqrt{2}\}\). Define \(\Phi_\alpha\) by
         \begin{align*}
@@ -531,7 +531,7 @@ Dedekind's proof is much easier to understand, lol.
                 b & a
             \end{pmatrix} \text{.}
         \end{align*}
-        So we have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\).
+        So we have \(\mathrm{Tr}_K(\alpha) = 2a\), \(\mathrm{N}_K(\alpha) = a^2 - 2b^2\), and \(\chi_\alpha = X^2 - 2a X + a^2 - 2b^2\).
     \end{proof}
     \item Let \(K = \mathbb{Q}(\sqrt{5})\). If \(\alpha = a + \sqrt{5}b\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 5b^2\).
     \begin{proof}
@@ -655,27 +655,47 @@ Dedekind's proof is much easier to understand, lol.
     \end{enumerate}
 \end{example}
 
+I'm still unsure about this below.
+\begin{thmbox}
+    \begin{proposition}
+        If \(\alpha\) is an algebraic number, then its characteristic polynomial is its minimal polynomial, i.e. let \(K\) be an algebraic number field and \(\alpha \in K\) an algebraic number, then
+        \begin{equation*}
+            \chi_\alpha = m_\alpha
+        \end{equation*}
+        where \(\chi_\alpha\) is the characteristic polynomial of \(\alpha\) and \(m_\alpha\) is the minimal polynomial of \(\alpha\).
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    Let \(K\) be an algebraic number field and fix an algebraic number \(\alpha \in K\). Both the characteristic polynomial and the minimal polynomial are monic by definition. If \(m_\alpha\) is a minimal polynomial of \(\alpha\) and has a degree of \(m\), then \([\mathbb{Q}(\alpha) : \mathbb{Q}] = m\), so the characteristic polynomial \(\chi_\alpha\) is also of degree \(m\).
+
+    An intermediate result that we will not prove (because I cannot be bothered by it) is \(\chi_\alpha(\Phi_\alpha) = \Phi_{\chi_\alpha(\alpha)}\). By Cayley-Hamilton theorem we also have \(\chi_\alpha(\Phi_\alpha) = 0\), so \(\Phi_{\chi_\alpha(\alpha)} = 0\). If the linear operator defined by \(v \mapsto \alpha v\) is identical to \(0\), then \(\alpha\) must be \(0\), so \(\chi_\alpha(\alpha) = 0\) which means that \(\alpha\) is a root of its own characteristic polynomial.
+
+    The characteristic polynomial and the minimal polynomial share a root and because of minimality of the minimal polynomial, the minimal polynomial divides the characteristic polynomial, but because they are of the same degree, we have that these polynomials are identical.
+\end{proof}
+
 \begin{thmbox}
     \begin{lemma}
         If \(K\) is an algebraic number field, and \(\alpha \in \mathcal{O}_K\) an element in its ring of integers, then \(\mathrm{Tr}_K(\alpha)\) and \(\mathrm{N}_K(\alpha)\) are in \(\mathbb{Z}\).
     \end{lemma}
 \end{thmbox}
-
-\begin{proof}
-    Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
-    \begin{align*}
-        \alpha e_i = \sum_{j=1}^n a_{i, j} e_j
-    \end{align*}
-    for all \(1 \leq i \leq n\) and \(a_{i, j} \in \mathbb{Q}\). Taking the conjugates, we get
-    \begin{align*}
-        \alpha^{(k)} e_i^{(k)} = \sum_{j=1}^n a_{i, j} e_j^{(k)}
-    \end{align*}
-    and with Kronecker delta we can write
-    \begin{align*}
-        \sum_{j=1}^n \delta_{j, k} \alpha^{(j)} e_i^{(j)} = \sum_{j=1}^n a_{i, j} e_j^{(k)} \text{.}
-    \end{align*}
-    Now set \(\Phi_A := (a_{i, j})\)
-\end{proof}
+\begin{enumerate}
+    \item 
+    \item \begin{proof}
+        Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
+        \begin{align*}
+            \alpha e_i = \sum_{j=1}^n a_{i, j} e_j
+        \end{align*}
+        for all \(1 \leq i \leq n\) and \(a_{i, j} \in \mathbb{Q}\). Taking the conjugates, we get
+        \begin{align*}
+            \alpha^{(k)} e_i^{(k)} = \sum_{j=1}^n a_{i, j} e_j^{(k)}
+        \end{align*}
+        and with Kronecker delta we can write
+        \begin{align*}
+            \sum_{j=1}^n \delta_{j, k} \alpha^{(j)} e_i^{(j)} = \sum_{j=1}^n a_{i, j} e_j^{(k)} \text{.}
+        \end{align*}
+        Now set \(\Phi_A := (a_{i, j})\)
+    \end{proof}
+\end{enumerate}
 
 \begin{example}
     Let \(K = \mathbb{Q}(i)\). Show that \(i \in \mathcal{O}_K\) and verify that \(\mathrm{Tr}_K(i)\) and \(\mathrm{N}_K(i)\) are integers.
