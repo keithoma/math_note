@@ -108,6 +108,7 @@
 \tableofcontents
 \part{Field Theory}
 
+\chapter{Algebraic Field Extensions}
 \begin{defbox}
     \begin{definition}[Splitting Field]
         A splitting field of a polynomial \(f\) over a field \(K\) is a field extension \(L\) of \(K\) over which \(f\) factors into linear factors that is
@@ -131,6 +132,15 @@
         \end{enumerate}
     \end{definition}
 \end{defbox}
+
+\chapter{Galois Theory}
+
+\begin{example}
+    Let \(\)
+\end{example}
+\begin{proof}
+    The field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3}) / \mathbb{Q}\) is Galois of degree \(4\). This means that the Galois group is of order \(4\). The minimal polynomial of \(\sqrt{2}\) is \(X^2 - 2\), so the conjugate of \(\sqrt{2}\) is \(-\sqrt{2}\). Similary, the conjugate of \(\sqrt{3}\) is \(-\sqrt{3}\).
+\end{proof}
 
 \part{Cheet Sheet}
 
@@ -701,7 +711,7 @@ Dedekind's proof is much easier to understand, lol.
     \end{lemma}
 \end{thmbox}
 \begin{enumerate}
-    \item \begin{proof} Let \(\alpha\) be an algebraic integer. Since the characteristic polynomial of \(\alpha\) is its the minimal polynomial, it has integer coeffcients. Denote the minimal polynomial by \(m_\alpha = \sum_{i=0}^n a_i X^i\) for some \(a_i \in \mathbb{Z}\) for \(1 \leq i \leq n\). The trace is the sum of Moreover, we have \(N(\alpha) = (-1)^n \chi_\alpha(0) = (-1)^n a_0\) which again is an integer.
+    \item \begin{proof} Let \(\alpha\) be an algebraic integer. Since the characteristic polynomial of \(\alpha\) is its the minimal polynomial, it has integer coeffcients. Denote the minimal polynomial by \(m_\alpha = \sum_{i=0}^n a_i X^i\) for some \(a_i \in \mathbb{Z}\) for \(1 \leq i \leq n\). The trace is coeffcient of \(X^{n-1}\) in the characteristic polynomial \footnote{I had no idea. Don't want to prove it now, but I'll look into this later.}, therefore it is an integer. Moreover, we have \(N(\alpha) = (-1)^n \chi_\alpha(0) = (-1)^n a_0\) which again is an integer.
     \end{proof}
     \item \begin{proof}
         Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
