@@ -106,6 +106,9 @@
 
 \begin{document}
 \tableofcontents
+
+\part{Linear Algebra}
+
 \part{Field Theory}
 
 \chapter{Algebraic Field Extensions}
@@ -142,19 +145,7 @@
     The field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3}) / \mathbb{Q}\) is Galois of degree \(4\). This means that the Galois group is of order \(4\). The minimal polynomial of \(\sqrt{2}\) is \(X^2 - 2\), so the conjugate of \(\sqrt{2}\) is \(-\sqrt{2}\). Similary, the conjugate of \(\sqrt{3}\) is \(-\sqrt{3}\).
 \end{proof}
 
-\part{Cheet Sheet}
-
-
-\noindent \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is a square-free integer.
-\begin{enumerate}
-    \item \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
-    \begin{align*}
-        \alpha := \begin{cases}
-            \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
-            \sqrt{d} & d \equiv 2, 3 \mod{4}
-        \end{cases}
-    \end{align*}
-\end{enumerate}
+\part{Algebraic Number Theory}
 
 \begin{thmbox}
     \begin{theorem}
@@ -244,6 +235,7 @@ Now take \(\alpha\) and \(\beta\) integral over \(A\) and denote \(\alpha M \sub
 
 Dedekind's proof is much easier to understand, lol.
 
+
 \section*{Integral Elements}
 
 \begin{proposition}
@@ -253,8 +245,6 @@ Dedekind's proof is much easier to understand, lol.
 \begin{corollary}
     Let \(A\) be an integral domain with field of fractions \(K\), and let \(B\) be the integral closure of \(A\) in a field \(L\) containing \(K\). If \(L\) is algebraic over \(K\), then it is the field of fractions \(B\).
 \end{corollary}
-
-\part{Exercise}
 
 \begin{example}
     Let \(d\) be a square-free integer. Consider \(A = \mathbb{Z}[\sqrt{d}]\). Show that every element of \(R\) can be written as a product of irreducible elements.
@@ -428,6 +418,19 @@ Dedekind's proof is much easier to understand, lol.
     \end{enumerate}
 \end{example}
 
+\chapter{Cheet Sheet}
+
+\noindent \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is a square-free integer.
+\begin{enumerate}
+    \item \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
+    \begin{align*}
+        \alpha := \begin{cases}
+            \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
+            \sqrt{d} & d \equiv 2, 3 \mod{4}
+        \end{cases}
+    \end{align*}
+\end{enumerate}
+
 \chapter{Algebraic Numbers and Integers}
 
 \begin{example}
@@ -495,17 +498,24 @@ Dedekind's proof is much easier to understand, lol.
 
 \section{Details}
 
+\subsection{Trace, Norm, and Characteristic Polynomial}
+
+{\color{red}\textbf{Errors}}
+\begin{enumerate}
+    \item Pretty sure that in the example 9.1. the sign of characteristic polynomial is swapped. We want the definition of characteristic polynomial to be in such a way that it only creates monic polynomials.
+\end{enumerate}
+
 \begin{defbox}
     \begin{definition}[Trace, Norm, and Characteristic Polynomial]
-        Let \(K\) be an algebraic number field with degree \(n\). Then, \(K\) can be viewed as an finite-dimensional vector space over \(\mathbb{Q}\). If \(\alpha \in K\), we can define a linear operator
+        Let \(K\) be an {\color{mathif}algebraic number field} with {\color{mathif}degree} \(n\). Then, \(K\) can be viewed as an {\color{mathif}finite-dimensional vector space} over \(\mathbb{Q}\). If \(\alpha \in K\), we can define a {\color{mathif}linear operator}
         \begin{equation*}
             \Phi_\alpha: K \longrightarrow K, \qquad v \mapsto \alpha v \text{,}
         \end{equation*}
-        which may be represented by \(n \times n\) matrices \(A_\Phi = (a_{i, j})_{1 \leq i, j \leq n}\) by requiring
+        which may be represented by \(n \times n\) {\color{mathif}matrix} \(A_\Phi = (a_{i, j})_{1 \leq i, j \leq n}\) by requiring
         \begin{equation*}
             \alpha e_i = \sum_{j=1}^n a_{i, j} e_j\text{,} \qquad a_{i, j} \in \mathbb{Q} \text{.}
         \end{equation*}
-        We define trace of \(\alpha\) by \(\mathrm{Tr}_K(\alpha) := \mathrm{Tr}(\Phi_\alpha)\), the norm of \(\alpha\) by \(N(\alpha) := \det(\Phi_\alpha)\) and the characteristic polynomial of \(\alpha\) by \(\chi_K(X) := \det(XI - \Phi_\alpha)\). If 
+        We define {\color{maththen}trace} of \(\alpha\) by \(\mathrm{Tr}_K(\alpha) := \mathrm{Tr}(\Phi_\alpha)\), the {\color{maththen}norm} of \(\alpha\) by \(N(\alpha) := \det(\Phi_\alpha)\) and the {\color{maththen}characteristic polynomial} of \(\alpha\) by \(\chi_K(X) := \det(XI - \Phi_\alpha)\). If 
     \end{definition}
 \end{defbox}
 
@@ -557,7 +567,7 @@ Dedekind's proof is much easier to understand, lol.
                 b & a
             \end{pmatrix}
         \end{align*}
-        hence it is \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - 5b^2\).
+        hence it is \(\mathrm{Tr}_K(\alpha) = 2a\), \(\mathrm{N}_K(\alpha) = a^2 - 5b^2\), and \(\chi_\alpha(X) = X^2 - 2aX + a^2 - 5b^2\).
     \end{proof}
     \item In more general terms, let \(K = \mathbb{Q}(\sqrt{d})\) where \(d\) is a square-free integer. If \(\alpha = a + \sqrt{d}b\), then \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - db^2\).
     \begin{proof}
@@ -573,7 +583,7 @@ Dedekind's proof is much easier to understand, lol.
                 b & a
             \end{pmatrix} \text{.}
         \end{align*}
-        We have \(\mathrm{Tr}_K(\alpha) = 2a\) and \(\mathrm{N}_K(\alpha) = a^2 - db^2\) matching the results in our previous examples.
+        We have \(\mathrm{Tr}_K(\alpha) = 2a\), \(\mathrm{N}_K(\alpha) = a^2 - db^2\), and \(\chi_\alpha(X) = X^2 - 2aX + a^2 - d b^2\) matching the results in our previous examples.
     \end{proof}
     \item Let \(\mathbb{Q}(\sqrt[3]{2})\). If \(\alpha = a + \sqrt[3]{2} b + \sqrt[3]{4} c\), then \(\mathrm{N}_K(\alpha) = a^3 + 2b^3 + 4c^3 - 6abc\).
     \begin{proof}
@@ -592,7 +602,7 @@ Dedekind's proof is much easier to understand, lol.
                 c & b & a
             \end{pmatrix} \text{.}
         \end{align*}
-        We have \(\mathrm{Tr}_K(\alpha) = 3a\) and \(\mathrm{N}_K(\alpha) = a^3 + 2b^3 + 4c^3 - 6abc\).
+        We have \(\mathrm{Tr}_K(\alpha) = 3a\), \(\mathrm{N}_K(\alpha) = a^3 + 2b^3 + 4c^3 - 6abc\) and \(\chi_\alpha(X) = X^3 - 3aX^2 + 3a^2X - 6bcX - a^3 -2b^3 + 6abc - 4c^3\).
     \end{proof}
     \end{enumerate}
 \end{example}
@@ -632,7 +642,7 @@ Dedekind's proof is much easier to understand, lol.
                     c & b & a + c
                 \end{pmatrix}
             \end{align*}
-            so we have \(\mathrm{Tr}_K(\alpha) = 3a + 2c\) and \(\mathrm{N}_K(\alpha) = a^3 + b^3 + 2 a^2 c - b c^2 + c^3 + a (-b^2 - 3 b c + c^2)\).
+            so we have \(\mathrm{Tr}_K(\alpha) = 3a + 2c\), \(\mathrm{N}_K(\alpha) = a^3 + b^3 + 2 a^2 c - b c^2 + c^3 + a (-b^2 - 3 b c + c^2)\), and \(\chi_\alpha(X) = \)
         \end{proof}
         \item Let \(K = \mathbb{Q}(\theta)\) where \(\theta\) is a root of \(f(X) = X^4 - X - 1\).
         \begin{proof}
@@ -667,11 +677,11 @@ Dedekind's proof is much easier to understand, lol.
 
 \begin{thmbox}
     \begin{proposition}
-        If \(\alpha\) is an algebraic number, then its characteristic polynomial is its minimal polynomial, i.e. let \(K\) be an algebraic number field and \(\alpha \in K\) an algebraic number, then
+        If \(\alpha\) is an algebraic number, then its characteristic polynomial is a multiple of its minimal polynomial, i.e. let \(K\) be an algebraic number field and let \(\alpha \in K\) be an algebraic number, then
         \begin{equation*}
-            \chi_\alpha = m_\alpha
+            \chi_\alpha(X) = m_\alpha(X) h(X)
         \end{equation*}
-        where \(\chi_\alpha\) is the characteristic polynomial of \(\alpha\) and \(m_\alpha\) is the minimal polynomial of \(\alpha\).
+        where \(\chi_\alpha\) is the characteristic polynomial of \(\alpha\), \(m_\alpha\) is the minimal polynomial of \(\alpha\), and \(h(X)\) is a polynomial in \(\mathbb{Q}[X]\).
     \end{proposition}
 \end{thmbox}
 \begin{proof}
