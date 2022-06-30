@@ -503,6 +503,12 @@ Dedekind's proof is much easier to understand, lol.
 {\color{red}\textbf{Errors}}
 \begin{enumerate}
     \item Pretty sure that in the example 9.1. the sign of characteristic polynomial is swapped. We want the definition of characteristic polynomial to be in such a way that it only creates monic polynomials.
+    \item Proof of proposition 10 is wrong. The characteristic polynomial is not the same as the minimal polynomial see:
+    
+    https://feog.github.io/antchap1.pdf
+
+    \item Proof of Lemma 11 is wrong because of the stuff above.
+    \item Continue next time from Lemma 11.
 \end{enumerate}
 
 \begin{defbox}
@@ -679,9 +685,9 @@ Dedekind's proof is much easier to understand, lol.
     \begin{proposition}
         If \(\alpha\) is an algebraic number, then its characteristic polynomial is a multiple of its minimal polynomial, i.e. let \(K\) be an algebraic number field and let \(\alpha \in K\) be an algebraic number, then
         \begin{equation*}
-            \chi_\alpha(X) = m_\alpha(X) h(X)
+            \chi_\alpha(X) = m_\alpha(X) h(X) \qquad h(X) \in \mathbb{Q}[X]
         \end{equation*}
-        where \(\chi_\alpha\) is the characteristic polynomial of \(\alpha\), \(m_\alpha\) is the minimal polynomial of \(\alpha\), and \(h(X)\) is a polynomial in \(\mathbb{Q}[X]\).
+        where \(\chi_\alpha\) is the characteristic polynomial of \(\alpha\) and \(m_\alpha\) is the minimal polynomial of \(\alpha\).
     \end{proposition}
 \end{thmbox}
 \begin{proof}
@@ -721,7 +727,7 @@ Dedekind's proof is much easier to understand, lol.
     \end{lemma}
 \end{thmbox}
 \begin{enumerate}
-    \item \begin{proof} Let \(\alpha\) be an algebraic integer. Since the characteristic polynomial of \(\alpha\) is its the minimal polynomial, it has integer coeffcients. Denote the minimal polynomial by \(m_\alpha = \sum_{i=0}^n a_i X^i\) for some \(a_i \in \mathbb{Z}\) for \(1 \leq i \leq n\). The trace is coeffcient of \(X^{n-1}\) in the characteristic polynomial \footnote{I had no idea. Don't want to prove it now, but I'll look into this later.}, therefore it is an integer. Moreover, we have \(N(\alpha) = (-1)^n \chi_\alpha(0) = (-1)^n a_0\) which again is an integer.
+    \item \begin{proof} Let \(\alpha\) be an algebraic integer. Since the characteristic polynomial of \(\alpha\) is a multiple of the minimal polynomial, it has integer coeffcients. Denote the minimal polynomial by \(m_\alpha = \sum_{i=0}^n a_i X^i\) for some \(a_i \in \mathbb{Z}\) for \(1 \leq i \leq n\). The trace is coeffcient of \(X^{n-1}\) in the characteristic polynomial \footnote{I had no idea. Don't want to prove it now, but I'll look into this later.}, therefore it is an integer. Moreover, we have \(N(\alpha) = (-1)^n \chi_\alpha(0) = (-1)^n a_0\) which again is an integer.
     \end{proof}
     \item \begin{proof}
         Let \(K\) be an algebraic number field of degree \(n\) and fix an element \(\alpha \in \mathcal{O}_K\) in its ring of integers. We define a linear operator \(\Phi: K \longrightarrow K\) by \(v \mapsto \alpha v\). If \(e_1, \ldots, e_n\) is a basis of \(K\) viewed as a vector space over \(\mathbb{Q}\), then we may represent \(\Phi\) as a \(n \times n\) matrix by
