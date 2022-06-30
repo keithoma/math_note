@@ -588,11 +588,45 @@ Dedekind's proof is much easier to understand, lol.
 \end{example}
 
 \begin{example}
-    In this example, we will look at the cases when the field extension is given by a root of a polynomial \footnote{The field extensions are defined by a single root of a polynomial, but they are not splitting fields (I think).}.
+    In this example, we will look at the cases when the field extension is given by a root of a polynomial \footnote{The field extensions are defined by a single root of a polynomial, in other words, how the field extension looks exactly depends on the chosen root, and they are not a splitting field of the polynomial.}.
     \begin{enumerate}
-        \item Let \(K = \mathbb{Q}(\theta)\) where \(\theta\) is a root of \(X^3 - X - 1\).
+        \item Let \(K = \mathbb{Q}(\theta)\) where \(\theta\) is a root of \(X^3 - X - 1\). If \(\alpha = a + \theta b + \theta^2 c\), then \(\mathrm{Tr}_K(\alpha) = 3a + 2c\) and \(\mathrm{N}_K(\alpha) = a^3 + b^3 + 2 a^2 c - b c^2 + c^3 + a (-b^2 - 3 b c + c^2)\).
         \begin{proof}
-            A basis of \(K\) is \(\{1, \theta, \theta^2\}\). If \(\theta^2\) is lineary dependent of \(1\) and \(\theta\), then 
+            First, we have
+            \begin{align*}
+                X^3 - X - 1 = 0 \quad &\Rightarrow \quad \theta^3 - \theta - 1 =0 \\
+                &\Rightarrow \quad \theta^3 = \theta + 1
+            \end{align*}
+            so \([K:Q] \leq 3\).
+            
+            Assume \(X^3 - X - 1\) is reducible, then by Rational Root Theorem, we have that there is a root \(x = pq^{-1}\) with \(p\) is a factor of \(-1\) and \(q\) is a factor of \(1\), but \(\pm 1\) is not a root of the polynomial. Thus, \(X^3 - X - 1\) is irreducible.
+
+            If \(\theta^2\) is rational, then the minimal polynomial of \(\theta\) has a degree of \(2\) and divides \(X^2 - X - 1\) which cannot be. Hence \(\theta^2\) is not rational and \(\{1, \theta, \theta^2\}\) is a basis for \(K\).
+
+            Let \(\alpha = a + \theta b + \theta^2 c\) be an element in \(K\) and define a linear operator \(\Phi_\alpha\) by
+            \begin{align*}
+                1 + 0 \cdot \theta + 0 \cdot \theta^2 \mapsto \alpha &= a + \theta b + \theta^2 c \\
+                0 + 1 \cdot \theta + 0 \cdot \theta^2 \mapsto \theta \alpha &= \theta^3c + \theta a + \theta^2 b \\
+                &= (\theta + 1)c + \theta a + \theta^2 b \\
+                &= c + \theta (a + c) + \theta^2 b \\
+                0 + 0 \cdot \theta + 1 \cdot \theta^2 \mapsto \theta^2\alpha &= \theta^3 b + \theta^4 c + \theta^2 a \\
+                &= (\theta + 1)b + (\theta^2 + \theta)c + \theta^2 a\\
+                &= b + \theta b + \theta^2 c + \theta c + \theta^2 a \\
+                &= b + \theta (b + c) + \theta^2 (a + c) 
+            \end{align*}
+            which we represent with a \(3 \times 3\) matrix
+            \begin{align*}
+                A_\Phi = \begin{pmatrix}
+                    a & c & b \\
+                    b & a + c & b + c \\
+                    c & b & a + c
+                \end{pmatrix}
+            \end{align*}
+            so we have \(\mathrm{Tr}_K(\alpha) = 3a + 2c\) and \(\mathrm{N}_K(\alpha) = a^3 + b^3 + 2 a^2 c - b c^2 + c^3 + a (-b^2 - 3 b c + c^2)\).
+        \end{proof}
+        \item Let \(\mathbb{Q}(\theta)\) where \(\theta\) is a root of \(X^4 - X - 1\).
+        \begin{proof}
+            
         \end{proof}
     \end{enumerate}
 \end{example}
