@@ -624,9 +624,33 @@ Dedekind's proof is much easier to understand, lol.
             \end{align*}
             so we have \(\mathrm{Tr}_K(\alpha) = 3a + 2c\) and \(\mathrm{N}_K(\alpha) = a^3 + b^3 + 2 a^2 c - b c^2 + c^3 + a (-b^2 - 3 b c + c^2)\).
         \end{proof}
-        \item Let \(\mathbb{Q}(\theta)\) where \(\theta\) is a root of \(X^4 - X - 1\).
+        \item Let \(K = \mathbb{Q}(\theta)\) where \(\theta\) is a root of \(f(X) = X^4 - X - 1\).
         \begin{proof}
-            
+            If \(X^4 - X - 1\) is reducible, then by Rational Root Theorem, there is a root \(pq^{-1}\) with \(p, q \in \mathbb{Z}\) relatively prime such that \(p\) is a factor of \(-1\) and \(q\) is a factor of \(1\). However, \(\pm 1\) is not a root because \(f(\pm 1) = 1 \pm 1 - 1 = \pm 1\). We have that \(f\) is irreducible over the rational numbers.
+
+            Since \(f\) is irreducible, if \(\theta\) is a root of \(f\), then \(f\) is the minimal polynomial of \(\theta\) and we have a basis \(\{1, \theta, \theta^2, \theta^3\}\) for \(K\). Now let \(\alpha = a + \theta b + \theta^2 c + \theta^3 d\) and define a linear operator \(\Phi_\alpha\) by
+            \begin{align*}
+                1 + 0 \cdot \theta + 0 \cdot \theta^2 + 0 \theta^3 \mapsto \alpha &= a + \theta b + \theta^2 c + \theta^3 d \\
+                0 + 1 \cdot \theta + 0 \cdot \theta^2 + 0 \theta^3 \mapsto \theta \alpha &= \theta a + \theta^2 b + \theta^3 c + \theta^4 d \\
+                &= \theta a + \theta^2 b + \theta^3 c + (\theta + 1) d \\
+                &= d + \theta (a + d) + \theta^2 b + \theta^3 c \\
+                0 + 0 \cdot \theta + 1 \cdot \theta^2 + 0 \cdot \theta^3 \mapsto \theta^2 \alpha &= \theta^2 a + \theta^3 b + \theta^4 c + \theta^5 d \\
+                &= \theta^2 a + \theta^3 b + (\theta + 1) c + (\theta^2 + \theta) d \\
+                &= c + \theta (c + d) + \theta^2 (a + d) + \theta^3 b \\
+                0 + 0 \cdot \theta + 0 \cdot \theta^2 + 1 \cdot \theta^3 \mapsto \theta^3 \alpha &= \theta^3 a + \theta^4 b + \theta^5 c + \theta^6 d \\
+                &= \theta^3 a + (\theta + 1) b + (\theta^2 + \theta) c + (\theta^3 + \theta^2) d \\
+                &= b + \theta (b + c) + \theta^2 (c + d) + \theta^3 (a + d)
+            \end{align*}
+            which we can represent by a \(4 \times 4\) matrix
+            \begin{align*}
+                A_\Phi = \begin{pmatrix}
+                    a & d & c & b \\
+                    b & a + d & c + d & b + c \\
+                    c & b & a + d & c + d \\
+                    d & c & b & a + d
+                \end{pmatrix} \text{.}
+            \end{align*}
+            So we have \(\mathrm{Tr}_K(\alpha) = 4a + 3d\) and the norm is too unholy to write it out here.
         \end{proof}
     \end{enumerate}
 \end{example}
