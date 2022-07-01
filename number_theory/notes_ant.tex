@@ -826,8 +826,8 @@ Dedekind's proof is much easier to understand, lol.
     \end{enumerate}
 \end{proof}
 
-
-\subsection{Integral Basis and Discriminant}
+\newpage
+\subsection{Integral Basis}
 
 
 \begin{example}
@@ -856,6 +856,9 @@ I'll skip exercises that require bilinear form for now.
     Show that \(\det{\mathrm{Tr}(\omega_i \omega_j)}\) is independent of the choice of integral basis.
 \end{example}
 
+\newpage
+\subsection{Discriminant}
+
 \begin{defbox}
     \begin{definition}[Discriminant]
         Let \(K\) be an algebraic number field of degree \(n\) and \(\omega_1, \ldots, \omega_n\) an integral basis. The discriminant of \(K\) is defined as
@@ -872,51 +875,58 @@ I'll skip exercises that require bilinear form for now.
 \end{proof}
 
 \begin{example}
-    Let \(d\) be a square-free integer and consider the algebraic number field \(K = \mathbb{Q}(\sqrt{d})\). The discriminant of \(K\) is
-    \begin{align*}
-        \Delta_K = \begin{cases}
-            d & \text{if \(d \equiv 1 \mod{4}\)}\\
-            4d & \text{if \(d \equiv 2, 3 \mod{4}\).}
-        \end{cases}
-    \end{align*}
-\end{example}
-\begin{proof}
-    The ring of integers of \(K\) is \(\mathbb{Z}[\alpha]\) where
-    \begin{align*}
-        \alpha := \begin{cases}
-            \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
-            \sqrt{d} & d \equiv 2, 3 \mod{4} \text{.}
-        \end{cases}
-    \end{align*}
-    We will look at each case one by one.
+    In this example, we will compute the discriminant of some concrete algebraic number fields.
     \begin{enumerate}
-        \item If \(\alpha = 2^{-1}(1 + \sqrt{d})\), then a integral basis and its conjugate are
+        \item Let \(d\) be a square-free integer and consider the algebraic number field \(K = \mathbb{Q}(\sqrt{d})\). The discriminant of \(K\) is
         \begin{align*}
-            \set{1, \frac{1 + \sqrt{d}}{2}} \text{ and } \set{1, \frac{1 - \sqrt{d}}{2}} \text{,}
+            \Delta_K = \begin{cases}
+                d & \text{if \(d \equiv 1 \mod{4}\)}\\
+                4d & \text{if \(d \equiv 2, 3 \mod{4}\).}
+            \end{cases}
         \end{align*}
-        therefore, the discriminant is
-        \begin{align*}
-            \Delta_K = \begin{pmatrix}
-                1 & 1 \\
-                \frac{1 + \sqrt{d}}{2} & \frac{1 - \sqrt{d}}{2}
-            \end{pmatrix}^2
-            = \left(\frac{1 - \sqrt{d}}{2} - \frac{1 + \sqrt{d}}{2}\right)^2
-            = \left(-\frac{2 \sqrt{d}}{2}\right)^2 = d \text{.}
-        \end{align*}
-        \item On the other hand, if \(\alpha = \sqrt{d}\), then a integral basis and its conjugate are
-        \begin{align*}
-            \set{1, \sqrt{d}} \text{ and } \set{1, -\sqrt{d}}
-        \end{align*}
-        and hence we have
-        \begin{align*}
-            \Delta_K = \begin{pmatrix}
-                1 & 1 \\
-                \sqrt{d} & -\sqrt{d}
-            \end{pmatrix}^2
-            = \left(-2\sqrt{d}\right)^2 = 4d \text{.}
-        \end{align*}
+        \begin{proof}
+            The ring of integers of \(K\) is \(\mathbb{Z}[\alpha]\) where
+            \begin{align*}
+                \alpha := \begin{cases}
+                    \frac{1 + \sqrt{d}}{2} & d \equiv 1 \mod{4} \\
+                    \sqrt{d} & d \equiv 2, 3 \mod{4} \text{.}
+                \end{cases}
+            \end{align*}
+            We will look at each case one by one.
+            \begin{enumerate}
+                \item If \(\alpha = 2^{-1}(1 + \sqrt{d})\), then a integral basis and its conjugate are
+                \begin{align*}
+                    \set{1, \frac{1 + \sqrt{d}}{2}} \text{ and } \set{1, \frac{1 - \sqrt{d}}{2}} \text{,}
+                \end{align*}
+                therefore, the discriminant is
+                \begin{align*}
+                    \Delta_K = \begin{pmatrix}
+                        1 & 1 \\
+                        \frac{1 + \sqrt{d}}{2} & \frac{1 - \sqrt{d}}{2}
+                    \end{pmatrix}^2
+                    = \left(\frac{1 - \sqrt{d}}{2} - \frac{1 + \sqrt{d}}{2}\right)^2
+                    = \left(-\frac{2 \sqrt{d}}{2}\right)^2 = d \text{.}
+                \end{align*}
+                \item On the other hand, if \(\alpha = \sqrt{d}\), then a integral basis and its conjugate are
+                \begin{align*}
+                    \set{1, \sqrt{d}} \text{ and } \set{1, -\sqrt{d}}
+                \end{align*}
+                and hence we have
+                \begin{align*}
+                    \Delta_K = \begin{pmatrix}
+                        1 & 1 \\
+                        \sqrt{d} & -\sqrt{d}
+                    \end{pmatrix}^2
+                    = \left(-2\sqrt{d}\right)^2 = 4d \text{.}
+                \end{align*}
+            \end{enumerate}
+            Conclude the stated result above.
+        \end{proof}
+    \item Let \(K = \mathbb{Q}(\sqrt[3]{2})\)
+    \begin{proof}
+        The ring of integers is\footnote{To prove this, there is a lot of work to be done and I will maybe do this someday.} \(\mathcal{O}_K = \mathbb{Z}[\sqrt[3]{2}]\), so a integral basis is \(\{1, \sqrt[3]{2}, \sqrt[4]{4}\}\).
+    \end{proof}
     \end{enumerate}
-    Conclude the stated result above.
-\end{proof}
+\end{example}
 
 \end{document}
