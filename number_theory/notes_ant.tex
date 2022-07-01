@@ -978,4 +978,48 @@ I'll skip exercises that require bilinear form for now.
     \end{enumerate}
 \end{example}
 
+\begin{defbox}
+    \begin{definition}
+        Let \(K\) be an algebraic number field of degree \(n\) and let \(\sigma_1, \ldots, \sigma_n\) be the embeddings of \(K\). For \(a_1, \ldots, a_n \in K\) we can define the discriminant as
+        \begin{align*}
+            \Delta_K (a_1, \ldots, a_n) = [\det(\sigma_i(a_j))]^2 \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        It is
+        \begin{align*}
+            \Delta_K(1, a, a^2 \ldots, a^{n-1}) = \prod_{i > j} (\sigma_i(a) - \sigma_j(a)) \text{.}
+        \end{align*}
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    Because \(\sigma_i(a^j) = a^{j + i - 1}\), we have
+    \begin{align*}
+        \Delta_K(1, a, a^2, \ldots, a^{n-1}) &= \left[\det \begin{pmatrix}
+            \sigma_1(1) & \sigma_1(a) & \sigma_1(a^2) & \cdots & \sigma_1(a^{n-1}) \\
+            \sigma_2(1) & \sigma_2(a) & \sigma_2(a^2) & \cdots & \sigma_2(a^{n-1}) \\
+            \sigma_3(1) & \sigma_3(a) & \sigma_3(a^2) & \cdots & \sigma_3(a^{n-1}) \\
+            \vdots & & & & \\
+            \sigma_n(1) & \sigma_n(a) & \sigma_n(a^2) & \cdots & \sigma_n(a^{n-1})
+        \end{pmatrix}\right]^2 \\
+        &= \left[\det \begin{pmatrix}
+            1 & a & a^2 & \cdots & a^{n-1} \\
+            1 & a^2 & a^3 & \cdots & a^n \\
+            1 & a^3 & a^4 & \cdots & a^{n+1} \\
+            \vdots & & & & \vdots \\
+            1 & a^n & a^{n+1} & \cdots & a^{2n - 1}
+        \end{pmatrix}\right]^2 \\
+        &= \prod_{i>j} (\sigma_i(a) - \sigma_j(a))
+    \end{align*}
+    by Vandermonde matrix.
+\end{proof}
+\begin{rembox}
+    \begin{remark}
+        We denote \(\Delta_K(1, a, a^2, \ldots, a^{n-1})\) by \(\Delta_K(a)\).
+    \end{remark}
+\end{rembox}
+
 \end{document}
