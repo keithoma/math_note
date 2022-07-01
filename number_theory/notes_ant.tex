@@ -498,8 +498,6 @@ Dedekind's proof is much easier to understand, lol.
 
 \section{Details}
 
-\subsection{Trace, Norm, and Characteristic Polynomial}
-
 {\color{red}\textbf{Errors}}
 \begin{enumerate}
     \item Pretty sure that in the example 9.1. the sign of characteristic polynomial is swapped. We want the definition of characteristic polynomial to be in such a way that it only creates monic polynomials.
@@ -507,9 +505,12 @@ Dedekind's proof is much easier to understand, lol.
     
     https://feog.github.io/antchap1.pdf
 
+    \item Proof of prop 10 is missing
     \item Proof of Lemma 11 is wrong because of the stuff above.
-    \item Continue next time from Lemma 11.
+    \item Second proof of lemma 11 is not complete.
 \end{enumerate}
+
+\subsection{Trace, Norm, and Characteristic Polynomial}
 
 \begin{defbox}
     \begin{definition}[Trace, Norm, and Characteristic Polynomial]
@@ -683,6 +684,18 @@ Dedekind's proof is much easier to understand, lol.
 
 \begin{thmbox}
     \begin{proposition}
+        Let \(K\) be an algebraic number field and let \(\alpha \in K\) be an algebraic number. If \(\sigma_1, \ldots, \sigma_n\) are \(n\) distinct embeddings of \(K\) into \(\mathbb{C}\) which fix \(K\), then we have for the trace of \(\alpha\) and the norm of \(\alpha\) that
+        \begin{align*}
+            \mathrm{Tr}_K(\alpha) = \sum_{i=1}^n \sigma_i(\alpha) \qquad \mathrm{N}_K(\alpha) = \prod_{i=1}^n \sigma_i(\alpha)\text{.}
+        \end{align*}
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{thmbox}
+    \begin{proposition}
         If \(\alpha\) is an algebraic number, then its characteristic polynomial is a multiple of its minimal polynomial, i.e. let \(K\) be an algebraic number field and let \(\alpha \in K\) be an algebraic number, then
         \begin{equation*}
             \chi_\alpha(X) = m_\alpha(X) h(X) \qquad h(X) \in \mathbb{Q}[X]
@@ -766,6 +779,7 @@ Dedekind's proof is much easier to understand, lol.
 \begin{example}
     Determine the algebraic integers of \(\mathbb{Q}(\sqrt{-5})\).
 \end{example}
+
 \begin{proof}
     A \(\mathbb{Q}\)-basis for \(\mathbb{Q}(\sqrt{-5})\) is \(\set{1, \sqrt{-5}}\). Let \(\alpha = x + \sqrt{-5}y \in \mathbb{Q}(\sqrt{-5})\). Then
     \begin{align*}
@@ -782,6 +796,40 @@ Dedekind's proof is much easier to understand, lol.
 
     If \(x\) is not an integer, then \(2x\) must be, so we must have that \(y^2 \equiv 3 \mod 4\), but this is impossible. Hence \(x, y\) are both integers, therefore, \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-5}]\).
 \end{proof}
+
+\begin{thmbox}
+    \begin{corollary}
+        An element \(u\) in a ring of integers \(\mathcal{O}_K\) is a unit if and only if \(N_K(u) = \pm 1\).
+    \end{corollary}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item ``\(\Rightarrow\)'': Let \(u \in \mathcal{O}_K\) be a unit, then there is an element \(v \in \mathcal{O}_K\) such that \(uv = 1\). By the multiplicative property, we have
+        \begin{align*}
+            1 = N_K(1) = N_K(uv) = N_K(u)N_K(v)
+        \end{align*}
+        and since \(N_K(u)\) and \(N_K(v)\) are both integers, the only possibilities are \(N_K(u) = \pm 1\).
+        \item ``\(\Leftarrow\)'': Conversely, let \(u\) have the norm \(\pm 1\). Denote the characteristic polynomial of \(u\) by \(\chi_u (X) = X^n + a_{n-1} X^{n-1} + \cdots + a_1 X + a_0\). It is
+        \begin{align*}
+            N(u) = \pm 1 = \det (\Phi_u) = \det(0 I - \Phi_u) = \chi_u (0) = a_0
+        \end{align*}
+        so we have
+        \begin{align*}
+            u^n + a_{n-1} u^{n-1} + \cdots + a_1 u \pm 1 = 0 \text{.}
+        \end{align*}
+        Now let \(v \in K\) be the multiplicative inverse of \(u\), i.e. \(uv = 1\). We want to show that \(v\) is in the ring of integers of \(K\). Multiplying \(v^n\) on both sides of the equation above yields
+        \begin{align*}
+            & u^n v^n + a_{n-1} u^{n-1} v^n + \cdots + a_1 u v^n \pm v^n = 0 \\
+            \iff & 1 + a_{n-1} v + \cdots + a_1 v^{n-1} \pm v^n = 0 \text{.}
+        \end{align*}
+        Thus \(1 + a_{n-1} X + \cdots + a_1 X^{n-1} \pm X^n\) is a polynomial in \(\mathbb{Z}[X]\) that has \(v\) as a root. This polynomial can be converted to a monic polynomial depending on the sign of the monomial of the highest degree. Therefore, \(u \in \mathcal{O}_K\).
+    \end{enumerate}
+\end{proof}
+
+
+\subsection{Integral Basis and Discriminant}
+
+
 \begin{example}
     4.1.5 I'll skip this.
 \end{example}
