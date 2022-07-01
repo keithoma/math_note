@@ -922,9 +922,34 @@ I'll skip exercises that require bilinear form for now.
             \end{enumerate}
             Conclude the stated result above.
         \end{proof}
-    \item Let \(K = \mathbb{Q}(\sqrt[3]{2})\)
+    \item Let \(K = \mathbb{Q}(\sqrt[3]{2})\), then the discriminant is \(\Delta_K = -108\).
     \begin{proof}
-        The ring of integers is\footnote{To prove this, there is a lot of work to be done and I will maybe do this someday.} \(\mathcal{O}_K = \mathbb{Z}[\sqrt[3]{2}]\), so a integral basis is \(\{1, \sqrt[3]{2}, \sqrt[4]{4}\}\).
+        Denote \(\alpha := \sqrt[3]{2}\). The ring of integers is\footnote{To prove this, there is a lot of work to be done and I will maybe do this someday.} \(\mathcal{O}_K = \mathbb{Z}[\alpha]\), so a integral basis is \(\{1, \alpha, \alpha^2\}\). Moreover, the minimal polynomial of \(\alpha\) is
+        \begin{align*}
+            m_\alpha (X) = X^3 - 2
+        \end{align*}
+        which has the roots \(\alpha\), \(\zeta_3 \alpha\) and \(\zeta_3^2 \alpha\) where \(\zeta_3\) is the 3rd root of unity. This gives us the embeddings
+        % below, somehow the first character is not rendered
+        \begin{alignat*}
+            \sigma \sigma_1 \equiv \mathrm{id}_K &\quad \sigma_2(\alpha) = \zeta_3 \alpha &&\quad \sigma_3(\alpha) = \zeta_3^2 \alpha \\
+            &\quad \sigma_2(\zeta_3 \alpha) = \zeta_3^2 \alpha &&\quad \sigma_3(\zeta_3 \alpha) = \zeta_3 \alpha\\
+            &\quad \sigma_2(\zeta_3^2 \alpha) = \alpha && \quad \sigma_3(\zeta_3^2 \alpha) = \alpha
+        \end{alignat*}
+        or shorter, \(\sigma_1: \alpha \mapsto \alpha\), \(\sigma_2: \alpha \mapsto \zeta_3 \alpha\) and \(\sigma_3: \alpha \mapsto \zeta_3^2 \alpha\). Applying the embeddings on the integral basis yields
+        \begin{alignat*}
+            \sigma \sigma_1(1) = 1 & \quad \sigma_1(\alpha) = \alpha && \quad \sigma_1(\alpha^2) = \alpha^2 \\
+            \sigma_2(1) = 1 & \quad \sigma_2(\alpha) = \zeta_3 \alpha && \quad \sigma_2(\alpha^2) = \sigma_2(\alpha) \sigma_2(\alpha) = \zeta_3^2 \alpha^2 \\
+            \sigma_3(1) = 1 & \quad \sigma_3(\alpha) = \zeta_3^2 \alpha && \quad \sigma_3(\alpha^2) = \sigma_3(\alpha) \sigma_3(\alpha) = \zeta_3 \alpha^2 \text{.}
+        \end{alignat*}
+        Therefore, the discriminant is
+        \begin{align*}
+            \Delta_K = \left(\det \begin{pmatrix}
+                1 & \alpha & \alpha^2 \\
+                1 & \zeta_3 \alpha & \zeta_3^2 \alpha^2 \\
+                1 & \zeta_3^2 \alpha & \zeta_3 \alpha^2
+            \end{pmatrix}\right)^2
+            = \left(-6 i \sqrt{3}\right)^2 = -108 \text{.}
+        \end{align*}
     \end{proof}
     \end{enumerate}
 \end{example}
