@@ -951,6 +951,30 @@ I'll skip exercises that require bilinear form for now.
             = \left(-6 i \sqrt{3}\right)^2 = -108 \text{.}
         \end{align*}
     \end{proof}
+    \item Let \(K = \mathbb{Q}(\sqrt{2}, \sqrt{3})\).
+    \begin{proof}
+        An integral basis\footnote{Again, I will show this later, maybe. Apparantly, there is a general formula to find the ring of integers of two squareroots.} is
+        \begin{align*}
+            \set{1, \sqrt{2}, \sqrt{3}, \underbrace{\frac{\sqrt{2} + \sqrt{6}}{2}}_{=: \alpha}} \text{.}
+        \end{align*}
+        We need to find \(4\) embeddings of \(K\). \(\sigma_1\) is, as always, the identity on \(K\). \(\sigma_2\) permutates \(\sqrt{2}\) and \(\sigma_3\) permutates \(\sqrt{3}\). Then, \(\sigma_4 = \sigma_2 \circ \sigma_3\). Therefore, we have
+        \begin{alignat*}
+            \sigma \sigma_1(1) = 1 & \quad \sigma_1(\sqrt{2}) = \sqrt{2} && \quad \sigma_1(\sqrt{3}) = \sqrt{3} &&& \quad \sigma_1 \left(\frac{\sqrt{2} + \sqrt{6}}{2}\right) = \frac{\sqrt{2} + \sqrt{6}}{2} \\
+            \sigma_2(1) = 1 & \quad \sigma_2(\sqrt{2}) = -\sqrt{2} && \quad \sigma_2(\sqrt{3}) = \sqrt{3} &&& \quad \sigma_2 \left(\frac{\sqrt{2} + \sqrt{6}}{2}\right) = \frac{-\sqrt{2} - \sqrt{6}}{2} \\
+            \sigma_3(1) = 1 & \quad \sigma_3(\sqrt{2}) = \sqrt{2} && \quad \sigma_3(\sqrt{3}) = - \sqrt{3} &&& \quad \sigma_3 \left(\frac{\sqrt{2} + \sqrt{6}}{2}\right) = \frac{\sqrt{2} - \sqrt{6}}{2} \\
+            \sigma_4(1) = 1 & \quad \sigma_4(\sqrt{2}) = -\sqrt{2} && \quad \sigma_4(\sqrt{3}) = - \sqrt{3} &&& \quad \sigma_4 \left(\frac{\sqrt{2} + \sqrt{6}}{2}\right) = \frac{-\sqrt{2} + \sqrt{6}}{2}
+        \end{alignat*}
+        So the discriminant of \(K\) is
+        \begin{align*}
+            \Delta_K = \left(\det \begin{pmatrix}
+                1 & \sqrt{2} & \sqrt{3} & \frac{\sqrt{2} + \sqrt{6}}{2} \\
+                1 & -\sqrt{2} & \sqrt{3} & \frac{-\sqrt{2} - \sqrt{6}}{2} \\
+                1 & \sqrt{2} & -\sqrt{3} & \frac{\sqrt{2} - \sqrt{6}}{2} \\
+                1 & -\sqrt{2} & -\sqrt{3} & \frac{-\sqrt{2} + \sqrt{6}}{2}
+            \end{pmatrix}\right)^2
+            = 48^2 = 2304
+        \end{align*}
+    \end{proof}
     \end{enumerate}
 \end{example}
 
