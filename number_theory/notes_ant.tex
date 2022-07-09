@@ -24,6 +24,7 @@
 % extra
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{multirow}
 
 % ---------------------------------------------------------------------
 % S E T T I N G
@@ -1021,5 +1022,41 @@ I'll skip exercises that require bilinear form for now.
         We denote \(\Delta_K(1, a, a^2, \ldots, a^{n-1})\) by \(\Delta_K(a)\).
     \end{remark}
 \end{rembox}
+
+\chapter{Dedekind Domains}
+
+\begin{defbox}
+    \begin{definition}
+        An integral domain \(A\) is called Dedekind domain if one of the following equivalent conditions are met.
+        \begin{enumerate}
+            \item Every nonzero proper ideal of \(A\) factors into product of prime ideals.
+            \item \(A\) is
+            \begin{enumerate}
+                \item integrally closed,
+                \item Noetherian,
+                \item and every nonzero prime ideal of \(A\) is maximal.
+            \end{enumerate}
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        We have the following chain of inclusions for ring structures.
+    \end{remark}
+\end{rembox}
+
+\begin{theorem}
+    Every ring of integers \(\mathcal{O}_K\) is a Dedekind domain.
+\end{theorem}
+\begin{proof}
+    Let \(\mathcal{O}_K\) be the ring of integers of an algebraic number field \(K\). We show that \(\mathcal{O}_K\) is a Dedekind domain by proving \(\mathcal{O}_K\) is integrally closed, Noetherian, and every nonzero prime ideal of \(A\) is maximal.
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        If \(\mathfrak{a} \subset \mathfrak{b}\) are ideals of \(\mathcal{O}_K\), then \(\mathrm{N}(a) > \mathrm{N}(b)\).
+    \end{lemma}
+\end{thmbox}
 
 \end{document}
