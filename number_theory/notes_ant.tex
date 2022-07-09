@@ -1046,11 +1046,22 @@ I'll skip exercises that require bilinear form for now.
     \end{remark}
 \end{rembox}
 
-\begin{theorem}
-    Every ring of integers \(\mathcal{O}_K\) is a Dedekind domain.
-\end{theorem}
+\begin{thmbox}
+    \begin{theorem}
+        Every ring of integers \(\mathcal{O}_K\) is a Dedekind domain.
+    \end{theorem}    
+\end{thmbox}
 \begin{proof}
     Let \(\mathcal{O}_K\) be the ring of integers of an algebraic number field \(K\). We show that \(\mathcal{O}_K\) is a Dedekind domain by proving \(\mathcal{O}_K\) is integrally closed, Noetherian, and every nonzero prime ideal of \(A\) is maximal.
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        \(\mathcal{O}_K\) is integrally closed.
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    
 \end{proof}
 
 \begin{thmbox}
@@ -1058,5 +1069,73 @@ I'll skip exercises that require bilinear form for now.
         If \(\mathfrak{a} \subset \mathfrak{b}\) are ideals of \(\mathcal{O}_K\), then \(\mathrm{N}(a) > \mathrm{N}(b)\).
     \end{lemma}
 \end{thmbox}
+\begin{proof}
+    We show that there is a map \(\varphi: \mathcal{O}_K / \mathfrak{a} \longrightarrow \mathcal{O}_K / \mathfrak{b}\) that is surjective, but not injective \footnote{I believe constructing a map in opposite direction and showing that this map is injective but not surjective might not work because proving that it is well-defined is difficult. Not sure.}. Since both the domain and the codomain are finite sets, if such a map \(\varphi\) exists, then \(\varphi\) can be restricted to a subset of \(\mathcal{O}_K / \mathfrak{a}\) such that the restricted \(\varphi\) becomes a bijection. From there, we conclude that \(|\mathcal{O}_K / \mathfrak{a}| > |\mathcal{O}_K / \mathfrak{b}|\), i.e. \(\mathrm{N}(a) > \mathrm{N}(b)\).
+
+    Define \(\varphi: \mathcal{O}_K / \mathfrak{a} \longrightarrow \mathcal{O}_K / \mathfrak{b}\) as
+    \begin{align*}
+        \varphi(x + \mathfrak{a}) = x + \mathfrak{b} \text{.}
+    \end{align*}
+    Then, \(\varphi\) is well-defined, because if \(x + \mathfrak{a} = y + \mathfrak{a}\), then \(x - y \in \mathfrak{a}\), so \(x - y \in \mathfrak{b}\) too and we have \(x + \mathfrak{b} = y + \mathfrak{b}\). This map is also surjective because \(x + \mathfrak{b} = \varphi(x + \mathfrak{a})\), but it is not injective because if \(y \in \mathfrak{b}\) but not \(y \in \mathfrak{a}\), then \(\varphi(y + \mathfrak{a}) = y + \mathfrak{b} = 0 = \varphi(0 + \mathfrak{a})\).
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        \(\mathcal{O}_K\) is Noetherian.
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        A ring is a field if and only if it has no nontrivial ideals, i.e. the only ideals are the zero ideal and the ring itself.
+    \end{lemma}
+\end{thmbox}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        Every finite integral domain is a field.
+    \end{lemma}
+\end{thmbox}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}
+        Every nonzero prime ideal in \(\mathcal{O}_K\) is maximal.
+    \end{lemma}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Every principal ideal domain is a Dedekind domain. A unique factorization domain is a Dedekind domain if and only if it is a principal ideal domain.
+    \end{theorem}
+\end{thmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(A\) be a principal ideal domain. \(A\) is integrally closed because it is also a unique factorization domain which are integrally closed.
+        \item \(A\) is also Noetherian (easy).
+        \item And clearly all nonzero prime ideal of \(A\) is maximal.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Not all Dedekind domains are principal ideal domains. \(\mathbb{Z}[\sqrt{-5}]\) is Dedekind, but not PID.
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item The algebraic number field \(\mathbb{Q}(\sqrt{-5})\) has the ring of integers \(\mathbb{Z}[\sqrt{-5}]\), so \(\mathbb{Z}[\sqrt{-5}]\) is a Dedekind domain.
+        \item We have the factorizations \(6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})\), therefore \(\mathbb{Z}[\sqrt{-5}]\) is not a unique factorization domain, hence it cannot be a principal ideal domain.
+    \end{enumerate}
+\end{proof}
 
 \end{document}
