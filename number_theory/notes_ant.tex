@@ -1189,4 +1189,65 @@ I'll skip exercises that require bilinear form for now.
     which would contradict that \(\mathfrak{a}\) being contained in \(S\), therefore \(S\) must be empty.
 \end{proof}
 
+\begin{thmbox}
+    \begin{lemma}
+        Let \(\mathfrak{p}\) be a prime ideal of \(\mathcal{O}_K\). There exists \(z \in K\) (with \(z \not\in \mathcal{O}_K\)), such that \(z \mathfrak{p} \subseteq \mathcal{O}_K\).
+    \end{lemma}
+\end{thmbox}
+
+\begin{proof}
+    Take \(x \in \mathfrak{p}\). From the previous lemma, we have that \((x) = x \mathcal{O}_K\) contains a product of prime ideals, i.e.
+    \begin{align*}
+        (x) \supseteq \mathfrak{p}_1 \cdots \mathfrak{p}_r
+    \end{align*}
+    and let \(r\) the least integer. Since \(\mathfrak{p} \supseteq (x) \supseteq \mathfrak{p}_1 \cdots \mathfrak{p}_r\), we have that \(\mathfrak{p} \supseteq \mathfrak{p}_i\) for some \(i\). But all nonzero prime ideals are maximal in \(\mathcal{O}_K\), we have that \(\mathfrak{p} = \mathfrak{p}_1\).
+
+    Now \(\mathfrak{p}_2, \ldots, \mathfrak{p}_r \not\subseteq (x)\) because \(r\) was chosen to be minimal (why? check later).
+
+    Choose an element \(b \in \mathfrak{p}_2 \cdots \mathfrak{p}_r\) with \(b \not\in x\mathcal{O}_K\), then
+    \begin{align*}
+        bx^{-1}\mathfrak{p} = b x^{-1}\mathfrak{p}_1
+    \end{align*}
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Ideal Quotient]
+        Let \(A\) be a ring, and \(\mathfrak{a}\) and \(\mathfrak{b}\) be two ideals. Their ideal quotient is defined by
+        \begin{align*}
+            (\mathfrak{a} : \mathfrak{b}) := \makeset{x \in A}{x \mathfrak{b} \subseteq \mathfrak{a}} \text{.}
+        \end{align*}
+
+        Moreover, we write
+        \begin{align*}
+            \mathfrak{p}^{-1} := (\mathcal{O}_K : \mathfrak{p}) = \makeset{x \in K}{x \mathfrak{p} \subseteq \mathcal{O}_K} \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Any {\color{mathif}ideal} of \(\mathcal{O}_K\) can be {\color{maththen}uniquely} written as a {\color{maththen}product} of {\color{maththen}prime ideals}.
+    \end{theorem}
+\end{thmbox}
+
+\begin{proof}
+    We prove two statements. Firstly that such a factorization exists, and secondly that if such a factorization exists, then it is unique up to the order of the factors.
+    \begin{enumerate}
+        \item \textbf{Existence.} Let \(S\) be the set of ideals of \(\mathcal{O}_K\) that cannot be written as a product of prime ideals. Our goal is to show that \(S\) is empty. If \(S\) is not empty, then because \(\mathcal{O}_K\) is noetherian, there exists a maximal element\footnote{The maximal element \(\mathfrak{a}\) need not be a maximal ideal. \(\mathfrak{a}\) is an ideal which has no superset inside \(S\), i.e. there are no \(\mathfrak{b} \in S\) with \(\mathfrak{a} \subseteq \mathfrak{b}\).} of \(S\) say \(\mathfrak{a}\). This ideal \(\mathfrak{a}\) is not prime, because if it was, then \(\mathfrak{a} \supseteq \mathfrak{a} \cdot \mathfrak{a}\) and \(\mathfrak{a}\) would contain a product of prime ideals. Moreover, \(\mathfrak{a}\) is contained in a maximal ideal \(\mathfrak{m}\) of \(\mathcal{O}_K\).
+        
+        Consider the ideal \(\mathfrak{m}^{-1} \mathfrak{a}\). We want to show that \(\mathfrak{m}^{-1} \mathfrak{a}\) is a proper ideal of \(\mathcal{O}_K\) and that \(\mathfrak{a}\) is a proper subset of \(\mathfrak{m}^{-1} \mathfrak{a}\).
+        
+        For any prime ideal \(\mathfrak{p}\), we have \(\mathfrak{p}^{-1} \mathfrak{p} = \mathcal{O}_K\) because if \(y \in \mathfrak{p}^{-1} \mathfrak{p}\), then \(y = x \mathfrak{p} \subseteq \mathcal{O}_K\). On the other hand, if \(y \in \mathcal{O}_K\), then ??? idk. 
+
+        Consider \(\mathfrak{m}^{-1} \mathfrak{a}\). It is
+        \begin{align*}
+            \mathfrak{m}^{-1} \mathfrak{a} \subset \mathfrak{m}^{-1} \mathfrak{m} = \mathcal{O}_K \text{.}
+        \end{align*}
+        Because for any \(x \in \mathfrak{m}\) with \(x \not\in \mathfrak{a}\) we have
+        \begin{align*}
+            \mathfrak{p}^{-1} x \subseteq \mathfrak{p}^{-1} \mathfrak{a} \Rightarrow x \in \mathfrak{m}^{-1} \mathfrak{m} \mathfrak{a} = \mathcal{O}_K \mathfrak{a} = \mathfrak{a}
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
 \end{document}
