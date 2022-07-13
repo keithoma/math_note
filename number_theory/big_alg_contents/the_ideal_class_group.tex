@@ -1,0 +1,75 @@
+\begin{defbox}
+    \begin{definition}
+        Let \(K\) be an algebraic number field, \(\mathcal{O}_K\) its ring of integers. The constant \(H_K\) for which all \(\alpha \in K\) there exists a \(\beta \in \mathcal{O}_K\) and a nonzero integer \(t \in \mathbb{Z} \setminus \{0\}\) with \(|t| \leq H_K\) such that
+        \begin{align*}
+            |N(t \alpha - \beta)| < 1
+        \end{align*}
+        is called the Hurwitz constant.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    Let \(K = \mathbb{Q}(\sqrt{-5})\) be an algebraic number field.
+\end{example}
+\begin{proof}
+    
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Equivalence of Fractional Ideals]
+        Let \(R\) be a integral domain. Two fractional ideals \(\mathcal{A}\) and \(\mathcal{B}\) of \(R\) are said to be equivalent if there exist \(\alpha\) and \(\beta\) in \(R\) such that
+        \begin{align*}
+            (\alpha) \mathcal{A} = (\beta) \mathcal{B} \text{.}
+        \end{align*}
+        In this case, we write \(\mathcal{A} \sim \mathcal{B}\) or simply \(\mathcal{A} = \mathcal{B}\). Indeed, this relation is a equivalence relation.
+    \end{definition}
+\end{defbox}
+\begin{proof}
+    Let \(\mathcal{A}\) and \(\mathcal{B}\) be two fractional ideals of an integral domain \(R\). We show that the relation \(\mathcal{A} \sim \mathcal{B}\) as defined above is a equivalence relation.
+    \begin{enumerate}
+        \item \textbf{Reflexivity.} Trivially, \((\alpha) \mathcal{A} = (\alpha) \mathcal{A}\) for any \(\alpha \in R\), and we have \(\mathcal{A} \sim \mathcal{A}\).
+        \item \textbf{Symmetry.} If \(\mathcal{A} \sim \mathcal{B}\), then \((\alpha) \mathcal{A} = (\beta) \mathcal{B}\), and again it is trivial that \((\beta) \mathcal{B} = (\alpha) \mathcal{A}\), hence \(\mathcal{B} \sim \mathcal{A}\).
+        \item \textbf{Transitivity.} Let \(\mathcal{A} \sim \mathcal{B}\) and \(\mathcal{B} \sim \mathcal{C}\) hold. There are \(\alpha, \beta, \gamma, \theta \in R\) such that
+        \begin{align*}
+            (\alpha) \mathcal{A} = (\beta) \mathcal{B} \quad \text{and} \quad (\gamma) \mathcal{B} = (\theta) \mathcal{C} \text{.}
+        \end{align*}
+        Multiplying both sides of both equalities by \((\gamma)\) and \((\beta)\) respectively yields
+        \begin{align*}
+            (\gamma) (\alpha) \mathcal{A} = (\gamma) (\beta) \mathcal{B} \quad \text{and} \quad (\beta)(\gamma) \mathcal{B} = (\beta)(\theta) \mathcal{C} \text{.}
+        \end{align*}
+        Therefore, we have that \((\alpha \gamma) \mathcal{A} = (\beta \theta) \mathcal{C}\) or in other words \(\mathcal{A} \sim \mathcal{C}\).
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Each equivalence class of fractional ideals has an integral ideal representative.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The number of equivalence classes of fractional ideals of a integral domain is finite.
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        The class number of an algebraic number field \(K\), denoted by \(h(K)\) is the cardinality of the group of equivalence classes of fractional ideals.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    The class number of \(K = \mathbb{Q}(\sqrt{-5})\) is \(2\).
+\end{example}
+\begin{proof}
+    The ring of integer of \(K\) is \(\mathbb{Z}[\sqrt{-5}]\) that has the integral basis \(\set{1, \sqrt{-5}}\). For the integral basis we have the conjugations
+    \begin{align*}
+        1^{(1)} = 1 \qquad \sqrt{-5}^{(1)} = \sqrt{-5}\\
+        1^{(2)} = 1 \qquad \sqrt{-5}^{(2)} = -\sqrt{-5}
+    \end{align*}
+    and we can compute the Hurwitz constant
+    \begin{align*}
+        H_K = \left(|1| + |\sqrt{-5}|\right) \left(|1| + |-\sqrt{-5}|\right) = (1 + \sqrt{5})^2 = 10.47\ldots
+    \end{align*}
+\end{proof}
