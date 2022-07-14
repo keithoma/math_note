@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+\title{Number Theory}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section*{Exercise 6.1}
+Consider \(K := \mathbb{Q}(\sqrt{-10})\).
+\begin{enumerate}
+    \item Show that \((2) = \mathfrak{p}^2\) for some prime ideal \(\mathfrak{p} \subset \mathcal{O}_K\) and find the generators of \(\mathfrak{p}\) explicitly.
+    \begin{proof}
+        Because \(-10 \equiv 2 \mod{4}\), the ring of integer of \(K\) is \(\mathcal{O}_K = \mathbb{Z}[\sqrt{-10}]\). The minimal polynomial of \(\sqrt{-10}\) is \(X^2 + 10\) and we have
+        \begin{align*}
+            X^2 + 10 \equiv X^2 \mod{2} \text{.}
+        \end{align*}
+        Thus, \((2) = (2, \sqrt{-10})^2\).
+    \end{proof}
+    \item Prove that the ideal \(\mathfrak{p}\) you just found is prime, but not principal. Deduce the order of \([\mathfrak{p}] \in \mathrm{Cl}(K)\) is \(2\).
+    \begin{proof}
+        \((2, \sqrt{-10})\) being prime arises from the theorem that gives the method of computation. Now assume \((2, \sqrt{-10})\) is principal, then there is an \(\alpha \in \mathcal{O}_K\) that divides \(2\). Using the multiplicativity of the norm gives \(N(\alpha)\) divides \(N(2) = 4\), so \(N(\alpha) = 2\), but this is impossible. So \(2\) is irreducible in \(\mathcal{O}_K\) and clearly \(\sqrt{-10}\) is not a multiple of \(2\). Hence the generators do not share a divisor and \((2, \sqrt{-10})\) is principal. Moreover, because \((2, \sqrt{-10})^2 = (2)\) is principal (and all principal ideals are equivalent to \((1)\)), the order of \((2, \sqrt{-10})\) is \(2\).
+    \end{proof}
+        \item Prove that \((3) \subset \mathcal{O}_K\) is prime. Using Minkowski's bound, deduce that \(Cl(K) \simeq \mathbb{Z}/2\mathbb{Z}\).
+        \begin{proof}
+            Similarly as in 1., we have
+            \begin{align*}
+                X^2 + 10 \equiv X^2 + 1 \mod{3}
+            \end{align*}
+            which is irreducible in \(\mathbb{Z}/3\mathbb{Z}\), so \((3)\) is prime. The Minkowski's bound for \(K\) is
+            \begin{align*}
+                M_K = \sqrt{|D_K|} \left(\frac{4}{\pi}\right)^{r_2} \frac{n!}{n^n} = \sqrt{40} \frac{4}{\pi} \frac{2}{4} = \frac{4 \sqrt{10}}{\pi} = 4.03
+            \end{align*}
+        \end{proof}
+\end{enumerate}
+\end{document}

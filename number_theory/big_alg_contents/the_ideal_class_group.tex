@@ -1,19 +1,14 @@
 \begin{defbox}
-    \begin{definition}
-        Let \(K\) be an algebraic number field, \(\mathcal{O}_K\) its ring of integers. The constant \(H_K\) for which all \(\alpha \in K\) there exists a \(\beta \in \mathcal{O}_K\) and a nonzero integer \(t \in \mathbb{Z} \setminus \{0\}\) with \(|t| \leq H_K\) such that
-        \begin{align*}
-            |N(t \alpha - \beta)| < 1
-        \end{align*}
-        is called the Hurwitz constant.
+    \begin{definition}[Fractional Ideals]
+        Let \(R\) be a integral domain with fraction field \(F\). A fractional ideal is a nonzero \(R\)-submodule \(\mathcal{A} \subseteq F\) such that \(d \mathcal{A} \subseteq R\) for some nonzero \(d \in A\).
     \end{definition}
 \end{defbox}
 
-\begin{example}
-    Let \(K = \mathbb{Q}(\sqrt{-5})\) be an algebraic number field.
-\end{example}
-\begin{proof}
-    
-\end{proof}
+\begin{rembox}
+    \begin{remark}
+        We say integral ideals of \(R\) and simply mean ideals of \(R\) to distinguish them from fractional ideals which are, despite its name and similarities, not true ideals.
+    \end{remark}
+\end{rembox}
 
 \begin{defbox}
     \begin{definition}[Equivalence of Fractional Ideals]
@@ -21,9 +16,14 @@
         \begin{align*}
             (\alpha) \mathcal{A} = (\beta) \mathcal{B} \text{.}
         \end{align*}
-        In this case, we write \(\mathcal{A} \sim \mathcal{B}\) or simply \(\mathcal{A} = \mathcal{B}\). Indeed, this relation is a equivalence relation.
+        In this case, we write \(\mathcal{A} \sim \mathcal{B}\) or simply \(\mathcal{A} = \mathcal{B}\).
     \end{definition}
 \end{defbox}
+\begin{thmbox}
+    \begin{proposition}
+        The relation defined above \(\mathcal{A} \sim \mathcal{B}\) is indeed a equivalence relation.
+    \end{proposition}
+\end{thmbox}
 \begin{proof}
     Let \(\mathcal{A}\) and \(\mathcal{B}\) be two fractional ideals of an integral domain \(R\). We show that the relation \(\mathcal{A} \sim \mathcal{B}\) as defined above is a equivalence relation.
     \begin{enumerate}
@@ -41,71 +41,70 @@
     \end{enumerate}
 \end{proof}
 
-\begin{thmbox}
-    \begin{theorem}
-        Each equivalence class of fractional ideals has an integral ideal representative.
-    \end{theorem}
-\end{thmbox}
-
-\begin{thmbox}
-    \begin{theorem}
-        The number of equivalence classes of fractional ideals of a integral domain is finite.
-    \end{theorem}
-\end{thmbox}
-
 \begin{defbox}
     \begin{definition}
-        The class number of an algebraic number field \(K\), denoted by \(h(K)\) is the cardinality of the group of equivalence classes of fractional ideals.
+        Let \(K\) be an algebraic number field. The equivalence classes of ideals of \(R\) form a group called the ideal class group of \(K\) or just class group of \(K\), and write it as \(\mathrm{Cl}(K)\).
     \end{definition}
 \end{defbox}
 
-\begin{example}
-    The class number of \(K = \mathbb{Q}(\sqrt{-5})\) is \(2\).
-\end{example}
-\begin{proof}
-    The ring of integer of \(K\) is \(\mathbb{Z}[\sqrt{-5}]\) that has the integral basis \(\set{1, \sqrt{-5}}\). For the integral basis we have the conjugations
-    \begin{align*}
-        1^{(1)} = 1 \qquad \sqrt{-5}^{(1)} = \sqrt{-5}\\
-        1^{(2)} = 1 \qquad \sqrt{-5}^{(2)} = -\sqrt{-5}
-    \end{align*}
-    and we can compute the Hurwitz constant
-    \begin{align*}
-        H_K = \left(|1| + |\sqrt{-5}|\right) \left(|1| + |-\sqrt{-5}|\right) = (1 + \sqrt{5})^2 = 10.47\ldots
-    \end{align*}
-\end{proof}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(K\) be an algebraic number field.
+        \begin{enumerate}
+            \item The ideal class group is indeed an abelian group with ideal multiplication as its operation. \([(1)] = [R]\) is the identity element and 
+            \item Each ideal class has an integral ideal representant.
+            \item The ideal class group is trivial, i.e. \(\mathrm{Cl}(K) = [(1)]\), if and only if all fractional ideals in \(K\) are principal, which is equivalent to \(\mathcal{O}_K\) being a principal ideal domain.
+            \item The ideal class group of \(K\) is finite.
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
 
-\section*{Diophantine Equations}
+\begin{rembox}
+    \begin{remark}
+        \begin{enumerate}
+            \item For some integral domains not all fractional ideals are invertible, so not all ideal classes are invertible. In other words, the ideal classes need not be a group for arbitary integral domains.
+            \item For Dedekind domains fractional ideals are invertible, so the ideal classes form a group, but they need not be finite.
+            \item For a Dedekind domain \(R\), the group \(\mathrm{Cl}(R)\) is trivial if and only if \(R\) is a principal domain which is equivalent to \(R\) being a unique factorization domain, so \(\mathrm{Cl}(R)\) is a measure of how far \(R\) is from having unique factorization of elements.
+            \item Every abelian group is isomorphic to the ideal class group of some Dedekind domain.
+            \item It is believed that every finite abelian group is isomorphic to the ideal class group of some algebraic number field, but this is unsolved.
+            \item If \(R\) is Dedekind, \(\mathrm{Cl}(R)\) can be regarded as a quotient Group
+            \begin{align*}
+                \mathrm{Cl}(R) = \set{\text{fractional \(R\)-ideals}} / \set{\text{principal fractional \(R\)-ideals}}
+            \end{align*}
+            \item If all fractional ideal of an integral domain is invertible, then it is a Dedekind domain.
+        \end{enumerate}
+    \end{remark}
+\end{rembox}
+
+\begin{defbox}
+    \begin{definition}
+        The Kronecker Bound (or Hurwitz bound?)
+        \begin{align*}
+            C = \prod_{\sigma: K \rightarrow \mathbb{C}} \sum_{i=1}^n |\sigma(e_i)|
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The ideal classes of \(\mathcal{O}_K\) are
+        \begin{enumerate}
+            \item represented by ideals in \(\mathcal{O}_K\) with norm at most \(C\)
+            \item generated as a group by prime ideals \(\mathfrak{p}\) with norm at most \(C\).
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(K\) be an algebraic number field of degree \(n\), \(\Delta_K\) be the discriminant of \(K / \mathbb{Q}\), and \(2 r_2 = n - r_1\) be the number of complex embeddings where \(r_1\) is the number of real embeddings. Then every class in the ideal class group of \(K\) contains an integral ideal of norm not exceeding Minowski's bound
+        \begin{align*}
+            M_K = \sqrt{|\Delta_K|} \left( \frac{4}{\pi} \right)^{r_2} \frac{n!}{n^n} \text{.}
+        \end{align*}
+        Moreover, the ideal class group is generated by the prime ideals with the norm not exceeding this bound.
+    \end{theorem}
+\end{thmbox}
 
 \begin{example}
-    The equation \(x^2 + 5 = y^3\) has no integral solution.
+    Let \(K = \mathbb{Q}(i)\).
 \end{example}
-\begin{proof}
-    Assume there are integers \(x\) and \(y\) that solve the equation above.
-    \begin{enumerate}
-        \item \textbf{\(y\) must be odd.} If \(y\) is even, then \(y^3 = x^2 + 5\) is even too, so \(x^2\) is odd implying \(x\) is odd. Moreover, if \(y\) is even, then \(y^3\) is divisible by \(4\), so \(x^2 + 5 \equiv 0 \mod{4}\), hence \(x^2 \equiv 3 \mod{4}\), but this is impossible because squares of integers are congruent to \(0\) or \(1\) modulo \(4\). Therefore, \(y\) cannot be even.
-        \item \textbf{\(x\) and \(y\) are coprime.} If there is a prime that divides both \(x\) and \(y\), then \(p\) also divides \(y^3 = x^2 + 5\), so \(p\) divides \(5\) because \(x^2\) is divisible by \(p\). \(p\) divides \(5\) implies \(p = 5\). If we divide the given equation by \(5\), we get
-        \begin{align*}
-            \frac{x^2}{5} + 1 = \frac{y^3}{5} \text{.}
-        \end{align*}
-        \(5^{-1} x^2\) and \(5^{-1} y^3\) are still divisible by \(5\), so reducing this equation modulo \(5\) yields
-        \begin{align*}
-            1 \equiv 0 \mod{5}
-        \end{align*}
-        which cannot be. Thus, \(x\) and \(y\) are coprime.
-    \end{enumerate}
-    Consider the factorization \((x + \sqrt{-5})(x - \sqrt{-5}) = y^3\) in the ring of integers \(\mathbb{Z}[\sqrt{-5}]\). We will investigate the ideals generated by the factors, i.e. \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\).
-    \begin{enumerate}[resume]
-        \item \textbf{The ideals \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\) of \(\mathbb{Z}[\sqrt{-5}]\) are coprime ideals.} Suppose there is a prime ideal \(\mathfrak{p}\) that divides the greatest common divisor of \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\). By definition, we have
-        \begin{align*}
-            \mathfrak{p} \supseteq \mathrm{gcd}( (x + \sqrt{-5}),  (x - \sqrt{-5})) = (x + \sqrt{-5}) + (x - \sqrt{-5}) = (2x) \text{,}
-        \end{align*}
-        i.e. \(\mathfrak{p}\) divides \((2x)\). On the other hand, since \(\mathfrak{p}\) divides both factors of \((y^3)\), we have that \(\mathfrak{p}\) divides \((y)\) too. \(y\) was odd, so \(\mathfrak{p}\) does not divide \((2)\), thus \(\mathfrak{p}\) divides \((x)\). But \(\mathfrak{p}\) cannot divide both \((x)\) and \((y)\) since they were coprime. Hence \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\) are coprime ideals.
-    \end{enumerate}
-    There are ideals \(\mathfrak{a}\) and \(\mathfrak{b}\) in \(\mathbb{Z}[\sqrt{-5}]\) such that
-    \begin{align*}
-        \mathfrak{a}^3 = (x + \sqrt{-5}) \quad \text{and} \quad \mathfrak{b}^3 = (x - \sqrt{-5}) \text{.}
-    \end{align*}
-    \begin{enumerate}[resume]
-        \item \textbf{\(\mathfrak{a}\) and \(\mathfrak{b}\) are principal.}
-    \end{enumerate}
-\end{proof}

@@ -1,0 +1,121 @@
+\begin{defbox}
+    \begin{definition}
+        Let \(K\) be an algebraic number field, \(\mathcal{O}_K\) its ring of integers. The constant \(H_K\) for which all \(\alpha \in K\) there exists a \(\beta \in \mathcal{O}_K\) and a nonzero integer \(t \in \mathbb{Z} \setminus \{0\}\) with \(|t| \leq H_K\) such that
+        \begin{align*}
+            |N(t \alpha - \beta)| < 1
+        \end{align*}
+        is called the Hurwitz constant.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    Let \(K = \mathbb{Q}(\sqrt{-5})\) be an algebraic number field.
+\end{example}
+\begin{proof}
+    
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Equivalence of Fractional Ideals]
+        Let \(R\) be a integral domain. Two fractional ideals \(\mathcal{A}\) and \(\mathcal{B}\) of \(R\) are said to be equivalent if there exist \(\alpha\) and \(\beta\) in \(R\) such that
+        \begin{align*}
+            (\alpha) \mathcal{A} = (\beta) \mathcal{B} \text{.}
+        \end{align*}
+        In this case, we write \(\mathcal{A} \sim \mathcal{B}\) or simply \(\mathcal{A} = \mathcal{B}\). Indeed, this relation is a equivalence relation.
+    \end{definition}
+\end{defbox}
+\begin{proof}
+    Let \(\mathcal{A}\) and \(\mathcal{B}\) be two fractional ideals of an integral domain \(R\). We show that the relation \(\mathcal{A} \sim \mathcal{B}\) as defined above is a equivalence relation.
+    \begin{enumerate}
+        \item \textbf{Reflexivity.} Trivially, \((\alpha) \mathcal{A} = (\alpha) \mathcal{A}\) for any \(\alpha \in R\), and we have \(\mathcal{A} \sim \mathcal{A}\).
+        \item \textbf{Symmetry.} If \(\mathcal{A} \sim \mathcal{B}\), then \((\alpha) \mathcal{A} = (\beta) \mathcal{B}\), and again it is trivial that \((\beta) \mathcal{B} = (\alpha) \mathcal{A}\), hence \(\mathcal{B} \sim \mathcal{A}\).
+        \item \textbf{Transitivity.} Let \(\mathcal{A} \sim \mathcal{B}\) and \(\mathcal{B} \sim \mathcal{C}\) hold. There are \(\alpha, \beta, \gamma, \theta \in R\) such that
+        \begin{align*}
+            (\alpha) \mathcal{A} = (\beta) \mathcal{B} \quad \text{and} \quad (\gamma) \mathcal{B} = (\theta) \mathcal{C} \text{.}
+        \end{align*}
+        Multiplying both sides of both equalities by \((\gamma)\) and \((\beta)\) respectively yields
+        \begin{align*}
+            (\gamma) (\alpha) \mathcal{A} = (\gamma) (\beta) \mathcal{B} \quad \text{and} \quad (\beta)(\gamma) \mathcal{B} = (\beta)(\theta) \mathcal{C} \text{.}
+        \end{align*}
+        Therefore, we have that \((\alpha \gamma) \mathcal{A} = (\beta \theta) \mathcal{C}\) or in other words \(\mathcal{A} \sim \mathcal{C}\).
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Each equivalence class of fractional ideals has an integral ideal representative.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The number of equivalence classes of fractional ideals of a integral domain is finite.
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        The class number of an algebraic number field \(K\), denoted by \(h(K)\) is the cardinality of the group of equivalence classes of fractional ideals.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    The class number of \(K = \mathbb{Q}(\sqrt{-5})\) is \(2\).
+\end{example}
+\begin{proof}
+    The ring of integer of \(K\) is \(\mathbb{Z}[\sqrt{-5}]\) that has the integral basis \(\set{1, \sqrt{-5}}\). For the integral basis we have the conjugations
+    \begin{align*}
+        1^{(1)} = 1 \qquad \sqrt{-5}^{(1)} = \sqrt{-5}\\
+        1^{(2)} = 1 \qquad \sqrt{-5}^{(2)} = -\sqrt{-5}
+    \end{align*}
+    and we can compute the Hurwitz constant
+    \begin{align*}
+        H_K = \left(|1| + |\sqrt{-5}|\right) \left(|1| + |-\sqrt{-5}|\right) = (1 + \sqrt{5})^2 = 10.47\ldots
+    \end{align*}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(K\) be an algebraic number field of degree \(n\), \(\Delta_K\) be the discriminant of \(K / \mathbb{Q}\), and \(2 r_2 = n - r_1\) be the number of complex embeddings where \(r_1\) is the number of real embeddings. Then every class in the ideal class group of \(K\) contains an integral ideal of norm not exceeding Minowski's bound
+        \begin{align*}
+            M_K = \sqrt{\Delta_K} \left( \frac{4}{\pi} \right)^{r_2} \frac{n!}{n^n}
+        \end{align*} 
+    \end{theorem}
+\end{thmbox}
+
+\section*{Diophantine Equations}
+
+\begin{example}
+    The equation \(x^2 + 5 = y^3\) has no integral solution.
+\end{example}
+\begin{proof}
+    Assume there are integers \(x\) and \(y\) that solve the equation above.
+    \begin{enumerate}
+        \item \textbf{\(y\) must be odd.} If \(y\) is even, then \(y^3 = x^2 + 5\) is even too, so \(x^2\) is odd implying \(x\) is odd. Moreover, if \(y\) is even, then \(y^3\) is divisible by \(4\), so \(x^2 + 5 \equiv 0 \mod{4}\), hence \(x^2 \equiv 3 \mod{4}\), but this is impossible because squares of integers are congruent to \(0\) or \(1\) modulo \(4\). Therefore, \(y\) cannot be even.
+        \item \textbf{\(x\) and \(y\) are coprime.} If there is a prime that divides both \(x\) and \(y\), then \(p\) also divides \(y^3 = x^2 + 5\), so \(p\) divides \(5\) because \(x^2\) is divisible by \(p\). \(p\) divides \(5\) implies \(p = 5\). If we divide the given equation by \(5\), we get
+        \begin{align*}
+            \frac{x^2}{5} + 1 = \frac{y^3}{5} \text{.}
+        \end{align*}
+        \(5^{-1} x^2\) and \(5^{-1} y^3\) are still divisible by \(5\), so reducing this equation modulo \(5\) yields
+        \begin{align*}
+            1 \equiv 0 \mod{5}
+        \end{align*}
+        which cannot be. Thus, \(x\) and \(y\) are coprime.
+    \end{enumerate}
+    Consider the factorization \((x + \sqrt{-5})(x - \sqrt{-5}) = y^3\) in the ring of integers \(\mathbb{Z}[\sqrt{-5}]\). We will investigate the ideals generated by the factors, i.e. \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\).
+    \begin{enumerate}[resume]
+        \item \textbf{The ideals \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\) of \(\mathbb{Z}[\sqrt{-5}]\) are coprime ideals.} Suppose there is a prime ideal \(\mathfrak{p}\) that divides the greatest common divisor of \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\). By definition, we have
+        \begin{align*}
+            \mathfrak{p} \supseteq \mathrm{gcd}( (x + \sqrt{-5}),  (x - \sqrt{-5})) = (x + \sqrt{-5}) + (x - \sqrt{-5}) = (2x) \text{,}
+        \end{align*}
+        i.e. \(\mathfrak{p}\) divides \((2x)\). On the other hand, since \(\mathfrak{p}\) divides both factors of \((y^3)\), we have that \(\mathfrak{p}\) divides \((y)\) too. \(y\) was odd, so \(\mathfrak{p}\) does not divide \((2)\), thus \(\mathfrak{p}\) divides \((x)\). But \(\mathfrak{p}\) cannot divide both \((x)\) and \((y)\) since they were coprime. Hence \((x + \sqrt{-5})\) and \((x - \sqrt{-5})\) are coprime ideals.
+    \end{enumerate}
+    There are ideals \(\mathfrak{a}\) and \(\mathfrak{b}\) in \(\mathbb{Z}[\sqrt{-5}]\) such that
+    \begin{align*}
+        \mathfrak{a}^3 = (x + \sqrt{-5}) \quad \text{and} \quad \mathfrak{b}^3 = (x - \sqrt{-5}) \text{.}
+    \end{align*}
+    \begin{enumerate}[resume]
+        \item \textbf{\(\mathfrak{a}\) and \(\mathfrak{b}\) are principal.}
+        \item \textbf{Contradiction.}
+    \end{enumerate}
+\end{proof}

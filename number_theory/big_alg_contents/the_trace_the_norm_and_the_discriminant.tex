@@ -1,0 +1,19 @@
+\begin{defbox}
+    \begin{definition}
+        A prime number \(p \in \mathbb{N}\) is said to be ramified in an algebraic number field \(K\) if the prime ideal factorization
+        \begin{align*}
+            (p) = p \mathcal{O}_K = \mathfrak{p}_r^{e_1} \cdots \mathfrak{p}_r^{e_r}
+        \end{align*}
+        has some \(e_i\) greater than \(1\). If every \(e_i\) equals \(1\) for \(1 \leq i \leq r\), we say \(p\) is unramified in \(K\).
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    In \(\mathbb{Z}[i]\), \(2\) ramifies because \((1 + i)^2 = (2)\), and it is the only prime to do so.
+\end{example}
+
+\begin{thmbox}
+    \begin{theorem}
+        For an algebraic number field \(K\), the primes which ramify are those dividing the integer \(\mathrm{disc}_\mathbb{Z}(\mathcal{O}_K)\). In particular, only finitely many primes ramify.
+    \end{theorem}
+\end{thmbox}
