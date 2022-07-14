@@ -73,3 +73,15 @@
         H_K = \left(|1| + |\sqrt{-5}|\right) \left(|1| + |-\sqrt{-5}|\right) = (1 + \sqrt{5})^2 = 10.47\ldots
     \end{align*}
 \end{proof}
+
+\section*{Diophantine Equations}
+
+\begin{example}
+    The equation \(x^2 + 5 = y^3\) has no integral solution.
+\end{example}
+\begin{proof}
+    Assume there are integers \(x\) and \(y\) that solve the equation above.
+    \begin{enumerate}
+        \item \textbf{\(y\) must be odd.} If \(y\) is even, then \(y^3 = x^2 + 5\) is even too, so \(x^2\) is odd implying \(x\) is odd. Moreover, if \(y\) is even, then \(y^3\) is divisible by \(4\), so \(x^2 + 5 \equiv 0 \mod{4}\), hence \(x^2 \equiv 3 \mod{4}\), but this is impossible because squares of integers are congruent to \(0\) or \(1\) modulo \(4\). Therefore, \(y\) cannot be even.
+    \end{enumerate}
+\end{proof}
