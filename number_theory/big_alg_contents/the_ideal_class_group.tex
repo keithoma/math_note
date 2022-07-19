@@ -231,13 +231,21 @@
 
 \begin{exmbox}
     \begin{example}
-        Let \(K = \mathbb{Q}(\sqrt{13})\)
+        Let \(K = \mathbb{Q}(\sqrt{14})\)
     \end{example}
-    It is \(13 \equiv 1 \mod{4}\). Then, the discriminant of \(K\) is \(\Delta_K = 13\). There are \(r_2 = 0\) complex embeddings, and the degree of the algebraic number field is \(n = 2\). This gives us the Minkowski bound of
-    \begin{align*}
-        M_K = \sqrt{13} \left(\frac{2}{\pi}\right)^0 \frac{2}{4} = \frac{\sqrt{13}}{2}
-    \end{align*}
 \end{exmbox}
+\begin{proof}
+    It is \(14 \equiv 2 \mod{4}\). Then, the discriminant of \(K\) is \(\Delta_K = 4 \cdot 14\). There are \(r_2 = 0\) complex embeddings, and the degree of the algebraic number field is \(n = 2\). This gives us the Minkowski bound of
+    \begin{align*}
+        M_K = \sqrt{4 \cdot 14} \left(\frac{2}{\pi}\right)^0 \frac{2}{4} = \sqrt{14} \approx 3.74 \text{.}
+    \end{align*}
+    We investigate \((2)\) and \((3)\).
+    \begin{align*}
+        X^2 - 14 \equiv X^2 \mod{2} \\
+        X^2 - 14 \equiv X^2 - 2 \mod{3} \text{.}
+    \end{align*}
+    \(X^2 - 2 \mod{3}\) is irreducible, hence \((3)\) is already prime. Using the norm, we get that \((2) = \mathfrak{p}_2^2\) with \(\mathfrak{p}_2 = (4 + \sqrt{14})\), so \(\mathfrak{p}\) is also principal. Therefore the ideal class group is trivial. 
+\end{proof}
 
 
 
