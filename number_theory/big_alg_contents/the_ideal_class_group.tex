@@ -113,9 +113,12 @@
      \(K = \mathbb{Q}(\sqrt{2})\) & \(M_K \approx 1.41\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
      \(K = \mathbb{Q}(\sqrt{3})\) & \(M_K \approx 1.73\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
      \(K = \mathbb{Q}(\sqrt{5})\) & \(M_K \approx 1.12\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
-     \(K = \mathbb{Q}(\sqrt{6})\) & \(M_K \approx 2.45\) & \(\mathrm{Cl}(K) \cong Z_1\) \\ 
+     \(K = \mathbb{Q}(\sqrt{6})\) & \(M_K \approx 2.45\) & \(\mathrm{Cl}(K) \cong Z_1\) \\
      \(K = \mathbb{Q}(\sqrt{7})\) & \(M_K \approx 2.65\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
-     \(K = \mathbb{Q}(\sqrt{10})\) & \(M_K \approx 3.16\) & \(\mathrm{Cl}(K) \cong Z_2 \) \\ 
+     \(K = \mathbb{Q}(\sqrt{10})\) & \(M_K \approx 3.16\) & \(\mathrm{Cl}(K) \cong Z_2 \) \\
+     \(K = \mathbb{Q}(\sqrt{11})\) & \(M_K \approx 3.32\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
+     \(K = \mathbb{Q}(\sqrt{13})\) & \(M_K \approx 1.80\) & \(\mathrm{Cl}(K) \cong Z_1 \) \\
+     \(K = \mathbb{Q}(\sqrt{14})\) & \(M_K \approx\) & \(\mathrm{Cl}(K) \cong \) \\
      cell4 & cell5 & cell6 \\  
      cell7 & cell8 & cell9    
     \end{tabular}
@@ -207,6 +210,45 @@
 
     Now, consider \(\mathfrak{p}_2 \mathfrak{p}_3\). Taking the norm gives \(\mathrm{N}(\mathfrak{p}_2 \mathfrak{p}_3) = 6\) and since \(\mathrm{N}(2 + \sqrt{10}) = -6\)m we have \(\mathrm{p}_2 \mathrm{p}_3\) is principal. This also means \(\mathrm{p}_2 \sim \mathrm{p}_3\), so \(\mathrm{Cl}(\mathbb{Q}(\sqrt{10})) \cong Z_2\).
 \end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(K = \mathbb{Q}(\sqrt{11})\).
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    We have \(11 \equiv 3 \mod{4}\). This gives us the discriminant of \(K\) which is \(\Delta_K = 4 \cdot 11\). There are \(r_2 = 0\) complex embeddings, and the degree of the algebraic number field is \(n = 2\). Thus, the Minkowski bound is
+    \begin{align*}
+        M_K = \sqrt{4 \cdot 11} \left(\frac{4}{\pi}\right)^0 \frac{2}{4} = \sqrt{11} \approx 3.32 \text{.}
+    \end{align*}
+    The two ideals to investigate are therefore \((2)\) and \((3)\). It is
+    \begin{align*}
+        X^2 - 11 \equiv X^2 - 1 \equiv (X + 1)(X - 1) \mod{2} \\
+        X^2 - 11 \equiv X^2 - 2 \mod{3} \text{.}
+    \end{align*}
+    \(X^2 - 2 \mod{3}\) is irreducible, therefore \((3)\) is prime. On the other hand, we have a factorization \((2) = \mathfrak{p}_2 \mathfrak{p}_2^\prime\) for some prime ideals \(\mathfrak{p}_2\) and \(\mathfrak{p}_2^\prime\) of \(\mathcal{O}_K\). But they are principal as \(\mathfrak{p}_2 = (3 + \sqrt{11})\) (because of the norm). Hence, \(\mathrm{Cl}(K) \cong Z_1\).
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(K = \mathbb{Q}(\sqrt{13})\)
+    \end{example}
+    It is \(13 \equiv 1 \mod{4}\). Then, the discriminant of \(K\) is \(\Delta_K = 13\). There are \(r_2 = 0\) complex embeddings, and the degree of the algebraic number field is \(n = 2\). This gives us the Minkowski bound of
+    \begin{align*}
+        M_K = \sqrt{13} \left(\frac{2}{\pi}\right)^0 \frac{2}{4} = \frac{\sqrt{13}}{2}
+    \end{align*}
+\end{exmbox}
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{exmbox}
     \begin{example}
