@@ -125,6 +125,12 @@
     \end{tabular}
 \end{center}
 
+\begin{center}
+    \begin{tabular}{ c c c | c c c}
+     \(K = \mathbb{Q}(\sqrt[3]{2})\) & \(M_K \approx 1.41\) & \(\mathrm{Cl}(K) \cong Z_1 \) & & & \\
+    \end{tabular}
+\end{center}
+
 \begin{rembox}
     \begin{remark}
         If \(d \in \mathbb{Z}\) is not a square-free integer, i.e. there is an integer \(a \in \mathbb{Z}\) with \(a^2 \cdot b = d\) for some intger \(b \in \mathbb{Z}\), then
@@ -329,4 +335,24 @@
         X^2 + 30 \equiv X^2 \mod{5} \text{.}
     \end{align*}
     Write \((2) = \mathfrak{p}_2^2\), \((3) = \mathfrak{p}_3^2\), and \((5) = \mathfrak{p}_5^2\) for some prime ideals \(\mathfrak{p}_2\), \(\mathfrak{p}_3\), and \(\mathfrak{p}_5\) in \(\mathcal{O}_K\). We know that \(\mathfrak{p}_2\), \(\mathfrak{p}_3\), and \(\mathfrak{p}_5\) are nonprincipal ideals.
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(K = \mathbb{Q}(\sqrt{-65})\). Then, the Minkowski bound is \(M_K \approx\), and the ideal class group is \(\mathrm{Cl}(K) \cong Z_2 \times Z_4\).
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    We have \(-65 \equiv 3 \mod{4}\), thus the absolute discriminant of \(K\) is \(|\Delta_K| = 4 \cdot 65\). There are \(r_2 = 1\) complex embeddings, and the degree of the algebraic number field \(K\) is \(n = 2\). Therefore, the Minkowski bound is given by
+    \begin{align*}
+        M_K = \sqrt{4 \cdot 65} \left(\frac{4}{\pi}\right) \frac{2}{4} = 10.27 \text{.}
+    \end{align*}
+    Thus, the ideals of interest are \((2)\), \((3)\), \((5)\), and \((7)\). Reducing the minimal polynomial of \(\sqrt{-65}\) modulo \(2\), \(3\), \(5\), and \(7\) yields
+    \begin{align*}
+        X^2 + 65 \equiv X^2 + 1 \equiv (X + 1)^2 \mod{2} \\
+        X^2 + 65 \equiv X^2 + 2 \equiv (X + 1)(X - 1) \mod{3} \\
+        X^2 + 65 \equiv X^2 \mod{5} \\
+        X^2 + 65 \equiv X^2 + 2 \mod{7} \text{.}
+    \end{align*}
+    Firstly, \(X^2 + 2 \mod{7}\) is irreducible, so \((7)\) is prime. Write \((2) = \mathfrak{p}_2^2\) and \((5) = \mathfrak{p}_5^2\). Since there are no integer solution for neither \(2 = N(\mathfrak{p}_2) = a^2 + 65 b^2\) nor \(5 = N(\mathfrak{p}_5) = a^2 + 65 b^2\), the prime ideals \(\mathfrak{p}_2\) and \(\mathfrak{p}_5\) are not principal.
 \end{proof}
