@@ -1,0 +1,79 @@
+\section{Rings and Objects}
+\section{Operations}
+* polynomial
+* quotient
+* kartesian product
+\section{Properties}
+* noether
+* artinian
+* local
+\section{Types}
+\subsection{Integral Domains}
+\begin{defbox}
+    \begin{definition}
+        An integral domain \(A\) is a nonzero commutative ring that meets one of the following equivalent conditions.
+        \begin{enumerate}
+            \item The product of any two nonzero elements of \(A\) is nonzero, i.e. if \(a \in A \setminus \{0\}\) and \(b \in A \setminus \{0\}\), then \(ab \neq 0\).
+            \item The only zero divisor in \(A\) is \(0\), i.e. \(\mathrm{ZD}(A) = \{0\}\).
+            \item The zero ideal \((0)\) is a prime ideal in \(A\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        If \(A\) is a nonzero ring, then \(A \times A\) is not an integral domain.
+    \end{proposition}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a ring, and \(\mathfrak{p} \subset A\) an ideal. \(\mathfrak{p}\) is prime if and only if \(A / \mathfrak{p}\) is an integral domain.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        The quotient of an integral domain by an arbitary ideal need not be an integral domain.
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        If \(A\) is an integral domain, then \(A[X_1, \ldots, X_n]\) for all \(n \in \mathbb{N}\) is an integral domain.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        An integral domain need not be Noetherian and Noetherian rings need not be an integral domain.
+    \end{example}
+\end{exmbox}
+
+\begin{exmbox}
+    \begin{example}
+        An integral domain need not be Artinian and Artinian rings need not be an integral domain.
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        An integral domain is Artinian if and only if it is a field.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        An integral domain need not be local and a local ring need not be an integral domain.
+    \end{example}
+\end{exmbox}
+
+\subsection{Integrally Closed Domains}
+
+\subsection{Unique Factorization Domains}
+
+\begin{thmbox}
+    \begin{proposition}
+        If \(A\) is a unique factorization domain, then \(A[X_1, \ldots, X_n]\) for all \(n \in \mathbb{N}\) is a unique factorization domain.
+    \end{proposition}
+\end{thmbox}

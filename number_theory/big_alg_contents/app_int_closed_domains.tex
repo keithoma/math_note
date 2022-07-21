@@ -1,0 +1,19 @@
+\section{Appendix: Integrally Closed Domains}
+
+\begin{exmbox}
+    \begin{example}
+        \(\mathbb{Q}[X, Y] / (Y^2 - X^3)\) is an integral domain, but it is not integrally closed.
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    Denote \(A = \mathbb{Q}[X, Y] / (Y^2 - X^3)\). \(A\) is an integral domain, because \(A\) is a quotient of a polynomial ring with coefficients in an integral domain \(\mathbb{Q}\).
+
+    Now, to show that \(A\) is not integrally closed, consider
+    \begin{align*}
+        p(X, Y) := \frac{Y}{X} \in \mathrm{Frac}(A) \text{.}
+    \end{align*}
+    If \(p \in A\), then there are \(f, g \in \mathbb{Q}[X, Y]\) with
+    \begin{align*}
+        Y = X f(X, Y) + g(X, Y)(Y^2 - X^3)
+    \end{align*}
+\end{proof}

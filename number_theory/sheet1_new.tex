@@ -1,4 +1,4 @@
-\documentclass[a4paper]{book}
+\documentclass[a4paper]{article}
 \title{Number Theory}
 \author{K}
 
@@ -13,30 +13,22 @@
 \usepackage{geometry}
 \usepackage{exsheets}
 \usepackage{environ}
-\usepackage{enumitem}
 
 % mathematics
 \usepackage{amsthm} % for theorems, and definitions
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{textcomp}
-% \usepackage{MnSymbol} % for \cupdot
+\usepackage{mathtools}
+%\usepackage{MnSymbol} % for \cupdot
 
 % extra
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{multirow}
 
 % ---------------------------------------------------------------------
 % S E T T I N G
 % ---------------------------------------------------------------------
-
-%maybe delete later, for colorbox
-\usepackage{tcolorbox}
-\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
-\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
-\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
-\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
 
 % typography and formatting
 \geometry{margin=3cm}
@@ -49,24 +41,11 @@
 }
 
 % mathematics
-\newcounter{global}
-
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[]
-\newtheorem{example}{Example}[definition]
-
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem{corollary}{Corollary}
-\newtheorem{lemma}[definition]{Lemma}
-\newtheorem{proposition}[definition]{Proposition}
-
-\newtheorem*{remark}{Remark}
 
 % extra
 \definecolor{mathif}{HTML}{0000A0} % for conditions
 \definecolor{maththen}{HTML}{CC5500} % for consequences
 \definecolor{mathrem}{HTML}{8b008b} % for notes
-\definecolor{mathobj}{HTML}{008800}
 
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -81,6 +60,7 @@
 
 \newcommand{\set}[1]{\left\{\, #1 \,\right\}}
 \newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
 
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand*\Diff{\mathop{}\!\mathrm{D}}
@@ -108,23 +88,32 @@
 }%
 
 \begin{document}
-\tableofcontents
-
-\part{Linear Algebra}
-\part{Field Theory}
-\part{Ring Theory}
-\chapter{Anatomy of Rings}
-\input{big_alg_contents/anatomy_of_rings.tex}
-\input{big_alg_contents/app_int_closed_domains.tex}
-\input{big_alg_contents/app_unique_factorization_domain.tex}
-\input{big_alg_contents/app_principal_ideal_domain.tex}
-\input{big_alg_contents/app_euclidean_domain.tex}
-\part{Number Theory}
-\chapter{Ring of Integers}
-\input{big_alg_contents/ring_of_integers.tex}
-\chapter{The Trace, the Norm, and the Discriminant}
-\input{big_alg_contents/the_trace_the_norm_and_the_discriminant.tex}
-\chapter{Dedekind Domain}
-\chapter{The Ideal Class Group}
-\input{big_alg_contents/the_ideal_class_group.tex}
+\section*{Exercise 1.1}
+Let \(A \subseteq B\) be an integral extension of rings and assume that \(B\) is an integral domain. Suppose \(\mathfrak{q} \subset B\) is a prime ideal and let \(\mathfrak{p} := \mathfrak{q} \cap A \subseteq A\).
+\begin{enumerate}
+    \item Prove that \(A\) is a field if and only if \(B\) is a field.
+    \begin{proof}
+        \begin{enumerate}
+            \item ``\(\Rightarrow\)'': Let \(A\) be a field, and \(b \in B\) an element. Since \(B\) is an integral extension of rings, \(b\) is integral over \(A\), thus we have for some \(a_0, \ldots, a_{n-1}\) that
+            \begin{align*}
+                & b^n + a_{n-1} b^{n-1} + \cdots + a_1 b + a_0 = 0 \\
+                \iff& b^n + a_{n-1} b^{n-1} + \cdots + a_1 b = - a_0 \\
+                \iff& b (b^{n-1} + a_{n-1} b^{n-2} + \cdots + a_1) = - a_0 \\
+                \iff& b \left(\frac{-(b^{n-1} + a_{n-1} b^{n-2} + \cdots + a_1)}{a_0}\right)  = 1 \text{.}
+            \end{align*}
+            The last step was possible because if \(a_0 = 0\), then the above would not have been the minimal polynomial. The equation above shows \(b\) is invertible, hence \(B\) is a field.
+            \item ``\(\Leftarrow\)'': Let \(B\) be a field, and \(y \in A\) an element. Since \(B\) is a field, \(y\) has an inverse \(x\) in \(B\) that is integral over \(A\), i.e.
+            \begin{align}
+                & x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0 \\
+                \iff & x + a_{n-1} + \cdots + a_1 y^{n-2} + a_0 y^{n-1} = 0 \\
+                \iff x = -(a_{n-1} + \cdots + a_1 y^{n-2} + a_0 y^{n-1})
+            \end{align}
+            so \(x \in A\) and \(A\) is a field.
+        \end{enumerate}
+    \end{proof}
+    \item Show that \(\mathfrak{p}\) is a prime ideal of \(A\) and that \(A / \mathfrak{p}\) can be viewed as a subring of \(B / \mathfrak{q}\).
+    \begin{proof}
+        
+    \end{proof}
+\end{enumerate}
 \end{document}

@@ -1,0 +1,48 @@
+\begin{exmbox}
+    \begin{example}
+        Let \(d \in \mathbb{Z}\) square-free, and let \(K = \mathbb{Q}(\sqrt{d})\). The ring of integers of \(K\) is \(\mathcal{O}_K = \mathbb{Z}[\alpha]\) where
+        \begin{align*}
+            \alpha := \begin{cases}
+                \sqrt{d} & \text{if } d \equiv 2, 3 \mod{4}\\
+                \frac{1 + \sqrt{d}}{2} & \text{if } d \equiv 1 \mod{4} \text{.}
+            \end{cases}
+        \end{align*}
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    By definition, the ring of integers is
+    \begin{align*}
+        \mathcal{O}_K = \makeset{a + b \sqrt{d} \in K}{a, b \in \mathbb{Q}, \, p(a + b \sqrt{d}) = 0} \text{,}
+    \end{align*}
+    where \(p \in \mathbb{Z}[X]\) is a monic polynomial with coefficients in \(\mathbb{Z}\). Consider \(a + b \sqrt{d}\in \mathbb{Q}(\sqrt{d})\) with \(a, b \in \mathbb{Q}\) and \(b \neq 0\). The minimal polynomial of \(a + b \sqrt{d}\) is of degree \(2\). It is
+    \begin{align*}
+        & (a + b \sqrt{d})^2 = 2 ab \sqrt{d} + a^2 + b^2 d \text{.}
+    \end{align*}
+    In the first step, we want to cancel \(\sqrt{d}\) from \(2 ab \sqrt{d}\) by adding a suitable multiple of \(a + b \sqrt{d}\), i.e. if \(n \in \mathbb{Z}\), then
+    \begin{align*}
+        2ab \sqrt{d} + n (a + b \sqrt{d}) \in \mathbb{Q} \text{.}
+    \end{align*}
+    Choose \(n := -2a\), then
+    \begin{align*}
+        2ab \sqrt{d} - 2a (a + b \sqrt{d}) = -2 a^2 \text{.}
+    \end{align*}
+    Going back, we have
+    \begin{align*}
+        (a + b \sqrt{d})^2 - 2a (a + b \sqrt{d}) = -a^2 + b^2 d \text{,}
+    \end{align*}
+    thus, it is
+    \begin{align*}
+        (a + b \sqrt{d})^2 - 2a (a + b \sqrt{d}) + a^2 - b^2 d = 0 \text{.}
+    \end{align*}
+    This gives us the minimal polynomial of \(a + b \sqrt{d}\) is \(m(X) = X^2 - 2a X + a^2 - b^2 d\). However, \(a, b\) where in \(\mathbb{Q}\), but \(-2a\) and \(a^2 - b^2d\) must lie in \(\mathbb{Z}\) in order for \(a + b \sqrt{d}\) to be in the ring of integers \(\mathcal{O}_K\).
+
+    Firstly, if \(2a\) is odd, then we may write \(2a = 2k + 1\) for some \(k \in \mathbb{Z}\), and we have
+    \begin{align*}
+        a^2 - b^2 d = \frac{(2a)^2 - 4 b^2d}{4} = \frac{4k^2 + 4k + 1 - 4b^2 d}{4} \text{.}
+    \end{align*}
+    In the equation above, \(b\) cannot be an integer, so it must be \(2b = 2i + 1\), and it is
+    \begin{align*}
+        = \frac{4k^2 + 4k + 1 - (2b)^2 d}{4} = \frac{4k^2 + 4k + 1 - (2i + 1)^2 d}{4} = \frac{4k^2 + 4k + 1 - 4i^2d - 4id - d}{4}
+    \end{align*}
+    Not done, but something like this.
+\end{proof}
