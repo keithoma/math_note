@@ -149,8 +149,8 @@
     \begin{example}
         Let \(X\) be a {\color{mathif}set}.
         \begin{enumerate}
-            \item \(\mathcal{O} = \mathcal{P}(X)\) is called the {\color{maththen}discrete topology}. In this case, \((X, \mathcal{O})\) is called the {\color{maththen}discrete space}. It is the {\color{mathrem}finest topology} that can be defined on a set. (The set of all possible topologies on a given set forms a partially ordered set.)
-            \item \(\mathcal{O} = \{\varnothing, \mathcal{P}(X)\}\) is called the {\color{maththen}trivial topology}.
+            \item \(\mathcal{O} = \mathcal{P}(X)\) is called the {\color{maththen}discrete topology}. In this case, \((X, \mathcal{O})\) is called the {\color{maththen}discrete space}. It is the {\color{mathrem}finest topology} that can be defined on a set.
+            \item \(\mathcal{O} = \{\varnothing, \mathcal{P}(X)\}\) is called the {\color{maththen}trivial topology}. It is the coarsest topology that can be defined on a set.
         \end{enumerate}
     \end{example}
 \end{exmbox}
@@ -301,6 +301,26 @@
     \end{enumerate}
     \end{lemma}
 \end{thmbox}
+
+\begin{proof}
+    Let \(S \subset \mathcal{P}(X)\) be a collection of subsets and \(\mathcal{O}(S)\) be the set of topologies that contain \(S\), i.e.
+    \begin{align*}
+        \mathcal{O}(S) = \makeset{\tau \subset \mathcal{P}(X)}{\tau \text{ is a topology and } S \subset \tau} \text{.}
+    \end{align*}
+    We know that \(\mathcal{O}(S)\) is not empty because \(\mathcal{P}(X) \in \mathcal{O}(S)\). Now define
+    \begin{align*}
+        \mathcal{O} := \bigcap_{\tau \in \mathcal{O}(S)} \tau \text{.}
+    \end{align*}
+    Our claim is that this \(\mathcal{O}\) is a topology.
+    \begin{enumerate}
+        \item The emptyset \(\varnothing\) and the entire set \(X\) is contained in each \(\tau \in \mathcal{O}(S)\) since these are topolgoies. Thus, the empty set and the entire set lie also in the intersection, i.e. \(\varnothing, X \in \mathcal{O}\).
+        \item Let \(\{U_i\}_{i \in I}\) be a familiy of subsets in \(\mathcal{O}\) for an arbitary index set \(I\). This means for each \(i \in I\) it is \(U_i \subset \mathcal{O}\), therefore, again for each \(i \in I\) we have \(U_i \in \tau\). Since \(\tau\) was a topology, the arbitary union of \(\{U_i\}_{i \in I}\) will lie in \(\tau\).
+        \item Similar for the finite intersection.
+    \end{enumerate}
+    In particular, \(\mathcal{O}\) lies in \(\mathcal{O}(S)\).
+
+    MISSING THAT IT IS UNIQUE!
+\end{proof}
 
 \begin{defbox}
     \begin{definition}
