@@ -1,4 +1,12 @@
 \chapter{Compact Spaces}
+% $$$$$$\  $$\                            $$\     
+% $$  __$$\ $$ |                           $$ |    
+% $$ /  \__|$$$$$$$\   $$$$$$\   $$$$$$\ $$$$$$\   
+% $$ |      $$  __$$\ $$  __$$\ $$  __$$\\_$$  _|  
+% $$ |      $$ |  $$ |$$$$$$$$ |$$$$$$$$ | $$ |    
+% $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
+% \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
+%  \______/ \__|  \__| \_______| \_______|  \____/
 \begin{defbox}
     \begin{definition}
         \begin{enumerate}
@@ -31,12 +39,88 @@
         Let \(X\) and \(Y\) be topological spaces, \(X\) compact, and \(Y\) be a \(T_2\) space. If \(f: X \longrightarrow Y\) is bijective and continuous, then the inverse function \(f^{-1}\) is continuous.
     \end{theorem}
 \end{thmbox}
-%
+% $$$$$$$\                                 $$$$$$\  
+% $$  __$$\                               $$  __$$\ 
+% $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
+% $$$$$$$  |$$  __$$\ $$  __$$\ $$  __$$\ $$$$\     
+% $$  ____/ $$ |  \__|$$ /  $$ |$$ /  $$ |$$  _|    
+% $$ |      $$ |      $$ |  $$ |$$ |  $$ |$$ |      
+% $$ |      $$ |      \$$$$$$  |\$$$$$$  |$$ |      
+% \__|      \__|       \______/  \______/ \__|
 \newpage
 \section{Proofs, Remarks, and Examples}
+
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item A topological space \(X\) is called {\color{maththen}compact} if each of its {\color{mathif}open cover} has a \textbf{finite} {\color{mathif}subcover}. That is, \(X\) is compact if for every arbitary collection \(\mathcal{C}\) of open subsets of \(X\) such that
+            \begin{align*}
+                X = \bigcup_{U \in \mathcal{C}} U
+            \end{align*}
+            there is a finite subcollection \(\mathcal{F} \subset \mathcal{C}\) such that
+            \begin{align*}
+                X = \bigcup_{U \in \mathcal{F}} U \text{.}
+            \end{align*}
+            \item A subset is said to be compact if it is compact as a subspace.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        \(X\) is called {\color{maththen}sequentially compact} if every {\color{mathif}sequence} in \(X\) has a {\color{mathif}convergent subsequence} whose limit is in \(X\).
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        The notion of compact and sequentially compact are not equivalent.
+    \end{remark}
+\end{rembox}
+
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item Example of a space that is compact but not sequentially compact.
+            \item Example of a space that is sequentially compact but not compact.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(X\) and \(Y\) be two topological spaces.
+        \begin{enumerate}
+            \item Continuous functions preserve compactness, i.e. if \(f: X \longrightarrow Y\) is continuous and \(X\) is compact, then \(f(X) \subset Y\) is compact.
+            \item In a compact space, every closed subset is compact, i.e. if \(X\) is compact and \(A \subset X\) is a closed subset, then \(A\) is compact.
+            \item The product of compact spaces is again compact. If \(X\) and \(Y\) are both compact, so is \(X \times Y\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(f: X \longrightarrow Y\) be continuous and \(X\) compact. Denote the open cover of the continuous image of \(X\) by \(\mathcal{C}\), i.e.
+        \begin{align*}
+            f(X) \subset \bigcup_{U \in \mathcal{C}} U \text{.  }
+        \end{align*}
+    \end{enumerate}
+\end{proof}
 
 \begin{thmbox}
     \begin{lemma}
         \([0, 1] \subset \mathbb{R}\) is {\color{maththen}compact}.
     \end{lemma}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}[Heine-Borel]
+        A compact subset of a Euclidean space \(A \subset \mathbb{R}^n\) is compact if and only if it is closed and bounded.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(X\) be a \(T_2\)-space. If \(K \subset X\), then \(K\) is closed.
+    \end{proposition}
 \end{thmbox}

@@ -175,7 +175,7 @@
 \end{thmbox}
 %
 \begin{proof}
-    
+    Let \(X\) be a set and \(C \subset X\) be a connected component. Consider \(\mathrm{Cl}(C)\). Clearly, \(C \subset \mathrm{Cl}(C)\). Moreover, \(\mathrm{Cl}(C)\) is connected hence \(\mathrm{Cl}(C) \subset C\). We have \(\mathrm{cl}(C) = C\) so \(C\) is connected.
 \end{proof}
 %
 \begin{thmbox}
@@ -280,15 +280,21 @@
 \begin{proof}
     Denote
     \begin{equation*}
-        A := \makeset{\left(x, \sin\left(\frac{1}{x}\right)\right)}{x > 0} \qquad B := \{0\} \cup [-1, 1] \text{,}
+        A := \makeset{\left(x, \sin\left(\frac{1}{x}\right)\right)}{x > 0} \qquad B := \{0\} \times [-1, 1] \text{,}
     \end{equation*}
-    then \(X = A \sqcup B\).
+    then \(X = A \cup B\).
     \begin{enumerate}
         \item First, define \(f: \mathbb{R}^+ \longrightarrow \mathbb{R}^2\) as
         \begin{equation*}
             f(x) := \left(x,\, \sin\left(\frac{1}{x}\right)\right) \text{.}
         \end{equation*}
-        \(f\) is continuous, \(\mathbb{R}^+\) is an interval, therefore connected, so \(f(\mathbb{R}^+) = A\) is connected. On the other hand, \(\{0\}\) and \([-1, 1]\) are connected and so is their product \(B\).
+        \(f\) is continuous, \(\mathbb{R}^+\) is an interval, therefore connected, so \(f(\mathbb{R}^+) = A\) is connected. Similary, define \(g: [-1, 1] \longrightarrow {0} \times [-1, 1]\) as
+        \begin{align*}
+            g(x) := (0, x) \text{.}
+        \end{align*}
+        Again, \(g\) is continuous and \([-1, 1]\) is connected, so \(g([-1, 1]) = {0} \times [-1, 1] = B\) is also connected.
+
+        Now assume \(X = U \sqcup V\) for some nonempty, disjoint, open subsets of \(\mathbb{R}^2\). Since \(A\) is connected, either \(U\) or \(V\) must contain \(A\), say \(U\). On the other hand, \((0, 0) \in V\), but since \(V\) is open, it contains all the interior points, i.e. 
         
         Assume there is a clopen subset \(S \subset X\) that is not empty. Without loss of generality, we have that \((0, 0) \in U\) (otherwise, consider the complement of \(U\) which also must be clopen). Since \(A\) is clopen in \(A\), the intersection \(A \cap U\) must also be clopen in \(A\), but \(A\) is connected, so \(A\) is contained in \(U\).
 
@@ -300,3 +306,5 @@
         Choose two points \(x_0 = (0, 1) \in A\) and \(x_1 = (1, 1) \in B\) and a path \(\gamma: [0, 1] \longrightarrow X\) with \(\gamma(0) = x_0\) and \(\gamma(1) = x_1\). Let \(\epsilon \in (0, 1)\), then \(B_\epsilon(x_0) \cap X\) is an open subset that contains \(x_0\), therefore, \(\gamma^{-1}(B_\epsilon(x_0) \cap X)\) is also open.
     \end{enumerate}
 \end{proof}
+
+As motivation, the proof of intermediate value theorem becomes very elegant.
