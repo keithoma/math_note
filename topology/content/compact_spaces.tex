@@ -102,8 +102,18 @@
     \begin{enumerate}
         \item Let \(f: X \longrightarrow Y\) be continuous and \(X\) compact. Denote the open cover of the continuous image of \(X\) by \(\mathcal{C}\), i.e.
         \begin{align*}
-            f(X) \subset \bigcup_{U \in \mathcal{C}} U \text{.  }
+            f(X) \subset \bigcup_{U \in \mathcal{C}} U \text{.}
         \end{align*}
+        Because \(f\) is continuous, each of the preimages \(f^{-1}(U)\) with \(U \in \mathcal{C}\) is open. Now, \(X\) is compact, there are finitely many \(f^{-1}(U)\) such that
+        \begin{align*}
+            X \subset \bigcup_{U \in \mathcal{F}} f^{-1}(U)
+        \end{align*}
+        Conclude that \(f(X)\) is compact.
+        \item Let \(\mathcal{U}\) be an open cover of \(A\). Every open set in \(\mathcal{U}\) is in the form \(U \cap A\) for some open set \(U \subset X\). Define
+        \begin{align*}
+            \mathcal{V} := \makeset{U \in \mathcal{O}}{U \cap A \in \mathcal{U}}
+        \end{align*}
+        then \(\mathcal{V}\) is an open cover of \(A\) as well. Since \(A\) is closed, \(X \setminus A\) is open, so \(\mathcal{V} \cup (X \setminus A)\) is an open cover of \(X\). By compactness of \(X\), there is a finite subcover that XXXXX.
     \end{enumerate}
 \end{proof}
 
