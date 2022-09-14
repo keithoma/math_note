@@ -37,16 +37,50 @@
     \end{definition}
 \end{defbox}
 %
+\begin{rembox}
+    \begin{remark}
+        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
+    \end{remark}
+\end{rembox}
+%
+\begin{rembox}
+    \begin{remark}
+        \begin{enumerate}
+            \item One might believe that openness and closedness are mutually exclusive, but this is not true, i.e. there are indeed subsets that are both open and closed. Trivial examples include the emptyset \(\varnothing\) and \(X\) itself.
+            \item Furthermore, a subset may neither be open nor closed. If \(X = \{1, 2, 3\}\) is a set, then \((X, \set{\varnothing, X})\) is a well-defined topological space and the subsets \(\{1\}\) and \(\{2, 3\}\) are neither open nor closed.
+        \end{enumerate}
+    \end{remark}
+\end{rembox}
+%
 \begin{example}
     Let \(X = \set{1, 2, 3}\) be a set with three elements. The power set of \(X\) is
     \begin{align*}
         \mathcal{P}(X) = \set{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, X}
     \end{align*}
-    and has \(8\) elements. There are \(2^8 = 256\) subsets of \(\mathcal{P}(X)\)\footnote{The number of subsets in the power set is \(2^8\) because for each element one can choose to be inside the subset or not.}.
+    and has eight elements. There are \(2^8 = 256\) subsets of \(\mathcal{P}(X)\)\footnote{The number of subsets of any finite set is \(2^n\) where \(n\) is the number of elements because for each element one can choose this element to be inside the subset or not.}.
     \begin{enumerate}
         \item There are no singleton topologies because the first axiom of a topology requires at least two subsets. Thus, the only topology on \(X\) with two elements is \(\set{\varnothing, X}\).
-        \item Any collection of three subsets of \(X\) is a well-defined topology as long as it contains the emptyset and the entire set \(X\). Therefore, \(\set{\varnothing, \{1\}, X}\), \(\set{\varnothing, \{3\}, X}\), and \(\set{\varnothing, \{2, 3\}, X}\) are all examples of a topology. In this case, \(\{2, 3\}\), \(\{1, 2\}\), and \(\{1\}\) are closed subsets respectively. \(\varnothing\) and \(X\) are the only clopen subsets for each of the given topologies. In fact, for any topology that can be defined on \(X\), the only clopen subsets are the emptyset and \(X\) itself. However, \(\set{\{1\}, \{2\}, X}\), \(\set{\varnothing, \{1\}, \{2, 3\}}\), \(\set{\{1\}, \{2\}, \{3\}}\) are all nonexamples of a topology.
-        \item Since any topology must include the union of members, the only topologies on \(X\) with four elements contains a subset that is included in the other one that is not \(X\). For example, \(\set{\varnothing, \{1\}, \{1, 3\}, X}\) and \(\set{\varnothing, \{2\}, \{2, 3\}, X}\) are topologies, but \(\set{\varnothing, \{1\}, \{2, 3\}}\) and \(\set{\varnothing, \{1\}, \{2\}, X}\) are not. In this example, \(\set{\varnothing, \{2\}, \{2, 3\}, X}\) and \(\set{\varnothing, \{1\}, \{1, 3\}, X}\) are the collection of closed subsets respectively.
+        %
+        \item Any collection of three subsets of \(X\) is a well-defined topology as long as it contains the emptyset and the entire set \(X\). Therefore, there are six topologies on \(X\) containing exactly three elements.
+        \begin{align*}
+            \set{\varnothing, \{1\}, X} \text{,} & & \set{\varnothing, \{2, 3\}, X} \text{,}\\
+            \set{\varnothing, \{2\}, X} \text{,} & & \set{\varnothing, \{1, 3\}, X} \text{,}\\
+            \set{\varnothing, \{3\}, X} \text{,} & & \set{\varnothing, \{1, 2\}, X} \text{.}\\
+        \end{align*}
+        The collection of closed subsets for each of the topologies above corresponds to the other topology in the same row, i.e. \(\set{\varnothing, \{2, 3\}, X}\) is the collection of closed subsets for the topology \(\set{\varnothing, \{1\}, X}\).
+        
+        Nonexamples of a topology include \(\set{\{1\}, \{2\}, X}\), \(\set{\varnothing, \{1\}, \{2, 3\}}\), \(\set{\{1\}, \{2\}, \{3\}}\) because these already fail to fulfill the first axiom.
+        %
+        \item Since any topology must include the union of members, the topologies on \(X\) with four elements contain a subset that is included in the other one that is not \(X\).
+        \begin{align*}
+            \set{\varnothing, \{1\}, \{1, 2\}, X} \text{,} & & \set{\varnothing, \{3\}, \{2, 3\}, X} \text{,} \\
+            \set{\varnothing, \{1\}, \{1, 3\}, X} \text{,} & & \set{\varnothing, \{2\}, \{2, 3\}, X} \text{,} \\
+            \set{\varnothing, \{2\}, \{1, 2\}, X} \text{,} & & \set{\varnothing, \{3\}, \{1, 3\}, X} \text{,} \\
+        \end{align*}
+        Again, the collection of closed subsets for each of the topologies listed are in the same row but on the other side, i.e. \(\set{\varnothing, \{3\}, \{2, 3\}, X}\) is the collection of closed subset for \(\set{\varnothing, \{1\}, \{1, 2\}, X}\).
+
+        However, \(\set{\varnothing, \{1\}, \{2\}, X}\) and \(\set{\varnothing, \{1\}, \{2, 3\}, X}\) are not topologies because they do not contain the union of its members.
+        %
         \item Similary, there are exactly six topologies on \(X\) that contain five elements. Those are
         \begin{align*}
             \set{\varnothing, \{1\}, \{2\}, \{1, 2\}, X}, & & \set{\varnothing, \{3\}, \{1, 3\}, \{2, 3\}, X}, \\
@@ -59,22 +93,45 @@
             \set{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, X}
         \end{align*}
         for example. The missing elements \(\{2, 3\}\) and \(\{1, 3\}\) can be generated by \(\{2\} \cup \{3\}\) and \(\{1\} \cup \{3\}\).
-        \item Lastly, \(\mathcal{P}(X)\) itself is a well-defined topology.
+        \item Lastly, \(\mathcal{P}(X)\) itself is a well-defined topology. Each subset of this topology is clopen.
     \end{enumerate}
-
+    We have shown that on \(X = \{1, 2, 3\}\) there are \(20\) possible topologies. While the total amount of all possible subsets were \(256\), if we consider that any topology must contain the emptyset \(\varnothing\) and \(X\) itself, then the number of valid collection of subsets shrinks to \(2^6 = 64\). Thus, around \(1/3\) of sensible collection of subsets were topologies in this example.
 \end{example}
+There are two key takeaways from this example. Firstly, the collection of closed subsets for each topology were topologies themselves. Another is that the collection of all possible topologies can be partially ordered using the inclusion relation.
 %
-\begin{rembox}
-    \begin{remark}
-        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
-    \end{remark}
-\end{rembox}
+\begin{thmbox}
+    \begin{proposition}
+        Let \((X, \mathcal{O})\) be a topological space. The collection of all closed subsets of \(X\) with regards to \(\mathcal{O}\) is a topology.
+    \end{proposition}
+\end{thmbox}
 %
-\begin{rembox}
-    \begin{remark}
-        Openness and closedness of a subset does not imply anything of the other property. An open subset may also be closed and vice versa. Furthermore, a subset need not be open nor closed.
-    \end{remark}
-\end{rembox}
+\begin{proof}
+    
+\end{proof}
+%
+\begin{defboxlight}
+    \begin{definition}[Definition of a Topology via Closed Sets]
+        A topology on a set \(X\) is a collection \(\mathcal{O}\) of subsets of \(X\) that satisfies the following axioms.
+        \begin{enumerate}
+            \item The emptyset \(\varnothing\) and the entire set \(X\) belong to \(\mathcal{O}\).
+            \item Any arbitary intersection of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
+            \item The union of finite number of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
+        \end{enumerate}
+        In this case, the elements of \(\mathcal{O}\) are called closed sets. A subset \(A \subset X\) is said to be open if its complement \(X \setminus A\) is open.
+    \end{definition}
+\end{defboxlight}
+%
+\begin{defboxlight}
+    \begin{definition}[Definition of a Topology via Neighborhoods]
+        
+    \end{definition}
+\end{defboxlight}
+%
+\begin{thmbox}
+    \begin{proposition}
+        The three definitions of a topology are equivalent.
+    \end{proposition}
+\end{thmbox}
 %
 \begin{defbox}
     \begin{definition}[Comparison of Topologies]
@@ -86,8 +143,8 @@
     \begin{example}
         Let \(X\) be a {\color{mathif}set}.
         \begin{enumerate}
-            \item \(\mathcal{O} = \mathcal{P}(X)\) is called the {\color{maththen}discrete topology}. In this case, \((X, \mathcal{O})\) is called the {\color{maththen}discrete space}. It is the {\color{mathrem}finest topology} that can be defined on a set.
             \item \(\mathcal{O} = \{\varnothing, \mathcal{P}(X)\}\) is called the {\color{maththen}trivial topology}. It is the coarsest topology that can be defined on a set.
+            \item \(\mathcal{O} = \mathcal{P}(X)\) is called the {\color{maththen}discrete topology}. In this case, \((X, \mathcal{O})\) is called the {\color{maththen}discrete space}. It is the {\color{mathrem}finest topology} that can be defined on a set.
         \end{enumerate}
     \end{example}
 \end{exmbox}

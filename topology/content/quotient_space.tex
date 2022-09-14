@@ -8,29 +8,6 @@
 % \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
 %  \______/ \__|  \__| \_______| \_______|  \____/
 \section{Definitions and Theorems}
-\begin{defbox}
-    \begin{definition}
-        Let \((X, \mathcal{O})\) be a {\color{mathif}topological space}, and let \(\sim\) be an {\color{mathif}equivalence relation} on \(X\). The {\color{maththen}quotient set}, \(X / \sim\) is the {\color{mathobj}set} of {\color{mathobj}equivalence classes} of elements of \(X\). The equivalence class of \(x \in X\) is {\color{mathrem}denoted} \([x]\). The {\color{maththen}projection map} (also {\color{mathrem}quotient} or {\color{mathrem}canonical map}) associated with \(\sim\) refers to the following {\color{mathif}surjective map}:
-        \begin{align*}
-            \pi: X \longrightarrow X / \sim, \qquad x \mapsto [x]
-        \end{align*}
-        For any subset \(S \subset X / \sim\) (so in particular, \(s \subset X\) for every \(s \in S\))
-        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset Y = X / \sim\) such that \(\makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u\) is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
-    \end{definition}
-\end{defbox}
-\begin{thmbox}
-    \begin{proposition}
-        \(\mathcal{O}_{X / \sim}\) is the {\color{maththen}finest} {\color{mathobj}topology} in which the {\color{mathif}projection map} \(\pi: X \longrightarrow X / \sim\) is {\color{mathif}continuous}.
-    \end{proposition}
-\end{thmbox}
-\begin{defbox}
-    Let \(X\) and \(Y\) be topological spaces and let \(p: X \longrightarrow Y\) be a surjective map. The map is a quotient map (also said strong continuity) if one of the equivalent condition hold.
-    \begin{enumerate}
-        \item A subset \(U \subset Y\) is open in \(Y\) if and only if the preimage \(p^{-1}(U)\) is open in \(X\).
-        \item A subset \(U \subset Y\) is closed in \(Y\) if and only if the preimage \(p^{-1}(U)\) is closed in \(X\).
-    \end{enumerate}
-\end{defbox}
-\newpage
 % $$$$$$$\                                 $$$$$$\  
 % $$  __$$\                               $$  __$$\ 
 % $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
@@ -46,11 +23,32 @@
         \begin{align*}
             \pi: X \longrightarrow X / \sim, \qquad x \mapsto [x]
         \end{align*}
-        For any subset \(S \subset X / \sim\) (so in particular, \(s \subset X\) for every \(s \in S\))
-        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset Y = X / \sim\) such that \(\makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u\) is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
+        For any subset \(S \subset X / \sim\) (so in particular, \(s \subset X\) for every \(s \in S\)) the following holds.
+        \begin{align*}
+            q^{-1}(S) = \makeset{x \in X}{[x] \in S} = \bigcup_{s \in S} s \text{.}
+        \end{align*}
+
+        The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset X / \sim\) such that 
+        \begin{align*}
+            \makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u
+        \end{align*}
+        is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
     \end{definition}
 \end{defbox}
-
+%
+\begin{proof}
+    We will show that \(\mathcal{O}_\sim\) is a topology.
+    \begin{enumerate}
+        \item Clearly, \(\pi^{-1}(\varnothing) = \varnothing \in \mathcal{O}\), thus \(\varnothing \in \mathcal{O}_\sim\). Moreover, \(\pi(X) = X / \sim\), hence \(\pi^{-1}(X / \sim) = X \in \mathcal{O}\), and it is \(X / \sim \in \mathcal{O}_\sim\).
+        \item Let \(I\) be an arbitary index set and \(\{U_i\}_{i \in I}\) a family of open sets in \(X / \sim\). It is
+        \begin{align}
+            \pi^{-1}\left( \bigcup_{i \in I} U_i \right) = \bigcup_{i \in I} \pi^{-1}(U_i) \text{.}
+        \end{align}
+        Since \(U_i\) is open and \(\pi\) is continuous, \(\pi^{-1}(U_i)\) is open for all \(i \in I\). Thus \(\bigcup_{i \in I} U_i \in \mathcal{O}_\sim\).
+        \item Similar as above as preimages preserve unions and intersections.
+    \end{enumerate}
+\end{proof}
+%
 \begin{exmbox}
     \begin{example}
         \begin{enumerate}
