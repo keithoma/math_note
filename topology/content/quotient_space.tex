@@ -50,6 +50,18 @@
         The quotient space under \(\sim\) is the quotient set \(X / \sim\) equipped with the quotient topology, which is the topology whose open sets are subsets \(U \subset Y = X / \sim\) such that \(\makeset{x \in X}{[x] \in U} = \bigcup_{u \in U}u\) is an open subset of \((X, \mathcal{O}_X)\); that is, \(U \subset X / \sim\)
     \end{definition}
 \end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item \(\mathbb{R} / \mathbb{Z}\)
+
+            This space is homeomorph to \(S^{-1}\) and is compact.
+            \item \((\mathbb{R} / \mathbb{Q}, \mathcal{O}_{\mathbb{R} / \mathbb{Q}})\) is the trivial topology.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
 \begin{thmbox}
     \begin{proposition}
         \(\mathcal{O}_{X / \sim}\) is the {\color{maththen}finest} {\color{mathobj}topology} in which the {\color{mathif}projection map} \(\pi: X \longrightarrow X / \sim\) is {\color{mathif}continuous}.
@@ -62,9 +74,97 @@
         \item A subset \(U \subset Y\) is closed in \(Y\) if and only if the preimage \(p^{-1}(U)\) is closed in \(X\).
     \end{enumerate}
 \end{defbox}
-\begin{remark}
-    Quotient maps are continuous. There are quotient maps that are neither open nor closed maps.
-\end{remark}
+\begin{rembox}
+    \begin{remark}
+        Quotient maps are continuous. There are quotient maps that are neither open nor closed maps.
+    \end{remark}
+\end{rembox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(Y\) be a topological space. Then the following are equivalent.
+        \begin{enumerate}
+            \item \(f: X / \sim \longrightarrow Y\) continuous
+            \item \(f \circ \pi : X \longrightarrow Y\) is continuous.
+        \end{enumerate}
+
+        Moreover, if \(X\) is connected, then \(X / \sim\) is connected. Same is true for path-connectedness and compactness.
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        A topological group \(G\) is a topological space that is also a group such that the group operation
+        \begin{align*}
+            \circ: G \times G \longrightarrow G, (x, y) \mapsto x \circ y
+        \end{align*}
+        and the inversion map
+        \begin{align*}
+            ^{-1}: G \longrightarrow G, x \mapsto x^{-1}
+        \end{align*}
+        are continuous. Here \(G \times G\) is viewed as a topological space with the product topology. Such a topoloy is said to be compatible with the group operations and is called a group topology.
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        About homoemorphism of G-space.
+    \end{remark}
+\end{rembox}
+
+\begin{defbox}
+    \begin{definition}
+        Consider a group acting on a set \(X\). The orbit of an element \(x\) in \(X\) is the set of elements in \(X\) to which \(x\) can be moved by the elements of \(G\). The orbit of \(x\) is denoted by \(G \cdot x\).
+        \begin{align*}
+            G \cdot x := \makeset{g \cdot x}{g \in G} \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        \(X / G := X / \sim\) such that \(x \sim y\) if and only if there is a \(g \in G\) such that \(x = gy\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Hilbert]
+        \begin{itemize}
+            \item Matrix \(A\) is semi-stable if \(A\) is diagonizable.
+            \item Matrix \(A\) is stable, if it is semi-stable and all Eigenvalues are distinct.
+        \end{itemize}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Stabilisator]
+        \(x \in X\)
+
+        \(G \supset G_x := \makeset{h}{h \cdot x = x}\)
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        \begin{enumerate}
+            \item \(G_x \subset G\) is a subgroup.
+            \item \(G/G_x \longrightarrow G_x\) is well-defined and \([x] \mapsto gx\) is a continuous bijection (repsective of the quotient topology on \(G / G_x\)).
+        \end{enumerate}
+    \end{lemma}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        If \(G\) is compact and \(X\) is \(T_2\), then \(f: G/G_x \longrightarrow G\) is a homeomorphism.
+    \end{corollary}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        
+    \end{definition}
+\end{defbox}
+
 \newpage
 % $$\   $$\            $$\                         
 % $$$\  $$ |           $$ |                        
