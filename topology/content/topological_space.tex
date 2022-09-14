@@ -11,109 +11,9 @@
 % $$ |  $$\ $$ |  $$ |$$   ____|$$   ____| $$ |$$\ 
 % \$$$$$$  |$$ |  $$ |\$$$$$$$\ \$$$$$$$\  \$$$$  |
 %  \______/ \__|  \__| \_______| \_______|  \____/
-\section{Definitions and Theorems}
-\begin{defbox}
-    \begin{definition}[Topological Space]
-        A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \mathcal{O})\), where \(X\) is a {\color{mathif}set} and \(\mathcal{O}\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
-        \begin{enumerate}
-            \item The {\color{mathif}empty set} \(\varnothing\) and the {\color{mathif}entire set} \(X\) belongs to \(\mathcal{O}\).
-            \item Any \textbf{arbitary} {\color{mathif}union} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
-            \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
-        \end{enumerate}
-        The {\color{mathobj}collection} \(\mathcal{O}\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\mathcal{O}\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
 
-        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
-    \end{definition}
-\end{defbox}
-%TODO: There are other equivalent definitions
-%TODO: write something about the notation
+\section{Cheat Sheet}
 
-\begin{defbox}
-    \begin{definition}[Continuous Maps]
-        Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
-        \begin{equation}
-            \text{for all } U \in \tau_Y \text{ it is } f^{-1}(U) \in \tau_X \text{.}
-        \end{equation}
-    \end{definition}
-\end{defbox}
-\begin{thmbox}
-    \begin{lemma}
-        The different definitions of continuity in a topological space and a metric space are equivalent, i.e. if \(X\) and \(Y\) are metric spaces, then \(f: X \longrightarrow Y\) is \(\epsilon\)-\(\delta\)-continuous if and only if \(f\) is continuous.
-    \end{lemma}
-\end{thmbox}
-
-\begin{defbox}
-    \begin{definition}[Homeomorphism]
-        Let \(X\) and \(Y\) be {\color{mathif}topological spaces}.
-        \begin{enumerate}
-            \item A {\color{mathobj}map} \(f: X \longrightarrow Y\) is a {\color{maththen}homeomorphism} if it has the following properties.
-
-            \begin{enumerate}
-                \item \(f\) is {\color{mathif}bijective}.
-                \item \(f\) and the {\color{mathif}inverse map} \(f^{-1}\) is {\color{mathif}continuous}.
-            \end{enumerate}
-
-            \item Two topological spaces \(X\) and \(Y\) are said to be {\color{maththen}homeomorphic} if a homeomorphism exists.
-
-            \item We denote the set of all homeomorphisms from \(X\) to \(Y\) by \(\mathrm{Homeo}(X, Y)\). If \(Y = X\) we also write \(\mathrm{Homeo}(X)\).
-        \end{enumerate}
-    \end{definition}
-\end{defbox}
-
-\begin{defbox}
-    \begin{definition}[Base]
-        Let \((X, \tau)\) a {\color{mathif}topological space}.
-        \begin{enumerate}
-            \item \(\mathcal{B} \subset \mathcal{O}\) is a {\color{maththen}basis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of subsets} from \(\mathcal{B}\).
-            \item \(\mathcal{S} \subset \mathcal{O}\) is a {\color{maththen}subbasis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of finite intersections of subsets} from \(\mathcal{S}\).
-        \end{enumerate}
-        We say that \(\mathcal{B}\) and \(\mathcal{S}\) {\color{maththen}generates} \(\mathcal{O}\) and write \(\overline{\mathcal{S}} = \overline{\mathcal{B}} = \mathcal{O}\).
-    \end{definition}
-\end{defbox}
-
-\begin{thmbox}
-    \begin{lemma}
-    Let \(\mathcal{S} \subset \mathcal{P}(X)\) be a {\color{mathobj}collection of subsets}, then there {\color{maththen}exists} \textbf{exactly one} topology \(\tau \subset \mathcal{P}(X)\) of \(X\) such that
-    \begin{enumerate}
-        \item \(\mathcal{S} \subset \tau\)
-        \item If \(\tau' \subset \mathcal{P}(X)\) a topology with \(S \subset \tau'\), then \(\tau \subset \tau'\).
-    \end{enumerate}
-    \end{lemma}
-\end{thmbox}
-
-\begin{defbox}
-    \begin{definition}
-        \begin{enumerate}
-            \item Given \((X, \tau)\) be a {\color{mathif}topological space}, \(S \subset X\) a subset, the {\color{maththen}subspace topology} (also the induced topology or the relative topology) on \(S\) is defined by
-            \begin{equation*}
-                \tau_S = \makeset{S \cap U}{U \in \tau} \text{.}
-            \end{equation*}
-            \item Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be two {\color{mathif}topological spaces}. The product topology of \(X\) and \(Y\) is defined by
-            \begin{equation*}
-                \tau_{X \times Y} := \makeset{U \times V}{U \in \tau_X \text{ and } V \in \tau_Y} \text{.}
-            \end{equation*}
-            \item Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be two {\color{mathif}topological spaces}. The topological sum of \(X\) and \(Y\) is defined by
-            \begin{align*}
-                \tau_{X \sqcup Y} := \makeset{U \sqcup V}{U \in \tau_X \text{ and } V \in \tau_Y} \text{.}
-            \end{align*}
-        \end{enumerate}
-    \end{definition}
-\end{defbox}
-
-\begin{defbox}
-    \begin{definition}
-        Let \((X, \tau)\) be a topological space.
-        \begin{enumerate}
-            \item Given a {\color{mathobj}point} \(p \in X\), a subset \(U \subset X\) is a neighborhood of \(p\) if there is an open subset \(V \in U\) such that \(p \in V\). If such a neighborhood exists, \(p\) is called a interior point of \(U\).
-            \item Let \(S \subset X\) be a subset. The interior of \(S\), denoted by \(\mathring{S}\) or \(\mathrm{int}(S)\), is the {\color{mathobj}set} of all interior points of \(S\).
-            \item Let \(S \subset X\) be a subset. The closure of \(S\), denoted by \(\overline{S}\) or \(\mathrm{cl}(S)\), is defined by
-            \begin{equation*}
-                \mathrm{cl}(S) := X \setminus \mathrm{int}(X \setminus S) \text{.}
-            \end{equation*}
-        \end{enumerate}
-    \end{definition}
-\end{defbox}
-\newpage
 % $$$$$$$\                                 $$$$$$\  
 % $$  __$$\                               $$  __$$\ 
 % $$ |  $$ | $$$$$$\   $$$$$$\   $$$$$$\  $$ /  \__|
@@ -133,11 +33,48 @@
             \item The {\color{mathif}intersection} of \textbf{finite number} of members of \(\mathcal{O}\) belongs to \(\mathcal{O}\).
         \end{enumerate}
         
-        The {\color{mathobj}collection} \(\mathcal{O}\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\mathcal{O}\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}.
-        
-        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
+        The {\color{mathobj}collection} \(\mathcal{O}\) is called a {\color{maththen}topology} on \(X\) and the {\color{mathobj}elements} of \(\mathcal{O}\) are called {\color{maththen}open sets}. A {\color{mathobj}subset} \(A \subset X\) is said to be {\color{maththen}closed} if its {\color{mathif}complement} \(X \setminus A\) is {\color{mathif}open}. Moreover, a {\color{mathobj}subset} that is \textbf{both} {\color{mathif}open} and {\color{mathif}closed} is called {\color{maththen}clopen}.
     \end{definition}
 \end{defbox}
+%
+\begin{example}
+    Let \(X = \set{1, 2, 3}\) be a set with three elements. The power set of \(X\) is
+    \begin{align*}
+        \mathcal{P}(X) = \set{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, X}
+    \end{align*}
+    and has \(8\) elements. There are \(2^8 = 256\) subsets of \(\mathcal{P}(X)\)\footnote{The number of subsets in the power set is \(2^8\) because for each element one can choose to be inside the subset or not.}.
+    \begin{enumerate}
+        \item There are no singleton topologies because the first axiom of a topology requires at least two subsets. Thus, the only topology on \(X\) with two elements is \(\set{\varnothing, X}\).
+        \item Any collection of three subsets of \(X\) is a well-defined topology as long as it contains the emptyset and the entire set \(X\). Therefore, \(\set{\varnothing, \{1\}, X}\), \(\set{\varnothing, \{3\}, X}\), and \(\set{\varnothing, \{2, 3\}, X}\) are all examples of a topology. In this case, \(\{2, 3\}\), \(\{1, 2\}\), and \(\{1\}\) are closed subsets respectively. \(\varnothing\) and \(X\) are the only clopen subsets for each of the given topologies. In fact, for any topology that can be defined on \(X\), the only clopen subsets are the emptyset and \(X\) itself. However, \(\set{\{1\}, \{2\}, X}\), \(\set{\varnothing, \{1\}, \{2, 3\}}\), \(\set{\{1\}, \{2\}, \{3\}}\) are all nonexamples of a topology.
+        \item Since any topology must include the union of members, the only topologies on \(X\) with four elements contains a subset that is included in the other one that is not \(X\). For example, \(\set{\varnothing, \{1\}, \{1, 3\}, X}\) and \(\set{\varnothing, \{2\}, \{2, 3\}, X}\) are topologies, but \(\set{\varnothing, \{1\}, \{2, 3\}}\) and \(\set{\varnothing, \{1\}, \{2\}, X}\) are not. In this example, \(\set{\varnothing, \{2\}, \{2, 3\}, X}\) and \(\set{\varnothing, \{1\}, \{1, 3\}, X}\) are the collection of closed subsets respectively.
+        \item Similary, there are exactly six topologies on \(X\) that contain five elements. Those are
+        \begin{align*}
+            \set{\varnothing, \{1\}, \{2\}, \{1, 2\}, X}, & & \set{\varnothing, \{3\}, \{1, 3\}, \{2, 3\}, X}, \\
+            \set{\varnothing, \{1\}, \{3\}, \{1, 3\}, X}, & & \set{\varnothing, \{2\}, \{1, 2\}, \{2, 3\}, X}, \\
+            \set{\varnothing, \{2\}, \{3\}, \{2, 3\}, X}, & & \set{\varnothing, \{1\}, \{1, 2\}, \{1, 3\}, X} \text{.}
+        \end{align*}
+        Note that the collection of closed subsets corresponds to the one in the same row, i.e. for \(\set{\varnothing, \{1\}, \{2\}, \{1, 2\}, X}\) the collection of closed subsets are \(\set{\varnothing, \{3\}, \{1, 3\}, \{2, 3\}, X}\) and vice versa.
+        \item There are no topolgoies on \(X\) that contain exactly six or seven subsets. Take
+        \begin{align*}
+            \set{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, X}
+        \end{align*}
+        for example. The missing elements \(\{2, 3\}\) and \(\{1, 3\}\) can be generated by \(\{2\} \cup \{3\}\) and \(\{1\} \cup \{3\}\).
+        \item Lastly, \(\mathcal{P}(X)\) itself is a well-defined topology.
+    \end{enumerate}
+
+\end{example}
+%
+\begin{rembox}
+    \begin{remark}
+        We often just write \(X\) instead of \((X, \mathcal{O})\) if the given topology is clear.
+    \end{remark}
+\end{rembox}
+%
+\begin{rembox}
+    \begin{remark}
+        Openness and closedness of a subset does not imply anything of the other property. An open subset may also be closed and vice versa. Furthermore, a subset need not be open nor closed.
+    \end{remark}
+\end{rembox}
 %
 \begin{defbox}
     \begin{definition}[Comparison of Topologies]
