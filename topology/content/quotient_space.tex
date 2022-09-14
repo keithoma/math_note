@@ -47,7 +47,7 @@
         Since \(U_i\) is open and \(\pi\) is continuous, \(\pi^{-1}(U_i)\) is open for all \(i \in I\). Thus \(\bigcup_{i \in I} U_i \in \mathcal{O}_\sim\).
         \item Similar as above as preimages preserve unions and intersections.
     \end{enumerate}
-    Let \(\mathcal{O}_\sim \subsetneq \mathcal{O}^\prime\). Then there is a open set \(U \in \mathcal{O}^\prime\) but \(U \not\in \mathcal{O}_\sim\).
+    Let \(\mathcal{O}_\sim \subsetneq \mathcal{O}^\prime\). Then there is a open set \(U \in \mathcal{O}^\prime\) but \(U \not\in \mathcal{O}_\sim\). So \(\pi^{-1}(U)\) does not lie in \(\mathcal{O}\). But this is a contradiction.
 \end{proof}
 %
 \begin{exmbox}
@@ -60,7 +60,7 @@
         \end{enumerate}
     \end{example}
 \end{exmbox}
-
+%
 \begin{thmbox}
     \begin{proposition}
         \(\mathcal{O}_{X / \sim}\) is the {\color{maththen}finest} {\color{mathobj}topology} in which the {\color{mathif}projection map} \(\pi: X \longrightarrow X / \sim\) is {\color{mathif}continuous}.
@@ -174,3 +174,15 @@
 % $$ | \$$ |\$$$$$$  | \$$$$  |\$$$$$$$\ $$$$$$$  |
 % \__|  \__| \______/   \____/  \_______|\_______/
 \section{Exercises and Notes}
+
+\begin{example}
+    \(D^n / \partial D^n\) is homeomorph to \(S^n\) where \(D^n\) is the closed \(n\)-ball and \(S^n\) is the \(n\)-sphere.
+\end{example}
+\begin{proof}
+    What works is this
+    \begin{align*}
+        \text{if } ||x|| = 1 \Rightarrow f(x) = \text{ north pole} \\
+        \text{if } ||x|| = 0 \Rightarrow f(x) = \text{ south pole}
+    \end{align*}
+    So how to find \(y = (y_0, y_1, \ldots, y_n)\)? We have \(y = (2||x|| - 1, \ldots)\) and \(y_k\) is a multiple of \(x_k\) such that \(||y|| = 1\).
+\end{proof}

@@ -61,3 +61,22 @@
         \end{align*}
     \end{definition}
 \end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Pasting]
+        Let \(X\) and \(Y\) be two disjoint topological spaces, \(A \subset X\) a closed subset, and \(f: A \longrightarrow Y\) continuous. Define a equivalence relation on \(X \cup Y\) by
+        \begin{align*}
+            v \sim w :
+            \begin{cases}
+                v = w \text{ if } v, w \in X \cup Y \\
+                f(v) = f(w) \text{ if } v, w \in A \\
+                v = f(w) \text{ if } v \in Y, w \in A \\
+                w = f(v) \text{ if } v \in A, w \in Y
+            \end{cases}
+        \end{align*}
+        We write
+        \begin{align*}
+            Y \cup_f X := X \cup Y / \sim
+        \end{align*}
+    \end{definition}
+\end{defbox}
