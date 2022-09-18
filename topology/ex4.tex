@@ -90,15 +90,13 @@
 \section*{Problem 1}
 Let \(\varphi: X_0 \subset X \longrightarrow Y\) be a continuous map. Recall the construction of glueing \(X\) to \(Y\) via \(\varphi\) from class.
 \begin{enumerate}
-    \item Show that \(Y\) can be considered to be a subspace of \(X \cup_\varphi Y\). Show that the same is true for \(X\) if \(\varphi\) is a homeomorphism onto its image.
+    \item Show that \(Y\) can be considered to be a subspace of \(Y \cup_\varphi X\). Show that the same is true for \(X\) if \(\varphi\) is a homeomorphism onto its image.
     \begin{proof}
-        It is
-        \begin{equation*}
-            X \cup_\varphi Y := (X \sqcup Y) / \sim
-        \end{equation*}
+        \begin{align*}
+            Y \cup_\varphi X = X \cup Y / \sim \\
+            \mathcal{O}_{X \cup Y / \sim} = \makeset{U \subset X \cup Y/ \sim}{\pi^{-1} (U) \in \mathcal{O}_{X \cup Y}} \\
+            \mathcal{O}_{X \cup Y} = \makeset{U \times V}{U \in \mathcal{O}_X, V \in \mathcal{O}_Y}
+        \end{align*}
     \end{proof}
-    \(a \sim f(a)\)
-
-    We want to find a surjective map \(\psi: Y \longrightarrow X \cup_\varphi Y\) such that \(\psi(U)\) is open in the quotient topology.
 \end{enumerate}
 \end{document}
