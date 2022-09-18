@@ -33,6 +33,26 @@
 
 \begin{rembox}
     \begin{remark}
+        The majority of 'everyday' spaces in mathematics are first-countable.
+    \end{remark}
+\end{rembox}
+
+\begin{exmbox}
+    \begin{example}
+        Every metric space is first-countable.
+    \end{example}
+\end{exmbox}
+
+\begin{proof}
+    Let \((M, d)\) be a metric space and fix a point \(x \in M\). The open balls \(\{B_n(x)\}_{n \in \mathbb{N}}\) around \(x\) where
+    \begin{align*}
+        B_n(x) := \makeset{y \in M}{d(x, y) < \frac{1}{n}}
+    \end{align*}
+    defines a sequence of neighbourhoods of \(x\). Now, any neighbourhood \(N\) of \(x\) is contained in at least one of these balls. Thus, every metric space is first-countable.
+\end{proof}
+
+\begin{rembox}
+    \begin{remark}
         A countable subbase induces a countable base.
     \end{remark}
 \end{rembox}
@@ -82,4 +102,18 @@
 \end{defbox}
 \begin{example}
     Consider \(X = [0, 1]\) on the \(x\)-axis and \(Y = [0, 1]\).
+\end{example}
+\begin{example}
+    Portals can be thought of a Pasting
+\end{example}
+
+\begin{example}
+    Let \(D^n := \makeset{x \in \mathbb{R}^n}{||x|| \leq 1}\in \mathbb{R}^n\) be the \(n\)-dimensional ball and define
+    \begin{align*}
+        id_{}: \partial D^n \longrightarrow \partial D^n, x \mapsto x
+    \end{align*}
+    It is
+    \begin{align*}
+        D^n \cup_{\varphi} D^n = D^n \cup D^n / \sim
+    \end{align*}
 \end{example}
