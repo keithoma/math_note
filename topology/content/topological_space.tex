@@ -24,6 +24,7 @@
 % \__|      \__|       \______/  \______/ \__|
 \section{Proofs, Remarks, and Examples}
 %
+\subsection{Think of a Title}
 \begin{defbox}
     \begin{definition}[Topological Space]
         A {\color{maththen}topological space} is an {\color{mathobj}ordered pair} \((X, \mathcal{O})\), where \(X\) is a {\color{mathif}set} and \(\mathcal{O}\) is a {\color{mathif}collection of subsets} that satisfies the following {\color{mathrem}axioms}.
@@ -52,6 +53,12 @@
     \end{remark}
 \end{rembox}
 %
+\begin{rembox}
+    \begin{remark}
+        The definition of a topological space does not require \(X\) to be nonempty. If \(X\) is the emptyset, then the only topology that can be defined on \(X\) is \(\mathcal{O} = \{\varnothing\}\).
+    \end{remark}
+\end{rembox}
+%
 \begin{example}
     Let \(X = \set{1, 2, 3}\) be a set with three elements. The power set of \(X\) is
     \begin{align*}
@@ -65,7 +72,7 @@
         \begin{align*}
             \set{\varnothing, \{1\}, X} \text{,} & & \set{\varnothing, \{2, 3\}, X} \text{,}\\
             \set{\varnothing, \{2\}, X} \text{,} & & \set{\varnothing, \{1, 3\}, X} \text{,}\\
-            \set{\varnothing, \{3\}, X} \text{,} & & \set{\varnothing, \{1, 2\}, X} \text{.}\\
+            \set{\varnothing, \{3\}, X} \text{,} & & \set{\varnothing, \{1, 2\}, X} \text{.}
         \end{align*}
         The collection of closed subsets for each of the topologies above corresponds to the other topology in the same row, i.e. \(\set{\varnothing, \{2, 3\}, X}\) is the collection of closed subsets for the topology \(\set{\varnothing, \{1\}, X}\).
         
@@ -75,7 +82,10 @@
         \begin{align*}
             \set{\varnothing, \{1\}, \{1, 2\}, X} \text{,} & & \set{\varnothing, \{3\}, \{2, 3\}, X} \text{,} \\
             \set{\varnothing, \{1\}, \{1, 3\}, X} \text{,} & & \set{\varnothing, \{2\}, \{2, 3\}, X} \text{,} \\
-            \set{\varnothing, \{2\}, \{1, 2\}, X} \text{,} & & \set{\varnothing, \{3\}, \{1, 3\}, X} \text{,} \\
+            \set{\varnothing, \{2\}, \{1, 2\}, X} \text{,} & & \set{\varnothing, \{3\}, \{1, 3\}, X} \text{,}\\
+            & \set{\varnothing, \{1\}, \{2, 3\}, X} \text{,} & \\
+            & \set{\varnothing, \{2\}, \{1, 3\}, X} \text{,} & \\
+            & \set{\varnothing, \{3\}, \{1, 2\}, X} &
         \end{align*}
         Again, the collection of closed subsets for each of the topologies listed are in the same row but on the other side, i.e. \(\set{\varnothing, \{3\}, \{2, 3\}, X}\) is the collection of closed subset for \(\set{\varnothing, \{1\}, \{1, 2\}, X}\).
 
@@ -88,7 +98,13 @@
             \set{\varnothing, \{2\}, \{3\}, \{2, 3\}, X}, & & \set{\varnothing, \{1\}, \{1, 2\}, \{1, 3\}, X} \text{.}
         \end{align*}
         Note that the collection of closed subsets corresponds to the one in the same row, i.e. for \(\set{\varnothing, \{1\}, \{2\}, \{1, 2\}, X}\) the collection of closed subsets are \(\set{\varnothing, \{3\}, \{1, 3\}, \{2, 3\}, X}\) and vice versa.
-        \item There are no topolgoies on \(X\) that contain exactly six or seven subsets. Take
+        \item a
+        \begin{align*}
+            \set{\varnothing, \{1\}, \{2\}, \{1, 2\}, \{1, 3\}, X} & & \set{\varnothing, \{2\}, \{3\}, \{1,3\}, \{2, 3\}, X} \\
+            \set{\varnothing, \{1\}, \{2\}, \{1, 2\}, \{2, 3\}, X} & & \set{\varnothing, \{1\}, \{3\}, \{1, 3\}, \{2, 3\}} \\
+            \set{\varnothing, \{2\}, \{3\}, \{1, 2\}, \{2, 3\}, X} & & \set{\varnothing, \{1\}, \{3\}, \{1, 2\}, \{1, 3\}}
+        \end{align*}
+        \item There are no topolgoies on \(X\) that contain exactly seven subsets. Take
         \begin{align*}
             \set{\varnothing, \{1\}, \{2\}, \{3\}, \{1, 2\}, X}
         \end{align*}
@@ -106,7 +122,11 @@ There are two key takeaways from this example. Firstly, the collection of closed
 \end{thmbox}
 %
 \begin{proof}
-    
+    Denote \(\mathcal{C}\) to be the collection of closed subsets of \(X\).
+    \begin{enumerate}
+        \item Because \(X \setminus \varnothing = X \in \mathcal{O}\) and \(X \setminus X = \varnothing \in \mathcal{O}\), the emptyset \(\varnothing\) and \(X\) are closed subsets.
+        \item Let \(I\) be an arbitary index set and \(\{C_i\}_{i \in I}\) be a familiy of closed subsets in \(\mathcal{C}\).
+    \end{enumerate}
 \end{proof}
 %
 \begin{defboxlight}
@@ -148,6 +168,15 @@ There are two key takeaways from this example. Firstly, the collection of closed
         \end{enumerate}
     \end{example}
 \end{exmbox}
+
+\begin{rembox}
+    \begin{remark}
+        The only sets in which the trivial topology and the discrete topology coincide are the emptyset and a singleton set.
+    \end{remark}
+\end{rembox}
+
+\newpage
+\subsection*{Metric Space}
 
 \begin{thmbox}
     \begin{proposition}
@@ -270,7 +299,7 @@ There are two key takeaways from this example. Firstly, the collection of closed
 
 \begin{defbox}
     \begin{definition}[Base]
-        Let \((X, \tau)\) a {\color{mathif}topological space}.
+        Let \((X, \mathcal{O})\) a {\color{mathif}topological space}.
         \begin{enumerate}
             \item \(\mathcal{B} \subset \mathcal{O}\) is a {\color{maththen}basis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of subsets} from \(\mathcal{B}\).
             \item \(\mathcal{S} \subset \mathcal{O}\) is a {\color{maththen}subbasis} of the topology, if any member of \(\mathcal{O}\) is the {\color{mathif}union of finite intersections of subsets} from \(\mathcal{S}\).
@@ -278,6 +307,29 @@ There are two key takeaways from this example. Firstly, the collection of closed
         We say that \(\mathcal{B}\) and \(\mathcal{S}\) {\color{maththen}generates} \(\mathcal{O}\) and write \(\overline{\mathcal{S}} = \overline{\mathcal{B}} = \mathcal{O}\).
     \end{definition}
 \end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        We define the following as convention:
+        \begin{enumerate}
+            \item The empty union generates the emptyset, i.e.
+            \begin{align*}
+                \bigcup_{U \in \varnothing} U = \varnothing
+            \end{align*}
+            \item The empty intersection generates the entire set, i.e.
+            \begin{align*}
+                \bigcap_{U \in \varnothing} U = X
+            \end{align*}
+        \end{enumerate}
+    \end{remark}
+\end{rembox}
+
+\begin{example}
+    \begin{enumerate}
+        \item \(\mathcal{O} = \set{\varnothing, \{a\}, X}\) then \(\mathcal{B} = \set{\{a\}, X}\)
+        \item \(\mathcal{O} = \set{\varnothing, \{a\}, \{a, b\}}\) then \(\mathcal{B} = \set{\{a\}, \{a, b\}}\) and 
+    \end{enumerate}
+\end{example}
 
 \begin{exmbox}
     \begin{example}
