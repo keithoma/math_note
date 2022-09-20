@@ -233,6 +233,12 @@ There are two key takeaways from this example. Firstly, the collection of closed
 \end{exmbox}
 %
 \begin{defbox}
+    \begin{definition}
+        Convergence in the topological sense
+    \end{definition}
+\end{defbox}
+%
+\begin{defbox}
     \begin{definition}[Continuous Maps]
         Let \((X, \tau_X)\) and \((Y, \tau_Y)\) be {\color{mathif}topological spaces}. A {\color{mathif}map} \(f: X \longrightarrow Y\) is said to be {\color{maththen}continuous} if the preimage of an open subset is again open, i.e.
         \begin{equation}
@@ -267,6 +273,32 @@ There are two key takeaways from this example. Firstly, the collection of closed
         Again, the proof above coincides with the fact that in a metric space, a function is \(\epsilon\)-\(\delta\)-continuous if and only if the preimage of any open subset is open.
     \end{remark}
 \end{rembox}
+
+\begin{thmbox}
+    \begin{lemma}
+        Let \(X\), \(Y\), and \(Z\) be topological spaces.
+        \begin{enumerate}
+            \item Any constant map \(f: X \longrightarrow Y\) is continuous.
+            \item The identity map \(\mathrm{id}: X \longrightarrow Y\) is continuous.
+            \item If \(f: X \longrightarrow Y\) is continuous, so is the restriction of \(f\) to any open subset of \(X\).
+            \item If \(f: X \longrightarrow Y\) and \(g: Y \longrightarrow Z\) are continuous, so is their composition \(g \circ f: X \longrightarrow Z\).
+        \end{enumerate}
+    \end{lemma}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        A map \(f: X \longrightarrow Y\) between topological spaces is continuous if and only if each point of \(X\) is contained in an open subset on which the restriction of \(f\) is continuous.
+    \end{lemma}
+\end{thmbox}
+
+NOTES:
+Depending on the choice of the topology, the only convergent sequences are the ones that are constant, and in some all sequence converges to any other point!!
+
+
+
+\newpage
+\subsection*{Homeomorphism}
 
 \begin{defbox}
     \begin{definition}[Homeomorphism]

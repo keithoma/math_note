@@ -51,6 +51,12 @@
     defines a sequence of neighbourhoods of \(x\). Now, any neighbourhood \(N\) of \(x\) is contained in at least one of these balls. Thus, every metric space is first-countable.
 \end{proof}
 
+\begin{exmbox}
+    \begin{example}
+        Not all metric spaces are second-countable. For example, \(\mathbb{R}\) equipped with the discrete metric is not second-countable.
+    \end{example}
+\end{exmbox}
+
 \begin{rembox}
     \begin{remark}
         A countable subbase induces a countable base.
@@ -78,8 +84,10 @@
     \begin{enumerate}
         \item We show that \((\mathbb{R}, \mathcal{O})\) satisfies the first-countable axiom. Fix a point \(x \in \mathbb{R}\) and set
         \begin{align*}
-            I_n(x) := [x - \frac{1}{n}, x + \frac{1}{n})
+            I_n(x) := \bigg[x, x + \frac{1}{n}\bigg) \text{.}
         \end{align*}
+        Then, \(\{I_n\}_{n \in \mathbb{N}}\) is a sequence of neighbourhoods of \(x\). For any neighbourhood \(N\) of \(x\) there is a \(n \in \mathbb{N}\) large enough such that \(I_n \subset N\), and thus, the Sorgenfrey line \((\mathbb{R}, \mathcal{O})\) is first-countable.
+        \item We show that \((\mathbb{R}, \mathcal{O})\) is not second-countable. Consider a point \(x \in \mathbb{R}\). Because \([x, \infty)\) is open, there must be a base element \(B \subset [x, \infty]\). This is true for all points on \(\mathbb{R}\) and all the base elements are distinct. \(\mathbb{R}\) is not countable, thus \((\mathbb{R}, \mathcal{O})\) is not second-countable.
     \end{enumerate}
 \end{proof}
 %
@@ -137,3 +145,9 @@
         D^n \cup_{\varphi} D^n = D^n \cup D^n / \sim
     \end{align*}
 \end{example}
+
+\begin{thmbox}
+    \begin{lemma}
+        Any open subset of an \(n\)-manifold is an \(n\)-manifold.
+    \end{lemma}
+\end{thmbox}
