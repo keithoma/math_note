@@ -97,7 +97,7 @@
 % R E N D E R
 % ---------------------------------------------------------------------
 
-\setlength\parindent{0pt}
+%\setlength\parindent{0pt}
 
 
 \newif\ifshowproof
@@ -115,18 +115,27 @@
 \maketitle
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{2}
+\chapter{Introduction}
+\chapter{Topological Spaces}
 \section*{2-1}
 ``\(\Rightarrow\)'': Let \(f: X_1 \longrightarrow X_2\) be a homeomorphism and fix a subset (not necessarily open) \(U \in \mathcal{T}_1\).
 \begin{enumerate}
-    \item Assume \(U\) is open in \(X_2\). Because \(f\) is continuous, the image of open subsets are again open, thus \(f(U)\) lies in \(\mathcal{T}_2\).
+    \item Assume \(U\) is open in \(X_1\). Because \(f\) is continuous, the image of open subsets are again open, thus \(f(U)\) lies in \(\mathcal{T}_2\).
     \item On the other hand, if \(f(U)\) is open in \(X_2\), then since \(f\) is bijective we have
     \begin{align*}
         f^{-1} \left(f \left(U\right)\right) = U \text{.}
     \end{align*}
     Because \(f\) is continuous, the preimage of open subsets under \(f\) is open. We may therefore conclude \(U\) is open in \(X_1\).
 \end{enumerate}
-We have shown that if \(f\) is a homeomorphism, then \(f(\mathcal{T}_1) = \mathcal{T}_2\).
+We have shown that if \(f\) is a homeomorphism, then \(f(\mathcal{T}_1) = \mathcal{T}_2\). \\
 
-``\(\Leftarrow\)'': Let \(f: X_1 \longrightarrow X_2\) be a bijective map such that \(f(\mathcal{T}_1) = \mathcal{T}_2\). Fix a open subset \(V \in \mathcal{T}_2\).
+\noindent ``\(\Leftarrow\)'': Let \(f: X_1 \longrightarrow X_2\) be a bijective map such that \(f(\mathcal{T}_1) = \mathcal{T}_2\). Consider the inverse map \(f^{-1}\). We want to show \(f^{-1}\) is continuous. Fix an open subset \(U \in \mathcal{T}_1\). It is
+\begin{align*}
+    \left(f^{-1}\right)^{-1} \left(U\right) = f(U)
+\end{align*}
+because \(f\) is bijective. Since \(f(\mathcal{T}_1) = \mathcal{T}_2\) and \(U\) is open, \(f(U)\) is open as well. Hence the preimage of \(U\) under \(f^{-1}\) is open and \(f^{-1}\) is continuous.
+
+Now we show that \(f\) is also continuous. Again, fix an open subset \(V \in \mathcal{T}_2\). The preimage of \(V\) under \(f\) is just the image of the inverse function. We have already shown that the inverse is continuous. Thus, \(f^{-1}(V)\) is open and \(f\) is continuous. Since \(f\) and \(f^{-1}\) exist and are continuous, \(f\) is a homeomorphism as desired.
+
+\section*{2-2}
 \end{document}
