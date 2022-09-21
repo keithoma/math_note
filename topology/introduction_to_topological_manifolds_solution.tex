@@ -194,6 +194,13 @@ If \(h\) is constant, say \(h(Y) = \{p\}\), then \(h^{-1}(U) = Y\) if \(p \in U\
 
 \subsection*{f)}
 \section*{2-8}
-
-
+Firstly, any element in \(f(\mathcal{B})\) is open because \(f\) is an open map. Fix an open subset \(V\) in \(Y\) and consider its preimage \(f^{-1}(V)\) under \(f\). Because \(f\) is continuous, the preimage is open, thus there are base elements \(B_i\) with \(i \in I\) in \(\mathcal{B}\) such that
+\begin{align*}
+    f^{-1}(V) = \bigcup_{i \in I} B_i \text{.}
+\end{align*}
+The surjectivity of \(f\) grants us \(f(f^{-1}(V)) = V\), therefore, we have
+\begin{align*}
+    f(f^{-1}(V)) = V = f \left( \bigcup_{i \in I} B_i \right) = \bigcup_{i \in I} f(B_i)\text{.}
+\end{align*}
+Thus, \(f(\mathcal{B})\) is a basis of \(Y\).
 \end{document}
