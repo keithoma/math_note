@@ -147,4 +147,26 @@ We show that \(\mathcal{T}\) is a topology by verifying the axioms of a topology
 \end{enumerate}
 
 \subsection*{b)}
+
+\section*{2-3}
+\subsection*{1.}
+The collection of subset \(\mathcal{T}_1 = \makeset{U \subset X}{X \setminus U \text{ is finite or is all of } X}\) forms a topology. We show this by verifying the axioms of a topology.
+\begin{enumerate}
+    \item It is \(X \setminus \varnothing = X\) and \(X \setminus X = \varnothing\) which is finite. Thus, \(X \in \mathcal{T}_1\) and \(\varnothing \in \mathcal{T}_1\).
+    \item Let \(\mathcal{U} \subset \mathcal{T}\) be a subset. By De Morgan's laws we have
+    \begin{align*}
+        X \setminus \left(\bigcup_{U \in \mathcal{U}} U \right) = \bigcap_{U \in \mathcal{U}} \left( X \setminus U \right) \text{.}
+    \end{align*}
+    Since each \(U \in \mathcal{U}\) lies in \(\mathcal{T}\), the complement \(X \setminus U\) is finite or is all of \(X\). Therefore, the intersection of all \(X \setminus U\) is again finite or all of \(X\), and we may conclude that \(\mathcal{T}\) is stable under arbitary unions.
+    \item Use De Morgan's law again.
+\end{enumerate}
+
+\subsection*{2.}
+The collection of subsets \(\mathcal{T}_2 = \makeset{U \subset X}{X \setminus U \text{ is infinite or is empty}}\) is not a topology. Take \(X = \mathbb{Z}\) for example and consider \(A = \set{1, 2, 3, \ldots}\) and \(B = \set{-1, -2, -3, \ldots}\). \(A\) and \(B\) are open because their complements are the non-positive and the non-negative integers respectively. If \(\mathcal{T}_2\) is a topology, it should contain their union \(A \cup B = \mathbb{Z} \setminus \{0\}\). However,
+\begin{align*}
+    \mathbb{Z} \setminus (A \cup B) = \mathbb{Z} (\mathbb{Z} \setminus \{0\}) = \{0\}
+\end{align*}
+which is not infinite and thus doesn't lie in \(\mathcal{T}_2\).
+
+\subsection*{3.}
 \end{document}
