@@ -139,9 +139,12 @@ Now we show that \(f\) is also continuous. Again, fix an open subset \(V \in \ma
 
 \section*{2-2}
 \subsection*{a)}
-We show that \(\mathcal{T}\) is a topology.
+We show that \(\mathcal{T}\) is a topology by verifying the axioms of a topology.
 \begin{enumerate}
     \item Since \(\mathcal{T}\) is the collection of all unions of finite intersections of elements of \(\mathcal{B}\), it contains the union of all elements of \(\mathcal{B}\) which is just \(X\). The union of empty collection generates the emptyset so \(\varnothing \in \mathcal{T}\) as well.
-    \item Let \(I\) be an arbitary index set and \({U_i}_{i \in I}\)
+    \item Let \(\mathcal{U} \subset \mathcal{T}\) be any subset. The elements of \(\mathcal{U}\) are unions of finite intersections of elements of \(\mathcal{B}\). Thus, \(\bigcup_{U \in \mathcal{U}} U\) is again a union of finite intersections of elements of \(\mathcal{B}\). In other words, \(\mathcal{T}\) is closed under union.
+    \item \(\mathcal{T}\) is stable under finite intersections due to distributive property of sets.
 \end{enumerate}
+
+\subsection*{b)}
 \end{document}
