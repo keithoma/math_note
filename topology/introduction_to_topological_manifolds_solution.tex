@@ -230,6 +230,32 @@ Let \(a, b \in X\) be two distinct points and assume without loss of generality 
 
 \subsection*{c}
 
-The inclusion follows from the fact that \([a, b]\) is closed and contains \((a, b)\).
+Fix two points \(a, b \in X\). By definition, it is
+\begin{align*}
+    \overline{(a, b)} = \bigcap \makeset{C \subset X}{(a, b) \subset C \text{ and } C \text{ is closed in } X} \text{.}
+\end{align*}
+We have shown that \([a, b]\) is closed in \(a)\) and clearly contains \((a, b)\), thus
+\begin{align*}
+    [a, b] \in \makeset{C \subset X}{(a, b) \subset C \text{ and } C \text{ is closed in } X}
+\end{align*}
+or in other words
+\begin{align*}
+    \bigcap \makeset{C \subset X}{(a, b) \subset C \text{ and } C \text{ is closed in } X} \subset [a, b]
+\end{align*}
+as desired. \\
+
+\noindent When does \(\overline{(a, b)} = [a, b]\) hold? Maybe it is pertinent to ask when does it not hold? The equality does not hold if and only if \((a, b)\) is already closed. That means \(X \setminus (a, b) = (-\infty, a] \cup [b, \infty) \) is open. I'm not sure, maybe \(X\) needs to be countable, finite?
+
+\section*{2-13}
+
+Let \(X\) be a second countable topological space and fix a collection of disjoint open subsets \(\mathcal{S}\), i.e.
+\begin{align*}
+    \mathcal{S} = \makeset{U \subset X}{U \text{ is open and for all } U, V \in \mathcal{S} \text{ it is } U \cap V = \varnothing } \text{.}
+\end{align*}
+We want to show \(\mathcal{S}\) is countable. If \(\mathcal{B}\) is a base for \(X\), then for any two members of the collection \(U, V \in \mathcal{S}\), we have
+\begin{align*}
+    U = \bigcup_{i \in \mathbb{N}} B_i \qquad V = \bigcup_{j \in \mathbb{N}} B_j \text{.}
+\end{align*}
+Since \(U\) and \(V\) are disjoint, \(B_i\) and \(B_j\) are also disjoint for all \(i, j \in \mathbb{N}\). Thus, any \(U \in \mathcal{S}\) is a union of base elements that is different from any other \(V \in \mathcal{S}\). \(\mathcal{B}\) is countable, therefore \(\mathcal{S}\) must also be.
 
 \end{document}
