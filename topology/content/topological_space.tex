@@ -317,8 +317,22 @@ Depending on the choice of the topology, the only convergent sequences are the o
         \end{enumerate}
     \end{definition}
 \end{defbox}
-
 %
+\begin{exmbox}
+    \begin{example}
+        Let \(\mathcal{O}_1\) be the discrete topology on \(\mathbb{R}\) and \(\mathcal{O}_2\) be the trivial topology on \(\mathbb{R}\). Then, the identity map on the real numbers
+        \begin{align*}
+            \mathrm{id}: (\mathbb{R}, \mathcal{O}_1) \longrightarrow (\mathbb{R}, \mathcal{O}_2)
+        \end{align*}
+        is bijective and continuous, but it is not a homeomorphism.
+    \end{example}
+\end{exmbox}
+%
+\begin{proof}
+    Clearly, the identity map \(\mathrm{id}\) is bijective. For any open set \(U \subset \mathcal{O}_2\) we have that \(f^{-1}(U) \in \mathcal{O}_1\) because \(\mathcal{O}_1\) is discrete, and thus, \(\mathrm{id}\) is continuous. However, \(\{0\}\) is open in \(\mathcal{O}_1\), but \(\mathrm{id}^{-1}(\{0\}) = \{0\}\) is not open in \(\mathcal{O}_2\) since this one is trivial. Therefore, \(\mathrm{id}^{-1}\) is not continuous.
+\end{proof}
+%
+
 \begin{thmbox}
     \begin{proposition}
         The set of all homeomorphisms of \(X\) to itself \(\mathrm{Homeo}(X)\) is a group with composition as its operation.
