@@ -18,7 +18,15 @@
 \end{defbox}
 
 \begin{example}
+    Some examples of topological manifolds.
     \begin{enumerate}
-        \item The closed unit ball \(D^n \subset \mathbb{R}^n\).
+        \item The closed unit ball \(D^n \subset \mathbb{R}^n\) is a \(n\)-dimensional manifold.
+        \begin{proof}
+            Since \(D^n\) is a subset of \(\mathbb{R}^n\) which is second-countable Hausdorff space, the only thing to verify is that \(D^n\) is locally Euclidean.
+
+            Let \(p \in D^n\) be a point. If \(p\) is an interior point, then by definition, there is an open ball centered at \(p\) contained in \(D^n\). Set this open ball as the neighborhood of \(p\), then this is simply homeomorphic to an open ball in \(\mathbb{R}^n\).
+
+            Now let \(p \in \partial D^n\).
+        \end{proof}
     \end{enumerate}
 \end{example}
