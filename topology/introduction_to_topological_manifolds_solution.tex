@@ -337,6 +337,46 @@ Let \(K\) be the collection of a \(n\)-simplex \(\sigma\) and its faces. Trivial
 
 \section*{Exercise 5.5}
 
+\begin{defbox}
+    \begin{definition}[Simplex]
+        Given points \(v_0, \ldots, v_k\) in general position in \(\mathbb{R}^n\), simplex spanned by them is the set of all points in \(\mathbb{R}^n\) of the form:
+        \begin{align*}
+            \sum_{i=0}^k t_i v_i \qquad \text{where } 0 \leq t_1 \leq 1 \text{ and } \sum_{i=0}^k t_i = 1 \text{.} 
+        \end{align*}
+    \end{definition}
+\end{defbox}
 
+\begin{defbox}
+    \begin{definition}[Euclidean Simplicial Complex]
+        A Euclidean simplicial complex is a collection \(K\) of simplices in some Euclidean space \(\mathbb{R}^n\) satisfying the following conditions:
+        \begin{enumerate}
+            \item If \(\sigma \in K\), then every face of \(\sigma\) is in \(K\).
+            \item The intersection of any two simplices in \(K\) is either empty or a face of each.
+            \item Every point in a simplex of \(K\) has a neighborhood that intersects at most finitely many simplices of \(K\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Abstract Complex]
+        A collection \(\mathcal{K}\) of nonempty finite sets is called abstract complex if for all \(\sigma \in \mathcal{K}\) nonempty subsets of \(\sigma\) also lie in \(\mathcal{K}\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Vertex Scheme]
+        Let \(K\) be an Euclidean simplicial complex and set
+        \begin{align*}
+            \mathcal{K} := \makeset{\{v_0, \ldots, v_k\} \subset K^{(0)}}{v_0, \ldots, v_k \text{ are vertices of some simplex of K}}
+        \end{align*}
+        where \(K^{(0)}\) is the \(0\)-skeleton of \(K\), i.e. it is the set of all simplices of dimension \(0\) in \(K\). In this case, \(\mathcal{K}\) is an abstract simplicial complex and it is called the vertex scheme of \(K\).
+    \end{definition}
+\end{defbox}
+
+Every finite abstract complex is the vertex scheme of a Euclidean simplicial complex.
+
+\begin{proof}
+    Let \(\mathcal{K}\) be a finite abstract complex.
+\end{proof}
 
 \end{document}
