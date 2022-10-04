@@ -293,15 +293,15 @@ Let \(X\) be a second-countable space. We want to show that \(X\) contains a den
 \end{definition}
 
 \begin{proof}
-    Let \(\sigma\) be a simplex, denote its vertices by \(v_0, \ldots, v_k\), and let \(\mathcal{C}\) be the convex hull of the vertices. Now, fix a point \(p \in \sigma\), then by definition,
+    Let \(\sigma\) be a simplex and denote its vertices by \(v_0, \ldots, v_k\). Fix a point \(p \in \sigma\), then by definition
     \begin{align*}
         p = \sum_{i=0}^k t_i v_i
     \end{align*}
-    for some \(t \in [0, 1]\) and \(\sum_{i=0}^k t_i = 1\).
-
-    So basically, this is done with induction, drawing geometrically makes this side easy.
-
-    I think this can be shown in one step.
+    for some \(t \in [0, 1]\) and \(\sum_{i=0}^k t_i = 1\). We show that \(p\) lies in any convex set containing \(v_0, \ldots, v_k\) by induction. In the initial case, \(p = t_i v_i = v_i\) for some \(i\) which clearly lies in all convex set containing \(v_0, \ldots, v_k\). Consider the case where \(n + 1\) number of \(t_0, \ldots, t_k\) is nonzero. Without loss of generality, we may reorder the indecies for notational ease and yield
+    \begin{align*}
+        p = \sum_{i=0}^{n+1} t_i v_i = t_{n+1} v_{n+1} + \sum_{i=0}^{n} t_i v_i \text{.}
+    \end{align*}
+    By induction hypothesis, \(\sum_{i=0}^{n} t_i v_i\) is contained in any convex set containing \(v_0, \ldots, v_k\).
 \end{proof}
 
 \section*{Exercise 5.2}
