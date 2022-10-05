@@ -1,0 +1,32 @@
+\chapter{Fundamental Group}
+
+\begin{defbox}
+    \begin{definition}
+        Let \(X\) and \(Y\) be topological spaces, and let \(f, g: X \longrightarrow Y\) be continuous maps. A homotopy from \(f\) to \(g\) is a continuous map \(H: X \times [0, 1] \longrightarrow Y\) such that for all \(x \in X\),
+        \begin{align*}
+            H(x, 0) = f(x); \quad H(x, 1) = g(x) \text{.}
+        \end{align*}
+        If there exists a homotopy from \(f\) to \(g\), we say that \(f\) and \(g\) are homotopic, and write \(f \simeq g\).
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        For any topological spaces \(X\) and \(Y\), homotopy is an equivalence relation on the sets of all continuous maps from \(X\) to \(Y\).
+    \end{proposition}
+\end{thmbox}
+
+\begin{proof}
+    Let \(X\) and \(Y\) be two topological spaces and fix three continuous maps \(f, g, h: X \longrightarrow Y\).
+    \begin{enumerate}
+        \item Reflexivity is clear.
+        \item Symmetry is clear.
+        \item Let \(F: f \simeq g\) and \(G: g \simeq h\) and define
+        \begin{align*}
+            H(x, t) = \begin{cases}
+                F(x, 2t) \quad 0 \leq t \leq \frac{1}{2}
+                G(x, 2t-1) \quad 
+            \end{cases}
+        \end{align*}
+    \end{enumerate}
+\end{proof}
