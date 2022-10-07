@@ -387,32 +387,20 @@ Every finite abstract complex is the vertex scheme of a Euclidean simplicial com
 \section*{Exercise 7.1.}
 
 \subsection*{a)}
-Let \(f \sim g\), then there is a homotopy \(H: I \times [0, 1] \longrightarrow X\) such that
-\begin{align*}
-    H(x, 0) = f(x) \qquad H(x, 1) = g(x) \text{.}
-\end{align*}
-On the other side of the equivalence, we have
-\begin{align*}
-    f \cdot g^{-1}(s) =& \begin{cases}
-        f(2s) & 0 \leq s \leq \frac{1}{2} \\
-        g^{-1}(2s - 1) & \frac{1}{2} \leq s \leq 1
-    \end{cases} \\
-    =& \begin{cases}
-        f(2s) & 0 \leq s \leq \frac{1}{2} \\
-        g(1 - (2s - 1)) & \frac{1}{2} \leq s \leq 1
-    \end{cases} \\
-    =& \begin{cases}
-        f(2s) & 0 \leq s \leq \frac{1}{2} \\
-        g(2 - 2s) & \frac{1}{2} \leq s \leq 1
-    \end{cases}
-\end{align*}
-Set therefore
-\begin{align*}
-    G: I \times [0, 1] \longrightarrow X, \quad G(x, t) = \begin{cases}
-        f \cdot g^{-1} (2x) & 0 \leq t \leq \frac{1}{2} \\
-        c_p & \frac{1}{2} \leq t \leq 1
-    \end{cases}
-\end{align*}
+We simply have \(f \sim g \iff f \cdot g^{-1} \sim g \cdot g^{-1} \iff f \cdot g^{-1} \sim c_P\).
 
+\subsection*{b)}
+``\(\Rightarrow\)'': Let \(X\) be simply connected and fix two paths \(f\) and \(g\) with the same initial, say \(p\), and terminal point. Since \(X\) is simply connected, \(\pi(X, p)\) is trivial, and therefore, \(f \cdot g^{-1}\) is homotopic to \(c_p\). By \(a)\), \(f \sim g\) as desired. \\
+
+\noindent ``\(\Leftarrow\)'': If any two paths in \(X\) with the same initial and terminal point are path homotopic, then by similar reason as above, \(\pi_1(X)\) is trivial.
+
+\section*{7.4}
+First, \(f \cdot g\) and \(h \cdot k\) are well-defined because \(f(1) = F(1, 0) = g(0)\) and \(h(1) = F(0, 1) = k(0)\). The initial and the terminal point of \(f \cdot g\) and \(h \cdot k\) is also the same since \(f(0) = F(0, 0) = h(0)\) and \(g(1) = F(1, 1) = k(1)\).
+
+\section*{7.5}
+First, \(\varphi \circ f_0\) and \(\varphi \circ f_1\) have the same initial and terminal points because \(\varphi(f_0(0)) = \varphi(f_1(0))\) and \(\varphi(f_0(1)) = \varphi(f_1(1))\). Let \(F: I \times I \longrightarrow X\) be the homotopy between \(f_0\) and \(f_1\). Set \(H: I \times I \longrightarrow Y\) by \(H(s, t) = \varphi(F(s, t))\). Then, \(H\) is continuous because it is a composition of continuous functions and
+\begin{align*}
+    H(s, 0) = \varphi(F(s, 0)) = \varphi(f_0(s)) \qquad H(s, 1) = \varphi(F(s, 1)) = \varphi(f_1(s)) \text{.}
+\end{align*}
 
 \end{document}
