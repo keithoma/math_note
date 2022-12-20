@@ -179,6 +179,10 @@
         \item ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \subset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': If \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cdot \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Since \(\mathfrak{a} \cdot \mathfrak{b} \subset \mathfrak{a} \cap \mathfrak{b}\), we have \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), and it follows that \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\).
         
         ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \supset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': Let \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cap \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Hence it is \(x^n \in \mathfrak{a}\) and \(x^n \in \mathfrak{b}\), therefore \(x^n \cdot x^n = x^{2n} \in \mathfrak{a} \cdot \mathfrak{b}\). Conclude \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\).
+
+        ``\(\sqrt{\mathfrak{a} \cap \mathfrak{b}} \subset \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\)'': If \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), thus \(x^n \in \mathfrak{a}\) and \(x^n \in \mathfrak{b}\). We may write \(x \in \sqrt{\mathfrak{a}}\) and \(x \in \sqrt{\mathfrak{b}}\), therefore \(x \in \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\).
+
+        ``\(\sqrt{\mathfrak{a} \cap \mathfrak{b}} \supset \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\)'': Finally, let \(x \in \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\). Then, \(x \sqrt{\mathfrak{a}}\) and \(x \sqrt{\mathfrak{b}}\), so \(x^n \in \mathfrak{a}\) and \(x^m \in \mathfrak{b}\) for some \(n, m \in \mathbb{N}^+\). Say \(n \geq m\), then \(x^n \in \mathfrak{b}\). This yields \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), thus \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\).
     \end{enumerate}
 \end{proof}
 
