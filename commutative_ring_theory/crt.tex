@@ -138,6 +138,36 @@
 \end{defbox}
 
 \begin{defbox}
+    \begin{definition}[Ideal Operation]
+        Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be ideals of a ring \(A\).
+        \begin{enumerate}
+            \item The sum of two ideals \(\mathfrak{a}\) and \(\mathfrak{b}\) is defined by
+            \begin{align*}
+                \mathfrak{a} + \mathfrak{b} = \makeset{a + b}{a \in \mathfrak{a} \text{ and } b \in \mathfrak{b}}
+            \end{align*}
+            which is again an ideal. It is the smallest ideal in \(A\) that contains \(\mathfrak{a}\) and \(\mathfrak{b}\).
+            \item The product of an ideal
+            \item The intersection of
+            \item The radical of an ideal \(\mathfrak{a}\) is defined by
+            \begin{align*}
+                \sqrt{\mathfrak{a}} = \makeset{x \in A}{x^n \in \mathfrak{a} \text{ for some } n \in \mathbb{N}^+}
+            \end{align*}
+            which is again an ideal.
+            \item The transporter
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(\mathfrak{a}\) be an ideal.
+        \begin{enumerate}
+            \item \(\sqrt{\mathfrak{a}} = A\) if and only if \(\mathfrak{a} = A\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
+\begin{defbox}
     \begin{definition}[Nilpotent Element and Nilradical]
         An element \(x\) of a ring \(A\) is called nilpotent if there exists some positive integer \(n \in \mathbb{N}^+\), called the index or the degree, such that \(x^n = 0\).
 
@@ -162,7 +192,7 @@
             \end{align*}
             Thus, \(X \in (X - XY^2, Y^3)\). We have therefore the isomorphism \(\sfrac{K[X, Y]}{(X-XY^2, Y^3)} \simeq \sfrac{K[Y]}{(Y^3)}\). [I WANT A ELEGANT REASON FOR THIS. PROBABLY ISOMORPHISM THEOREM.]
 
-            Clearly, \(Y \in \mathrm{Nil}(A)\) or in other words \((Y) \subset \mathrm{Nil}(A)\). But we also have that \(\sfrac{K[Y]}{(Y)} = K\) which is a field, therefore \((Y)\) is a maximal ideal. Conclude \(\mathrm{Nil}(A) = (Y)\).
+            Clearly, \(Y \in \mathrm{Nil}(A)\) or in other words \((Y) \subset \mathrm{Nil}(A)\). But we also have that \(\sfrac{K[Y]}{(Y)} = K\) which is a field, therefore \((Y)\) is a maximal ideal. Because \(1 \not\in \mathrm{Nil}(A)\) conclude \(\mathrm{Nil}(A) = (Y)\).
         \end{proof}
     \end{enumerate}
 \end{example}
