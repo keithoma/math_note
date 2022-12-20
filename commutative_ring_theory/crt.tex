@@ -217,7 +217,12 @@
 
         \item ``\(\sqrt{\mathfrak{a} + \mathfrak{b}} \subset \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)'': Let \(x \in \sqrt{\mathfrak{a} + \mathfrak{b}}\), then \(x^n \in \mathfrak{a} + \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). By definition of sum of ideals, we have that \(x^n = a + b\) for some \(a \in \mathfrak{a}\) and \(b \in \mathfrak{b}\). Since \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\) and \(\mathfrak{b} \subset \sqrt{\mathfrak{b}}\), we have \(x^n \in \sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}\), thus \(x \in \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\).
         
-        ``\(\sqrt{\mathfrak{a} + \mathfrak{b}} \supset \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)'': Now let \(x \in \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)
+        ``\(\sqrt{\mathfrak{a} + \mathfrak{b}} \supset \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)'': Now let \(x \in \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\), then \(x^n \in \sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}\) for some \(n \in \mathbb{N}^+\). Hence there exists \(a \in \sqrt{\mathfrak{a}}\) and \(b \in \sqrt{\mathfrak{b}}\) such that \(x^n = a + b\). We have that \(a^p \in \mathfrak{a}\) and \(b^q \in \mathfrak{b}\) for some \(p, q \in \mathbb{N}^+\). Consider
+        \begin{align*}
+            \left(x^n\right)^{(p + q -1)} &= (a + b)^{(p + q -1)} \\ 
+            &= \sum_{k=0}^{p + q - 1} \binom{p + q - 1}{k} a^k \cdot b^{p + q - 1 - k} \text{.}
+        \end{align*}
+        For each \(k \in \set{0, 1, \ldots, p + q -1}\), we have \(a^k \in \mathfrak{a}\) or \(b^{p + q - 1} \in \mathfrak{b}\). Thus, the whole sum lies in \(\mathfrak{a} + \mathfrak{b}\) or in other words \(x^{n(p + q - 1)} \in \mathfrak{a} + \mathfrak{b}\). Conclude \(x \in \sqrt{\mathfrak{a} + \mathfrak{b}}\).
     \end{enumerate}
 \end{proof}
 
