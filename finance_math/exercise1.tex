@@ -1,0 +1,158 @@
+\documentclass[a4paper]{article}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+%\setlength\parindent{0pt}
+
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section*{Problem 1}
+\begin{proof}
+    \(ii) \Rightarrow i)\) is self-evident. We will focus on \(i) \Rightarrow ii)\). Let \(\overline{\xi} \in \mathbb{R}^{d + 1}\) an arbitrage opportunity. Construct another arbitrage opportunity \(\overline{\xi_*} = (\xi_*^0, \xi_*^1, \ldots, \xi_*^d)\) by setting
+    \begin{align*}
+        \xi_*^0 =& \xi^0 - \overline{\xi} \cdot \overline{\pi} \\
+        \xi_*^i =& \xi^i \text{ for all } i \geq 1 \text{.}
+    \end{align*}
+    For the newly constructed arbitrage opportunity, we have
+    \begin{align*}
+        \overline{\xi_*} \cdot \overline{\pi} =& \sum_{i = 0}^d \xi_*^i \cdot \pi^i \\
+        =& \left(\xi_0 - \overline{\xi} \cdot \overline{\pi}\right) \pi^0 + \sum_{i = 1}^d \xi^i \cdot \pi^i \\
+        =& \xi_0 \cdot \pi_0 + \sum_{i = 1}^d \xi^i \cdot \pi^i - \overline{\xi} \cdot \overline{\pi} \cdot \pi^0 \\
+        =& \overline{\xi} \cdot \overline{\pi} - \overline{\xi} \cdot \overline{\pi} \qquad \text{ because \(\pi^0 = 1\)} \\
+        =& 0 \text{.}
+    \end{align*}
+    In particular, \(\xi_*\) fullfills the given condition.
+
+    Moreover, it is
+    \begin{align*}
+        \overline{\xi_*} \cdot \overline{S}(\omega) =& \sum_{i = 0}^d \xi_*^i S^i(\omega) \\
+        =& (\xi_0 - \overline{\xi} \cdot \overline{\pi}) S^0(\omega) + \sum_{i = 1}^d \xi^i \cdot S^i(\omega) \\
+        =& \overline{\xi} \cdot \overline{S}(\omega) - \overline{\xi} \overline{\pi} S^0 (\omega)
+    \end{align*}
+    Now, \(\overline{\xi} \cdot \overline{S}(\omega) \geq 0\) \(\mathbb{P}\)-almost surely by definition, \(\overline{\xi} \cdot \overline{\pi} \leq 0\) and \(S^0(\omega) > 0\). Thus, \(\overline{\xi_*} \cdot \overline{S}(\omega) \geq 0\) \(\mathbb{P}\)-almost surely.
+
+    Futhermore, since \(\overline{\xi_*} \cdot \overline{S}(\omega) > \overline{\xi} \cdot \overline{S}(\omega)\), we also have \(\mathbb{P}(\overline{\xi_*} \cdot \overline{S}(\omega) > 0) \geq \mathbb{P}(\overline{\xi} \cdot \overline{S}(\omega) > 0) > 0\) as desired.
+
+    Clearly, \(i)\) or \(ii)\) implies \(iii)\). The other direction is false. Consider a market with \(d = 1\), \(r = 0\), and \(\pi = (1)\). \(\Omega = \mathbb{N}\) and \(S(0) = 2\), and \(S(\omega) = 1\) for all \(\omega \neq 0\). \(\xi = (1, -1)\), so \(\overline{\xi} \cdot \pi = 0\) and yada yada yada, but the probability that you make money is \(0\).
+\end{proof}
+\newpage
+\section*{Problem 2}
+\subsection*{a)}
+Simply consider \(\overline{\xi} = (-2, 0, 1)\). We have \(\overline{\xi} \cdot \overline{\pi} = 0\) and
+\begin{align*}
+    \overline{\xi} \cdot \overline{S}(\omega_1) =& -2 \cdot 1.1 + 0 + 3 = 0.8 \\
+    \overline{\xi} \cdot \overline{S}(\omega_1) =& -2 \cdot 1.1 + 0 + 4 = 1.8 \\
+\end{align*}
+
+\subsection*{b)}
+Consider \(\overline{\xi} = (-4, 1, 1)\). We have \(\overline{\xi} \cdot \overline{\pi} = -4 + 2 + 2 = 0\) and
+\begin{align*}
+    \overline{\xi} \cdot \overline{S}(\omega_1) =& -2 \cdot 1.1 + 3 + 1 = 1.8 \\    \overline{\xi} \cdot \overline{S}(\omega_2) =& -2 \cdot 1.1 + 1 + 3 = 1.8
+\end{align*}
+\end{document}
