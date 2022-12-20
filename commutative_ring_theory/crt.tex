@@ -337,9 +337,13 @@
 \end{example}
 \begin{proof}
     ``\(\Rightarrow\)'': Let \(S^{-1}A = 0\), then for all \(x \in A\) and \(s \in S\) it is \((x, s) \sim (0, 1)\), thus \(x \cdot u = 0\) for some \(u \in S\). In particular, this holds for \(x = 1\), therefore \(1 \cdot u = 0\). Since a unit can never be a zero divisor, we must have \(u = 0\) which is nilpotent and lies in \(S\).
-    
+
     ``\(\Leftarrow\)'': On the other hand, let \(x \in S\) be nilpotent, i.e. \(x^n = 0\) for some \(n \in \mathbb{N}^+\). Because \(S\) is multiplicatively closed \(x^n = 0\) lies in \(S\). Fix an element \((y, s) \in S^{-1}A\), then \(y \cdot 1 \cdot 0 = 0 \cdot s \cdot 0\). Hence \((y, s) \sim (0, 1)\) and we have \(S^{-1}A = 0\).
 \end{proof}
+
+\begin{example}
+    Find all intermediate rings \(\mathbb{Z} \subset A \subset \mathbb{Q}\), and describe each \(A\) as a localization of \(\mathbb{Z}\). As a starter, prove \(\mathbb{Z}\left[\frac{2}{3}\right] = S_3^{-1} \mathbb{Z}\) where \(S_3 := \makeset{3^i}{i \in \mathbb{N}^+}\).
+\end{example}
 
 \chapter{Hierarchy of Rings}
 
