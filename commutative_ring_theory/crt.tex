@@ -148,7 +148,17 @@
 \section{Exercises and Notes}
 
 \begin{example}
-    Let \(K\) be a field and \(R = \sfrac{K[X, Y]}{(X - XY^2, Y^3)} \)
+    Let \(K\) be a field and \(A = \sfrac{K[X, Y]}{(X - XY^2, Y^3)}\).
+    \begin{enumerate}
+        \item Compute the nilradical \(\mathrm{Nil}(A)\).
+        \begin{proof}[Solution]
+            Denote \((X - XY^2, Y^3) =: \mathfrak{a}\).
+            \begin{align*}{2}
+                X + \mathfrak{a} &= XY^2 + \mathfrak{a} && \text{because } X - XY^2 \Rightarrow X \sim XY^2 \text{.} \\
+                &= XY^2 Y^2 + \mathfrak{a} && \text{because } XY^2 - XY^2Y^2 = Y^2 (X - XY^2) = 0 \Rightarrow XY^2 \sim XY^2Y^2 \\
+            \end{align*}
+        \end{proof}
+    \end{enumerate}
 \end{example}
 
 \end{document}
