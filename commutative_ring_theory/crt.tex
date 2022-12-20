@@ -160,6 +160,16 @@
     \end{definition}
 \end{defbox}
 
+\begin{proof}
+    
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        The union of two ideals is \textbf{not} an ideal in general. Consider \((2)\) and \((3)\) in \(\mathbb{Z}\). If \((2) \cup (3)\) was an ideal, then \(3 - 2 = 1\) would be contained in \((2) \cup (3)\). But \(1 \not\in (2)\) and \(1 \not\in (3)\), thus \(1 \not\in (2) \cup (3)\).
+    \end{example}
+\end{exmbox}
+
 \begin{thmbox}
     \begin{proposition}
         Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be two ideals of a ring \(A\).
@@ -178,11 +188,23 @@
     a.
     \begin{enumerate}
         \item Let \(x \in \mathfrak{a}\), then trivially, \(x^1 \in \mathfrak{a}\), so \(x \in \sqrt{\mathfrak{a}}\).
-        \item Since \(\sqrt{\sqrt{\mathfrak{a}}} \supset \sqrt{\mathfrak{a}}\) from above, it suffices to verify the other inclusion. Let \(x \in \sqrt{\sqrt{\mathfrak{a}}}\), then \(x^n \in \sqrt{\mathfrak{a}}\)
+        
+
+
+        \item Since \(\sqrt{\sqrt{\mathfrak{a}}} \supset \sqrt{\mathfrak{a}}\) from above, it suffices to verify the other inclusion. Let \(x \in \sqrt{\sqrt{\mathfrak{a}}}\), then \(x^n \in \sqrt{\mathfrak{a}}\) and in turn, \(\left(x^n\right)^m \in \mathfrak{a}\). Thus, \(x^{nm} \in \mathfrak{a}\), therefore, \(x \in \sqrt{\mathfrak{a}}\).
+        
+        
+        
         \item Suppose \(\mathfrak{a} \subset \mathfrak{b}\) and let \(x \in \sqrt{\mathfrak{a}}\). Then, \(x^n \in \mathfrak{a}\) for some \(n \in \mathbb{N}^+\), thus \(x^n \in \mathfrak{b}\). It follows that \(x \in \sqrt{\mathfrak{b}}\).
+        
+
+
         \item ``\(\Rightarrow\)'': Let \(\sqrt{\mathfrak{a}} = A\), then for all \(x \in A\), we have that \(x^n \in \mathfrak{a}\) for some \(n \in \mathbb{N}^+\). In particular, \(1^n \in \mathfrak{a}\), but \(1^n = 1\) for all \(n \in \mathbb{N}^+\). Thus, \(\mathfrak{a} = A\).
         
         ``\(\Leftarrow\)'': On the other hand, let \(\mathfrak{a} = A\). In general, it is \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\), therefore \(A \subset \sqrt{\mathfrak{a}}\) which immediately yields the desired equality \(A = \sqrt{\mathfrak{a}}\).
+
+
+
         \item ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \subset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': If \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cdot \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Since \(\mathfrak{a} \cdot \mathfrak{b} \subset \mathfrak{a} \cap \mathfrak{b}\), we have \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), and it follows that \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\).
         
         ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \supset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': Let \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cap \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Hence it is \(x^n \in \mathfrak{a}\) and \(x^n \in \mathfrak{b}\), therefore \(x^n \cdot x^n = x^{2n} \in \mathfrak{a} \cdot \mathfrak{b}\). Conclude \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\).
@@ -190,6 +212,12 @@
         ``\(\sqrt{\mathfrak{a} \cap \mathfrak{b}} \subset \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\)'': If \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), thus \(x^n \in \mathfrak{a}\) and \(x^n \in \mathfrak{b}\). We may write \(x \in \sqrt{\mathfrak{a}}\) and \(x \in \sqrt{\mathfrak{b}}\), therefore \(x \in \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\).
 
         ``\(\sqrt{\mathfrak{a} \cap \mathfrak{b}} \supset \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\)'': Finally, let \(x \in \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\). Then, \(x \sqrt{\mathfrak{a}}\) and \(x \sqrt{\mathfrak{b}}\), so \(x^n \in \mathfrak{a}\) and \(x^m \in \mathfrak{b}\) for some \(n, m \in \mathbb{N}^+\). Say \(n \geq m\), then \(x^n \in \mathfrak{b}\). This yields \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), thus \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\).
+
+
+
+        \item ``\(\sqrt{\mathfrak{a} + \mathfrak{b}} \subset \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)'': Let \(x \in \sqrt{\mathfrak{a} + \mathfrak{b}}\), then \(x^n \in \mathfrak{a} + \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). By definition of sum of ideals, we have that \(x^n = a + b\) for some \(a \in \mathfrak{a}\) and \(b \in \mathfrak{b}\). Since \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\) and \(\mathfrak{b} \subset \sqrt{\mathfrak{b}}\), we have \(x^n \in \sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}\), thus \(x \in \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\).
+        
+        ``\(\sqrt{\mathfrak{a} + \mathfrak{b}} \supset \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)'': Now let \(x \in \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\)
     \end{enumerate}
 \end{proof}
 
@@ -224,6 +252,12 @@
         \end{proof}
     \end{enumerate}
 \end{example}
+
+\chapter{Polynomial Rings}
+
+\chapter{Quotient}
+
+\chapter{Localization}
 
 \chapter{Hierarchy of Rings}
 
