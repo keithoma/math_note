@@ -172,6 +172,15 @@
 
 \begin{thmbox}
     \begin{proposition}
+        Let \(\mathfrak{a}\) be an ideal of \(A\).
+        \begin{enumerate}
+            \item \(\mathfrak{a}^2 \subset \mathfrak{a}\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{proposition}
         Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be two ideals of a ring \(A\).
         \begin{enumerate}
             \item \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\).
@@ -180,12 +189,13 @@
             \item \(\sqrt{\mathfrak{a}} = A\) if and only if \(\mathfrak{a} = A\).
             \item \(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} = \sqrt{\mathfrak{a} \cap \mathfrak{b}} = \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\).
             \item \(\sqrt{\mathfrak{a} + \mathfrak{b}} = \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\).
+            \item If \(\mathfrak{a} = \mathfrak{p}^n\) for some prime ideal \(\mathfrak{p}\) and \(n \in \mathbb{N}^+\), then \(\sqrt{\mathfrak{a}} = \mathfrak{p}\).
         \end{enumerate}
     \end{proposition}
 \end{thmbox}
 
 \begin{proof}
-    a.
+    We verify each statement.
     \begin{enumerate}
         \item Let \(x \in \mathfrak{a}\), then trivially, \(x^1 \in \mathfrak{a}\), so \(x \in \sqrt{\mathfrak{a}}\).
         
@@ -223,8 +233,20 @@
             &= \sum_{k=0}^{p + q - 1} \binom{p + q - 1}{k} a^k \cdot b^{p + q - 1 - k} \text{.}
         \end{align*}
         For each \(k \in \set{0, 1, \ldots, p + q -1}\), we have \(a^k \in \mathfrak{a}\) or \(b^{p + q - 1} \in \mathfrak{b}\). Thus, the whole sum lies in \(\mathfrak{a} + \mathfrak{b}\) or in other words \(x^{n(p + q - 1)} \in \mathfrak{a} + \mathfrak{b}\). Conclude \(x \in \sqrt{\mathfrak{a} + \mathfrak{b}}\).
+
+
+
+        \item ``\(\sqrt{\mathfrak{a}} \subset \mathfrak{p}\)'': Let \(x \in \sqrt{\mathfrak{a}}\), then \(x^m \in \mathfrak{a}\) for some \(m \in \mathbb{N}^+\). Because \(\mathfrak{a} = \mathfrak{p}^n\), we have \(x^m \in \mathfrak{p}^n\). We also have \(\mathfrak{p}^n \subset \mathfrak{p}\), thus \(x^m \in \mathfrak{p}\) and since \(\mathfrak{p}\) is prime, \(x \in \mathfrak{p}\).
+        
+        ``\(\sqrt{\mathfrak{a}} \supset \mathfrak{p}\)'': On the other hand, if \(x \in \mathfrak{p}\), then \(x^n \in \mathfrak{p}^n = \mathfrak{a}\), therefore \(x \in \sqrt{\mathfrak{a}}\).
     \end{enumerate}
 \end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Does \(\sqrt{\mathfrak{a}^2} = \mathfrak{a}\) hold?
+    \end{example}
+\end{exmbox}
 
 \chapter{Anatomy of Rings}
 
