@@ -164,8 +164,12 @@
     \begin{proposition}
         Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be two ideals of a ring \(A\).
         \begin{enumerate}
+            \item \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\).
+            \item \(\sqrt{\sqrt{\mathfrak{a}}} = \sqrt{\mathfrak{a}}\).
+            \item If \(\mathfrak{a} \subset \mathfrak{b}\), then \(\sqrt{\mathfrak{a}} \subset \sqrt{\mathfrak{b}}\).
             \item \(\sqrt{\mathfrak{a}} = A\) if and only if \(\mathfrak{a} = A\).
             \item \(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} = \sqrt{\mathfrak{a} \cap \mathfrak{b}} = \sqrt{\mathfrak{a}} \cap \sqrt{\mathfrak{b}}\).
+            \item \(\sqrt{\mathfrak{a} + \mathfrak{b}} = \sqrt{\sqrt{\mathfrak{a}} + \sqrt{\mathfrak{b}}}\).
         \end{enumerate}
     \end{proposition}
 \end{thmbox}
@@ -173,9 +177,12 @@
 \begin{proof}
     a.
     \begin{enumerate}
-        \item \textbf{``\(\Rightarrow\)'':} Let \(\sqrt{\mathfrak{a}} = A\), then for all \(x \in A\), we have that \(x^n \in \mathfrak{a}\) for some \(n \in \mathbb{N}^+\). In particular, \(1^n \in \mathfrak{a}\), but \(1^n = 1\) for all \(n \in \mathbb{N}^+\). Thus, \(\mathfrak{a} = A\).
+        \item Let \(x \in \mathfrak{a}\), then trivially, \(x^1 \in \mathfrak{a}\), so \(x \in \sqrt{\mathfrak{a}}\).
+        \item Since \(\sqrt{\sqrt{\mathfrak{a}}} \supset \sqrt{\mathfrak{a}}\) from above, it suffices to verify the other inclusion. Let \(x \in \sqrt{\sqrt{\mathfrak{a}}}\), then \(x^n \in \sqrt{\mathfrak{a}}\)
+        \item Suppose \(\mathfrak{a} \subset \mathfrak{b}\) and let \(x \in \sqrt{\mathfrak{a}}\). Then, \(x^n \in \mathfrak{a}\) for some \(n \in \mathbb{N}^+\), thus \(x^n \in \mathfrak{b}\). It follows that \(x \in \sqrt{\mathfrak{b}}\).
+        \item ``\(\Rightarrow\)'': Let \(\sqrt{\mathfrak{a}} = A\), then for all \(x \in A\), we have that \(x^n \in \mathfrak{a}\) for some \(n \in \mathbb{N}^+\). In particular, \(1^n \in \mathfrak{a}\), but \(1^n = 1\) for all \(n \in \mathbb{N}^+\). Thus, \(\mathfrak{a} = A\).
         
-        \textbf{``\(\Leftarrow\)'':} On the other hand, let \(\mathfrak{a} = A\). In general, it is \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\), therefore \(A \subset \sqrt{\mathfrak{a}}\) which immediately yields the desired equality \(A = \sqrt{\mathfrak{a}}\).
+        ``\(\Leftarrow\)'': On the other hand, let \(\mathfrak{a} = A\). In general, it is \(\mathfrak{a} \subset \sqrt{\mathfrak{a}}\), therefore \(A \subset \sqrt{\mathfrak{a}}\) which immediately yields the desired equality \(A = \sqrt{\mathfrak{a}}\).
         \item ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \subset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': If \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cdot \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Since \(\mathfrak{a} \cdot \mathfrak{b} \subset \mathfrak{a} \cap \mathfrak{b}\), we have \(x^n \in \mathfrak{a} \cap \mathfrak{b}\), and it follows that \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\).
         
         ``\(\sqrt{\mathfrak{a} \cdot \mathfrak{b}} \supset \sqrt{\mathfrak{a} \cap \mathfrak{b}}\)'': Let \(x \in \sqrt{\mathfrak{a} \cap \mathfrak{b}}\), then \(x^n \in \mathfrak{a} \cap \mathfrak{b}\) for some \(n \in \mathbb{N}^+\). Hence it is \(x^n \in \mathfrak{a}\) and \(x^n \in \mathfrak{b}\), therefore \(x^n \cdot x^n = x^{2n} \in \mathfrak{a} \cdot \mathfrak{b}\). Conclude \(x \in \sqrt{\mathfrak{a} \cdot \mathfrak{b}}\).
