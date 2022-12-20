@@ -153,10 +153,16 @@
         \item Compute the nilradical \(\mathrm{Nil}(A)\).
         \begin{proof}[Solution]
             Denote \((X - XY^2, Y^3) =: \mathfrak{a}\).
-            \begin{align*}{2}
+            \begin{align*}
                 X + \mathfrak{a} &= XY^2 + \mathfrak{a} && \text{because } X - XY^2 \Rightarrow X \sim XY^2 \text{.} \\
                 &= XY^2 Y^2 + \mathfrak{a} && \text{because } XY^2 - XY^2Y^2 = Y^2 (X - XY^2) = 0 \Rightarrow XY^2 \sim XY^2Y^2 \\
+                &= XY \cdot Y^3 + \mathfrak{a} \\
+                &= XY \cdot 0 + \mathfrak{a} \\
+                &= 0 + \mathfrak{a} \text{.}
             \end{align*}
+            Thus, \(X \in (X - XY^2, Y^3)\). We have therefore the isomorphism \(\sfrac{K[X, Y]}{(X-XY^2, Y^3)} \simeq \sfrac{K[Y]}{(Y^3)}\). [I WANT A ELEGANT REASON FOR THIS. PROBABLY ISOMORPHISM THEOREM.]
+
+            Clearly, \(Y \in \mathrm{Nil}(A)\) or in other words \((Y) \subset \mathrm{Nil}(A)\). But we also have that \(\sfrac{K[Y]}{(Y)} = K\) which is a field, therefore \((Y)\) is a maximal ideal. Conclude \(\mathrm{Nil}(A) = (Y)\).
         \end{proof}
     \end{enumerate}
 \end{example}
