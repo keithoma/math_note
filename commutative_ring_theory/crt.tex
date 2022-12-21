@@ -376,6 +376,14 @@
     ``\(2. \Leftarrow 3.\)'': If \(0 \in S\), then \(S\) simply contains a nilpotent element because \(0\) is nilpotent.
 \end{proof}
 
+
+\begin{rembox}
+    \begin{remark}
+        In the lemma above, the condition \(0 \not\in S\) is required because if \(S\) contains \(0\), then \(S^{-1}A = 0\) and by definition, an integral domain is a nonzero ring.
+    \end{remark}
+\end{rembox}
+
+
 \begin{thmbox}
     \begin{lemma}
         Let \(A\) be a ring and \(S \subset A\) be a multiplicative subset that does not contain \(0\).
@@ -387,17 +395,13 @@
     \end{lemma}
 \end{thmbox}
 
+
+
 \begin{proof}
     ``\(\Rightarrow\)'': Let \(A\) be an integral domain. Since \(S\) does not contain \(0\), the localization \(S^{-1}A\) is a nonzero ring (see EXAMPLE). Let \((x, s) \in S^{-1}A \setminus \{0\}\) be a nonzero element and suppose there is a \((y, t) \in S^{-1}A\) with \((x, s) \cdot (y, t) = 0\). It is \((xy, st) = (0, 1)\) and thus \(xy \cdot u = 0\) for some \(u \in S\). Because \(x\) was nonzero and \(S\) does not contain \(0\) we must have \(y = 0\). Hence \(S^{-1}A\) is an integral domain.
 
     ``\(\Leftarrow\)'': On the other hand, let \(S^{-1}A\) be an integral domain. JUST USE THE CANONIC MAPPING \(\varphi_S: A \longrightarrow S^{-1}A\).
 \end{proof}
-
-\begin{rembox}
-    \begin{remark}
-        In the lemma above, the condition \(0 \not\in S\) is required because if \(S\) contains \(0\), then \(S^{-1}A = 0\) and by definition, an integral domain is a nonzero ring.
-    \end{remark}
-\end{rembox}
 
 \section{Exercises and Notes}
 
@@ -406,14 +410,9 @@
 \end{example}
 
 \begin{proof}[Solution]
-    I don't understand the solution.
+    I don't understand the solution?
 \end{proof}
 
-
-
-\begin{example}
-    Let \(A\) be a ring and \(S\) a multiplicative subset. Prove \(S^{-1}A = 0\) if and only if \(0 \in S\).
-\end{example}
 
 \begin{example}
     Find all intermediate rings \(\mathbb{Z} \subset A \subset \mathbb{Q}\), and describe each \(A\) as a localization of \(\mathbb{Z}\). As a starter, prove \(\mathbb{Z}\left[\frac{2}{3}\right] = S_3^{-1} \mathbb{Z}\) where \(S_3 := \makeset{3^i}{i \in \mathbb{N}^+}\).
