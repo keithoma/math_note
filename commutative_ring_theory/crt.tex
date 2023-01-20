@@ -521,4 +521,46 @@
     \end{example}
 \end{exmbox}
 
+\newpage
+\section{Exercises and Notes}
+
+\begin{example}
+    Let \(f: M \rightarrow N\) be a surjective homomorphism of two finitely generated \(A\)-modules.
+
+    \begin{enumerate}
+        \item If \(N \cong A^n\) is a free \(A\)-module, show that \(M \cong \mathrm{ker}(f) \oplus N\).
+        
+        \begin{proof}
+            Since \(N\) is finitely generated, let \((e_1, \ldots, e_n)\) be a set of generators. 
+        \end{proof}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Let \(A\) be a ring, \(\mathfrak{a}\) and \(\mathfrak{b}\) ideals, \(M\) and \(N\) \(A\)-modules. Set
+    \begin{align*}
+        \Gamma_\mathfrak{a}(M) := \makeset{m \in M}{\mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)}} \text{.}
+    \end{align*}
+    Prove the following statements.
+    \begin{enumerate}
+        \item If \(\mathfrak{a} \supset \mathfrak{b}\), then \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{b}(M)\).
+        
+        \begin{proof}
+            This proof is a matter of verification. Let \(m \in \Gamma_\mathfrak{a}(M)\). It is
+            \begin{align*}
+                m \in \Gamma_\mathfrak{a}(M) & \Rightarrow \mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)} \\
+                & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \in \mathrm{Ann}(m) \text{.}\\
+                & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \cdot m = 0 \text{.}
+                %                
+                \intertext{Since \(\mathfrak{a} \supset \mathfrak{b}\), the last statement is true for all \(a \in \mathbb{b}\). We have}
+                %
+                & \Rightarrow
+            \end{align*}
+        \end{proof}
+    \end{enumerate}
+\end{example}
+
+
+\chapter{Tensor Product}
+
 \end{document}
