@@ -464,9 +464,17 @@
 \part{Modules}
 
 \begin{defbox}
-    \begin{definition}
+    \begin{definition}[Simple Modules]
         Let \(A\) be a ring. A nonzero \(A\)-module \(M\) is called simple if the only submodules are \(\{0\}\) and \(M\) itself.
     \end{definition}
 \end{defbox}
+
+\begin{example}
+    If \(M\) is a simple \(A\)-module, then any \(f \in \mathrm{Hom}_A (M, M) \setminus \{0\}\) is an isomorphism.
+\end{example}
+
+\begin{proof}
+    Fix an \(f \in \mathrm{Hom}_A (M, M) \setminus \{0\}\). Since \(\mathrm{ker}(f)\) is a submodule of \(M\), it must be either \(\{0\}\) or whole \(M\). But \(\mathrm{ker}(f) = M\) would mean that \(f = 0\) which was explicitly excluded, thus \(\mathrm{ker}(f) = \{0\}\). By the isomorphism theorem, we also have \(\mathrm{im}(f) \cong \sfrac{M}{\mathrm{ker}(f)} \cong M\). Therefore, \(f\) is bijective.
+\end{proof}
 
 \end{document}
