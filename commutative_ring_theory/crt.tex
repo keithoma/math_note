@@ -546,16 +546,37 @@
         \item If \(\mathfrak{a} \supset \mathfrak{b}\), then \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{b}(M)\).
         
         \begin{proof}
-            This proof is a matter of verification. Let \(m \in \Gamma_\mathfrak{a}(M)\). It is
+            The proof is a matter of verification. Let \(m \in \Gamma_\mathfrak{a}(M)\). It is
             \begin{align*}
                 m \in \Gamma_\mathfrak{a}(M) & \Rightarrow \mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)} \\
                 & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \in \mathrm{Ann}(m) \text{.}\\
                 & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \cdot m = 0 \text{.}
                 %                
-                \intertext{Since \(\mathfrak{a} \supset \mathfrak{b}\), the last statement is true for all \(a \in \mathbb{b}\). We have}
+                \intertext{Since \(\mathfrak{a} \supset \mathfrak{b}\), the last statement is true for all \(a \in \mathfrak{b}\). We have}
                 %
-                & \Rightarrow
+                & \Rightarrow \text{For all } a \in \mathfrak{b} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \cdot m = 0 \text{.} \\
+                & \Rightarrow \text{For all } a \in \mathfrak{b} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \in \mathrm{Ann}(m) \text{.}\\
+                & \Rightarrow \mathfrak{b} \subset \sqrt{\mathrm{Ann}(m)} \\
+                & \Rightarrow m \in \Gamma_\mathfrak{b}(M)
             \end{align*}
+            Thus, \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{b}(M)\).
+        \end{proof}
+
+        \item If \(M \subset N\), then \(\Gamma_\mathfrak{a}(M) = \Gamma_\mathfrak{a}(N) \cap M\).
+        
+        \begin{proof}
+            Again, the proof is a matter of verification.
+
+            ``\(\subset\)'': \(M \subset N\) implies \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{a}(N)\). Moreover, it is \(\Gamma_\mathfrak{a}(M) \subset M\). Thus, \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{a}(N) \cap M\).
+
+            ``\(\supset\)'': Let \(m \in \Gamma_\mathfrak{a}(N) \cap M\). It is
+            
+            \begin{align*}
+                m \in \Gamma_\mathfrak{a}(N) \cap M & \Rightarrow \mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)} \text{ and } m \in M \text{.} \\
+                & \Rightarrow m \in \Gamma_\mathfrak{a}(M) \text{.}
+            \end{align*}
+
+            Hence, \(\Gamma_\mathfrak{a}(N) \cap M \subset \Gamma_\mathfrak{a}(M)\).
         \end{proof}
     \end{enumerate}
 \end{example}
