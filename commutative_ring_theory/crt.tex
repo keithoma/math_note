@@ -403,6 +403,24 @@
 
 
 \begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a ring. \(A\) is reduced if and only if all its localizations \(A_\mathfrak{p}\) at \(\mathfrak{p} \in \mathrm{Spec} \, A\) is reduced.
+    \end{proposition}
+\end{thmbox}
+
+\begin{proof}
+    ``\(\Rightarrow\)'': We prove the statement by contrapositive. Let \(A_\mathfrak{p}\) be not reduced for all \(\mathfrak{p} \in \mathrm{Spec} \, A\). Thus, in all \(A_\mathfrak{p}\), there is an element, say \(x / s\) that is nilpotent and not zero, i.e. \((x / s)^n = 0\) for some \(n \in \mathbb{N}^+\). By the definition of localization, we get \(x^n \cdot u = 0\) for some \(u \in A \setminus \mathfrak{p}\). Now, \(u \in A \setminus \mathfrak{p}\) cannot be zero, because if it was, \(A_\mathfrak{p} = 0\) which is reduced. Thus, \(x\) is nilpotent and \(A\) is not reduced.
+\end{proof}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thmbox}
     \begin{lemma}
         Let \(A\) be a ring and \(S \subset A\) be a multiplicative subset that does not contain \(0\).
         
