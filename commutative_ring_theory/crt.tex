@@ -592,7 +592,11 @@
 \end{example}
 
 \begin{proof}
-    
+    By definition of radical of a module, it is
+    \begin{align*}
+        \mathrm{Rad} \left(\sfrac{A}{\mathrm{Ann}(M)}\right) = \sfrac{\mathrm{Rad}(M)}{\mathrm{Ann}(M)} \text{.}
+    \end{align*}
+    Thus, if \(x \in \mathrm{Rad}(M)\), then its residue \(x^\prime := x + \mathrm{Ann}(M)\) lies in \(\mathrm{Rad}\left(\sfrac{A}{\mathrm{Ann}(M)}\right)\) which means \(x^\prime\) is nilpotent. SOME THEOREM yields \((1 + x^\prime)\) is an unit in \(\sfrac{A}{\mathrm{Ann}(M)}\).
 \end{proof}
 
 \chapter{Tensor Product}
