@@ -749,4 +749,26 @@
     \end{enumerate}
 \end{example}
 
+\chapter{Noetherian Modules}
+
+\begin{defbox}
+    \begin{definition}
+        An \(A\)-module \(M\) is called Noetherian if one of the following equivalent conditions hold.
+        \begin{enumerate}
+            \item Its submodules satisfies the asending chain condition, i.e. MISSING.
+            \item All submodules of \(M\) are finitely generated.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{proof}
+    ``\(\Rightarrow\)'': Let \(M\) be an \(A\)-module that satisfies the ascending chain condition and assume a submodule \(N\) is not finitely generated. In this case, we may construct a chain of submodules
+    \begin{align*}
+        N_1 \subset N_2 \subset \cdots N_i \subset \cdots
+    \end{align*}
+    where \(N_i = (n_1, n_2, \ldots, n_{i-1})\) with \(n_i \in N\) and \(n_i \not\in N_i\) for all \(i \in \mathbb{N}^+\). This chain never stabilizes, thus \(N\) must be finitely generated.
+
+    \noindent``\(\Leftarrow\)'':
+\end{proof}
+
 \end{document}
