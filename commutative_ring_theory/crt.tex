@@ -477,6 +477,17 @@
     \end{example}
 \end{exmbox}
 
+\begin{thmbox}
+    \begin{proposition}
+        Let \(M\) and \(N\) be an \(A\)-module, and \(\varphi: M \rightarrow N\) be an \(A\)-module homomorphism.
+        \begin{enumerate}
+            \item \(\mathrm{im}(\varphi)\) is a submodule of \(M\).
+            \item \(\mathrm{ker}(\varphi)\) is a submodule of \(N\).
+            \item For any submodule \(N^\prime\) of \(N\), its preimage \(\varphi^{-1}(N^\prime)\) is a submodule of \(M\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
 \begin{defbox}
     \begin{definition}[Annihilator]
         
@@ -796,7 +807,13 @@
     \end{lemma}
 \end{thmbox}
 \begin{proof}
-    
+    Let \(0 \rightarrow M \rightarrow N \rightarrow P \rightarrow 0\) be an exact sequence of \(A\)-modules.
+
+    \noindent ``\(\Rightarrow\)'': Let \(N\) be Noetherian.
+    \begin{enumerate}
+        \item We show that \(M\) is Noetherian by verifying all its submodules are finitely generated. Let \(M^\prime\) be a submodule of \(M\). In that case, \(\alpha(M^\prime)\)
+        \item We show that \(P\) is Noetherian by verifying all its submodules are finitely generated. Let \(P^\prime\) be a submodule of \(P\). Since \(\beta\) is surjective, we have \(P^\prime = \beta \left(\beta^{-1}(P^\prime)\right)\). \(\beta^{-1}(P^\prime)\) is a submodule of \(N\) and it is finitely generated because \(N\) is Noetherian.
+    \end{enumerate}
 \end{proof}
 
 
