@@ -459,7 +459,52 @@
 \section{Definition and Theorems}
 \subsection{Integral Domains}
 
+\chapter{Classification of Rings}
+\section{Definition and Theorems}
+\subsection{Noetherian Ring}
 
+\begin{thmbox}
+    \begin{lemma}
+        All principal ideal domains are Noetherian.
+    \end{lemma}
+\end{thmbox}
+
+\begin{rembox}
+    \begin{remark}
+        By the lemma above, it follows that any
+        \begin{enumerate}
+            \item Euclidean domains
+            \item fields
+        \end{enumerate}
+        are Noetherian.
+    \end{remark}
+\end{rembox}
+
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    
+\end{example}
+
+\begin{thmbox}
+    \begin{theorem}[Hilbert's Basis Theorem]
+        If \(A\) is a Noetherian ring, then the polynomial ring with finitely many variables \(A[X_1, \ldots, X_n]\) is Noetherian. In particular, if \(A\) is Noetherian, so is \(A[X]\).
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        If \(A\) is Noetherian, the power series ring \(A[[X]]\) is Noetherian.
+    \end{corollary}
+\end{thmbox}
+
+\begin{rembox}
+    \begin{remark}
+        The polynomial ring with infinitely many variables \(A[X_1, X_2, \ldots]\) is never Noetherian.
+    \end{remark}
+\end{rembox}
 
 \part{Modules}
 
@@ -811,10 +856,31 @@
 
     \noindent ``\(\Rightarrow\)'': Let \(N\) be Noetherian.
     \begin{enumerate}
-        \item We show that \(M\) is Noetherian by verifying all its submodules are finitely generated. Let \(M^\prime\) be a submodule of \(M\). In that case, \(\alpha(M^\prime)\)
+        \item We show that \(M\) is Noetherian by verifying all its submodules are finitely generated. Let \(M^\prime\) be a submodule of \(M\). In that case, \(\alpha(M^\prime)\) is a submodule of \(N\) and thus finitely generated. \(\alpha\) restricted 
         \item We show that \(P\) is Noetherian by verifying all its submodules are finitely generated. Let \(P^\prime\) be a submodule of \(P\). Since \(\beta\) is surjective, we have \(P^\prime = \beta \left(\beta^{-1}(P^\prime)\right)\). \(\beta^{-1}(P^\prime)\) is a submodule of \(N\) and it is finitely generated because \(N\) is Noetherian.
     \end{enumerate}
 \end{proof}
 
+\begin{thmbox}
+    \begin{proposition}
+        \textit{The property Noetherian is stable under intersection, direct sum,addition, and localization.} Let \(M\) be an \(A\)-module, \(N_1\) and \(N_2\) submodules of \(M\).
+        \begin{enumerate}
+            \item If \(N_1\) and \(N_1\) are Noetherian, so is \(N_1 \cap N_2\), \(N_1 \oplus N_2\), and \(N_1 + N_2\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Since all submodules of a Noetherian module is again Noetherian, \(N_1 \cap N_2\) is Noetherian because it is a submodule of \(M\) which is Noetherian.
+        \item Consider the sequence \(0 \rightarrow N_1 \rightarrow N_1 \oplus N_2 \rightarrow N_2 \rightarrow 0\).
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(M\) be an \(A\)-module, and \(N_1\) and \(N_2\) submodules of \(M\). In general, \(N_1 \otimes N_2\) is not Noetherian.
+    \end{example}
+\end{exmbox}
 
 \end{document}
