@@ -606,7 +606,7 @@
 
     \textbf{Case 1:} In this case, \(A = A_1 \times A_2\) for two local Artinian rings \(A_1\) and \(A_2\) with both having exactly \(p\) elements. A ring with \(p\) elements is isomorphic to \(\mathbb{F}_p\). We may conclude \(A = \mathbb{F}_p \times \mathbb{F}_p\).
 
-    \textbf{Case 2:} If \(A\) has only one factor, \(A\) must be a local ring, i.e. it has a unique maximal ideal \(\mathfrak{m}\) with \(\mathfrak{m}^n = 0\) for some \(\mathbb{N}^+\). Choose such \(n\) to be minimal and consider the chain \(R \supset \mathfrak{m} \supset \mathfrak{m}^2 \supset 0\)
+    \textbf{Case 2:} If \(A\) has only one factor, \(A\) must be a local ring, i.e. it has a unique maximal ideal \(\mathfrak{m}\) with \(\mathfrak{m}^n = 0\) for some \(\mathbb{N}^+\). Choose such \(n\) to be minimal and consider the chain \(R \supset \mathfrak{m} \supset \mathfrak{m}^2 \supset 0\). Taking the quotient at each step we obtain 
 \end{proof}
 
 \part{Modules}
@@ -1096,5 +1096,33 @@
 
 
 \part*{Unorganized}
+
+\begin{example}
+    Let \(A\) be a local ring with maximal ideal \(\mathfrak{m}\).
+    \begin{enumerate}
+        \item What do the simple \(A\)-module look like?
+        
+        \begin{proof}
+            Let \(M\) be a simple \(A\)-module. Since \(M\) is simple, the only proper submodule is the zero-module.
+        \end{proof}
+    \end{enumerate}
+\end{example}
+
+\textbf{Length}
+
+\begin{example}
+    Let \(M\) be an \(A\)-module.
+    \begin{enumerate}
+        \item If \(M\) is simple, then any nonzero element \(m \in M\) generates M.
+        \begin{proof}
+            Fix an element \(m \in M\) and assume \(m\) does not generate whole \(M\). In that case, there must be a \(m^\prime \in M\) such that \(m \neq \lambda m^\prime\) for all \(\lambda \in A\). Then, \((m)\) is non-zero, but also not whole \(M\) which is a contradiction.
+        \end{proof}
+        \item \(M\) is simple if and only if \(M \cong A / \mathfrak{m}\) for some maximal ideal \(\mathfrak{m}\), and if so, then \(\mathfrak{m} = Ann(M)\).
+        \begin{proof}
+            We first show that \(M\) is simple if and only if \(M \cong A/\mathfrak{m}\) for some maximal ideal \(\mathfrak{m}\).
+            ``\(\Rightarrow\)'': Let \(M\) be simple. By the statement above, \(M\) is cyclic.
+        \end{proof}
+       \end{enumerate}
+\end{example}
 
 \end{document}
