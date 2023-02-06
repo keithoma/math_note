@@ -511,6 +511,30 @@
 
 \subsection*{Definition and Theorems}
 
+\begin{defbox}
+    \begin{definition}[Artinian Rings]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item Any field is Artinian.
+            \item Any finite ring is Artinian.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        \begin{enumerate}
+            \item A quotient of an Artinian ring is Artinian.
+            \item A localization of an Artinian ring is Artinian.
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
 \begin{thmbox}
     \begin{lemma}
         An integral domain is Artinian if and only if it is a field.
@@ -519,7 +543,18 @@
 \begin{proof}
     Let \(A\) be an integral domain.
 
-    ``\(\Rightarrow\)'': 
+    ``\(\Rightarrow\)'': Since \(A\) is an Artinian, the descending chain
+    \begin{align*}
+        (x) \supset (x^2) \supset \cdots \supset (x^n) \supset (x^{n+1}) \supset \cdots
+    \end{align*}
+    becomes stationary, that is \((x^n) = (x^{n+1})\) for some \(n \in \mathbb{N}^+\). It follows that there is a \(b \in A\) such that \(x^n = b x^{n+1}\). We have
+    \begin{align*}
+        x^n = b x^{n+1} &\iff 0 = b x^{n+1} - x^{n}\\
+        &\iff 0 = bx^n (x - 1)
+    \end{align*}
+    Since \(A\) is an integral domain, \(bx^n\) cannot be zero,thus \(x - 1 = 0\) or in other words \(x\) is a unit. Hence \(A\) is a field.
+
+    ``\(\Leftarrow\)'': All fields are already Artinian.
 \end{proof}
 
 
@@ -536,6 +571,18 @@
         \end{enumerate}
     \end{proposition}
 \end{thmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let \((\mathfrak{m}_k)_{i \in \mathbb{N}^+}\) be a sequence of maximal ideals and set
+        \begin{align*}
+            I_k = \prod_{i = 1}^k \mathfrak{m}_i \text{.}
+        \end{align*}
+        Since \(A\) is Artinian, the chain \(I_0 \supset I_1 \supset \cdots \supset I_k \supset I_{k+1} \supset \cdots\) becomes stationary. Hence \(I_k = I_{k + 1}\) for some \(k \in \mathbb{N}^+\).
+        \item Since \(\mathrm{Spec}(A) \supset \mathrm{Spm}(A)\) is immediately clear, we show the other direction of the inclusion. Let \(\mathfrak{p}\) be a prime ideal and consider \(A/\mathfrak{p}\). It is an integral domain because \(\mathfrak{p}\) is a prime ideal and it is also Artinian because a quotient of an Artinian ring is Artinian. Therefore, \(A/\mathfrak{p}\) is a field, hence \(\mathfrak{p}\) is a maximal ideal.
+    \end{enumerate}
+\end{proof}
+
 
 \part{Modules}
 
