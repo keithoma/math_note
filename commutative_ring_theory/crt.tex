@@ -601,6 +601,14 @@
     Given a prime \(p \in \mathbb{Z}\), find all Artinian rings \(A\) with \(p^2\) elements (up to isomorphisms).
 \end{example}
 
+\begin{proof}
+    Let \(A\) be an Artinian ring with \(p^2\) elements where \(p \in \mathbb{Z}\) is prime. By the structure theorem of Artinian rings, we have that \(A\) is a product of local Artinian rings. Since \(p^2\) has two prime factors, this product can involve at most two factors. Thus, we have two cases.
+
+    \textbf{Case 1:} In this case, \(A = A_1 \times A_2\) for two local Artinian rings \(A_1\) and \(A_2\) with both having exactly \(p\) elements. A ring with \(p\) elements is isomorphic to \(\mathbb{F}_p\). We may conclude \(A = \mathbb{F}_p \times \mathbb{F}_p\).
+
+    \textbf{Case 2:} If \(A\) has only one factor, \(A\) must be a local ring, i.e. it has a unique maximal ideal \(\mathfrak{m}\) with \(\mathfrak{m}^n = 0\) for some \(\mathbb{N}^+\).
+\end{proof}
+
 \part{Modules}
 
 \begin{defbox}
