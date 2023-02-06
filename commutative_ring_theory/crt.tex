@@ -522,6 +522,58 @@
     \end{example}
 \end{exmbox}
 
+\begin{defbox}
+    \begin{definition}
+        An \(A\)-module is finitely generated if there exists a finite set \(\{m_1, \ldots, m_n\}\) with \(n \in \mathbb{N}^+\) in \(M\) such that for any \(x\) in \(M\), there exits \(\lambda_1, \ldots, \lambda_n\) in \(A\) with
+        \begin{align*}
+            x = \lambda_1 m_1 + \cdots + \lambda_n m_n
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        An \(A\)-module is finitely generated if and only if there exists a surjective \(A\)-module homomorphism
+        \begin{align*}
+            A^n \longrightarrow M
+        \end{align*}
+        for some \(n \in \mathbb{N}^+\).
+    \end{lemma}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        Let \(M\) be an \(A\)-module. A set \(B \subset M\) is a basis of \(M\) if
+        \begin{enumerate}
+            \item \(B\) is a generating set for \(M\)
+            \item \(B\) is linearly independent
+        \end{enumerate}
+        A free module is a module with a basis.
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        An \(A\)-module being free does \textbf{not} imply the module being finitely generated. Similary, an \(A\)-module being finitely generated does \textbf{not} imply the module being free.
+    \end{remark}
+\end{rembox}
+
+\begin{exmbox}
+    \begin{example}
+        Two examples to illustrate the remark above.
+        \begin{enumerate}
+            \item As an \(\mathbb{Z}\)-module, \(\mathbb{Z} / 2 \mathbb{Z}\) is finitely generated but is not free.
+            \item As an \(\mathbb{Z}\)-module, \(\bigoplus_{\mathbb{N}} \mathbb{Z}\) is free, but is not finitely generated.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \(\{1\}\) is a generating set of \(\mathbb{Z}/2\mathbb{Z}\) since \(1 \cdot 1 = 1\) and \(2 \cdot 1 = 0\). However, \(\{1\}\) and ...
+    \end{enumerate}
+\end{proof}
+
 \begin{thmbox}
     \begin{proposition}
         Let \(M\) and \(N\) be an \(A\)-module, and \(\varphi: M \rightarrow N\) be an \(A\)-module homomorphism.
