@@ -1,0 +1,120 @@
+\chapter{Rings and Homomorphisms}
+\subsection*{Definition and Theorems}
+\begin{defbox}
+    \begin{definition}[Ring]
+        A ring is a set \(A\) equipped with two binary operations \(+\) (addition) and \(\cdot\) (multiplication) satisfying the following three sets of axioms, called the ring axioms.
+    \begin{enumerate}
+      \item \((A, +)\) is an abelian group.
+      \item \((A, \cdot)\) is a semigroup.
+      \item Multiplication is distributive with respect to addition, meaning that
+      \begin{itemize}
+        \item \(a \cdot (b + c) = (a \cdot b) + (a \cdot c)\) for all \(a, b, c \in A\) (left distributivity).
+        \item \((b + c) \cdot a = (b \cdot a) + (c \cdot a)\) for all \(a, b, c \in A\) (right distributivity).
+      \end{itemize}
+    \end{enumerate}
+    A ring is called unitary if it contains the multiplicative identity and commutative if multiplication is commutative.
+    \end{definition}
+\end{defbox}
+%
+%
+%
+\begin{intbox}
+    \begin{intuition}
+        A ring may be understood as the generalization of the integers.
+
+        Another way to see rings is a less well behaved field where the theory of dividing is due to rings missing the multiplicative identity richer.
+    \end{intuition}
+\end{intbox}
+%
+%
+%
+\begin{rembox}
+    \begin{remark}
+        In this text, we will primarily be concerned with commutative unitary rings, and thus, for brevity sake, we simply write ``ring'' and mean a commutative unitary ring.
+    \end{remark}
+\end{rembox}
+%
+%
+%
+\begin{exmbox}
+    \begin{example}
+        Some important examples of rings include the following.
+        \begin{enumerate}
+            \item The prototypical example is the ring of integers \(\mathbb{Z}\) with the two operations being of addition and multiplication.
+            \item Any field is a ring. In particular, the rational numbers \(\mathbb{Q}\), the real numbers \(\mathbb{R}\), and the complex numbers \(\mathbb{C}\) are rings.
+            \item The zero ring or trivial ring is the unique ring consisting of one element \(0\) with the operations \(+\) and \(\cdot\) defined such that \(0 + 0 = 0\) and \(0 \cdot 0 = 0\). It is the unique ring in which the additive and the multiplicative identity coincide.
+            \item the set of polynomials
+            \item an example of a finite ring
+            \item If \(S\) is a set, then the power set \(\mathcal{P}(S)\) of \(S\) becomes a ring if we define addition to be the symmetric difference of sets and multiplication to be intersection.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+%
+%
+%
+\begin{example}
+    Moreover, we have some examples of rings that are non-commutative or non-unitary.
+    \begin{enumerate}
+        \item Matrix ring is non-commutative
+    \end{enumerate}
+\end{example}
+%
+%
+%
+\begin{example}
+    Counterexamples of rings include the following.
+    \begin{enumerate}
+        \item The set of natural numbers \(\mathbb{N}\) with the usual operations is not a ring, since \((\mathbb{N}, +)\) is not even a group.
+        \item Trivially, the emptyset regardless of the operations is not a ring.
+    \end{enumerate}
+\end{example}
+%
+%
+%
+\begin{defbox}
+    \begin{definition}[Ring Homomorphism]
+        A homomorphism from ring \((A, +, \cdot)\) to a ring \((B, \boxplus, \boxdot)\) is a map \(\varphi\) from \(A\) to \(B\) that preserves the ring operations.
+    \end{definition}
+\end{defbox}
+%
+%
+%
+\begin{example}
+    examples of ring homomorphism.
+\end{example}
+%
+%
+%
+\begin{defbox}
+    \begin{definition}[Subring]
+        A subset \(S\) of \(A\) is called a subring if any of the following equivalent conditions holds.
+    \end{definition}
+\end{defbox}
+%
+%
+%
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a ring and \(R\) and \(S\) subrings of \(A\).
+        \begin{enumerate}
+            \item (ANY?) intersection stable
+            \item cartesian product is again a ring
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+%
+%
+%
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item Complement, of course not.
+            \item union, of course not.
+            \item difference, of course not
+            \item symmetric difference, of course not
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\subsection*{Notes}
+
