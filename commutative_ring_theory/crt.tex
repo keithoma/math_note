@@ -176,7 +176,9 @@
 
 \chapter{Localization}
 
-\section{Definition and Theorems}
+\subsection*{Definition and Theorems}
+\subsubsection{Multiplicative Subsets}
+
 
 \begin{defbox}
     \begin{definition}[Multiplicative Subset]
@@ -187,6 +189,16 @@
         \end{enumerate}
     \end{definition}
 \end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(A\) be a ring. Trivially, the following subsets of \(A\).are multiplicative subsets.
+        \begin{enumerate}
+            \item \(A\) itself is a multiplicative subset.
+            \item \(\{1\}\) is a multiplicative subset.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
 
 \begin{exmbox}
     \begin{example}
@@ -218,7 +230,15 @@
         An ideal \(\mathfrak{p}\) of a ring \(A\) is prime if and only if its complement \(A \setminus \mathfrak{p}\) is a multiplicative subset.
     \end{lemma}
 \end{thmbox}
+\begin{proof}
+    Let \(A\) be a ring and \(\mathfrak{p}\) be an ideal in \(A\).
 
+    ``\(\Rightarrow\)'': Suppose \(\mathfrak{p}\) is prime. By definition, \(1 \not\in \mathfrak{p}\), hence \(1\) lies in the complement \(A \setminus \mathfrak{p}\). Now let \(x,y \in A \setminus \mathfrak{p}\) and assume \(xy \not\in A \setminus \mathfrak{p}\). In this case, \(xy \in \mathfrak{p}\) and since \(\mathfrak{p}\) is prime, we must have \(x \in \mathfrak{p}\) or \(x \in \mathfrak{p}\) both of which are contradictions.
+
+    ``\(\Leftarrow\)'': On the other hand, let \(A \setminus \mathfrak{p}\) be a multiplicative subset. Fix a \(xy \in \mathfrak{p}\) and assume \(x, y \not\in \mathfrak{p}\). We have that \(x, y \in A \setminus \mathfrak{p}\) and since \(A \setminus \mathfrak{p}\) is a multiplicative subset, it is \(xy \in A \setminus \mathfrak{p}\). This implies \(xy \not\in \mathfrak{p}\) which is a contradiction.
+\end{proof}
+
+\subsubsection{Localization}
 \begin{defbox}
     \begin{definition}[Localization]
         \(S^{-1}A\) is again a ring.
@@ -272,14 +292,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thmbox}
-    \begin{lemma}
+    \begin{proposition}
         Let \(A\) be a ring and \(S \subset A\) be a multiplicative subset that does not contain \(0\).
         
         \begin{enumerate}
             \item \(A\) is an integral domain if and only if \(S^{-1}A\) is an integral domain.
             \item \(A\) is a unique factorization domain if and only if \(S^{-1}A\) is a unique factorization domain.
         \end{enumerate}
-    \end{lemma}
+    \end{proposition}
 \end{thmbox}
 
 
@@ -290,7 +310,7 @@
     ``\(\Leftarrow\)'': On the other hand, let \(S^{-1}A\) be an integral domain. JUST USE THE CANONIC MAPPING \(\varphi_S: A \longrightarrow S^{-1}A\).
 \end{proof}
 
-\section{Exercises and Notes}
+\subsection*{Exercises and Notes}
 
 \begin{example}
     Let \(A_1\) and \(A_2\) be rings. Consider \(A = A_1 \times A_2\) and set \(S := \set{(1, 1), (1, 0)}\). Prove \(A_1 \simeq S^{-1}A\).
