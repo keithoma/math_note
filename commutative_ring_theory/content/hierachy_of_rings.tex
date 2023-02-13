@@ -29,6 +29,26 @@
     
 \end{proof}
 
+\subsubsection{Interactions}
+
+\begin{thmbox}
+    \begin{proposition}
+        If \(A\) is an integral domain, and \(S\) a multiplicative subset that does not contain \(0\), then its localization \(S^{-1}A\) is an integral domain.
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    Fix two elements \(x/s\) and \(y/t\) in \(S^{-1}A\). If their product equals \(0\), we have
+    \begin{align*}
+        \frac{0}{1} = \frac{x}{s} \cdot \frac{y}{t} \iff xyu = 0 \text{ for some } u \in S
+    \end{align*}
+    Since \(S\) does not contain \(0\), we must have \(x = 0\) or \(y = 0\), thus \(S^{-1}A\) is an int domain.
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        The converse of the proposition above is not true, that is the localization \(S^{-1}A\) being an integral domain does not imply \(A\) is an integral domain.
+    \end{example}
+\end{exmbox}
 \subsection*{Notes}
 
 \newpage
