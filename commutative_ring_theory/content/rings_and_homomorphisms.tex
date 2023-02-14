@@ -1,5 +1,6 @@
 \chapter{Rings and Homomorphisms}
 \subsection*{Definition and Theorems}
+\subsubsection*{Rings}
 \begin{defbox}
     \begin{definition}[Ring]
         A ring is a set \(A\) equipped with two binary operations \(+\) (addition) and \(\cdot\) (multiplication) satisfying the following three sets of axioms, called the ring axioms.
@@ -72,20 +73,6 @@
 %
 %
 \begin{defbox}
-    \begin{definition}[Ring Homomorphism]
-        A homomorphism from ring \((A, +, \cdot)\) to a ring \((B, \boxplus, \boxdot)\) is a map \(\varphi\) from \(A\) to \(B\) that preserves the ring operations.
-    \end{definition}
-\end{defbox}
-%
-%
-%
-\begin{example}
-    examples of ring homomorphism.
-\end{example}
-%
-%
-%
-\begin{defbox}
     \begin{definition}[Subring]
         A subset \(S\) of \(A\) is called a subring if any of the following equivalent conditions holds.
     \end{definition}
@@ -116,5 +103,29 @@
     \end{example}
 \end{exmbox}
 
+\subsubsection*{Ring Homomorphisms}
+\begin{defbox}
+    \begin{definition}[Ring Homomorphism]
+        A homomorphism from ring \((A, +, \cdot)\) to a ring \((B, \boxplus, \boxdot)\) is a map \(\varphi\) from \(A\) to \(B\) that preserves the ring operations.
+    \end{definition}
+\end{defbox}
+%
+%
+%
+\begin{example}
+    examples of ring homomorphism.
+\end{example}
+%
+%
+%
+\begin{thmbox}
+    \begin{proposition}
+        Let \(f: A \rightarrow B\) be a ring homomorphism.
+        \begin{enumerate}
+            \item A ring homomorphism preserves the additive identity, i.e. \(f(0_A) = 0_B\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+\newpage
 \subsection*{Notes}
 
