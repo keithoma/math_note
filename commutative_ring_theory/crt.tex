@@ -23,6 +23,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{textcomp}
+\usepackage{mathtools}
 % \usepackage{MnSymbol} % for \cupdot
 
 % extra
@@ -364,8 +365,22 @@
     \end{proposition}
 \end{thmbox}
 \begin{proof}
-    By induction, we reduce the case to \(n = 2\), that is, we want to show \((\mathfrak{a}_1 \cap \mathfrak{a}_2) A_S = \mathfrak{a}_1 A_S \cap \mathfrak{a}_2 A_S\).
+    By induction, we reduce the case to \(n = 2\), that is, we want to show \((\mathfrak{a}_1 \cap \mathfrak{a}_2) A_S = \mathfrak{a}_1 A_S \cap \mathfrak{a}_2 A_S\). The inclusion \((\mathfrak{a}_1 \cap \mathfrak{a}_2) \xhookrightarrow{} \mathfrak{a}_1\) induces a natural inclusion \((\mathfrak{a}_1 \cap \mathfrak{a}_2) A_S \xhookrightarrow{} \mathfrak{a}_1 A_S\) which can be extended to a injective map \(f: (\mathfrak{a}_1 \cap \mathfrak{a}_2)A_S \rightarrow \mathfrak{a}_1 A_S \cap \mathfrak{a}_2 A_S\). It suffies to show \(f\) is surjective. Let \(y \in \mathfrak{a}_1 A_S \cap \mathfrak{a}_2 A_S\). We have
+    \begin{align*}
+        y = \frac{a_1}{s} = \frac{a_2}{t}
+    \end{align*}
+    with \(a_1 \in \mathfrak{a}_2\), \(a_2 \in \mathfrak{a}_2\), and \(s, t \in S\). Thus it is \(a_1 t u = a_2 s u\) for some \(u \in S\). Since \(a_1\) lies in \(\mathfrak{a}_1\), we have \(a_1 t u \in \mathfrak{a}_1\), and similary \(a_2 s u \in \mathfrak{a}_2\), hence \(a_1 t u \in \mathfrak{a}_1 \cap \mathfrak{a}_2\). But \(t\) and \(u\) are invertible in \(A_S\), therefore
+    \begin{align*}
+        \frac{a_1}{s} = \frac{a_1 t u}{s t u} \in (\mathfrak{a}_1 \cap \mathfrak{a}_2) A_S
+    \end{align*}
+    thus \(f\) is surjective.
 \end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        Consider \(\mathbb{Q}[X]\)
+    \end{example}
+\end{exmbox}
 
 \newpage
 \subsection*{Exercises and Notes}
