@@ -1073,4 +1073,20 @@
 \begin{example}
     Let \(k\) be a field. Is \(X = \mathrm{Spec}(k[X, Y] / (xy - 1))\) with the Zariski-topology connected?
 \end{example}
+
+
+\begin{example}
+    If \(A_\mathfrak{p}\) is reduced at all \(\mathfrak{p} \in \mathrm{Spec}(A)\), then \(A\) is reduced.
+\end{example}
+\begin{proof}
+    THIS IS A WRONG PROOF!
+
+    Denote the canonic \(\varphi_\mathfrak{p}: A \rightarrow A_\mathfrak{p}\). Assume \(x \in A\) with \(x^n = 0\). It is
+    \begin{align*}
+        0 = \varphi(0) = \varphi(x^n) = (\varphi(x))^n
+    \end{align*}
+    but since \(A_\mathfrak{p}\) is reduced, conclude \(\varphi(x) = 0\), so \(x = 0\).
+
+    The issue with this proof is that for example \(\varphi(x) \cdot \varphi(x)^2 = 0\) because \(\varphi(x)\) and \(\varphi(x)^2\) are zero divisors.
+\end{proof}
 \end{document}
