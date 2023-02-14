@@ -327,6 +327,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Interactions}
 \begin{thmbox}
     \begin{proposition}
         Let \(A\) be a ring and \(S \subset A\) be a multiplicative subset that does not contain \(0\).
@@ -351,6 +352,20 @@
         In the lemma above, the condition \(0 \not\in S\) is required because if \(S\) contains \(0\), then \(S^{-1}A = 0\) and by definition, an integral domain is a nonzero ring.
     \end{remark}
 \end{rembox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a ring, \(S\) a multiplicative subset, and \(\mathfrak{a}_1, \ldots, \mathfrak{a}_n\) for \(n \in \mathbb{N}^+\) ideals in \(A\). It is
+        \begin{align*}
+            \left(\bigcap_{i=1}^n \mathfrak{a}_i\right) A_S &= \left(\bigcap_{i=1}^n \mathfrak{a}_i A_S\right)
+            \intertext{or written differently}
+            \left(\mathfrak{a}_1 \cap \cdots \cap \mathfrak{a}_n\right) A_S &= \mathfrak{a}_1 A_S \cap \cdots \cap \mathfrak{a}_n A_S \text{.}
+        \end{align*}
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    By induction, we reduce the case to \(n = 2\), that is, we want to show \((\mathfrak{a}_1 \cap \mathfrak{a}_2) A_S = \mathfrak{a}_1 A_S \cap \mathfrak{a}_2 A_S\).
+\end{proof}
 
 \newpage
 \subsection*{Exercises and Notes}
