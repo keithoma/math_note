@@ -148,7 +148,15 @@
     \end{lemma}
 \end{thmbox}
 \begin{proof}
-    
+    Let \(M\) be a free \(A\)-module and fix an element \(m \in M\). Since \(M\) is free, \(m\) may be written as
+    \begin{align*}
+        m = \sum_{i = 1}^n \lambda_i m_i
+    \end{align*}
+    where \(\lambda_i \in A\) and \(m_i \in M\) with \(1 \leq i \leq n\). If \(m\) is a torsion element, then there is some \(a \in A\) such that \(am = 0\), thus it is
+    \begin{align*}
+        0 = am = a \sum_{i = 1}^n \lambda_i m_i = \sum_{i = 1}^n a \lambda_i m_i
+    \end{align*}
+    But \(m_i\) are linearly independent, therefore \(m = 0\).
 \end{proof}
 
 \begin{defbox}
