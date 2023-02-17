@@ -1,0 +1,274 @@
+\chapter{Modules}
+\subsection*{Definition and Theorems}
+\subsubsection*{Introduction}
+\begin{defbox}
+    \begin{definition}[Module]
+    \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item If \(A\) is a field, then an \(A\)-module is a vector space.
+            \item A \(\mathbb{Z}\)-module is just an abelian group.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\begin{defbox}
+    \begin{definition}[Submodules]
+        Let \(M\) be an \(A\)-module. A subset \(N\) of \(M\) is called a submodule if \((N, +)\) is a subgroup of \(M\) and for all \(n \in N\) and for all \(a \in A\) it is \(a \cdot n \in N\).
+    \end{definition}
+\end{defbox}
+
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) be a ring. If \(A\) is viewed as a module over itself, then its submodules are exactly its ideals, i.e.
+        \begin{align*}
+            \makeset{N}{N \text{ is a submodule of } A} = \makeset{\mathfrak{a}}{\mathfrak{a} \text{ is an ideal of } A}\text{.}
+        \end{align*}
+    \end{proposition}
+\end{thmbox}
+
+
+\begin{defbox}
+    \begin{definition}[Homomorphism of Modules]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(M\) and \(N\) be an \(A\)-module, and \(\varphi: M \rightarrow N\) be an \(A\)-module homomorphism.
+        \begin{enumerate}
+            \item \(\mathrm{im}(\varphi)\) is a submodule of \(M\).
+            \item \(\mathrm{ker}(\varphi)\) is a submodule of \(N\).
+            \item For any submodule \(N^\prime\) of \(N\), its preimage \(\varphi^{-1}(N^\prime)\) is a submodule of \(M\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
+
+\subsubsection*{Free and Finitely Generated}
+
+\begin{defbox}
+    \begin{definition}
+        An \(A\)-module is finitely generated if there exists a finite set \(\{m_1, \ldots, m_n\}\) with \(n \in \mathbb{N}^+\) in \(M\) such that for any \(x\) in \(M\), there exits \(\lambda_1, \ldots, \lambda_n\) in \(A\) with
+        \begin{align*}
+            x = \lambda_1 m_1 + \cdots + \lambda_n m_n
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        An \(A\)-module is finitely generated if and only if there exists a surjective \(A\)-module homomorphism
+        \begin{align*}
+            A^n \longrightarrow M
+        \end{align*}
+        for some \(n \in \mathbb{N}^+\).
+    \end{lemma}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        Let \(M\) be an \(A\)-module. A set \(B \subset M\) is a basis of \(M\) if
+        \begin{enumerate}
+            \item \(B\) is a generating set for \(M\)
+            \item \(B\) is linearly independent
+        \end{enumerate}
+        A free module is a module with a basis.
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        An \(A\)-module being free does \textbf{not} imply the module being finitely generated. Similary, an \(A\)-module being finitely generated does \textbf{not} imply the module being free.
+    \end{remark}
+\end{rembox}
+
+\begin{exmbox}
+    \begin{example}
+        Two examples to illustrate the remark above.
+        \begin{enumerate}
+            \item As an \(\mathbb{Z}\)-module, \(\mathbb{Z} / 2 \mathbb{Z}\) is finitely generated but is not free.
+            \item As an \(\mathbb{Z}\)-module, \(\bigoplus_{\mathbb{N}} \mathbb{Z}\) is free, but is not finitely generated.
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \(\{1\}\) is a generating set of \(\mathbb{Z}/2\mathbb{Z}\) since \(1 \cdot 1 = 1\) and \(2 \cdot 1 = 0\). However, \(\{1\}\) and ...
+    \end{enumerate}
+\end{proof}
+
+
+% ████████  ██████  ██████  ███████ ██  ██████  ███    ██ 
+%    ██    ██    ██ ██   ██ ██      ██ ██    ██ ████   ██ 
+%    ██    ██    ██ ██████  ███████ ██ ██    ██ ██ ██  ██ 
+%    ██    ██    ██ ██   ██      ██ ██ ██    ██ ██  ██ ██ 
+%    ██     ██████  ██   ██ ███████ ██  ██████  ██   ████ 
+%
+%  █████  ███    ██ ██████  
+% ██   ██ ████   ██ ██   ██ 
+% ███████ ██ ██  ██ ██   ██ 
+% ██   ██ ██  ██ ██ ██   ██ 
+% ██   ██ ██   ████ ██████  
+%
+%  █████  ███    ██ ███    ██ ██ ██   ██ ██ ██       █████  ████████  ██████  ██████  
+% ██   ██ ████   ██ ████   ██ ██ ██   ██ ██ ██      ██   ██    ██    ██    ██ ██   ██ 
+% ███████ ██ ██  ██ ██ ██  ██ ██ ███████ ██ ██      ███████    ██    ██    ██ ██████  
+% ██   ██ ██  ██ ██ ██  ██ ██ ██ ██   ██ ██ ██      ██   ██    ██    ██    ██ ██   ██ 
+% ██   ██ ██   ████ ██   ████ ██ ██   ██ ██ ███████ ██   ██    ██     ██████  ██   ██ 
+
+
+
+
+\subsubsection*{Torsion and Annihilator}
+\begin{defbox}
+    \begin{definition}
+        \begin{align*}
+            \mathrm{Tor}(M) = \makeset{m \in M}{\text{there is an } a \in A \setminus \{ 0 \} \text{ such that} a \cdot m = 0}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    \begin{enumerate}
+        \item Let \(\mathbb{Z}\) be a module over itself. It is \(\mathrm{Tor}(\mathbb{Z}) = \{0\}\).
+        \item Let \(n \in \mathbb{N}^+\) and consider the \(\mathbb{Z}\)-module \(\mathbb{Z}^n\). It is
+    \end{enumerate}
+\end{example}
+
+\begin{thmbox}
+    \begin{lemma}
+        If \(M\) is a free \(A\)-module, then it is torsion-free, i.e. \(\mathrm{Tor}(M) = \{0\}\).
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Annihilator]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Radical]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Simple Modules]
+        Let \(A\) be a ring. A nonzero \(A\)-module \(M\) is called simple if the only submodules are \(\{0\}\) and \(M\) itself.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    If \(M\) is a simple \(A\)-module, then any \(f \in \mathrm{Hom}_A (M, M) \setminus \{0\}\) is an isomorphism.
+\end{example}
+
+\begin{proof}
+    Fix an \(f \in \mathrm{Hom}_A (M, M) \setminus \{0\}\). Since \(\mathrm{ker}(f)\) is a submodule of \(M\), it must be either \(\{0\}\) or whole \(M\). But \(\mathrm{ker}(f) = M\) would mean that \(f = 0\) which was explicitly excluded, thus \(\mathrm{ker}(f) = \{0\}\). By the isomorphism theorem, we also have \(\mathrm{im}(f) \cong \sfrac{M}{\mathrm{ker}(f)} \cong M\). Therefore, \(f\) is bijective.
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Indecomposable]
+        Let \(A\) be a ring. A nonzero \(A\)-module \(M\) is called indecomposable if it cannot be written as a direct sum of two non-zero submodules.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Every simple module is indecomposable.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        Not all indecomposable modules are simple. For example, \(\mathbb{Z}\) is indecomposable, but is not simple.
+    \end{example}
+\end{exmbox}
+
+\newpage
+\section{Exercises and Notes}
+
+\begin{example}
+    Let \(f: M \rightarrow N\) be a surjective homomorphism of two finitely generated \(A\)-modules.
+
+    \begin{enumerate}
+        \item If \(N \cong A^n\) is a free \(A\)-module, show that \(M \cong \mathrm{ker}(f) \oplus N\).
+        
+        \begin{proof}
+            Since \(N\) is finitely generated, let \((e_1, \ldots, e_n)\) be a set of generators. 
+        \end{proof}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Let \(A\) be a ring, \(\mathfrak{a}\) and \(\mathfrak{b}\) ideals, \(M\) and \(N\) \(A\)-modules. Set
+    \begin{align*}
+        \Gamma_\mathfrak{a}(M) := \makeset{m \in M}{\mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)}} \text{.}
+    \end{align*}
+    Prove the following statements.
+    \begin{enumerate}
+        \item If \(\mathfrak{a} \supset \mathfrak{b}\), then \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{b}(M)\).
+        
+        \begin{proof}
+            The proof is a matter of verification. Let \(m \in \Gamma_\mathfrak{a}(M)\). It is
+            \begin{align*}
+                m \in \Gamma_\mathfrak{a}(M) & \Rightarrow \mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)} \\
+                & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \in \mathrm{Ann}(m) \text{.}\\
+                & \Rightarrow \text{For all } a \in \mathfrak{a} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \cdot m = 0 \text{.}
+                %                
+                \intertext{Since \(\mathfrak{a} \supset \mathfrak{b}\), the last statement is true for all \(a \in \mathfrak{b}\). We have}
+                %
+                & \Rightarrow \text{For all } a \in \mathfrak{b} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \cdot m = 0 \text{.} \\
+                & \Rightarrow \text{For all } a \in \mathfrak{b} \text{ there is a } n \in \mathbb{N}^+ \text{ such that } a^n \in \mathrm{Ann}(m) \text{.}\\
+                & \Rightarrow \mathfrak{b} \subset \sqrt{\mathrm{Ann}(m)} \\
+                & \Rightarrow m \in \Gamma_\mathfrak{b}(M)
+            \end{align*}
+            Thus, \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{b}(M)\).
+        \end{proof}
+
+        \item If \(M \subset N\), then \(\Gamma_\mathfrak{a}(M) = \Gamma_\mathfrak{a}(N) \cap M\).
+        
+        \begin{proof}
+            Again, the proof is a matter of verification.
+
+            ``\(\subset\)'': \(M \subset N\) implies \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{a}(N)\). Moreover, it is \(\Gamma_\mathfrak{a}(M) \subset M\). Thus, \(\Gamma_\mathfrak{a}(M) \subset \Gamma_\mathfrak{a}(N) \cap M\).
+
+            ``\(\supset\)'': Let \(m \in \Gamma_\mathfrak{a}(N) \cap M\). It is
+            
+            \begin{align*}
+                m \in \Gamma_\mathfrak{a}(N) \cap M & \Rightarrow \mathfrak{a} \subset \sqrt{\mathrm{Ann}(m)} \text{ and } m \in M \text{.} \\
+                & \Rightarrow m \in \Gamma_\mathfrak{a}(M) \text{.}
+            \end{align*}
+
+            Hence, \(\Gamma_\mathfrak{a}(N) \cap M \subset \Gamma_\mathfrak{a}(M)\).
+        \end{proof}
+            \item In general, it is \(\Gamma_\mathfrak{a}(\Gamma_\mathfrak{b}(M)) = \Gamma_{\mathfrak{a} + \mathfrak{b}}(M) = \Gamma_\mathfrak{a}(M) \cap \Gamma_\mathfrak{b}(M)\).
+            \item In general, it is \(\Gamma_\mathfrak{a}(M) = \Gamma_{\sqrt{\mathfrak{a}}}(M)\).
+            \item If \(\mathfrak{a}\) is finitely generated, then
+            \begin{align*}
+                \Gamma_\mathfrak{a}(M) = \bigcup_{n \geq 1} \makeset{m \in M}{\mathfrak{a}^n m = 0} \text{.}
+            \end{align*}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    Let \(A\) be a ring, \(M\) a module, \(x \in \mathrm{Rad}(M)\), and \(m \in M\). If \((1 + x)m = 0\), then \(m = 0\).
+\end{example}
+
+\begin{proof}
+    By definition of radical of a module, it is
+    \begin{align*}
+        \mathrm{Rad} \left(\sfrac{A}{\mathrm{Ann}(M)}\right) = \sfrac{\mathrm{Rad}(M)}{\mathrm{Ann}(M)} \text{.}
+    \end{align*}
+    Thus, if \(x \in \mathrm{Rad}(M)\), then its residue \(x^\prime := x + \mathrm{Ann}(M)\) lies in \(\mathrm{Rad}\left(\sfrac{A}{\mathrm{Ann}(M)}\right)\) which means \(x^\prime\) is nilpotent. SOME THEOREM yields \((1 + x^\prime)\) is an unit in \(\sfrac{A}{\mathrm{Ann}(M)}\).
+\end{proof}
