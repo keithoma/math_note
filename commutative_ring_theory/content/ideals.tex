@@ -1,5 +1,7 @@
 \chapter{Ideals}
 
+\subsection*{Definition and Theorems}
+\subsubsection*{Ideals}
 \begin{defbox}
     \begin{definition}[Ideal]
         Let \(A\) be a ring. A subset \(\mathfrak{a} \subset A\) is called an ideal if it satisfies the following two conditions.
@@ -18,8 +20,10 @@
     \end{definition}
 \end{defbox}
 
+\subsubsection*{Ideal Operations}
+
 \begin{defbox}
-    \begin{definition}[Ideal Operation]
+    \begin{definition}[Ideal Operations]
         Let \(\mathfrak{a}\) and \(\mathfrak{b}\) be ideals of a ring \(A\).
         \begin{enumerate}
             \item The sum of two ideals \(\mathfrak{a}\) and \(\mathfrak{b}\) is defined by
@@ -153,6 +157,29 @@
         Add stuff for spectrums XXX.
     \end{proposition}
 \end{thmbox}
+
+\subsubsection*{Prime Ideals}
+
+\begin{defbox}
+    \begin{definition}[Prime Ideals]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{lemma}
+        An ideal \(\mathfrak{a}\) of a ring \(A\) is prime if and only if \(A / \mathfrak{a}\) is an integral domain.
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'': Let \(\mathfrak{a}\) be a prime ideal and consider two elements \(x + \mathfrak{a}\) and \(y + \mathfrak{a}\). If \((x + \mathfrak{a})(y + \mathfrak{a}) = 0\), then \(xy + \mathfrak{a} = 0\), thus \(xy \in \mathfrak{a}\). Since \(\mathfrak{a}\) was prime, this implies \(x \in \mathfrak{a}\) or \(y \in \mathfrak{a}\). In either case, this means \((x + \mathfrak{a})\) or \(y + \mathfrak{a}\) was already \(0\), and therefore \(A / \mathfrak{a}\) has no nonzero zero divisors which means it is an integral domain.
+    
+    ``\(\Leftarrow\)'': 
+\end{proof}
+
+\subsubsection*{Maximal Ideals}
+
+\subsubsection*{Move}
 
 \begin{thmbox}
     \begin{proposition}
