@@ -123,6 +123,7 @@
 
 \chapter{Anatomy of Rings}
 
+\subsubsection*{Zero Divisor}
 \begin{defbox}
     \begin{definition}[Zero Divisor]
         An element \(a\) of a ring \(A\) is called a zero divisor if one of the following equivalent conditions hold.
@@ -133,12 +134,14 @@
     \end{definition}
 \end{defbox}
 
+\subsubsection*{Group of Units}
 \begin{defbox}
     \begin{definition}[Group of Units]
         
     \end{definition}
 \end{defbox}
 
+\subsubsection*{Nilpotent Elements}
 \begin{defbox}
     \begin{definition}[Nilpotent Element and Nilradical]
         An element \(x\) of a ring \(A\) is called nilpotent if there exists some positive integer \(n \in \mathbb{N}^+\), called the index or the degree, such that \(x^n = 0\).
@@ -164,6 +167,37 @@
         \end{enumerate}
     \end{proposition}
 \end{thmbox}
+
+\subsubsection*{Irreducible and Prime Elements}
+
+\begin{defbox}
+    \begin{definition}[Irreducible Element]
+        An element \(a\) of an integral domain \(A\) is a nonzero element that is
+        \begin{enumerate}
+            \item not invertible, i.e. \(a\) is not a unit, and
+            \item is not a product of two non-invertible elements.
+        \end{enumerate}
+        REWRITE THIS DEFINITION
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Prime Element]
+        A non-zero non-unit element \(a\) of a ring \(A\) is called prime if whenever \(a \, |  \, bc\) for some \(b\) and \(c\) in \(A\), then it implies \(a \, | \, b\) or \(a \, | \, c\).
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        In an integral domain, every prime element is irreducible.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        The converse of the above proposition is not true in general.
+    \end{example}
+\end{exmbox}
 
 \section{Exercises and Notes}
 
