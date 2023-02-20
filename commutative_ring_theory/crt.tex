@@ -755,6 +755,37 @@
     \end{enumerate}
 \end{example}
 
+\chapter{Nakayama's Lemma}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(M\) be a finitely generated \(A\)-module, and \(\mathfrak{a}\) an ideal of \(A\). Then, \(\mathfrak{a}M = M\) if and only if there exists \(a \in \mathfrak{a}\) such that \((1 + a)M = 0\).
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'': Let \(\mathfrak{a}M = M\), so for all \(a \in \mathfrak{a}\) and \(m, m^\prime \in M\), it is \(am = m^\prime\), in particular, we have \(-am = m\). Rewriting the equation yields \(0 = am + m = (1 + a) m\). Therefore, it is \((1 + a)M = 0\).
+
+    ``\(\Leftarrow\)'': On the other hand, if there is an \(a \in \mathfrak{a}\) such that \((1 + a)M = 0\), then for all \(m \in M\) it is \(0 = (1 + a)m = m + am\) and rewriting it gives \(m = -am\). So any \(m\) is contained in \(\mathfrak{a}M\), i.e. \(M \subset \mathfrak{a}M\). Trivially, it is also \(M \subset \mathfrak{a}M\), hence we have \(\mathfrak{a}M = M\).
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(M\) be a finitely generated \(A\)-module. If there is an ideal \(\mathfrak{a}\) in \(A\) with \(\mathfrak{a} \in \mathrm{Jac}(A)\) such that \(\mathfrak{a}M = M\), then \(M = 0\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A\) be a local ring, \(\mathfrak{m}\) the maximal ideal of \(A\), and \(k = A / \mathfrak{m}\), and \(M\) a finitely generated \(A\)-module. Then we have the following.
+        \begin{enumerate}
+            \item For all submodules \(N\) of \(M\) with \(M = N + \mathfrak{m}M\) it is \(N = M\).
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
 \chapter{Exact Sequences}
 \section{Definition and Theorems}
 
