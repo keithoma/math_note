@@ -711,7 +711,27 @@ structures
     Moreover, since \(\theta\) is surjective, the definition of \(f\) implies that \(f\) must be unique.
 \end{proof}
 
-
+\begin{example}
+    Let \(A\) be a ring, \(\mathfrak{a}\) an ideal of \(A\), and \(M\) an \(A\)-module. Then it is \(M \otimes_A A / \mathfrak{a} \cong M / \mathfrak{a}M\).
+\end{example}
+\begin{proof}
+    As before, we begin by defining
+    \begin{align*}
+        \theta: M \times A / \mathfrak{a} \rightarrow M / \mathfrak{a}M, \quad (m, a + \mathfrak{a}) \mapsto \theta(m, a + \mathfrak{a}) := am + \mathfrak{a}M \text{.}
+    \end{align*}
+    Clearly, \(\theta\) is bilinear. Consider an \(A\)-module \(P\) with an \(A\)-bilinear map
+    \begin{align*}
+        \omega: M \times A / \mathfrak{a} \rightarrow P \text{.}
+    \end{align*}
+    Now, let
+    \begin{align*}
+        f: M / \mathfrak{a}M \rightarrow P
+    \end{align*}
+    with \(\omega = f \circ \theta\). It is
+    \begin{align*}
+        f(m + \mathfrak{a}M) = f(\theta(m + \mathfrak{a}M, 1)) = \omega(m, 1 + \mathfrak{a}M) \text{.}
+    \end{align*}
+\end{proof}
 
 \begin{defbox}
     \begin{definition}
