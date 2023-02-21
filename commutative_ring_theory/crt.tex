@@ -633,6 +633,20 @@ Notes taken from
     \textbf{Case 2:} If \(A\) has only one factor, \(A\) must be a local ring, i.e. it has a unique maximal ideal \(\mathfrak{m}\) with \(\mathfrak{m}^n = 0\) for some \(\mathbb{N}^+\). Choose such \(n\) to be minimal and consider the chain \(R \supset \mathfrak{m} \supset \mathfrak{m}^2 \supset 0\). Taking the quotient at each step we obtain 
 \end{proof}
 
+\chapter{Zariski Topology}
+
+\begin{thmbox}
+    \begin{lemma}
+        Let \(A\) be a ring, then the following are equivalent.
+        \begin{enumerate}
+            \item \(\mathrm{Spec}(A)\) is irreducible.
+            \item \(\mathrm{Nil}(A)\) is prime.
+            \item \(A / \mathrm{Nil}(A)\) is an integral domain.
+        \end{enumerate}
+        In this case, \(\mathrm{Spec}(A)\) is connected.
+    \end{lemma}
+\end{thmbox}
+
 \chapter{Summary}
 
 Here, I want to summarize the interactions of
@@ -648,7 +662,9 @@ structures
         \hline
         & Integral Domain & Unique Factorization Domain & Principal Ideal Domain \\
         \hline
-        Polynomial Ring & \(\iff\) & \(\Downarrow \quad \not\Rightarrow\) & \(\not\Downarrow\)
+        Polynomial Ring & \(\iff\) & \(\Downarrow \quad \not\Rightarrow\) & \(\not\Downarrow\) \\
+        \hline
+        Localization & \(\Downarrow\) & &
     \end{tabular}
 \end{center}
 
@@ -667,6 +683,35 @@ structures
         satisfying the universal property, for every pair \((P, \omega)\) of an \(A\)-module and an \(A\)-bilinear mapping \(\omega: M \times N \rightarrow P\), there exists a unique \(A\)-module homomorphism \(f: M \otimes_A N \rightarrow P\) with \(\omega = f \circ \theta\).
     \end{definition}
 \end{defbox}
+
+\begin{example}
+    Let \(A\) be an integral domain, and \(\mathfrak{a}\) a nonzero ideal. We may use the universal property of tensor products to show
+    \begin{align*}
+        \mathfrak{a} \otimes_A \mathrm{Frac}(A) = \mathrm{Frac}(A) \text{.}
+    \end{align*}
+\end{example}
+\begin{proof}
+    First, define \(\theta: \mathfrak{a} \times \mathrm{Frac}(A) \rightarrow \mathrm{A}\) as \(\theta(a, x) = ax\). It is easy to see that \(\theta\) is bilinear. If we now can show that \(\mathrm{Frac}(A)\) with \(\theta\) satisfies the universal property, then \(\mathrm{Frac}(A)\) is indeed isomorphic to \(\mathfrak{a} \otimes_R \mathrm{Frac}(A)\).
+
+    Let \(P\) be any \(A\)-module and \(\omega: \mathfrak{a} \times \mathrm{Frac}(A) \rightarrow\) an \(A\)-bilinear map. We construct \(f: \mathrm{Frac}(A) \rightarrow P\) by fixing a nonzero \(z \in \mathfrak{a}\), and setting
+    \begin{align*}
+        f(y) = \omega(z, y/z) \text{.}
+    \end{align*}
+    Now, we want to show \(f\) satisfies \(\omega = f \circ \theta\) and that such \(f\) is unique.
+
+    It is
+    \begin{align*}
+        \omega(x, y) &= z \cdot \frac{1}{z} \cdot \omega(x, y) \\
+        &= \omega(z, \frac{xy}{z}) \\
+        &= f(xy) \\
+        &= f(\theta(x, y))
+    \end{align*}
+    thus, we have \(\omega = f \circ \theta\).
+
+    Moreover, since \(\theta\) is surjective, the definition of \(f\) implies that \(f\) must be unique.
+\end{proof}
+
+
 
 \begin{defbox}
     \begin{definition}
