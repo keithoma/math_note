@@ -1,0 +1,100 @@
+
+\chapter{Anatomy of Rings}
+
+\subsubsection*{Zero Divisor}
+\begin{defbox}
+    \begin{definition}[Zero Divisor]
+        An element \(a\) of a ring \(A\) is called a zero divisor if one of the following equivalent conditions hold.
+        \begin{enumerate}
+            \item There exists a nonzero \(x \in A\) such that \(ax = 0\).
+            \item The map \(A \rightarrow A\) that sends \(x\) to \(ax\) is not injective.
+        \end{enumerate} 
+    \end{definition}
+\end{defbox}
+
+\subsubsection*{Group of Units}
+\begin{defbox}
+    \begin{definition}[Group of Units]
+        
+    \end{definition}
+\end{defbox}
+
+\subsubsection*{Nilpotent Elements}
+\begin{defbox}
+    \begin{definition}[Nilpotent Element and Nilradical]
+        An element \(x\) of a ring \(A\) is called nilpotent if there exists some positive integer \(n \in \mathbb{N}^+\), called the index or the degree, such that \(x^n = 0\).
+
+        The set of all nilpotent elements is called the nilradical of the ring and is denoted by \(\mathrm{Nil}(A)\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Reduced Ring]
+        A ring \(A\) is called reduced ring if it has no non-zero nilpotent elements.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        Let \(A\) and \(B\) be two rings and \(A^\prime \subset A\) be a subring of \(A\).
+        \begin{enumerate}
+            \item If \(A\) is reduced, then \(A^\prime\) is also reduced.
+            \item If \(A\) and \(B\) are reduced, then \(A \times B\) is also reduced.
+            
+            (XXX DOES THIS ALSO HOLD FOR ARBITARY MANY PRODUCTS?)
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+
+\subsubsection*{Irreducible and Prime Elements}
+
+\begin{defbox}
+    \begin{definition}[Irreducible Element]
+        An element \(a\) of an integral domain \(A\) is a nonzero element that is
+        \begin{enumerate}
+            \item not invertible, i.e. \(a\) is not a unit, and
+            \item is not a product of two non-invertible elements.
+        \end{enumerate}
+        REWRITE THIS DEFINITION
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Prime Element]
+        A non-zero non-unit element \(a\) of a ring \(A\) is called prime if whenever \(a \, |  \, bc\) for some \(b\) and \(c\) in \(A\), then it implies \(a \, | \, b\) or \(a \, | \, c\).
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{proposition}
+        In an integral domain, every prime element is irreducible.
+    \end{proposition}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        The converse of the above proposition is not true in general.
+    \end{example}
+\end{exmbox}
+
+\section{Exercises and Notes}
+
+\begin{example}
+    Let \(K\) be a field and \(A = \sfrac{K[X, Y]}{(X - XY^2, Y^3)}\).
+    \begin{enumerate}
+        \item Compute the nilradical \(\mathrm{Nil}(A)\).
+        \begin{proof}[Solution]
+            Denote \((X - XY^2, Y^3) =: \mathfrak{a}\).
+            \begin{align*}
+                X + \mathfrak{a} &= XY^2 + \mathfrak{a} && \text{because } X - XY^2 \Rightarrow X \sim XY^2 \text{.} \\
+                &= XY^2 Y^2 + \mathfrak{a} && \text{because } XY^2 - XY^2Y^2 = Y^2 (X - XY^2) = 0 \Rightarrow XY^2 \sim XY^2Y^2 \\
+                &= XY \cdot Y^3 + \mathfrak{a} \\
+                &= XY \cdot 0 + \mathfrak{a} \\
+                &= 0 + \mathfrak{a} \text{.}
+            \end{align*}
+            Thus, \(X \in (X - XY^2, Y^3)\). We have therefore the isomorphism \(\sfrac{K[X, Y]}{(X-XY^2, Y^3)} \simeq \sfrac{K[Y]}{(Y^3)}\). [I WANT A ELEGANT REASON FOR THIS. PROBABLY ISOMORPHISM THEOREM.]
+
+            Clearly, \(Y \in \mathrm{Nil}(A)\) or in other words \((Y) \subset \mathrm{Nil}(A)\). But we also have that \(\sfrac{K[Y]}{(Y)} = K\) which is a field, therefore \((Y)\) is a maximal ideal. Because \(1 \not\in \mathrm{Nil}(A)\) conclude \(\mathrm{Nil}(A) = (Y)\).
+        \end{proof}
+    \end{enumerate}
+\end{example}
