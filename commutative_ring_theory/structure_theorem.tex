@@ -114,6 +114,77 @@
 }%
 
 \begin{document}
+\maketitle
 
+\section{Category}
+\begin{defbox}
+  \begin{definition}
+    A category \(\mathcal{C}\) consists of
+    \begin{enumerate}
+      \item a class of objects, denoted by \(\mathrm{Ob}(\mathcal{C})\), and
+      \item a collection of of morphisms, denoted by \(\mathrm{Hom}(\mathcal{C})\)
+    \end{enumerate}
+  \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+  \begin{example}
+    \begin{enumerate}
+      \item The category of sets
+      \item The category of groups
+      \item the category of rings
+      \item the category of fields
+      \item For a ring \(A\), the category of left modules, right modules
+      \item the single element category
+    \end{enumerate}
+  \end{example}
+\end{exmbox}
+
+\begin{defbox}
+  \begin{definition}[Subcategory]
+    
+  \end{definition}
+\end{defbox}
+
+\begin{defbox}
+  \begin{definition}[Opposite Category]
+    
+  \end{definition}
+\end{defbox}
+
+\newpage
+\section{Functors}
+
+\begin{defbox}
+  \begin{definition}
+    Let \(\mathcal{C}\) and \(\mathcal{D}\) be two categories. A functor \(F\) from \(\mathcal{C}\) to \(\mathcal{D}\) is a mapping that
+    \begin{enumerate}
+      \item associates each object \(X\) in \(\mathcal{C}\) to an object \(F(X)\) in \(\mathcal{D}\), and
+      \item associates each morphism \(f: X \rightarrow Y\) in \(\mathcal{C}\) to a morphism \(F(f): F(X) \rightarrow F(Y)\) in \(\mathcal{D}\) such that
+      \begin{enumerate}
+        \item \(F(\mathrm{id}_X) = \mathrm{id}_{F(X)}\) for every object \(X\) in \(\mathcal{C}\), and
+        \item \(F(g \circ f) = F(g) \circ F(f)\) for all morphisms \(f: X \rightarrow Y\) and \(g: Y \rightarrow Z\) in \(\mathcal{C}\).
+      \end{enumerate}
+    \end{enumerate}
+  \end{definition}
+\end{defbox}
+
+\begin{defbox}
+  \begin{definition}[Covariant and Contravariant]
+    
+  \end{definition}
+\end{defbox}
+
+\begin{defbox}
+  \begin{definition}[Faithful and Full]
+    
+  \end{definition}
+\end{defbox}
+
+\begin{intbox}
+  \begin{intuition}
+    Faithful is basically injective, full is basically surjective.
+  \end{intuition}
+\end{intbox}
 
 \end{document}
