@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section*{Exercise 1}
+\begin{enumerate}
+    \item Let \((X, d)\) be a metric space. Prove that the set of subsets
+    \begin{equation}
+        \mathcal{O}(d) := \makeset{U \subset X}{\forall x \in U \, \exists \epsilon > 0 \text{ with } B_d(x, \epsilon) \subset U}
+    \end{equation}
+    defines a topology.
+    \newline
+    \textit{Proof.} We verify that \(\mathcal{O}(d)\) fullfills the axioms of a topology.
+    \begin{enumerate}
+        \item \(X \in \mathcal{O}(d)\) since any ball of a point \(x\) is contained in \(X\). \(\varnothing \in \mathcal{O}(d)\) is true vacuously.
+        \item Let \(I\) be an arbitary index set and \(\{A_i\}_{i \in I}\) be a family of subsets that belong to \(\mathcal{O}(d)\). Consider the union \(\bigcup_{i \in I}A_i\). If a point \(x\) is in \(\bigcup_{i \in I}A_i\), then there is an \(A_i\) where this point \(x\) is contained. Since \(A_i\) is in \(\mathcal{O}(d)\), there exists an \(\epsilon\) such that \(B_d(x, \epsilon) \subset A_i \subset \bigcup_{i \in I}A_i\). Therefore, we have that \(\bigcup_{i \in I}A_i\) belongs to \(\mathcal{O}(d)\).
+        \item Let \(I\) be a finite index set and \(A_i\) with \(i \in I\) be subsets in \(\mathcal{O}(d)\). Consider the intersection \(\bigcap_{i \in I}A_i\). If a point \(x\) is in \(\bigcap_{i \in I}A_i\), then \(x\) is included in each \(A_i\). Again, \(A_i\) is in \(\mathcal{O}(d)\), so there is an \(\epsilon_i\) such that \(B_d(x, \epsilon_i) \subset A_i\). Choose the smallest (accordig to the metric \(d\)) among all \(\epsilon_i \in I\) and denote it as \(\epsilon\). We have \(B_d(x, \epsilon) \subset B_d(x, \epsilon_i) \subset A_i\) for all \(i \in I\). This means \(B_d(x, \epsilon) \subset \bigcap_{i \in I}A_i\) as desired.
+    \end{enumerate}
+
+    \item Show that any ball \(B_d(x, r) \in \mathcal{O}(d)\) for all \(x \in X\) and for all \(r > 0\).
+    \begin{proof}
+        Fix an \(p \in B_d(x, r)\). Set \(\epsilon := (r - d(x, p)) / 2\) (dividing it by two might only be for good measure). Then \(B_d(p, \epsilon) \subset B_d(x, r)\), so \(B_d(x, r) \in \mathcal{O}(d)\).
+    \end{proof}
+
+    \item Let \(d_1\) and \(d_2\) be equivalent metrics on \(X\). Show that \(\mathcal{O}(d_1) = \mathcal{O}(d_2)\).
+
+    \begin{proof}
+        We will show \(\mathcal{O}(d_1) \subseteq \mathcal{O}(d_2)\). Symmetry will take care of the other side. Let \(A \in \mathcal{O}(d_1)\) and fix a point \(x \in A\) (if \(A\) is empty, it is immediately included in \(\mathcal{O}(d_2)\)), then there is an \(\epsilon_1 > 0\) such that \(B_{d_1}(x, \epsilon_1) \subset A\).
+
+        Since \(d_1\) and \(d_2\) are equivalent, we have some \(c \in \mathbb{R}\) such that \(c d_1(a, b) \leq d_2(a, b)\) for all \(a, b \in X\). Set \(\epsilon_2 := c^{-1} \epsilon_1\).
+
+        Now consider \(B_{d_2}(x, \epsilon_2)\) and fix a \(y \in B_{d_2}(x, \epsilon_2)\). We have \(c d_1(x, y) \leq d_2(x, y) < \epsilon_2\) and if we multiply \(c^{-1}\) on both ends, we get \(d_1(x, y) < c^{-1} \epsilon_2 = \epsilon_1\). Cocnlude that \(y \in B_{d_1}(x, \epsilon_1)\), so \(B_{d_2}(x, \epsilon_2) \subset B_{d_1}(x, \epsilon_1)\), hence \(A \in \mathcal{O}(d_2)\).
+    \end{proof}
+
+    \item Let \(f: (X, d_X) \longrightarrow (X, d_Y)\) be a map that is \(\epsilon\)-\(\delta\)-continuous in the sense of metric spaces. Show that \(f\) is continuous with respect to the topologies \(\mathcal{O}_{d_X}\) and \(\mathcal{O}_{d_Y}\).
+    
+    \begin{proof}
+        Let \(V \in \mathcal{O}_{d_Y}\). If \(V\) is empty, we are done. In other case, fix an \(x \in f^{-1}(V)\). We have that \(B_{d_Y}(f(x), \epsilon) \subset V\) for some \(\epsilon\) since \(V\) is open. The \(\epsilon\)-\(\delta\)-continuity implies that there is a \(\delta > 0\) such that \(B_{d_X}(x, \delta) \subset f^{-1}(V)\), so \(f^{-1}(V)\) is open and \(f\) is also open set continuous. 
+    \end{proof}
+
+\end{enumerate}
+\end{document}
+\section*{Exercise 2}
+\(f\) is continuous in all points of \(X\) if and only if \(f\) is continuous.
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(f\) be continuous on all points of \(X\) and let \(V\) be an open subset in \(Y\). If there is no \(p \in X\) such that \(f(p) \in V\), then the preimage of \(V\) is empty and therefore open. So let \(p \in X\) with \(f(p) \in V\).
+    \end{enumerate}
+\end{proof}
+
+\section*{Exercise 3}
+    Describe a topology on \(\mathbb{R}\), such that the following is true: \(f\) is upper semi-continuous if and only if \(f\) is continuous with respect to that topology and the topology on \(X\).
+\end{document}

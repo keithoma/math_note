@@ -87,53 +87,25 @@
 }%
 
 \begin{document}
-\section*{Exercise 1}
-\begin{enumerate}
-    \item Let \((X, d)\) be a metric space. Prove that the set of subsets
-    \begin{equation}
-        \mathcal{O}(d) := \makeset{U \subset X}{\forall x \in U \, \exists \epsilon > 0 \text{ with } B_d(x, \epsilon) \subset U}
-    \end{equation}
-    defines a topology.
-    \newline
-    \textit{Proof.} We verify that \(\mathcal{O}(d)\) fullfills the axioms of a topology.
-    \begin{enumerate}
-        \item \(X \in \mathcal{O}(d)\) since any ball of a point \(x\) is contained in \(X\). \(\varnothing \in \mathcal{O}(d)\) is true vacuously.
-        \item Let \(I\) be an arbitary index set and \(\{A_i\}_{i \in I}\) be a family of subsets that belong to \(\mathcal{O}(d)\). Consider the union \(\bigcup_{i \in I}A_i\). If a point \(x\) is in \(\bigcup_{i \in I}A_i\), then there is an \(A_i\) where this point \(x\) is contained. Since \(A_i\) is in \(\mathcal{O}(d)\), there exists an \(\epsilon\) such that \(B_d(x, \epsilon) \subset A_i \subset \bigcup_{i \in I}A_i\). Therefore, we have that \(\bigcup_{i \in I}A_i\) belongs to \(\mathcal{O}(d)\).
-        \item Let \(I\) be a finite index set and \(A_i\) with \(i \in I\) be subsets in \(\mathcal{O}(d)\). Consider the intersection \(\bigcap_{i \in I}A_i\). If a point \(x\) is in \(\bigcap_{i \in I}A_i\), then \(x\) is included in each \(A_i\). Again, \(A_i\) is in \(\mathcal{O}(d)\), so there is an \(\epsilon_i\) such that \(B_d(x, \epsilon_i) \subset A_i\). Choose the smallest (accordig to the metric \(d\)) among all \(\epsilon_i \in I\) and denote it as \(\epsilon\). We have \(B_d(x, \epsilon) \subset B_d(x, \epsilon_i) \subset A_i\) for all \(i \in I\). This means \(B_d(x, \epsilon) \subset \bigcap_{i \in I}A_i\) as desired.
-    \end{enumerate}
+\section*{Exercise 3 b)}
+Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(X\). Given another topological space \(Y\), show that a map \(f: Y \longrightarrow X\) is continuous if and only if for every \(\mathcal{U} \in \mathcal{B}\), \(f^{-1}(\mathcal{U})\) is open in \(Y\).
 
-    \item Show that any ball \(B_d(x, r) \in \mathcal{O}(d)\) for all \(x \in X\) and for all \(r > 0\).
-    \begin{proof}
-        Fix an \(p \in B_d(x, r)\). Set \(\epsilon := (r - d(x, p)) / 2\) (dividing it by two might only be for good measure). Then \(B_d(p, \epsilon) \subset B_d(x, r)\), so \(B_d(x, r) \in \mathcal{O}(d)\).
-    \end{proof}
+\begin{proof}[Solution]
+    Denote the topology of \(Y\) by \(\mathcal{S}\).
 
-    \item Let \(d_1\) and \(d_2\) be equivalent metrics on \(X\). Show that \(\mathcal{O}(d_1) = \mathcal{O}(d_2)\).
+    ``\(\Rightarrow\)'': Let \(f: Y \longrightarrow X\) be continuous and fix an \(\mathcal{U} \in \mathcal{B}\). Since \(\mathcal{B}\) is subbasis, all its elements are open subsets, thus \(\mathcal{U}\) is open. Then by definition of continuous maps, the preimage \(f^{-1}(\mathcal{U})\) is also open in \(Y\). As we have fixed an arbitary \(\mathcal{U} \in \mathcal{B}\), we may conclude the desired result.
 
-    \begin{proof}
-        We will show \(\mathcal{O}(d_1) \subseteq \mathcal{O}(d_2)\). Symmetry will take care of the other side. Let \(A \in \mathcal{O}(d_1)\) and fix a point \(x \in A\) (if \(A\) is empty, it is immediately included in \(\mathcal{O}(d_2)\)), then there is an \(\epsilon_1 > 0\) such that \(B_{d_1}(x, \epsilon_1) \subset A\).
-
-        Since \(d_1\) and \(d_2\) are equivalent, we have some \(c \in \mathbb{R}\) such that \(c d_1(a, b) \leq d_2(a, b)\) for all \(a, b \in X\). Set \(\epsilon_2 := c^{-1} \epsilon_1\).
-
-        Now consider \(B_{d_2}(x, \epsilon_2)\) and fix a \(y \in B_{d_2}(x, \epsilon_2)\). We have \(c d_1(x, y) \leq d_2(x, y) < \epsilon_2\) and if we multiply \(c^{-1}\) on both ends, we get \(d_1(x, y) < c^{-1} \epsilon_2 = \epsilon_1\). Cocnlude that \(y \in B_{d_1}(x, \epsilon_1)\), so \(B_{d_2}(x, \epsilon_2) \subset B_{d_1}(x, \epsilon_1)\), hence \(A \in \mathcal{O}(d_2)\).
-    \end{proof}
-
-    \item Let \(f: (X, d_X) \longrightarrow (X, d_Y)\) be a map that is \(\epsilon\)-\(\delta\)-continuous in the sense of metric spaces. Show that \(f\) is continuous with respect to the topologies \(\mathcal{O}_{d_X}\) and \(\mathcal{O}_{d_Y}\).
-    
-    \begin{proof}
-        Let \(V \in \mathcal{O}_{d_Y}\). If \(V\) is empty, we are done. In other case, fix an \(x \in f^{-1}(V)\). We have that \(B_{d_Y}(f(x), \epsilon) \subset V\) for some \(\epsilon\) since \(V\) is open. The \(\epsilon\)-\(\delta\)-continuity implies that there is a \(\delta > 0\) such that \(B_{d_X}(x, \delta) \subset f^{-1}(V)\), so \(f^{-1}(V)\) is open and \(f\) is also open set continuous. 
-    \end{proof}
-
-\end{enumerate}
-\end{document}
-\section*{Exercise 2}
-\(f\) is continuous in all points of \(X\) if and only if \(f\) is continuous.
-
-\begin{proof}
-    \begin{enumerate}
-        \item Let \(f\) be continuous on all points of \(X\) and let \(V\) be an open subset in \(Y\). If there is no \(p \in X\) such that \(f(p) \in V\), then the preimage of \(V\) is empty and therefore open. So let \(p \in X\) with \(f(p) \in V\).
-    \end{enumerate}
+    ``\(\Leftarrow\)'': On the other hand, let for every \(\mathcal{U} \in \mathcal{B}\) the preimage \(f^{-1}(\mathcal{U})\) be open in \(Y\). Consider an arbitary open subset \(\mathcal{V} \in \mathcal{T}\). By the definition of a subbasis, \(\mathcal{V}\) is a finite intersection of members of \(\mathcal{B}\), i.e.
+    \begin{align*}
+        \mathcal{V} = \mathcal{U}_1 \cap \cdots \cap \mathcal{U}_n
+    \end{align*}
+    with \(n \in \mathbb{N}\). The preimage of \(\mathcal{V}\) therefore is
+    \begin{align*}
+        f^{-1}(\mathcal{V}) &= f^{-1}(\mathcal{U}_1 \cap \ldots \cap \mathcal{U}_n) \\
+        &= f^{-1}(\mathcal{U}_1) \cap \ldots \cap f^{-1}(\mathcal{U}_n)
+    \end{align*}
+    where we applied the lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(1 \leq i \leq n\). By the definition of topological spaces, finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
 \end{proof}
 
-\section*{Exercise 3}
-    Describe a topology on \(\mathbb{R}\), such that the following is true: \(f\) is upper semi-continuous if and only if \(f\) is continuous with respect to that topology and the topology on \(X\).
+
 \end{document}
