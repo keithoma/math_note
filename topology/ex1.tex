@@ -49,6 +49,9 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes.geometric, arrows}
 
+\theoremstyle{definition}
+\newtheorem*{lemma}{Lemma}
+
 % ---------------------------------------------------------------------
 % C O M M A N D S
 % ---------------------------------------------------------------------
@@ -112,6 +115,22 @@
 \section*{Exercise 3 b)}
 Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(X\). Given another topological space \(Y\), show that a map \(f: Y \longrightarrow X\) is continuous if and only if for every \(\mathcal{U} \in \mathcal{B}\), \(f^{-1}(\mathcal{U})\) is open in \(Y\).
 
+
+\begin{lemma}
+    The preimage of a map is stable under finite intersections, i.e. let \(f: X \longrightarrow Y\) be a map, and \(A\) and \(B\) subset of \(Y\), then it is
+    \begin{align*}
+        f^{-1} \left(A \cap B\right) = f^{-1}\left(A\right) \cap f^{-1}\left(B\right) \text{.}
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    We simply have
+    \begin{align*}
+        x \in f^{-1}(A \cap B) &\iff f(x) \in A \cap B \\
+        &\iff f(x) \in A \text{ and } f(x) \in B\\
+        &\iff x \in f^{-1}(A) \text{ and } x \in f^{-1}(B)\\
+        &\iff x \in f^{-1}(A) \cap f^{-1}(B) \text{.}
+    \end{align*}
+\end{proof}
 
 \begin{proof}[Solution]
     Denote the topology of \(Y\) by \(\mathcal{S}\).
