@@ -156,7 +156,6 @@ Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(
     where we applied the aforementioned lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(i \in \mathbb{N}\). By the definition of topological spaces, unions of finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
 \end{proof}
 
-
 \section*{Exercise 3 c)}
 
 Now suppose \(\{(X_\alpha, \mathcal{T}_\alpha)\}_{\alpha \in I}\) is a collection of topological spaces, \((X, \mathcal{T})\) is \(\prod_{\alpha \in I} X_\alpha\) with the product topology, and the subbase \(\mathcal{B} \subset \mathcal{T}\) is taken to consist of all sets of the form
@@ -171,6 +170,21 @@ Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_
     ``\(\Rightarrow\)'': Let the sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converge to \(\{x_\alpha\}_{\alpha \in I} \in X\). By the definition of convergence, we have that every neighbourhood \(\mathcal{U} \subset X\) of \(\{x_\alpha\}_{\alpha \in I}\) it is \(\{x_\alpha^n\}_{\alpha \in I} \in \mathcal{U}\) for \(n \in \mathbb{N}\) sufficiently large.
 
     ``\(\Leftarrow\)'': On the other hand, let \(x^n_\alpha \in X_\alpha\) converge to \(x_\alpha \in X_\alpha\) for every \(\alpha \in I\). By exercise 3 a), we have that for every member of a subbasis \(\mathcal{U}_\alpha \in \mathcal{B}_\alpha\) containing \(x_\alpha\), it is \(x_\alpha^n \in \mathcal{U}_\alpha\) for \(n \in \mathbb{N}\) sufficiently large.
+\end{proof}
+
+\section*{Exercise 7}
+
+\begin{proof}[Solution]
+    \begin{enumerate}
+        \item The error is in the following part.
+    
+        ``which means that \(x_n\) {\color{red}cannot enter} arbitary neighbourhoods of \(x \in X\) for arbitary large values of \(n\), i.e. there exists \(N_x \in \mathbb{N}\) and an open neighbourhood of \(\mathcal{U}_x \subset X\) of \(x\) such that \(x_n \not\in \mathcal{U}_x\) {\color{red}for every} \(n \geq N_x\)''
+    
+        The definition of convergence of a sequence was that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \in \mathcal{U}\) for all \(n \in \mathbb{N}\) sufficiently large. Thus, if we negate the definition, we have that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \not\in \mathcal{U}\) {\color{red}for some} \(n \in \mathbb{N}\) sufficiently large.
+    
+        This mistakes makes the last conclusion false. The proof says ``each of these finitely many subsets contains at most finitely many terms of \(x_n\)'', but in actuality the subsets may contain infinitely many terms of \(x_n\).
+        \item 
+    \end{enumerate}
 \end{proof}
 
 \end{document}
