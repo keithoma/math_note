@@ -87,8 +87,23 @@
 }%
 
 \begin{document}
+\section*{Exercise 2 c)}
+
+\begin{proof}[Solution]
+    \begin{enumerate}
+        \item \(\mathcal{B}\) is a subbasis for the discrete topology. Take an arbitary subset \(\mathcal{U} \subset \mathbb{R}\). Notice that for any \(x \in \mathbb{R}\) the two sets \(\{x, 0\}\) and \(\{x, 1\}\) are members of the subbasis \(\mathcal{B}\). Thus, it is
+        \begin{align*}
+            \mathcal{U} &= \bigcup_{x \in \mathcal{U}} \{x\} \\
+            &= \bigcup_{x \in \mathcal{U}} \{x, 0\} \cap \{x, 1\} \text{.}
+        \end{align*}
+        In other words, every subset of \(\mathbb{R}\) is a union of finite intersections of members in \(\mathcal{B}\), thus \(\mathcal{B}\) as a subbasis generates the discrete topology.
+        \item However, \(\mathcal{B}\) is not a basis of the discrete topology. Plainly, a singleton set cannot be generated from a union of elements of \(\mathcal{B}\).
+    \end{enumerate}
+\end{proof}
+
 \section*{Exercise 3 b)}
 Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(X\). Given another topological space \(Y\), show that a map \(f: Y \longrightarrow X\) is continuous if and only if for every \(\mathcal{U} \in \mathcal{B}\), \(f^{-1}(\mathcal{U})\) is open in \(Y\).
+
 
 \begin{proof}[Solution]
     Denote the topology of \(Y\) by \(\mathcal{S}\).
@@ -104,8 +119,24 @@ Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(
         f^{-1}(\mathcal{V}) &= f^{-1}(\mathcal{U}_1 \cap \ldots \cap \mathcal{U}_n) \\
         &= f^{-1}(\mathcal{U}_1) \cap \ldots \cap f^{-1}(\mathcal{U}_n)
     \end{align*}
-    where we applied the lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(1 \leq i \leq n\). By the definition of topological spaces, finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
+    where we applied the aforementioned lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(1 \leq i \leq n\). By the definition of topological spaces, finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
 \end{proof}
 
+
+\section*{Exercise 3 c)}
+
+Now suppose \(\{(X_\alpha, \mathcal{T}_\alpha)\}_{\alpha \in I}\) is a collection of topological spaces, \((X, \mathcal{T})\) is \(\prod_{\alpha \in I} X_\alpha\) with the product topology, and the subbase \(\mathcal{B} \subset \mathcal{T}\) is taken to consist of all sets of the form
+\begin{align*}
+    \makeset{{x_\alpha}_{\alpha \in I}}{x_\beta \in \mathcal{U}_\beta} \subset \prod_\alpha X_\alpha
+\end{align*}
+for arbitary \(\beta \in I\) and \(\mathcal{U}_\beta \in \mathcal{T}_\beta\).
+
+Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_\alpha\}_{\alpha \in X} \in X\) as \(n \longrightarrow \infty\) if and only if \(x^n_\alpha \longrightarrow x_\alpha\) for every \(\alpha \in I\).
+
+\begin{proof}[Solution]
+    ``\(\Rightarrow\)'': Let the sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converge to \(\{x_\alpha\}_{\alpha \in I} \in X\). By the definition of convergence, we have that every neighbourhood \(\mathcal{U} \subset X\) of \(\{x_\alpha\}_{\alpha \in I}\) it is \(\{x_\alpha^n\}_{\alpha \in I} \in \mathcal{U}\) for \(n \in \mathbb{N}\) sufficiently large.
+
+    ``\(\Leftarrow\)'': On the other hand, let \(x^n_\alpha \in X_\alpha\) converge to \(x_\alpha \in X_\alpha\) for every \(\alpha \in I\). By exercise 3 a), we have that for every member of a subbasis \(\mathcal{U}_\alpha \in \mathcal{B}_\alpha\) containing \(x_\alpha\), it is \(x_\alpha^n \in \mathcal{U}_\alpha\) for \(n \in \mathbb{N}\) sufficiently large.
+\end{proof}
 
 \end{document}
