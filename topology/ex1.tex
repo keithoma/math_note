@@ -117,19 +117,26 @@ Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(
 
 
 \begin{lemma}
-    The preimage of a map is stable under finite intersections, i.e. let \(f: X \longrightarrow Y\) be a map, and \(A\) and \(B\) subset of \(Y\), then it is
-    \begin{align*}
-        f^{-1} \left(A \cap B\right) = f^{-1}\left(A\right) \cap f^{-1}\left(B\right) \text{.}
-    \end{align*}
+    The preimage of a map is stable under arbitary unions and finite intersections.
 \end{lemma}
 \begin{proof}
-    We simply have
-    \begin{align*}
-        x \in f^{-1}(A \cap B) &\iff f(x) \in A \cap B \\
-        &\iff f(x) \in A \text{ and } f(x) \in B\\
-        &\iff x \in f^{-1}(A) \text{ and } x \in f^{-1}(B)\\
-        &\iff x \in f^{-1}(A) \cap f^{-1}(B) \text{.}
-    \end{align*}
+    Let \(f: X \longrightarrow Y\) be a map, \(\{A_i\}_{i \in I}\) be a family of subsets in \(Y\), and \(A\) and \(B\) subsets in \(Y\).
+    \begin{enumerate}
+        \item It is plainly
+        \begin{align*}
+            x \in f^{-1} \left(\bigcup_{i \in I}A_i\right) &\iff f(x) \in \bigcup_{i \in I}A_i \\
+            &\iff \text{there is a \(i \in I\) such that } f(x) \in A_i \\
+            &\iff \text{there is a \(i \in I\) such that } x \in f^{-1}(A) \\
+            &\iff x \in \bigcup_{i \in I} f^{-1}(A) \text{.}
+        \end{align*}
+        \item We simply have
+        \begin{align*}
+            x \in f^{-1}(A \cap B) &\iff f(x) \in A \cap B \\
+            &\iff f(x) \in A \text{ and } f(x) \in B\\
+            &\iff x \in f^{-1}(A) \text{ and } x \in f^{-1}(B)\\
+            &\iff x \in f^{-1}(A) \cap f^{-1}(B) \text{.}
+        \end{align*}
+    \end{enumerate}
 \end{proof}
 
 \begin{proof}[Solution]
@@ -137,16 +144,16 @@ Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(
 
     ``\(\Rightarrow\)'': Let \(f: Y \longrightarrow X\) be continuous and fix an \(\mathcal{U} \in \mathcal{B}\). Since \(\mathcal{B}\) is subbasis, all its elements are open subsets, thus \(\mathcal{U}\) is open. Then by definition of continuous maps, the preimage \(f^{-1}(\mathcal{U})\) is also open in \(Y\). As we have fixed an arbitary \(\mathcal{U} \in \mathcal{B}\), we may conclude the desired result.
 
-    ``\(\Leftarrow\)'': On the other hand, let for every \(\mathcal{U} \in \mathcal{B}\) the preimage \(f^{-1}(\mathcal{U})\) be open in \(Y\). Consider an arbitary open subset \(\mathcal{V} \in \mathcal{T}\). By the definition of a subbasis, \(\mathcal{V}\) is a finite intersection of members of \(\mathcal{B}\), i.e.
+    ``\(\Leftarrow\)'': On the other hand, let for every \(\mathcal{U} \in \mathcal{B}\) the preimage \(f^{-1}(\mathcal{U})\) be open in \(Y\). Consider an arbitary open subset \(\mathcal{V} \in \mathcal{T}\). By the definition of a subbasis, \(\mathcal{V}\) is a union of finite intersection of members of \(\mathcal{B}\), i.e.
     \begin{align*}
-        \mathcal{V} = \mathcal{U}_1 \cap \cdots \cap \mathcal{U}_n
+        \mathcal{V} = \bigcup_{\alpha \in I} \left(\mathcal{U}_1^\alpha \cap \cdots \cap \mathcal{U}^\alpha_{n_\alpha} \right)
     \end{align*}
-    with \(n \in \mathbb{N}\). The preimage of \(\mathcal{V}\) therefore is
+    with \(I\) being an arbitary index set, and \(n_\alpha \in \mathbb{N}\) for each \(\alpha \in I\). The preimage of \(\mathcal{V}\) therefore is
     \begin{align*}
-        f^{-1}(\mathcal{V}) &= f^{-1}(\mathcal{U}_1 \cap \ldots \cap \mathcal{U}_n) \\
-        &= f^{-1}(\mathcal{U}_1) \cap \ldots \cap f^{-1}(\mathcal{U}_n)
+        f^{-1}(\mathcal{V}) &= f^{-1}\left(\bigcup_{\alpha \in I} \left(\mathcal{U}_1^\alpha \cap \cdots \cap \mathcal{U}^\alpha_{n_\alpha} \right)\right) \\
+        &= \bigcup_{\alpha \in I} \left( f^{-1}(\mathcal{U}_1^\alpha) \cap \ldots \cap f^{-1}(\mathcal{U}_{n_\alpha}^\alpha) \right)
     \end{align*}
-    where we applied the aforementioned lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(1 \leq i \leq n\). By the definition of topological spaces, finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
+    where we applied the aforementioned lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(i \in \mathbb{N}\). By the definition of topological spaces, unions of finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
 \end{proof}
 
 
