@@ -91,10 +91,18 @@
 
 \begin{proof}[Solution]
     \begin{enumerate}
-        \item \(\mathcal{B}\) is a subbasis for the discrete topology. Take an arbitary subset \(\mathcal{U} \subset \mathbb{R}\). Notice that for any \(x \in \mathbb{R}\) the two sets \(\{x, 0\}\) and \(\{x, 1\}\) are members of the subbasis \(\mathcal{B}\). Thus, it is
+        \item \(\mathcal{B}\) is a subbasis for the discrete topology. Take an arbitary subset \(\mathcal{U} \subset \mathbb{R}\). If \(\mathcal{U} = \mathbb{R}\), then we simply have
+        \begin{align*}
+            \mathbb{R} = \bigcup_{x \in \mathbb{R}} \{x, x + 1\}
+        \end{align*}
+        as \(\{x, x + 1\}\) are members of the subbasis \(\mathcal{B}\). Similary, if \(\mathcal{U} = \mathbb{R} \setminus \{y\}\) for some \(y \in \mathbb{R}\), then we have
+        \begin{align*}
+            \mathbb{R} \setminus \{y\} = \left( \bigcup_{\substack{x \in \mathbb{R} \\ x + 1 \neq y}} \{x, x + 1\} \right) \cup \{y - 1, y + 1\}
+        \end{align*}
+        because again \(\{y - 1, y + 1\}\) lies in \(\mathcal{B}\). For any other cases, notice that there are two distinct points \(y \neq z\) with \(y, z \not\in \mathcal{U}\), thus the two sets \(\{x, y\}\) and \(\{x, z\}\) are members of \(\mathcal{B}\). Therefore, we have
         \begin{align*}
             \mathcal{U} &= \bigcup_{x \in \mathcal{U}} \{x\} \\
-            &= \bigcup_{x \in \mathcal{U}} \{x, 0\} \cap \{x, 1\} \text{.}
+            &= \bigcup_{x \in \mathcal{U}} \{x, y\} \cap \{x, z\} \text{.}
         \end{align*}
         In other words, every subset of \(\mathbb{R}\) is a union of finite intersections of members in \(\mathcal{B}\), thus \(\mathcal{B}\) as a subbasis generates the discrete topology.
         \item However, \(\mathcal{B}\) is not a basis of the discrete topology. Plainly, a singleton set cannot be generated from a union of elements of \(\mathcal{B}\).
