@@ -1,0 +1,174 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Introduction and Motivation}
+\chapter{Metric Spaces}
+\chapter{Topological Spaces}
+\chapter{Products, Sequential Continuity, and Nets}
+
+\begin{thmbox}
+    \begin{lemma}[Lemma 4.15]
+        In any space \(X\), a subset \(A \subset X\) is open if and only if every point \(x \in A\) has a neighbourhood \(\mathcal{V} \subset X\) that is contained in \(A\).
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'': If \(A\) is open, then \(A\) itself can be taken as the desired neighbourhood of every \(x \in A\).
+    ``\(\Leftarrow\)'': Let every point \(x \in A\) have a neighbourhood \(\mathcal{V} \subset X\) that is contained in \(A\). Denote the open sets of these neighbourhoods by \(\mathcal{U}_x\). Then, \(A\) is the union of all these open sets \(\mathcal{U}_x\) and thus open.
+\end{proof}
+
+\begin{thmbox}
+    \begin{lemma}[Lemma 4.16]
+        In any first-countable topological space \(X\), a subspace \(A \subset X\) is not open if and only if there exists a point \(x \in A\) and a sequence \(x_n \in X \setminus A\) such that \(x_n \rightarrow x\).
+    \end{lemma}
+\end{thmbox}
+\begin{proof}
+    ``\(\Leftarrow\)'': (Proof by contraposition.) If \(A \subset X\) is open, then for every \(x \in A\) and sequence \(x_n \in X\) converging to \(x\), we cannot have \(x_n \in X \setminus A\) for all \(n\) since \(A\) is a neighbourhood of \(x\). This is true so far for all topological spaces, with or without first-countability axiom, but the latter will be needed to prove the converse.
+
+    ``\(\Rightarrow\)'': So suppose now that \(A \subset X\) is not open, which by Lemma 4.15, means there exists a point \(x \in A\) such that no neighbourhood \(\mathcal{V} \subset X\) of \(x\) is contained in \(A\). Fix a countable neighbourhood base \(\mathcal{U}_1, \mathcal{U}_2, \ldots\) for \(x\). XXX
+
+    Observe that since none of the neighbourhoods \(\mathcal{U}_n\) can be contained in \(A\), there exists a sequence of points
+    \begin{align*}
+        x_n \in \mathcal{U}_n \text{ such that } x_n \not\in A \text{.}
+    \end{align*}
+    This sequence converges to \(x\) since every neighbourhood \(\mathcal{V} \subset X\) of \(x\) contains one of \(\mathcal{U}_N\), implying that for all \(n \geq N\),
+    \begin{align*}
+        x_n \in \mathcal{U}_n \subset \mathcal{U}_n \subset \mathcal{V} \text{.}
+    \end{align*}
+\end{proof}
+
+
+\begin{defbox}
+    \begin{definition}
+        A {\color{maththen}directed set} \((I, \prec)\) consists of a set \(I\) with a partial order \(\prec\) such that for every pair \(\alpha, \beta \in I\), there exists an element \(\gamma \in I\) with \(\gamma \prec \alpha\) and \(\gamma \prec \beta\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        Given a space \(X\), a net \(\{x_\alpha\}_{\alpha \in I}\) in \(X\) is a function \(I \longrightarrow X: \alpha \mapsto x_\alpha\) where \((I, \prec)\) is a directed set.
+    \end{definition}
+\end{defbox}
+
+\chapter{Compactness}
+
+\begin{defbox}
+    \begin{definition}
+        A {\color{mathobj}subset} \(A \subset X\) is {\color{maththen}compact} if every open cover of \(A\) has a finite subcover, i.e. given an arbitary open cover \(\{\mathcal{U}_\alpha\}_{\alpha \in I}\) of \(A\), one can always find a finite subset \(\{\alpha_1, \ldots, \alpha_N\} \subset I\) such that \(A \subset \mathcal{U}_{\alpha_1} \cup \cdots \cup \mathcal{U}_{\alpha_N}\). We say that \(X\) itself is a {\color{maththen}compact space} if \(X\) is compact subset of itself.
+    \end{definition}
+\end{defbox}
+\end{document}
