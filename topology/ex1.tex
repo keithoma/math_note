@@ -167,7 +167,11 @@ for arbitary \(\beta \in I\) and \(\mathcal{U}_\beta \in \mathcal{T}_\beta\).
 Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_\alpha\}_{\alpha \in X} \in X\) as \(n \longrightarrow \infty\) if and only if \(x^n_\alpha \longrightarrow x_\alpha\) for every \(\alpha \in I\).
 
 \begin{proof}[Solution]
-    ``\(\Rightarrow\)'': Let the sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converge to \(\{x_\alpha\}_{\alpha \in I} \in X\). By the definition of convergence, we have that every neighbourhood \(\mathcal{U} \subset X\) of \(\{x_\alpha\}_{\alpha \in I}\) it is \(\{x_\alpha^n\}_{\alpha \in I} \in \mathcal{U}\) for \(n \in \mathbb{N}\) sufficiently large.
+    ``\(\Rightarrow\)'': Let the sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converge to \(\{x_\alpha\}_{\alpha \in I} \in X\). By exercise 3 a), we have that for all subbase \(\mathcal{U} \in \mathcal{B}\) with \(\{x_\alpha\}_{\alpha \in I} \in \mathcal{U}\) it is \(\{x_\alpha^n\}_{\alpha \in I} \in \mathcal{U}\) for sufficiently large \(n\). The members of the subase was in the form
+    \begin{align*}
+        \left\{ \{x_\alpha\}_{\alpha \in I} \mid x_\beta \in \mathcal{U}_\beta \right\} \subset \prod_{\alpha \in I} X_\alpha \text{.}
+    \end{align*}
+    Thus, for each \(\alpha \in I\), we have \(x^n_\alpha \rightarrow x_\alpha\).
 
     ``\(\Leftarrow\)'': On the other hand, let \(x^n_\alpha\) converge to \(x_\alpha\) for every \(\alpha \in I\). By definition of convergence, we have that for every neighbourhood \(\mathcal{V}_\alpha\) of \(x_\alpha\), it is \(x^n_\alpha \in \mathcal{V}_\alpha\) for all sufficiently large \(n\). Denote the open subsets of these neighbourhoods by \(\mathcal{U}_\alpha\). Then, \(\prod_{\alpha \in I} \mathcal{U}_\alpha\) is a neighbourhood of \(\{x_\alpha\}_{\alpha \in I}\) in the product topology and also contains all \(\{x_\alpha^n\}_{\alpha \in I}\) if \(n\) is sufficiently large enough. Thus, \(\{x_\alpha^n\}_{\alpha \in I}\) converges to \(\{x_\alpha\}_{\alpha \in I}\).
 \end{proof}
