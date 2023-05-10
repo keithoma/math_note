@@ -184,9 +184,65 @@
 
 \begin{defbox}
     \begin{definition}[Definition 2.5]
-        For two metric spaces \((X, d_X)\) and \((Y, d_Y)\)
+        For two metric spaces \((X, d_X)\) and \((Y, d_Y)\), a map \(f: X \longrightarrow Y\) is called continuous if it satisfies any of the following equivalent conditions:
+        \begin{enumerate}
+            \item epsilon delta
+            \item For every open subset \(\mathcal{U} \subset Y\), the preimage
+            \begin{align*}
+                f^{-1}(\mathcal{U}) := \makeset{x \in X}{f(x) \in \mathcal{U}}
+            \end{align*}
+            is an open subset.
+            \item For every convergent sequence \(x_n \in X\), \(x_n \rightarrow x\) implies \(f(x_n) \rightarrow f(x)\).
+        \end{enumerate}
     \end{definition}
 \end{defbox}
+\begin{proof}
+    ``\(2. \Rightarrow 3.\)'': Let \(x_n \rightarrow x\) be a sequence and \(\mathcal{U}\) a neighbourhood of \(f(x)\).
+\end{proof}
+\begin{rembox}
+    \begin{remark}
+        The direction 3. to 2. requires the metric spaces because 2. and 3. are not equivalent in arbitary topological spaces.
+    \end{remark}
+\end{rembox}
+
+\begin{defbox}
+    \begin{definition}[Homeomorphism]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        Any open ball in \(\mathbb{R}^n\) with the standard Euclidean metric \(d_E\) is homeomorphic to \((\mathbb{R}^n, d_E)\). It follows that any open ball in \(\mathbb{R}^n\) are homeomorphic to each other.
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    We begin by constructing a homeomorphism. Choose any continuous, increasing, bijective function \(f:[0, r) \longrightarrow [0, \infty)\) and define \(F: B_r(x) \longrightarrow \mathbb{R}^n\) by
+    \begin{align*}
+        F(\textbf{x}) = \textbf{x} \text{ and } F(\textbf{x} + \textbf{y}) = \textbf{x} + f(|\textbf{y}|) \frac{\textbf{y}}{|\textbf{y}|} \text{ for all } \textbf{y} \in B_r(0) \setminus \{0\} \subset \mathbb{R}^n
+    \end{align*}
+    \(F\) and \(F^{-1}\) is continuous and bijective.
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Compactness]
+        
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(f: X \longrightarrow Y\) is continuous and \(K \subset X\) is compact, then so is \(f(K) \subset Y\).
+    \end{theorem}
+\end{thmbox}
+\begin{intbox}
+    \begin{intuition}
+        The above theorem means that compactness is a topologically invariant property.
+    \end{intuition}
+\end{intbox}
+\begin{proof}
+    Let \(f: X \longrightarrow Y\) be continuous, \(K \subset X\) compact, and \(\{\mathcal{U}_\alpha\}_{\alpha \in I}\) be a open cover of \(f(K)\). Since \(f\) is continuous, \(f^{-1}(\mathcal{U}_\alpha)\) is open for all \(\alpha \in I\). Thus, \(\{f^{-1}(\mathcal{U})_\alpha\}_{\alpha \in I}\) is an open cover of \(K\). \(K\) was compact, so this open cover has a finite subcover \(\{f^{-1}(\mathcal{U})_\alpha\}_{\alpha \in J}\) with \(J \subset I\) finite. Then \(\{\mathcal{U}_\alpha\}_{\alpha \in J}\) is a finite subcover of \(f(K)\).
+\end{proof}
 
 \chapter{Topological Spaces}
 \chapter{Products, Sequential Continuity, and Nets}
