@@ -88,8 +88,14 @@
         \end{proof}%
     \fi%
 }%
+\title{Series 2}
 
 \begin{document}
+\maketitle
+Name: Kei Thoma
+
+Number: 574613
+
 \section*{Exercise 2 c)}
 
 \begin{proof}[Solution]
@@ -175,6 +181,18 @@ Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_
 
     ``\(\Leftarrow\)'': On the other hand, let \(x^n_\alpha\) converge to \(x_\alpha\) for every \(\alpha \in I\). By definition of convergence, we have that for every neighbourhood \(\mathcal{V}_\alpha\) of \(x_\alpha\), it is \(x^n_\alpha \in \mathcal{V}_\alpha\) for all sufficiently large \(n\). Denote the open subsets of these neighbourhoods by \(\mathcal{U}_\alpha\). Then, \(\prod_{\alpha \in I} \mathcal{U}_\alpha\) is a neighbourhood of \(\{x_\alpha\}_{\alpha \in I}\) in the product topology and also contains all \(\{x_\alpha^n\}_{\alpha \in I}\) if \(n\) is sufficiently large enough. Thus, \(\{x_\alpha^n\}_{\alpha \in I}\) converges to \(\{x_\alpha\}_{\alpha \in I}\).
 \end{proof}
+
+\section*{Exercise 5 b)}
+    \begin{proof}
+        A sequence of functions \(f_n: I \longrightarrow X\) converges to \(f: I \longrightarrow X\) if and only if \(f_n\) converges pointwise to \(f\) on finitely many terms and for any other terms \(f_n\) lies in every neighbourhood of \(f\) with sufficiently large \(n\).
+        
+        \textit{Proof.} ``\(\Rightarrow\)'': Let \(f_n\) converge to \(f\) in the box topology. If \(I\) is finite, then the box topology is just the product topology and we get the desired result. Thus, let \(I\) be infinite. Assume the statement to prove is false, i.e. there is a neighbourhood \(\mathcal{U}_\alpha\) of \(f(\alpha)\) (\(\alpha\) is a term that does not converge pointwise) such that \(f_n(\alpha) \not\in \mathcal{U}_\alpha\).
+
+        Construct a sequence \(\alpha_n \in I\) such that the neighbourhoods \(\mathcal{U}_{\alpha_n}\) of \(f(\alpha_n)\) and a subsequence \(f_{k_n}\) of \(f_n\) such that \(f_{k_n}(\alpha_n) \not\in \mathcal{U}_{\alpha_n}\) for all \(n \in \mathbb{N}\). With this sequence, \(\{g \in X^I | g(\alpha_n) \in \mathcal{U}_{\alpha_n}\}\) is an open subset. It contains \(f\), but not \(f_{k_n}\) which would mean that \(f_n\) does not converge to \(f\).
+
+        ``\(\Leftarrow\)'': On the other hand, let the converse condition hold. Then, \(f_n\) lies in every neighbourhood of \(f\) for sufficiently large \(n\), thus \(f_n\) converges to \(f\).
+    \end{proof}
+
 \section*{Exercise 7}
 
 \begin{proof}[Solution]
@@ -186,7 +204,7 @@ Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_
         The definition of convergence of a sequence was that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \in \mathcal{U}\) for all \(n \in \mathbb{N}\) sufficiently large. Thus, if we negate the definition, we have that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \not\in \mathcal{U}\) {\color{red}for some} \(n \in \mathbb{N}\) sufficiently large.
     
         This mistakes makes the last conclusion false. The proof says ``each of these finitely many subsets contains at most finitely many terms of \(x_n\)'', but in actuality the subsets may contain infinitely many terms of \(x_n\).
-        \item It sufficies to require \(X\) to be a first-countable space. Then, 
+        \item It sufficies to require \(X\) to be a first-countable space. Then, going back to the proof, we have for every \(x \in X\), no sequence of \(x_n\) converges to \(x\). Let \(\mathcal{U}_1 \supset \mathcal{U}_2 \supset \cdots\) be a neighbourhood base (we may chose such a base without loss of generality as it was done in the proof of Lemma 4.16). Then, each of these neighbourhood bases would only have finitely many terms of \(x_n\) and the given proof would work.
     \end{enumerate}
 \end{proof}
 

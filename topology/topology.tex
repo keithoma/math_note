@@ -118,6 +118,76 @@
 \tableofcontents
 \chapter{Introduction and Motivation}
 \chapter{Metric Spaces}
+
+\begin{defbox}
+    \begin{definition}[Definition 2.1]
+        Metric Space. Metric.
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Pseudometric Space]
+        Unlike a metric space, points in a pseudometric space need not be distinguishable; that is, one may have \(d(x, y) = 0\) for distinct values \(x \neq y\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Open Ball]
+        In any metric space \((X, d)\), one can define the open ball of radius \(r > 0\) about a given point \(x \in X\) as
+        \begin{align*}
+            B_r(x) := \makeset{y \in X}{d(x, y) < r}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{intbox}
+    \begin{intuition}
+        The axiom of triangle inequality in the definition of a metric might seem arbitary. But it is needed to have for example two desireable properties.
+        \begin{enumerate}
+            \item Open balls are open themselves.
+            \item The function \(d: X \times X \longrightarrow [0, \infty)\) is continuous.
+        \end{enumerate}
+    \end{intuition}
+\end{intbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \((X, d)\) be a metric space and \(B_r(x)\) be an open ball. For any \(y \in B_r(x)\) choose \(0 < \epsilon < r - d(x, y)\). 
+    \end{enumerate}
+\end{proof}
+\begin{intbox}
+    \begin{intuition}
+        Without the fifth axiom in the definition of a metric, a singleton \(\{x\}\) need not be closed.
+    \end{intuition}
+\end{intbox}
+\begin{proof}
+    Let \((X, d)\) be a metric space and \(x \in X\) a point. Consider the complement \(X \setminus \{x\}\). We want to show \(X \setminus \{x\}\) is open. Indeed, for any \(y \in X \setminus \{x\}\) and for all \(\epsilon < d(x, y)\) the ball \(B_\epsilon(y)\) is contained in \(X \setminus \{x\}\).
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}[Pseudometric]
+        
+    \end{example}
+\end{exmbox}
+
+\begin{example}
+    Show that for the pseudometric space \(X\) in Example 2.2, \([(0, 0)] \subset X\) is not a closed subset.
+\end{example}
+\begin{proof}[Solution]
+    Assume \(\{[(0, 0)]\} \subset X\) is a closed subset. Then, \(X \setminus \{[(0, 0)]\}\) must be open, that is, every point in \(X \setminus \{[(0, 0)]\}\) has an open ball centered around it that is contained in \(X \setminus \{[(0, 0)]\}\). Consider the point \([(0, 1)]\). We have that \(d([0, 0], [0, 1]) = 0\), thus \(X \setminus \{[(0, 0)]\}\) cannot be open.
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}[Definition 2.4]
+        Convergence of a sequence.
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Definition 2.5]
+        For two metric spaces \((X, d_X)\) and \((Y, d_Y)\)
+    \end{definition}
+\end{defbox}
+
 \chapter{Topological Spaces}
 \chapter{Products, Sequential Continuity, and Nets}
 
