@@ -256,15 +256,21 @@ Thus, \(V(M)\) may be expressed by finite amount of generators \(V(M) = V(f_1, \
         \(V(I) = V(\sqrt{I})\)
     \end{lemma}
 \end{thmbox}
-This implies the surjectivity of the following map:
-\begin{align*}
-    \set{\text{radical ideals in } K[X_1, \ldots, X_n]} \rightarrow \set{\text{algebraic sets of }\mathbb{A}^n(K)}
-\end{align*}
-(because let \(V\) be an algebraic set i.e. \(V = V(M)\)
-then \(V(M) = V((M)) = V(\sqrt{(M)})\))
-
-In general not injective. \#\#missingexample
-
+\begin{thmbox}
+    \begin{corollary}
+        The map
+        \begin{align*}
+            \set{\text{radical ideals in } K[X_1, \ldots, X_n]} &\rightarrow \set{\text{algebraic sets of }\mathbb{A}^n(K)} \\
+            \sqrt{I} &\mapsto V(\sqrt{I})
+        \end{align*}
+        is surjective.
+    \end{corollary}
+\end{thmbox}
+\begin{exmbox}
+    \begin{example}
+        The map above is not injective in general. \#\#missing
+    \end{example}
+\end{exmbox}
 
 \begin{thmbox}
     \begin{theorem}[Hilbert Nullstellensatz]
@@ -273,10 +279,11 @@ In general not injective. \#\#missingexample
 \end{thmbox}
 
 From now on, assume \(K = \overline{K}\).
-
-\begin{corollary}
-    For any proper ideal \(I \subset K[X_1, \ldots, X_n]\) there is a \(p \in K^n\) with \(f(p) = 0\) for all \(p \in I\).
-\end{corollary}
+\begin{thmbox}    
+    \begin{corollary}
+        For any proper ideal \(I \subset K[X_1, \ldots, X_n]\) there is a \(p \in K^n\) with \(f(p) = 0\) for all \(p \in I\).
+    \end{corollary}
+\end{thmbox}
 
 \begin{defbox}
     \begin{definition}[A-algebra]
