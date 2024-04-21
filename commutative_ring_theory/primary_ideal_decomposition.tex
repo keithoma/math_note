@@ -1,0 +1,355 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+\newtheorem{exercise}{Exercise}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+
+\begin{enumerate}
+    \item We want to find the decomposition of \(I = \bigcap_{i=1}^n \mathfrak{q}_i\).
+    \item It is \(\sqrt{\mathfrak{q}_i} = \sqrt{(I : x)}\) for some \(x \in R\).
+    \item What we know though is if \(x \not\in \sqrt{I}\) then \((I : x) = I\) which doesn't help.
+    \item
+\end{enumerate}
+
+\begin{example}
+    \(I = (X^2Y, XY^2)\).
+    \begin{enumerate}
+        \item \(\sqrt{(X^2Y, XY^2)} = (XY, X^2, Y^2)\)
+        \item \(X^2 Y^2 - XY^2 = (X^2 - X) Y^2\)
+    \end{enumerate}
+\end{example}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        In a Noetherian ring, each ideal has a minimal primary decomposition.
+    \end{theorem}
+\end{thmbox}
+
+\noindent\textbf{Every irreducible ideal is primary.}
+
+\begin{enumerate}
+    \item 
+\end{enumerate}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let
+        \begin{align*}
+            I = \bigcap_{i=1}^n \mathfrak{q}_i
+        \end{align*}
+        Then \(\sqrt{\mathfrak{q}_i} = (I : x)\) for some \(x\)
+    \end{theorem}
+\end{thmbox}
+
+
+--------------------
+
+\(I = (X^2Y, XY^2)\)
+
+\begin{enumerate}
+    \item \((X^2Y, XY^2) = (X^2, XY^2) \cap (Y, XY^2) = (X^2, XY^2) \cap (Y)\)
+    \item \((X^2, XY^2) \cap (Y) = (X^2, X) \cap (X^2, Y^2) \cap (Y) = (X) \cap (X^2, Y^2) \cap (Y)\)
+\end{enumerate}
+
+
+\begin{theorem}
+    
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(\{u_1, \ldots, u_r\}\) generate \(I\).
+        \item If \(u_1\) is not a pure power, we can write \(u_1 = vw\) where \(v\) and \(w\) are coprime monomials.
+        \item We claim: \(I = (v, u_2, \ldots, u_r) \cap (w, u_2, \ldots, u_r)\).
+    \end{enumerate}
+\end{proof}
+
+The associated primes are \(\{(X),(Y)\}\). The embedded primes are \(\{(X, Y)\}\)
+
+
+\begin{enumerate}
+    \item \((X^2, XY, XZ) = (X^2, XY, XZ) \cap (X^2, XY, Z) = (X) \cap (X^2, X, Z) \cap (X^2, Y, Z)\)
+\end{enumerate}
+
+
+\((X^3Y, XY^4) = (X^3, XY^4) \cap (Y, XY^4) = (X) \cap (X^3, Y^4) \cap (Y, X) \cap (Y) = (X) \cap (X^3, Y^4) \cap (Y)\)
+
+
+\((X^2Z, YZ, Z - XY)\)
+
+
+\begin{exercise}
+    If an ideal \(\mathfrak{a}\) has a primary decomposition, then \(\text{Spec}(A / \mathfrak{a})\) has only finitely many irreducible components.
+\end{exercise}
+\begin{proof}[Solution]
+    Let \(\mathfrak{a}\) be a decomposable ideal in a ring \(A\). Denote the set of prime ideals that contain \(\mathfrak{a}\) by
+    \begin{align*}
+        V(\mathfrak{a}) := \makeset{\mathfrak{p} \in \text{Spec}(A)}{\mathfrak{a} \subset \mathfrak{p}} \subset \text{Spec}(A)
+    \end{align*}
+    and denote the canonical projection to the quotient ring by \(\pi: A \longrightarrow A / \mathfrak{a}\).
+    \begin{enumerate}
+        \item Since \(\mathfrak{a}\) is decomposable, by proposition 4.6., the isolated primes of \(\mathfrak{a}\) are precisely the minimal elemenets of \(S_\mathfrak{a}\).
+        \item The prime ideals of the quotient ring \(A / \mathfrak{a}\) are precisely the images of prime ideals that contain the ideal \(\mathfrak{a}\) of \(A\) under the canonical projection, i.e. if \(\overline{\mathfrak{p}} \subset A / \mathfrak{a}\) is prime, then \(\mathfrak{p} = \pi^{-1}(\overline{\mathfrak{p}})\) is prime in \(A\) and contains \(\mathfrak{a}\), and if \(\mathfrak{p} \subset A\) is a prime ideal that contains \(\mathfrak{a}\), then \(\overline{\mathfrak{p}} = \pi(\mathfrak{p})\) is prime in \(A / \mathfrak{a}\).
+        
+        Or state it differently, there is a one-to-one correspodence between the sets
+        \begin{align*}
+            V(\mathfrak{a}) = \makeset{\mathfrak{p} \subset \text{Spec}(A)}{\mathfrak{a} \subset \mathfrak{p}} \longleftrightarrow \text{Spec}(A / \mathfrak{a}) \text{.}
+        \end{align*}
+        \begin{enumerate}
+            \item By proposition 1.1., the ideals in \(A / \mathfrak{a}\) corresponds to an ideal in \(A\) that contains \(\mathfrak{a}\), i.e. if \(\overline{\mathfrak{b}} \in A / \mathfrak{a}\) is an ideal, then \(\mathfrak{b} = \pi^{-1}(\overline{\mathfrak{b}})\) is an ideal in \(A\) that contains \(\mathfrak{a}\), and if \(\mathfrak{b} \in A\) is an ideal that contains \(\mathfrak{a}\), then \(\overline{\mathfrak{b}} = \pi(\mathfrak{b})\) is an ideal in \(A / \mathfrak{a}\).
+            \item If \(\overline{\mathfrak{p}} \in A / \mathfrak{a}\) is a prime ideal, then \(\mathfrak{p} = \pi^{-1}(\overline{\mathfrak{p}})\) is a prime ideal in \(A\) because preimages preserves prime ideals.
+            \item If \(\mathfrak{p} \subset A\) is a prime ideal, then \(\overline{\mathfrak{p}} = \pi(\mathfrak{p})\) is a prime ideal in \(A / \mathfrak{a}\).
+            \begin{enumerate}
+                \item Let \(\overline{x} \cdot \overline{y} \in \overline{\mathfrak{p}}\).
+                \item Since \(\pi\) is surjective, there are \(x\) and \(y\) in \(A\) such that \(\pi(x) = \overline{x}\) and \(\pi(y) = \overline{y}\).
+                \item Moreover, since \(\pi\) is a ring homomorphism, we have \(\overline{x} \cdot \overline{y} = \pi(x) \cdot \pi (y) = \pi(xy)\).
+                \item Since \(\overline{x} \cdot \overline{y} \in \overline{\mathfrak{p}}\) and since 
+            \end{enumerate}
+        \end{enumerate}
+        \item Thus, by 1. and 2., the isolated primes of \(\mathfrak{a}\) corresponds to minimal elements of \(\text{Spec}(A / \mathfrak{a})\). Since the number of associated primes is finite, the number of isolated primes and hence the number of minimal elements of \(\text{Spec}(A / \mathfrak{a})\) must be finite as well.
+        \item Bla bla bla, finite minimal elements, finite irreducible components.
+    \end{enumerate}
+\end{proof}
+
+
+\begin{exercise}[Atiyah \& MacDonald 4.2., Bosch 2.1.]
+    If \(\mathfrak{a} = \sqrt{\mathfrak{a}}\), then \(\mathfrak{a}\) has no embedded prime ideals.
+\end{exercise}
+\begin{proof}[Solution]
+    Let \(\mathfrak{a}\) be an ideal in a ring \(A\).
+    \begin{enumerate}
+        \item If \(\mathfrak{a}\) is not decomposable, then the statement is trivially\footnote{While it is always aluring to use the word ``vacuously'', I don't think this is a case of a vacuous truth. If \(\mathfrak{a}\) is not decomposable, then the set of associated ideals of \(\mathfrak{a}\) is empty and thus embedded primes which a subset of associated ideals is also empty. It fulfills the statement by definition and not because there is nothing to check.} true. Thus, consider an ideal \(\mathfrak{a}\) that is decomposable and denote one of its minimal primary decomposition by
+        \begin{align*}
+            \mathfrak{a} = \bigcap_{i = 1}^n \mathfrak{q}_i \text{.}
+        \end{align*}
+        \item Taking the radical on both sides yields
+        \begin{alignat*}{3}
+            \sqrt{\mathfrak{a}} &= \sqrt{\bigcap_{i = 1}^n \mathfrak{q}_i} \\
+            &= \bigcap_{i = 1}^n \sqrt{\mathfrak{q}_i} & \qquad \text{bla bla}
+        \end{alignat*}
+        Since \(\mathfrak{a} = \sqrt{\mathfrak{a}}\), the last expression gives
+        \begin{align*}
+            \mathfrak{a} = \bigcap_{i=1}^n \sqrt{\mathfrak{q}_i}
+        \end{align*}
+        which is a primary decomposition of \(\mathfrak{a}\).
+        \item Assume \(\sqrt{\mathfrak{q}_i} \subset \sqrt{\mathfrak{q}_j}\) for some \(j \neq i\). In that case, we have a primary decomposition
+        \begin{align*}
+            \mathfrak{a} = \bigcap_{\substack{i = 1 \\ i \neq j}}^n \sqrt{\mathfrak{q}_i}
+        \end{align*}
+        which has less primary components than the thing above which is a contradiction.
+
+        I think I can write this much better.
+    \end{enumerate}
+\end{proof}
+
+Additional Bosch: Is the converse true?
+
+
+\begin{exercise}[Atiyah \& MacDonald 4.3]
+    If \(A\) is absolutely flat, every prime ideal is maximal.
+\end{exercise}
+\begin{proof}[Hints]
+    \begin{itemize}
+        \item Exercise 2.28 is crucial.
+    \end{itemize}
+\end{proof}
+\begin{proof}[Solution]
+    Let \(A\) be an absolutely flat ring and fix a prime ideal \(\mathfrak{p}\) in \(A\). Our goal is to show that \(A / \mathfrak{p}\) is a field. For that endeavour, fix an element \(\overline{x} \in A / \mathfrak{p}\) with \(\overline{x} \neq \overline{0}\). We will show \(\overline{x}\) is invertible.
+    \begin{enumerate}
+        \item By exercise 2.28., if \(A\) is absolutely flat, then so is \(A / \mathfrak{p}\). Furthermore, exercise 2.28. says in any absolutely flat ring, all non-units are zero-divisors.
+        \item Suppose there exists a non-zero non-unit \(\overline{x}\) in \(A / \mathfrak{p}\). By 1., \(\overline{x} \in A / \mathfrak{p}\) must be a non-zero zero-divisor. Thus, there is some non-zero \(\overline{y} \in A / \mathfrak{p}\) such that \(\overline{x} \cdot \overline{y} = \overline{0}\).
+        \item Now, \(\overline{x} \cdot \overline{y} = \overline{0} \in A / \mathfrak{p}\) implies \(x \cdot y \in \mathfrak{p}\). By the definition of prime ideals, we hence have \(x \in \mathfrak{p}\) or \(y \in \mathfrak{p}\), but this is equivalent to saying \(\overline{x} = \overline{0}\) or \(\overline{y} = \overline{0}\) which were both excluded. We arrived at a contradiction. There are no non-zero non-units in \(A / \mathfrak{p}\).
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}[Atiyah \& MacDonald 4.4]
+    In the polynomial ring \(\mathbb{Z}[X]\), the ideal \(\mathfrak{m} = (2, X)\) is maximal and the ideal \(\mathfrak{q} = (4, X)\) is \(\mathfrak{m}\)-primary, but is not the power of \(\mathfrak{m}\).
+\end{exercise}
+\begin{proof}
+    ``The ideal \(\mathfrak{m} = (2, X)\) is maximal in the polynomial ring \(\mathbb{Z}[X]\).''
+    \begin{enumerate}
+        \item We have the isomorphism \(\mathbb{Z}[X] / (2, X) \cong \mathbb{Z} / 2 \mathbb{Z}\).
+        \begin{enumerate}
+            \item Consider the map
+            \begin{align*}
+                \varphi: \mathbb{Z}[X] &\longrightarrow \mathbb{Z} / 2 \mathbb{Z} \\
+                P(X) &\mapsto P(0) \mod{2 \mathbb{Z}} \text{.}
+            \end{align*}
+            \item The map \(\varphi\) is a homomorphism because it is the composition of substitution homomorphism \(\mathbb{Z}[X] \longrightarrow \mathbb{Z}\) and the canonical projection \(\mathbb{Z} \longrightarrow \mathbb{Z} / 2 \mathbb{Z}\).
+            \item Moreover, the map \(\varphi\) is surjective because it is the composition of two surjective maps. Thus, \(\text{im}(\varphi) = \mathbb{Z} / 2 \mathbb{Z}\).
+            \item We also have \(\text{ker}(\varphi) = (2, X)\).
+            \begin{enumerate}
+                \item Let \(P \in \text{ker}(\varphi)\). Then, \(\varphi(P) = P(0) \mod{2\mathbb{Z}}\).
+                \item zzzzzzzzzzzzzzzzzzzzzzzzz
+            \end{enumerate}
+            \item Thus, by the isomorphism theorem, we have \(\mathbb{Z}[X] / (2, X) \cong \mathbb{Z} / 2 \mathbb{Z}\).
+        \end{enumerate}
+        \item Since \(\mathbb{Z} / 2 \mathbb{Z}\) is a field, \((2, X)\) is a maximal ideal.
+    \end{enumerate}
+
+    \noindent``The ideal \(\mathfrak{q} = (4, X)\) is \(\mathfrak{m}\)-primary.''
+    \begin{enumerate}
+        \item We simply have \(\sqrt{(4, X)} = \sqrt{\sqrt{4} + \sqrt{X}}= \sqrt{(2) + (X)} = \sqrt{(2, X)}\).
+        \item Thus, \((4, X)\) is \(\mathfrak{m}\)-primary.
+    \end{enumerate}
+
+    \noindent``The ideal \(\mathfrak{m} = (4, X)\) is not a power of \(\mathfrak{m}\).''
+    \begin{enumerate}
+        \item We have the chain of strict inclusion
+        \begin{align*}
+            \mathfrak{m} \supsetneq \mathfrak{m}^2 \supsetneq \cdots \supsetneq \mathfrak{m}^k \supsetneq \cdots
+        \end{align*}
+        \item \(\mathfrak{m}^2 = (4, 2X, X^2)\).
+        \item So \((4, X) \subset (2, X)\) but \((4, X) \not\subset (4, 2X, X^2)\)
+        \item Thus it cannot be a power of \(\mathfrak{m}\).
+    \end{enumerate}
+\end{proof}
+
+
+\begin{exercise}[Atiyah \& MacDonald 4.5]
+    In the polynomial ring \(K[X, Y, Z]\) where \(K\) is a field, let \(\mathfrak{p}_1 = (X, Y)\), \(\mathfrak{p}_2 = (X, Z)\), and \(\mathfrak{m} = (X, Y, Z)\). Then, \(\mathfrak{p}_1\) and \(\mathfrak{p}_2\) are prime and \(\mathfrak{m}\) is maximal. Let \(\mathfrak{a} = \mathfrak{p}_1 \mathfrak{p}_2\). Show that \(\mathfrak{a} = \mathfrak{p}_1 \cap \mathfrak{p}_2 \cap \mathfrak{m}^2\) is a reduced primary decomposition of \(\mathfrak{a}\). Which components are isolated and which are embedded?
+\end{exercise}
+``reduced primary decomposition''
+\begin{enumerate}
+    \item \(\mathfrak{a} = (X, Y) (X, Z) = (X^2, XY, XZ, YZ)\).
+    \begin{enumerate}
+        \item \(X^2 \in (X, Y) \cap (X, Z) \cap (X, Y, Z)^2\)
+        \item \(XY \in\) bla bla
+    \end{enumerate}
+    \item The representation is \(\mathfrak{a} = \mathfrak{p}_1 \cap \mathfrak{p}_2 \cap \mathfrak{m}^2\) a primary decomposition because \(\mathfrak{p}_1\) and \(\mathfrak{p}_2\) are prime, hence primary and \(\mathfrak{m}^2\) is \(\mathfrak{m}\)-primary.
+    \item Clearly, the radicals of the ideals are distinct.
+    \item as
+    \begin{enumerate}
+        \item \((X, Y) \not\supset (X, Z) \cap (X, Y, Z)^2 = (X, Z) \cap (X^2, XY, XZ, Y^2, YZ, Z^2) = (X^2, XY, XZ, YZ, Z^2)\)
+        \item \((X, Y, Z)^2 \not\supset (X, Z) \cap (X, Y) = (X, YZ)\)
+    \end{enumerate}
+\end{enumerate}
+
+\begin{exercise}[Atiyah \& MacDonald 4.7]
+    Let \(A\) be a ring and \(A[X]\) be a polynomial ring. \(\mathfrak{a}[X]\) is the extension of \(\mathfrak{a}\) of \(\mathfrak{a}\) to \(A[X]\).
+\end{exercise}
+\begin{proof}
+    
+\end{proof}
+
+
+
+
+
+\begin{exercise}[Bosch 2.2.]
+    Let \(\mathfrak{p} \subset A\) be a prime ideal and assume that \(A\) is Noetherian. Show that the \(n\)-th power \(\mathfrak{p}^n\) is the smallest \(\mathfrak{p}\)-primary ideal containing \(\mathfrak{p}^n\). Can we expect that there is a smallest primary ideal containing \(\mathfrak{p}^n\)?
+\end{exercise}
+
+\end{document}

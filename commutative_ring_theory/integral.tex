@@ -1,0 +1,229 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\begin{defbox}
+    \begin{definition}
+        Let \(B\) a ring, \(A\) a subring of \(B\).
+        \begin{enumerate}
+            \item An element \(x\) of \(B\) is said to be integral over \(A\) if \(x\) is a root of a monic polynomial with coefficients in \(A\), that is if \(x\) satisfies an equation of the form
+            \begin{align*}
+                x^n + a_1 x^{n-1} + \cdots + a_n = 0
+            \end{align*}
+            where \(a_i\) are the elements of \(A\).
+            \item The set of elements of \(B\) that are integral over \(A\) is called the integral closure of \(A\) in \(B\). The integral closure is, itself, a subring of \(B\) and contais \(A\).
+            \item If each element of \(A\) is integral over itself, then \(A\) is said to be integrally closed in \(B\).
+            \item If the integral closure of \(A\) in \(B\) is whole \(B\), we say the ring \(B\) is integral over \(A\).
+            \item An integral domain is said to be integrally closed (without qualification) if it is integrally closed in its field of fractions.
+            \item An element of \(B\) is said to be integral over \(\mathfrak{a}\) if it satisfies an equation of integral dependence over \(A\) in which all the coefficients lie in \(\mathfrak{a}\).
+            \item The integral closure of \(\mathfrak{a}\) in \(B\) is the set of all elements of \(B\) which are integral over \(\mathfrak{a}\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The following are equivalent:
+        \begin{enumerate}
+            \item \(x \in B\) is integral over \(A\)
+            \item \(A[x]\) is a finitely generated \(A\)-module
+            \item \(A[x]\) is contained in a subring \(C\) of \(B\) such that \(C\) is a finitely generated \(A\)-module
+            \item There exsists a faithful \(A[x]\)-module \(M\) which is finitely generated as an \(A\)-module
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(x_i\) be elements of \(B\), each integral over \(A\). Then the ring \(A[x_1, \ldots, x_n]\) is finitely generated \(A\)-module.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        The set \(C\) of elements of \(B\) which are integral over \(A\) is a subring of \(B\) containing \(A\).
+    \end{theorem}
+\end{thmbox}
+
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item The ring \(C\) is called the integral closure of \(A\) in \(B\).
+            \item If \(C = A\), then \(A\) is said to be integrally closed in \(B\).
+            \item If \(C = B\) the ring \(B\) is said to be integral over \(A\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(A \subset B \subset C\) are rings and if \(B\) is integral over \(A\), and \(C\) is integral over \(B\), then \(C\) is integral over \(A\).
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings and let \(C\) be the integral closure of \(A\) in \(B\). Then \(C\) is integrally closed in \(B\).
+    \end{theorem}
+\end{thmbox}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings, \(B\) integral over \(A\).
+        \begin{enumerate}
+            \item If \(\mathfrak{b}\) is an ideal of \(B\) and \(\mathfrak{a} = \mathfrak{b}^c = A \cap \mathfrak{b}\) then \(B / \mathfrak{b}\) is integral over \(A / \mathfrak{a}\).
+            \item If \(S\) is a multiplicatively closed subset of \(A\), then \(S^{-1}B\) is integral over \(S^{-1}A\).
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be integral domains, \(B\) integral over \(A\). Then \(B\) is a field if and only if \(A\) is a field.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings, \(B\) integral over \(A\), let \(\mathfrak{q}\) be a prime ideal of \(B\) and let \(\mathfrak{p} = \mathfrak{q}^c = \mathfrak{q} \cap A\). Then \(\mathfrak{q}\) is maximal if and only if \(\mathfrak{p}\) is maximal.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings, \(B\) integral over \(A\), let \(\mathfrak{q}, \mathfrak{q}'\) be prime ideals of \(B\) such that \(\mathfrak{q} \subset \mathfrak{q}'\) and \(\mathfrak{q}^c = \mathfrak{q}'^c\). Then \(\mathfrak{q} = \mathfrak{q}'\).
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings, \(B\) integral over \(A\), and let \(\mathfrak{p}\) be a prime ideal of \(A\). Then there exists a prime ideal \(\mathfrak{q}\) of \(B\) such that \(\mathfrak{q} \cap A = \mathfrak{p}\).
+    \end{theorem}
+\end{thmbox}
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(A \subset B\) be rings, \(B\) integral over \(B\), let \(\mathfrak{p}_1 \subset \cdots \subset \mathfrak{p}_n\) be a chain of prime ideals of \(A\) and \(\mathfrak{q} \subset \cdots \subset \mathfrak{q}_m\) \((m < n)\) a chain of prime ideals of \(B\) such that \(\mathfrak{q}_i \cap A = \mathfrak{p}_i\) \((1 \leq i \leq m)\). Then the chain \(\mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_m\) can be extended to a chain \(\mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_n\) such that \(\mathfrak{q}_i \cap A = \mathfrak{p}_i\) for \((1 \leq i \leq n)\).
+    \end{theorem}
+\end{thmbox}
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass[a4paper]{article}
+\title{Series 1}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\theoremstyle{definition}
+\newtheorem*{lemma}{Lemma}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand{\equivcls}[1]{%
+  #1/\!{\sim}%
+}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+%---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+\begin{document}
+\maketitle
+\section*{Problem 1}
+Suppose \((X, d_X)\) is a metric space and \(\sim\) is an equivalence relation on \(X\), with the set of equivalence classes denoted by \(\equivcls{X}\). For the equivalence classes \([x], [y] \in \equivcls{X}\) represented by elements \(x, y \in X\), define
+\begin{align*}
+    d([x], [y]) := \inf \makeset{d_X(x, y)}{x \in [x], \, y \in [y]}
+\end{align*}
+\subsection*{(a)}
+Show that \(d\) is a metric on \(\equivcls{X}\) if the following assumption is added: for every triple \([x], [y], [z] \in \equivcls{X}\), there exist representatives \(x \in [x], y \in [y]\) and \(z \in [z]\) such that
+\begin{align*}
+    d_X(x, y) = d([x], [y]) \quad \text{and} \quad d_X(y, z) = d([y], [z]) \text{.}
+\end{align*}
+\begin{proof}[Solution]
+    Clearly, \(d\) is a map from \(\equivcls{X} \times \equivcls{X} \longrightarrow\) to \(\mathbb{R}\). We verify the axioms of a metric one by one.
+    \begin{enumerate}
+        \item ``\(d([x], [y]) \geq 0\)'': This is simply inherited from \(d_X\).
+        \item ``\(d([x], [x]) = 0\)'': Again, inherited from \(d_X\).
+        \item ``\(d([x], [y]) = d([y], [x])\)'': Also inherited from \(d_X\).
+        \item ``\(d([x], [z]) \leq d(x, y) + d(y, z)\)'':
+        \item ``\(d([x], [y]) > 0\) whenever \(x \neq y\)'': By the added assumption, we are guranteed that the value \(d([x], [y])\) is taken by some \(x \in [x]\) and \(y \in [y]\). In other words, \(d([x], [y])\) is not just an infimum of \(d_X(x, y)\), but also a minimum. Thus, this property is also inherited by \(d_X\).
+    \end{enumerate}
+\end{proof}
+\end{document}

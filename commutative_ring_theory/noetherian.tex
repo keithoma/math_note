@@ -1,0 +1,715 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+\chapter{Noetherian Rings}
+\section*{Cheat Sheet}
+\begin{defbox}
+    \begin{definition}
+        A ring \(R\) is called Noetherian if it fulfills one of the following equivalent conditions.
+        \begin{enumerate}
+            \item Each ideal \(\mathfrak{a}\) of \(R\) is finitely generated.
+            \item Any infinite increasing sequence of ideals \(\mathfrak{a}_1 \subset \mathfrak{a}_2 \subset \mathfrak{a}_3 \subset \cdots\) in \(R\) eventually stabilized, i.e. \(\mathfrak{a}_k = \mathfrak{a}_{k + 1}\) for \(k\) large enough.
+            \item Every nonempty collection \(S\) of ideals of \(R\) contains a maximal element with respect to inclusion.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(R\) be a Noetherian ring. Each surjective ring homomorphism \(\varphi: R \longrightarrow R\) is injective, and thus an isomorphism.
+    \end{theorem}
+\end{thmbox}
+
+
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(R\) is a Noetherian integral domain, then every nonzero nonunit in \(R\) can be factored into irreducibles.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        \begin{enumerate}
+            \item \(R / I\) is Noetherian.
+            \item \(R\) Noetherian \(\iff\) polynomial ring with finite variables is Noetherian \(\iff\) formal power series with finite variables is Noetherian
+            \item localization is Noetherian
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        In a nonzero Noetherian ring, each proper ideal is an intersection of finitely many primary ideals.
+    \end{theorem}
+\end{thmbox}
+
+
+\newpage
+\section{Introduction}
+\begin{defbox}
+    \begin{definition}
+        A ring \(R\) is called Noetherian if it fulfills one of the following equivalent conditions.
+        \begin{enumerate}
+            \item Each ideal \(\mathfrak{a}\) of \(R\) is finitely generated.
+            \item Any infinite increasing sequence of ideals \(\mathfrak{a}_1 \subset \mathfrak{a}_2 \subset \mathfrak{a}_3 \subset \cdots\) in \(R\) eventually stabilized, i.e. \(\mathfrak{a}_k = \mathfrak{a}_{k + 1}\) for \(k\) large enough.
+            \item Every nonempty collection \(S\) of ideals of \(R\) contains a maximal element with respect to inclusion.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+\begin{exmbox}
+    \begin{example}
+        PIDs and thus fields are Noetherian rings.
+    \end{example}
+\end{exmbox}
+\begin{rembox}
+    \begin{intuition}
+        Noetherian rings can be regarded as a good generalization of PIDs: the property of all ideals being singly generated is often not preserved under common ring-theoretic constructions (\(\mathbb{Z}\) is a PID but \(\mathbb{Z}[X]\) is not), but the property of all ideals being finitely generated does remain valid under many constructions of new rings from old rings. For example, every quadratic ring \(\mathbb{Z}[\sqrt{d}]\) is Noetherian; many of these rings are not PIDs.
+    \end{intuition}
+\end{rembox}
+\begin{exmbox}
+    \begin{example}
+        The polynomial ring \(K[X_1, X_2, \ldots]\) in infinitely many variables over a field \(K\) is not Noetherian.
+    \end{example}
+\end{exmbox}
+\begin{rembox}
+    \begin{remark}
+        The third condition shows a Noetherian ring \(R\) other than the zero ring has a maximal ideal and every proper ideal \(\mathfrak{a}\) in a Noetherian ring \(R\) is contained in a maximal ideal. This does not need Zorn's lemma, which is used to show maximal ideals exist in arbitary rings.
+    \end{remark}
+\end{rembox}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(R\) be a Noetherian ring. Each surjective ring homomorphism \(\varphi: R \longrightarrow R\) is injective, and thus an isomorphism.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    Let \(\varphi: R \longrightarrow R\) be surjective.
+    
+    The trick is to see that kernel of \(\varphi\) is an ideal and that a \(n\)-fold composition of \(\varphi\) give exactly the ideals we want to study.
+
+    We have the following sequence of increasing ideals
+    \begin{align*}
+        \text{ker}(\varphi) \subset \text{ker}(\varphi^2) \subset \text{ker}(\varphi^3) \subset \cdots
+    \end{align*}
+    This is valid because: Let \(x \in \text{ker}(\varphi^n)\), then \(\varphi^n(x) = 0\) and that means \(\varphi^{n+1}(x) = \varphi^n(\varphi(x)) = \varphi^{n}(0) = 0\), thus \(x \in \text{ker}(\varphi^{n+1})\).
+
+    Since \(R\) is Noetherian, this sequence of ideals becomes stationary, hence \(\text{ker}(\varphi^{n}) = \text{ker}(\varphi^{n+1})\) for \(n\) large enough.
+
+    Let \(x \in \text{ker}(\varphi)\), then \(\varphi(x) = 0\). Since \(\varphi\) is surjective, \(\varphi^n\) is surjective, so \(x = \varphi^n(x')\) for some \(x' \in R\).
+
+    That means \(0 = \varphi(x) = \varphi(\varphi^{n}(x')) = \varphi^{n+1}(x')\).
+
+    So \(x' \in \text{ker}(\varphi^{n+1}) = \text{ker}(\varphi^{n})\). Thus \(x = \varphi^{n}(x') = 0\). So \(\text{ker}(\varphi) = \{0\}\).
+\end{proof}
+
+\begin{exmbox}
+    \begin{example}
+        \(\mathbb{R}[X]\) is a Noetherian ring and the map \(f: \mathbb{R}[X] \longrightarrow \mathbb{R}[X], f(X) \mapsto f(X^2)\) is an injective ring homomorphism that is not surjective.
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(R\) is a Noetherian integral domain, then every nonzero nonunit in \(R\) can be factored into irreducibles.
+    \end{theorem}
+\end{thmbox}
+\begin{rembox}
+    \begin{remark}
+        \begin{enumerate}
+            \item If \(R\) is a field, then there are no nonzero units and the theorem is vacuously true.
+            \item This theorem is not saying that a Noetherian integral domain has a unique factorization. Many Noetherian integral domains do not have unique factorization.
+            \item If an integral domain \(R\) contains a nonzero nonunit \(x\) that has no irreducible factorization, then \(R\) can't be Noetherian.
+        \end{enumerate}
+    \end{remark}
+\end{rembox}
+
+
+
+
+
+
+
+
+\newpage
+\section{Ring Operations}
+Which operations keep Noetherian?
+\begin{enumerate}
+    \item subring
+    \item quotient
+    \item polynomial
+    \item fractions
+    \item direct product
+    the ideals in \(A \times B\) corresponds to ideals in \(A\) and \(B\) if the ring is infinite
+    \item 
+\end{enumerate}
+
+
+\begin{exmbox}
+    \begin{example}
+        \textit{A subring of a Noetherian ring need not be Noetherian.} Take any non-Noetherian ring. It is a subring of its field of fractions which is trivially Noetherian.
+    \end{example}
+\end{exmbox}
+\begin{example}
+    \begin{enumerate}
+        \item The polynomial ring \(K[X_1, X_2, \ldots]\) with infinitely many variables is not Noetherian, but \(\text{Frac}(K[X_1, X_2, \ldots])\) is Noetherian.
+        \item \(K[X, Y]\) is Noetherian, but the subring \(\makeset{XY^k}{k \in \mathbb{N}^+}\) is not.
+    \end{enumerate}
+\end{example}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(R\) is a Noetherian ring, then so is \(R / I\) for any ideal \(I\) in \(R\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    There are at least two ways.
+
+    First is direct by using the fact that \(\pi^{-1}(\mathfrak{a})\) is an ideal in \(R\) that is finitely generated.
+
+    The other is using exact sequences.
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        \(R\) is a Noetherian ring if and only if \(R[X]\) is Noetherian if and only if \(R[X_1, X_2]\) is Noetherian.
+    \end{theorem}
+\end{thmbox}
+
+\begin{exmbox}
+    \begin{example}
+        \(\mathbb{R}[X_1, X_2, \ldots]\) is not Noetherian.
+    \end{example}
+\end{exmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        For a ring \(A\) its polynomial ring \(A[X_1, X_2, \ldots]\) is not Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    The chain of ideals \((X_1) \subset (X_1, X_2) \subset \cdots\) never becomes stationary.
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(R\) is Noetherian, then so is the formal power series \(R[[X]]\) in (finitely many variables)
+    \end{theorem}
+\end{thmbox}
+What about the converse?
+What about infinite number of variables?
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(A\) is Noetherian, so is its ring of fractions \(S^{-1}A\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(A\) be a Noetherian ring.
+        \item Let \(S\) be a multiplicative set in \(A\).
+        \item Let \(S^{-1}A\) be the localization of \(A\) at \(S\) with \(\tau: A \longrightarrow S^{-1}A\) the canonical homomorphism.
+        \item Fix an ideal \(\mathfrak{a}\) in \(S^{-1}A\). \textit{(We will show \(\mathfrak{a}\) is finitely generated.)}
+        \item By ideal correspodence, \(\tau^{-1}(\mathfrak{a})\) is an ideal in \(A\).
+        \item Since \(A\) is Noetherian, \(\tau^{-1}(\mathfrak{a})\) is finitely generated.
+        \item Let \(x_1, \ldots x_n \in A\) generate \(\tau^{-1}(\mathfrak{a})\).
+        \item Let \(\frac{x}{s} \in \mathfrak{a}\).
+    \end{enumerate}
+\end{proof}
+
+What about the converse?
+
+\begin{example}
+    The quadratic ring \(\mathbb{Z}[\sqrt{d}]\) for a nonsquare integer \(d \in \mathbb{Z}\) is Noetherian.
+\end{example}
+\begin{proof}
+    \begin{enumerate}
+        \item It is \(\mathbb{Z}[\sqrt{d}] \cong \mathbb{Z}[X] / (X^2 - d)\).
+        \item \(\mathbb{Z}[X]\) is Noetherian.
+        \item Thus \(\mathbb{Z}[X] / (X^2 - d)\) is Noetherian.
+        \item By the isomorphism, \(\mathbb{Z}[\sqrt{d}]\) is Noetherian.
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+
+\newpage
+\subsection{Corollaries}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(\varphi: R \longrightarrow R'\) be a ring homomorphism. If \(R\) is Noetherian, then so is \(\text{im}(\varphi)\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(R\) be a Noetherian ring.
+        \item Let \(\varphi: R \longrightarrow R'\) be a ring homomorphism.
+        \item By the isomorphism theorem, we have the isomorphism \(R / \text{ker}(\varphi) \cong \text{im}(\varphi).\)
+        \item Since \(R\) is Noetherian, \(R / \text{ker}(\varphi)\) is as well.
+        \item By the isomorphism given in (3), \(\text{im}(\varphi)\) is Noetherian.
+    \end{enumerate}
+\end{proof}
+
+
+
+
+
+\newpage
+\section{Primary Decomposition}
+\subsection{Primary Ideals}
+\begin{defbox}
+    \begin{definition}
+        A proper ideal \(\mathfrak{q}\) of a ring \(A\) is called primary if one of the following equivalent conditions are fulfilled.
+        \begin{enumerate}
+            \item For all \(ab \in \mathfrak{q}\), it is either \(a \in \mathfrak{q}\) or \(b^n \in \mathfrak{q}\) for some \(\mathbb{N}^+\).
+            \item The zero divisors in \(A / \mathfrak{q}\) is nilpotent.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+
+
+
+\begin{example}
+    In the ring of integers \(\mathbb{Z}\), the primary ideals are \(0\) and \((p)^k\) for prime numbers \(p\) and \(k \in \mathbb{N}^+\).
+
+    More concretely, consider \((6)\). This is not a primary ideal because \(6 = 2 \cdot 3\), but \(6\) neither contains \(2\), \(3\) nor the powers of them.
+
+    On the other hand, \((2)^3 = (8)\) is primary. For example, the decomposition \(8 = 2 \cdot 4\)
+
+    Concretely, consider \((2)^3 = (8)\).
+
+    On the other hand, \((6)\) is not primary because \(6 = 2 \cdot 3\), but
+\end{example}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(\mathfrak{q}\) be an ideal in \(\mathbb{Z}\). Then \(\mathfrak{q}\) is primary if and only if \(\mathfrak{q} = (0)\) or \(\mathfrak{q} = (p^n)\) for some prime number \(p\) and some \(\mathbb{N}^+\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'':
+    \begin{enumerate}
+        \item Let \(\mathfrak{q}\) be a primary ideal.
+        \item Fix \(x \in \mathfrak{q}\).
+        \item \(x = p_1^{k_1} \cdots p_n^{k_n}\).
+        \item By induction, we must find \(p_i^{k_i} \in \mathfrak{q}\)
+        \item Thus \(\mathfrak{q} = (p_i^n)\)
+    \end{enumerate}
+
+    ``\(\Leftarrow\)'': trivial
+\end{proof}
+
+\begin{example}
+    Let \(K\) be a field and \(A = K[X, Y, Z] / (XY - Z^2)\). \(\mathfrak{a} = (X, Z)\).
+
+    \((X, Z)^2\) is not primary in \(A\)
+
+    \((X, Z)^2 / (XY - Z^2) \cong (X^2, XZ, Z^2) / (XY - Z^2)\)
+
+    \(XZ \in (X, Z)^2\)
+\end{example}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(\mathfrak{q}\) be a primary ideal. Then \(\sqrt{\mathfrak{q}}\) is a prime ideal in \(R\). It is the unique smallest prime ideal containing \(\mathfrak{q}\).
+    \end{theorem}
+\end{thmbox}
+
+
+
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        All prime ideals are primary.
+    \end{theorem}
+\end{thmbox}
+\begin{example}
+    Clearly, the converse is false.
+\end{example}
+
+
+
+
+
+
+\begin{intuition}
+    We can think of primary ideals as generalization of prime powers.
+\end{intuition}
+\begin{example}
+    Power of prime ideal need not be a primary ideal.
+\end{example}
+
+
+\begin{exmbox}
+    \begin{example}
+        \textit{\(\mathfrak{m}\)-primary ideals need not be powers of \(\mathfrak{m}\).}
+
+        Consider the ring \(A = K[X, Y]\) and the ideal \(\mathfrak{q} = (X, Y^2)\).
+
+        \textit{\(X, Y^2\) is primary.} 
+    \end{example}
+\end{exmbox}
+
+
+
+
+
+\newpage
+\subsection{Primary Decomposition}
+
+
+\begin{defbox}
+    \begin{definition}
+        An ideal \(\mathfrak{a}\) is called reducible if \(\mathfrak{a} = \mathfrak{b}_1 \cap \mathfrak{b}_2\) for ideals \(\mathfrak{b}\) and \(\mathfrak{b}'\) strictly containing \(\mathfrak{a}\).
+
+        An irreducible ideal is proper and not reducible.
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    \((6) \cap (9) = (18)\)
+\end{example}
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        In a nonzero Noetherian ring, each proper ideal is an intersection of finitely many irreducible ideals.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        In a nonzero Noetherian ring, each irreducible ideal is a primary ideal.
+    \end{theorem}
+\end{thmbox}
+What about the converse?
+
+
+\begin{thmbox}
+    \begin{theorem}
+        In a nonzero Noetherian ring, each proper ideal is an intersection of finitely many primary ideals.
+    \end{theorem}
+\end{thmbox}
+What about the converse?
+
+Steps to prove the result above:
+1. 
+
+
+\begin{example}
+    Consider \(K[X, Y, Z]\). Ideals \((X, Y)\), \((X, Z)\), and \((X, Y, Z)\).
+
+    \begin{align}
+        (X, Y) \cdot (X, Z) = (X, Y) \cap (X, Z) \cap (X, Y, Z)^2
+    \end{align}
+\end{example}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(\mathfrak{q}\) be an primary ideal and \(\mathfrak{p} = \sqrt{\mathfrak{q}}\) be the corresponding prime ideal. Then for any \(x \in R\)
+        \begin{enumerate}
+            \item \((\mathfrak{q} : x) = R\) if \(x \in \mathfrak{q}\). I think this is true for any \(\mathfrak{q}\).
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        For a decomposable ideal \(\mathfrak{a} \subset R\), let
+        \begin{align*}
+            \mathfrak{a} = \bigcap_{i=1}^r \mathfrak{q}_i
+        \end{align*}
+    \end{theorem}
+    be a minimal primary decomposition. 
+\end{thmbox}
+
+
+
+
+\newpage
+\section{Noetherian Modules}
+
+\begin{exmbox}
+    \begin{example}
+        Let \(R = \mathbb{R}[X_1, X_2, \ldots]\). Let \(I = (X_1, X_2, \ldots)\) be an ideal. \(I\) is the set of polynomials with constant term \(0\). \(I\) is not finitely generated.
+    \end{example}
+\end{exmbox}
+\begin{proof}
+    Let \(\mathfrak{a}\)
+\end{proof}
+
+\begin{defbox}
+    \begin{definition}
+        An \(R\)-module \(M\) is called
+        \begin{enumerate}
+            \item Every ascending chain
+            \begin{align*}
+                M_1 \subset M_2 \subset \cdots \subset M_i \subset M_{i + 1} \subset \cdots \subset M
+            \end{align*}
+            of submodules in \(M\) becomes stationary, i.e. there is an index \(i_0 \in \mathbb{N}\) such that \(M_{i_0} = M_i\) for all \(i \geq i_0\).
+            \item All submodules of \(M\) are finitely generated.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(M\) is a Noetherian \(R\)-module then every submodule of \(M\) is Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    This follows immediately from the definition of Noetherian modules, because a submodule of a submodule is again a submodule.
+    \begin{enumerate}
+        \item Let \(M\) be a Noetherian \(R\)-module.
+        \item Fix a submodule \(N\) of \(M\).
+        \item Fix a submodule \(L\) of \(N\).
+        \item Since \(L\) is also a submodule of \(M\) and \(M\) is Noetherian, \(L\) is finitely generated.
+        \item Thus all submodules of \(N\) are finitely generated and \(N\) is Noetherian.
+    \end{enumerate}
+\end{proof}
+\begin{thmbox}
+    \begin{theorem}
+        If \(M\) is a Noetherian \(R\)-module then every quotient module \(M / N\) is Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(M\) be an \(R\)-module and \(N\) be a submodule. Then \(M\) is Noetherian if and only if \(N\) and \(M / N\) are Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'': see above
+
+    ``\(\Leftarrow\)'':
+    \begin{enumerate}
+        \item Let \(M\) be an \(R\)-module.
+        \item Let \(N\) be a Noetherian submodule in \(M\) such that \(M / N\) is Noetherian.
+        \item Fix a submodule \(L\) of \(M\). \textit{(We will show that \(L\) is finitely generated.)}
+        \item The image \(\pi(L)\) in \(M / N\) is finitely generated because \(\pi(L)\) is a submodule in \(M / N\) and \(M / N\) is Noetherian.
+        \item Let \(x_1, \ldots, x_n \in L\) such that \(\pi(x_1), \ldots \pi(x_n)\) generate \(\pi(L)\).
+        \item The intersection \(L \cap N\) is finitely generated because \(L \cap N\) is a submodule in \(N\) and \(N\) is Noetherian.
+        \item Let \(y_1, \ldots, y_m \in L\) generate \(L \cap N\).
+        \item Fix an element \(x \in L\). \textit{(We will show that \(x\) is a linear combination of geneators in \(L\).)}
+        \item We have \(\pi(x) = r_1 \pi(x_1) + \cdots + r_n \pi(x_n) = \sum_{i = 1}^n r_i \pi(x_i)\) for some \(r_1, \ldots, r_n \in R\).
+        \item \(\pi(x) - \sum_{i = 1}^n r_i \pi(x_i) = 0\) thus \(x - \sum_{i=1}^n r_i x_i\) lies in \(N\).
+        \item Since \(x \in L\) and \(\sum_{i = 1}^n r_i x_i \in L\), their difference \(x - \sum_{i = 1}^n r_i x_i\) lies also in \(L\).
+        \item Hence \(x - \sum_{i = 1}^n r_i x_i \in L \cap N\).
+        \item Therefore \(x - \sum_{i = 1}^n r_i x_i = \sum_{i=1}^m s_i y_i\).
+        \item Thus \(x = \sum_{i = 1}^n r_i x_i + \sum_{i=1}^m s_i y_i\)
+    \end{enumerate}
+\end{proof}
+
+
+\newpage
+\section{More Noether}
+\begin{thmbox}
+    \begin{theorem}
+        Let
+        \begin{align*}
+            0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+        \end{align*}
+        be an exact sequence of \(R\)-modules. Then \(M\) is Noetherian if and only if \(M'\) and \(M''\) are Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    ``\(\Rightarrow\)'':
+    \begin{enumerate}
+        \item Let \(M\) be Noetherian.
+        \item By exactness, \(M \rightarrow M''\) is surjective.
+        \item Thus \(M''\) is Noetherian.
+        \item By exactness, \(M' \rightarrow M\) is injective.
+        \item Thus \(M'\) can be regarded as a submodule of \(M\).
+        \item Hence \(M'\) is Noetherian.
+    \end{enumerate}
+    ``\(\Leftarrow\)'':
+    \begin{enumerate}
+        \item Let \(M'\) be Noetherian.
+        \item Let \(M''\) be Noetherian.
+        \item Fix a submodule \(N\) of \(M\).
+        \item The image \(g(L)\) is finitely generated.
+        \item The intersection \(L \cap f(M')\) is finitely generated.
+        \item Fix an element \(x \in L\).
+        \item \(g(x) = r_1 g(x_1) + \cdots + r_n g(x_n)\)
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(M_1, \ldots, M_n\) be Noetherian \(A\)-modules. Then their direct sum \(\bigoplus_{i=1}^n M_i\) is Noetherian.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    It is enough to show \(M_1 \oplus M_2\) is Noetherian. We have the exact sequence
+    \begin{align}
+        0 \longrightarrow M_1 \longrightarrow M_1 \oplus M_2 \longrightarrow M_2 \longrightarrow 0
+    \end{align}
+\end{proof}
+
+\end{document}

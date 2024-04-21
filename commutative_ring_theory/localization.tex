@@ -1,0 +1,344 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section{Localization}
+\begin{defbox}
+    \begin{definition}
+        A multiplicative set is a subset \(S\) of a ring \(R\) such that the following two conditions hold.
+        \begin{enumerate}
+            \item \(S\) contains the identity, i.e. \(1 \in S\).
+            \item For any two elements \(x \in S\) and \(y \in S\) it is their prodcut is contained in \(S\), i.e. \(xy \in S\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        In any ring \(R\), the subsets \(\{1\}\), and \(R\) are multiplicative sets.
+    \end{example}
+\end{exmbox}
+
+\begin{example}
+    Consider the ring of integers \(\mathbb{Z}\). Some of the multiplicative sets in \(\mathbb{Z}\) includes
+    \begin{itemize}
+        \item \(\{1, 2, 4, 8, \ldots\} = \makeset{2^n}{n \in \mathbb{N}_0}\)
+        \item \(\{1, 3, 9, 27, \ldots\} = \makeset{3^n}{n \in \mathbb{N}_0}\)
+        \item \(\{1, 2, 3, 4, 6, 8, 9, 12, 16, 18, \ldots\} = \makeset{2^n \cdot 3^m}{n, m \in \mathbb{N}_0}\)
+        \item \(\{1, 4, 16, 64, \ldots\} = \makeset{4^n}{n \in \mathbb{N}}\)
+        \item \(\{1, -2, 4, -8, \ldots\} = \makeset{(-2)^n}{n \in \mathbb{N}}\)
+        \item \(\{1, -1, 2, -2, 4, -4, 8, -8, \ldots\} = \makeset{\pm 2^n}{n \in \mathbb{N}}\)
+    \end{itemize}
+\end{example}
+
+Observation: Given some elements of the ring, we may generate the multiplicative set.
+
+\begin{example}
+    \begin{itemize}
+        \item In \(\mathbb{Z} / 2 \mathbb{Z}\), the only multiplicative sets are \(\{1\}\) and \(\mathbb{Z} / 2 \mathbb{Z}\)
+        
+
+        \item In \(\mathbb{Z} / 3 \mathbb{Z}\), the multiplicative sets are \(\{1\}\), \(\{1, 0\}\), \(\{1, 2\}\) and \(\mathbb{Z} / 2 \mathbb{Z}\)
+        
+        
+        \item In \(\mathbb{Z} / 4 \mathbb{Z}\), the multiplicative sets are \(\{1\}\), \(\{1, 0\}\), \(\{1, 2, 0\}\), \(\{1, 3\}\), and \(\mathbb{Z} / 4 \mathbb{Z}\)
+        
+        
+        \item In \(\mathbb{Z} / 5 \mathbb{Z}\), the multiplicative sets are \(\{1\}\), \(\{1, 0\}\), and \(\{0, 1, 2, 3, 4\}\)
+        \begin{enumerate}
+            \item \(S(\{1, 2\}) = \{1, 2, 3, 4\}\)
+            \item \(S(\{1, 3\}) = \{1, 2, 3, 4\}\)
+            \item \(S(\{1, 4\}) = \{1, 4\}\)
+        \end{enumerate}
+
+        \item In \(\mathbb{Z} / 6 \mathbb{Z}\), the multiplicative sets are \(\{1\}\), \(\{1, 0\}\)
+        \begin{itemize}
+            \item \(S(\{1, 2\}) = \{1, 2, 4\}\)
+            \item \(S(\{1, 3\}) = \{1, 3\}\)
+            \item \(S(\{1, 4\}) = \{1, 4\}\)
+            \item \(S(\{1, 5\}) = \{1, 5\}\)
+            \item \(S(\{1, 2, 3\}) = \{0, 1, 2, 3, 4\}\)
+            \item \(S(\{1, 2, 5\}) = \{1, 2, 4, 5\}\)
+            \item \(S(\{1, 3, 4\}) = \{0, 1, 3, 4\}\)
+            \item \(S(\{1, 3, 5\}) = \{1, 3, 5\}\)
+            \item \(S(\{1, 4, 5\}) = \{1, 2, 4, 5\}\)
+        \end{itemize}
+
+        \item In \(\mathbb{Z} / 7 \mathbb{Z}\), the multiplicative sets are
+        \begin{itemize}
+            \item \(S(\{1, 2\}) = \{1, 2, 4\}\)
+            \item \(S(\{1, 3\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 4\}) = \{1, 2, 4\}\)
+            \item \(S(\{1, 5\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 6\}) = \{1, 6\}\)
+            \item \(S(\{1, 2, 3\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 2, 5\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 2, 6\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 3, 4\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 3, 5\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 3, 6\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 4, 5\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 4, 6\}) = \{1, 2, 3, 4, 5, 6\}\)
+            \item \(S(\{1, 5, 6\}) = \{1, 2, 3, 4, 5, 6\}\)
+        \end{itemize}
+
+        \item In \(\mathbb{Z} / 12 \mathbb{Z}\)
+        \begin{itemize}
+            \item \(S(\{1, 2\}) = \{1, 2, 4, 8\}\)
+            \item \(S(\{1, 3\}) = \{1, 3, 9\}\)
+            \item \(S(\{1, 4\}) = \{1, 4\}\)
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+Well, I wrote a python script for this
+
+\begin{rembox}
+    \begin{remark}
+        The statement: If \(S\) is a multiplicative set with \(0\), then \(S \setminus \{0\}\) is a multiplicative set is false.
+
+        The converse is (probably) true: If \(S\) is multiplicative, then so is \(S \cup \{0\}\).
+    \end{remark}
+\end{rembox}
+
+
+\begin{rembox}
+    \begin{remark}
+        A multiplicative set need not to have a finite generating set.
+    \end{remark}
+\end{rembox}
+
+Question: Do multiplicative sets have countably finite generating sets?
+
+Answer: Most certainly it isn't. There is no way that \(R\) has a countable set of elements that generate \(R\) just through multiplication.
+
+\begin{thmbox}
+    \begin{theorem}
+        An ideal \(\mathfrak{p}\) of a ring \(R\) is prime if and only if its complement \(R \setminus \mathfrak{p}\) is multiplicativly closed.
+    \end{theorem}
+\end{thmbox}
+
+\begin{rembox}
+    \begin{remark}
+        Not all multiplicative sets are the complements of a prime ideal. The above theorem gives an alternative definition of prime ideals but does not function as a definition of multiplicative sets.
+    \end{remark}
+\end{rembox}
+
+\begin{proof}
+    Let \(\mathfrak{p}\) be an ideal of a ring \(R\).
+
+    \noindent``\(\Rightarrow\)'': Suppose \(\mathfrak{p}\) is prime. Since \(\mathfrak{p}\) does not contain \(1\), its complement \(R \setminus \mathfrak{p}\) must contain \(1\). Fix two elements \(x \in R \setminus \mathfrak{p}\) and \(y \in R \setminus \mathfrak{p}\) and assume \(xy \not\in R \setminus \mathfrak{p}\). Then, \(xy \in \mathfrak{p}\), but then \(x \in \mathfrak{p}\) or \(y \in \mathfrak{p}\) both of which are contradictions.
+
+    \noindent ``\(\Leftarrow\)'': Suppose \(R \setminus \mathfrak{p}\) is multiplicativly closed. 
+\end{proof}
+
+\begin{example}
+    Consider the ring of integers \(\mathbb{Z}\). Some of the multiplicative sets in \(\mathbb{Z}\) includes
+    \begin{itemize}
+        \item \(\mathbb{Z} \setminus (2) = \{\ldots, -5, -3, -1, 1, 3, 5, \ldots\}\) this corresponds to the high school math observation that odd times odd is odd
+    \end{itemize}
+\end{example}
+
+\begin{thmbox}
+    \begin{theorem}
+        If \(\mathfrak{a}\) is an ideal in \(R\), then \(1 + \mathfrak{a}\) is a multiplicative set.
+    \end{theorem}
+\end{thmbox}
+
+What about the converse? Let \(1 + \mathfrak{a}\) be multiplicative. 
+
+\newpage
+\section{Localization}
+\begin{defbox}
+    \begin{definition}
+        
+    \end{definition}
+\end{defbox}
+
+\begin{example}
+    \begin{itemize}
+        \item Localization of \(\mathbb{Z}\) at \(S:= \{1, 2, 4, 8, \ldots\}\)
+        \begin{itemize}
+            \item some elements: \(\frac{1}{2}, \frac{1}{4}, \frac{1}{8}\)
+            \item it is \(\frac{1}{2} = \frac{2}{4}\) because \(1 \cdot 4 - 2 \cdot 2 = 0\)
+        \end{itemize}
+        \item Localization of \(\mathbb{Z}\) at \(S:= \{1, -2, 4, -8, \ldots\}\)
+        \item some elements: \(\frac{-1}{-2}\), \(\frac{2}{4}\)
+        \item it is \(\frac{-1}{-2} = \frac{2}{4}\) because \(-1 \cdot 4 = -2 \cdot 2\)
+    \end{itemize}
+\end{example}
+
+\begin{defbox}
+    \begin{definition}
+        \begin{align*}
+            \tau: R \longrightarrow S^{-1}R, x \mapsto \frac{x}{1}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{rembox}
+    \begin{remark}
+        \(\tau\) is not injective
+    \end{remark}
+\end{rembox}
+Why??
+
+\begin{thmbox}
+    \begin{theorem}
+        For \(\tau: R \longrightarrow S^{-1}R\) it is true:
+        \begin{enumerate}
+            \item \(\text{ker}\tau = \makeset{x \in R}{sx = 0 \text{ for some } x \in S}\). This means that the kernel is a subset of the zero divisor
+            \item For all \(s \in S\), we have \(\tau(s)\) is a unit in the Localization.
+            \item \(S^{-1}R \neq 0\) iff \(0 \not\in S\)
+            \item if \(S\) contains only units, \(\tau\) bijective
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(x \in \text{ker}(\tau)\), then \(\tau(x) = \frac{x}{1} \sim \frac{0}{1}\) \(\iff\) \(xs = 0\)
+        \item Let \(s \in S\), then \(\tau(s) = \frac{s}{1}\). We want to find \(\frac{p}{q}\) such that \(\frac{sp}{q} \sim \frac{1}{1}\) so \((sp - q)t = 0 \iff spt - qt = 0\)
+        
+        Yeah, so simply:
+
+        Let \(s \in S\). The inverse of \(\tau(s) = \frac{s}{1}\) is \(\frac{1}{s}\) as \(\frac{s}{s} \sim \frac{1}{1}\)
+
+        \item \(0 \in S\), then by definition.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\section{Localization of Modules}
+\begin{defbox}
+    \begin{definition}
+        
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        \begin{enumerate}
+            \item For every \(R\)-module \(M\), there is a canonical isomorphism
+            \begin{align*}
+                M \otimes_R R_S \overset{\sim}{\longrightarrow} M_S, (x \otimes \frac{a}{s}) \mapsto \frac{ax}{s}
+            \end{align*}
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \textbf{}
+\end{proof}
+
+\end{document}

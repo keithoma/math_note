@@ -1,0 +1,214 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+
+
+
+
+\section{Radical of an Ideal}
+\begin{example}
+  \(\sqrt{(X^2Y, XY^2)} = (XY)\)
+\end{example}
+\begin{proof}
+  \begin{enumerate}
+    \item Let \(x \in \sqrt{(X^2Y, XY^2)}\).
+    \item Assume \(x \not\in (XY)\).
+  \end{enumerate}
+
+  ------------------------------------
+
+  \begin{enumerate}
+    \item We want to show \(XY \in \sqrt{(X^2Y, XY^2)}\).
+    \item \(\iff (XY)^2 \in (X^2Y, XY^2)\)
+    \item And this is true because we have \(X^2Y^2 = X^2Y \cdot Y\)
+  \end{enumerate}
+
+  ---------------------------------
+
+  \begin{enumerate}
+    \item We want to show \(X \in \sqrt{(X^2Y, XY^2)}\).
+    \item \(\iff X^2 \)
+  \end{enumerate}
+
+  Apparantly there are no easy way to
+
+  Maybe another way.
+  \begin{enumerate}
+    \item What are the nilpotent elements of \(K[X, Y] / (X^2Y, XY^2)\)?
+    \item 
+  \end{enumerate}
+
+  This is basically asking the same question ...
+\end{proof}
+
+\section{Ideal Quotient}
+\begin{defbox}
+  \begin{definition}
+    Let \(I\) be an ideal in \(R\) and \(J\) an element in \(R\). The ideal quotient is
+    \begin{align*}
+      (I : J) = \makeset{r \in R}{rJ \subset I}
+    \end{align*}
+    Moreover
+    \begin{align*}
+      (I : x) = \makeset{r \in R}{rx \subset I}
+    \end{align*}
+  \end{definition}
+\end{defbox}
+
+
+
+
+\begin{thmbox}
+  \begin{theorem}
+    The ideal quotient are ideals.
+  \end{theorem}
+\end{thmbox}
+\begin{proof}
+  Let \(x \in (I : J)\) and \(r \in R\). Then \(xJ \subset I\) by definition. We also have \(rxJ \subset xJ \subset I\).
+
+  Let \(x, y \in (I : J)\). Then \((x + y)J = xJ + yJ \subset I\).
+\end{proof}
+
+
+\begin{example}
+  \begin{enumerate}
+    \item \(((2) : 3) = \makeset{r \in \mathbb{Z}}{3r \in (2)} \Rightarrow ((2) : 3) = (2)\).
+    \item \(((6) : 3) = \makeset{r \in \mathbb{Z}}{3r \in (6)} \Rightarrow ((6) : 3) = (2)\).
+    \item \(((8) : 2) = \makeset{r \in \mathbb{Z}}{2r \in (8)} \Rightarrow ((8) : 2) = (4)\).
+  \end{enumerate}
+\end{example}
+
+
+\begin{example}
+  Let \(I = (X^2Y, XY^2)\) be an ideal in the polynomial ring \(R = K[X, Y]\) over a field \(K\).
+  \begin{enumerate}
+    \item \(((X^2Y, XY^2) : XY) = \makeset{r \in R}{r \cdot XY \subset (X^2Y, XY^2)} = (X, Y) \Rightarrow \sqrt{(X, Y)} = (X, Y)\).
+    \item \(((X^2Y, XY^2) : (X^2, XY)) = (Y) \Rightarrow \sqrt{(Y)} = (Y)\).
+    \item \(((X^2Y, XY^2) : (XY, Y^2)) = (X) \Rightarrow \sqrt{(X)} = (X)\).
+  \end{enumerate}
+  It is \(\sqrt{(X^2Y, XY^2)} = (XY)\).
+
+
+\end{example}
+
+\begin{theorem}
+  
+\end{theorem}
+
+
+
+
+\end{document}

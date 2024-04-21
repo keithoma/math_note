@@ -1,0 +1,524 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\chapter{Exact Sequences}
+\begin{defbox}
+    \begin{definition}
+        exact sequence is a sequence of maps!
+    \end{definition}
+\end{defbox}
+
+\chapter{Tensor Products}
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item An element \(m \in M\) is called a {\color{maththen}torsion element} of the module if there exists an element \(r \in R \setminus \text{ZD}(R)\) such that \(rm = 0\).
+            \item \(M\) is called a {\color{maththen}torsion module} if all its elements are torsion elements.
+            \item \(M\) is called {\color{maththen}torsion-free} if zero is the only torsion element.
+            \item The set of all torsion elements of \(M\) is called the {\color{maththen}torsion module}, denoted by \(T(M)\) and is a submodule.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+\begin{proposition}
+    Free modules are torsion-free.
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(R\) be a ring.
+        \item Fix a free \(R\)-module \(F\).
+        \item Assume \(F\) is not torsion-free.
+        \item Then, there is an element \(m \in F\) and a non-zero-divisor \(r \in R \setminus \text{ZD}(R)\) such that \(rm = 0\).
+        \item Since \(F\) is free, it has a basis, say \(\{x_i\}_{i \in I}\) for an arbitary index set.
+        \item The element \(m\) has a representation through the basis elements \begin{align*}
+            m = \sum_{i \in I} \lambda_i x_i
+        \end{align*}
+        with \(\lambda_i \in R\) for all \(i \in I\).
+        \item Thus, we have \begin{align*}
+            0 = rm = r \cdot \sum_{i \in I} \lambda_i x_i = \sum_{i \in I} r \lambda_i x_i \text{.}
+        \end{align*}
+        \item But that would mean \(\{x_i\}_{i \in I}\) are linearly dependent contradicting it being a base.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\begin{theorem}\textit{Tensor product is a functor.}
+
+    \noindent\textbf{Denotation: } \begin{itemize}
+        \item Let \(R\) be a ring.
+        \item Let \(M\), \(M'\), and \(M''\) be \(R\)-modules.
+        \item Let \(\varphi: M \rightarrow M'\) and \(\varphi': M' \rightarrow M''\) be linear maps.
+        \item Let \(N\), \(N'\), and \(N''\) be \(R\)-modules.
+        \item Let \(\psi: N \rightarrow N'\) and \(\psi': N' \rightarrow N''\) be linear maps.
+    \end{itemize}
+
+    \noindent\textbf{Result: } \begin{enumerate}
+        \item We have the equality of the two linear maps
+        \begin{align*}
+            \text{id}_M \otimes \text{id}_N = \text{id}_{M \otimes_R N}
+        \end{align*}
+        \item We have the equality of the two linear maps
+    \begin{align*}
+        (\varphi' \otimes \psi') \circ (\varphi \otimes \psi) = (\varphi' \circ \varphi) \otimes (\psi' \circ \psi)
+    \end{align*}
+    from \(M \otimes_R N\) to \(M'' \otimes_R N''\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    \textit{Tensor product is a functor.}
+
+    \noindent\textbf{Denotation: } \begin{itemize}
+        \item Let \(R\) be a ring.
+        \item Let \(\textbf{\textit{R}-Mod}\) be the category of modules over \(R\).
+        \item \begin{enumerate}
+            \item The objects of \(\textbf{\textit{R}-Mod}\) are \(R\)-modules.
+            \item The morphisms of \(\textbf{\textit{R}-Mod}\) are module homomorphisms between \(R\)-modules.
+        \end{enumerate}
+        \item Let \(\textbf{\textit{R}-Mod} \times \textbf{\textit{R}-Mod}\) be the product category of two category of modules over \(R\).
+    \end{itemize}
+
+    \noindent\textbf{Result: }The tensor produt
+    \begin{align*}
+        \otimes: \textbf{\textit{R}-Mod} \times \textbf{\textit{R}-Mod} &\rightarrow \textbf{\textit{R}-Mod}, \\
+        (M, N) &\mapsto M \otimes N \text{.}
+    \end{align*}
+    is a bifunctor.
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+
+\begin{theorem}
+    \noindent\textbf{Denotation: } \begin{itemize}
+        \item Let \(\varphi: M \rightarrow M'\) be an isomorphism.
+        \item Let \(\psi: N \rightarrow N'\) be an isomorphism.
+    \end{itemize}
+    \noindent\textbf{Result: } The tensor product \(\varphi \otimes \psi\) is an isomorphism.
+\end{theorem}
+
+
+The following statement is weaker than the one above, because the one above gives the explicit construction of the isomorphism!!
+\begin{theorem}
+    \noindent\textbf{Denotation: } \begin{itemize}
+        \item Let \(M \cong M'\) be an isomorphism.
+        \item Let \(N \cong N'\) be an isomorphism.
+    \end{itemize}
+    \noindent\textbf{Result: } There is an isomorphism \(M \otimes N \cong M' \otimes N'\)
+\end{theorem}
+
+\begin{theorem} \textit{The tensor product preserves surjectivity.}
+
+    \noindent\textbf{Denotation: }
+\end{theorem}
+
+
+\begin{example}
+    \begin{itemize}
+        \item Define an injective \(R\)-linear map
+        \begin{align*}
+            \alpha: \mathbb{Z} / p\mathbb{Z} &\rightarrow \mathbb{Z} / p^2 \mathbb{Z} \\
+            &x \mapsto px \text{.}
+        \end{align*}
+    \end{itemize}
+    \begin{enumerate}
+        \item Tensoring with \(\mathbb{Z} / p \mathbb{Z}\) gives 
+        \begin{align*}
+            1 \otimes \alpha: \mathbb{Z} / p\mathbb{Z} \otimes \mathbb{Z} / p\mathbb{Z} &\rightarrow \mathbb{Z} / p\mathbb{Z} \otimes \mathbb{Z} / p^2 \mathbb{Z} \\
+            a \otimes x &\mapsto a \otimes px
+        \end{align*}
+        which is not injective.
+    \end{enumerate}
+\end{example}
+
+
+\begin{example}
+    \textit{A tensor product of submodules need not be a submodule.}
+    \begin{enumerate}
+        \item We have \(p \mathbb{Z} \cong \mathbb{Z}\) by \begin{align*}
+            \varphi: p \mathbb{Z} &\rightarrow \mathbb{Z},\\
+            pn &\mapsto n
+        \end{align*}
+        \item Tensoring by \(\mathbb{Z} / p \mathbb{Z}\) gives \begin{align*}
+            \mathbb{Z} / p \mathbb{Z} \otimes_\mathbb{Z} p \mathbb{Z} \cong \mathbb{Z} / p \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} \cong \mathbb{Z} / p \mathbb{Z}
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+
+\begin{theorem}
+    \textit{When does the tensor product preserve injectivity?}
+
+    \noindent\textbf{Denotation: }\begin{itemize}
+        \item Let \(\varphi: M \rightarrow N\) be injective.
+        \item Let the image of \(\varphi\) be the direct summand of \(N\), i.e. \begin{align*}
+            N = \varphi(M) \oplus P
+        \end{align*}
+        for some submodule \(P\) of \(N\).
+    \end{itemize}
+
+    \noindent\textbf{Result: } For \(k \in \mathbb{N}_0\), the following maps are injective
+    \begin{align*}
+        \varphi \otimes \varphi: M \otimes M \rightarrow N \otimes N
+    \end{align*}
+\end{theorem}
+
+
+\chapter{Flat Modules}
+\section{Flat Modules OLD!!!}
+
+\begin{defbox}
+    \begin{definition}
+        An {\color{mathobj}\(R\)-module} \(N\) is called {\color{maththen}flat} if for all injective linear maps \(\varphi: M \rightarrow M'\) the linear map \(1 \otimes \varphi: N \otimes M \rightarrow N \otimes M'\) is injective.
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Any free \(R\)-module is flat.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Fix a free \(R\)-module \(F\).
+        \item Fix an injective \(R\)-module homomorphism \(\varphi: M \rightarrow M'\).
+        \item Consider \begin{align*}
+            1 \otimes \varphi: F \otimes M &\rightarrow F \otimes M', \\
+            n \otimes m &\mapsto n \otimes \varphi(m) \text{.}
+        \end{align*}
+        We want to show that this map \(1 \otimes \varphi\) is injective.
+        \item The case \(F = 0\) is trivial, thus assume \(F \neq 0\) with basis \(\{e_i\}_{i \in I}\)
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        The fraction field of an integral domain is flat.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(R\) be an integral domain.
+        \item Let \(K\) be the field of fraction of \(R\).
+        \item Fix two \(R\)-modules \(M\) and \(M'\).
+        \item Fix an injective \(R\)-module homomorphism \(\varphi: M \rightarrow M'\).
+        \item Every tensor in \(K \otimes_R M\) is elementary.
+    \end{enumerate}
+\end{proof}
+
+
+\newpage
+\section{Right Exactness of Tensor Products}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let
+        \begin{align*}
+            M' \overset{\varphi}{\longrightarrow} M \overset{\psi}{\longrightarrow} M'' \longrightarrow 0
+        \end{align*}
+        be an exact sequence. Then, for any \(R\)-module \(N\), the sequence
+        \begin{align*}
+            M' \otimes_R N \xrightarrow[]{\varphi \otimes \text{id}_N} M \otimes_R N \xrightarrow[]{\psi \otimes \text{id}_N} M'' \otimes_R N \longrightarrow 0
+        \end{align*}
+        is exact.
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        For a given \(R\)-Module \(N\), the functor
+        \begin{align*}
+            F_N: \textbf{R-Mod} &\rightarrow \textbf{R-Mod},\\
+            M &\mapsto M \otimes_R N
+        \end{align*}
+        is right exact.
+    \end{theorem}
+\end{thmbox}
+
+\begin{rembox}
+    \begin{remark}
+        Tensor product is not left exact.
+    \end{remark}
+\end{rembox}
+
+\begin{rembox}
+    \begin{remark}
+        Saying that tensor product is right exact, but not left exact is probably the same as tensor product preserves surjectivity, but not injectivity.
+    \end{remark}
+\end{rembox}
+
+\begin{exmbox}
+    \begin{example}
+        Consider the exact sequence
+        \begin{align*}
+            2 \mathbb{Z} \overset{i}{\longrightarrow} \mathbb{Z} \overset{\pi}{\longrightarrow} \mathbb{Z} / 2\mathbb{Z} \longrightarrow 0
+        \end{align*}
+        tensoring by \(\mathbb{Z} / 2 \mathbb{Z}\) gives
+        \begin{align*}
+            2 \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \xrightarrow{i \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z}}} \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \xrightarrow{\pi \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z}}} \mathbb{Z} / 2 \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \longrightarrow 0
+        \end{align*}
+        which is exact.
+    \end{example}
+\end{exmbox}
+
+Note that the left function is not injective, but the right one is surjective.
+Thus, tensor is right exact, but not left exact.
+
+\begin{proof}
+``\(\text{im} \{ i \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z}} \} = 0\)''
+\begin{enumerate}
+    \item We have the module isomorphism \(2 \mathbb{Z} \cong \mathbb{Z}\).
+    \item Thus, we have the module isomorphism \(2 \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \cong \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z}\).
+    \item By the basic properties of the tensor product, it is \(\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \cong \mathbb{Z} / 2 \mathbb{Z}\).
+    \item Combining yields the module isomorphism \(2 \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \cong \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z} \cong \mathbb{Z} / 2 \mathbb{Z}\).
+    \item Indeed, the only two elements in \(2 \mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} / 2 \mathbb{Z}\) are \(0 \otimes 0\) and \(2 \otimes 1\). Any other element \(2n \otimes 1\) with \(n \in \mathbb{N}^+\) reduces to \begin{align*}
+        2n \otimes 1 = 2 \cdot (n \otimes 1) = (n \otimes 2) = (n \otimes 0) = 0 \text{.}
+    \end{align*}
+    \item Similary, the only two elements in \(\mathbb{Z} \otimes_\mathbb{Z} \mathbb{Z} /2 \mathbb{Z}\) are \(0 \otimes 0\) and \(1 \otimes 1\).
+    \item Now, we have \begin{align*}
+        i \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z}} (2 \otimes 1) = 2 \otimes 1 = 2 \cdot (1 \otimes 1) = (1 \otimes 2) = (1 \otimes 0) = 0 \text{.}
+    \end{align*}
+\end{enumerate}
+``\(\text{ker} \{ \pi \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z} } \} = 0\)''
+\begin{enumerate}
+    \item This is because \begin{align*}
+        \pi \otimes \text{id}_{\mathbb{Z} / 2 \mathbb{Z}} (1 \otimes 1) =  1 \otimes 1
+    \end{align*}
+\end{enumerate}    
+\end{proof}
+
+\newpage
+\section{Flat Modules NEW!!!}
+\begin{defbox}
+    \begin{definition}
+        Let \(R\) be a ring.
+        \begin{enumerate}
+            \item An {\color{mathobj}\(R\)-module} \(N\) is called {\color{maththen}flat} if for \textbf{every} {\color{mathif}injective \(R\)-module homomorphism} \(M' \longrightarrow M\) the {\color{mathif}map} \(M' \otimes_R N \longrightarrow M \otimes_R N\) obtained by tensoring over \(R\) with \(N\) is {\color{mathif}injective}.
+            \item A {\color{mathobj}ring homomorphism} \(\varphi: R \longrightarrow R'\) is called {\color{maththen}flat} if \(R'\) viewed as an \(R\)-module via \(\varphi\) is {\color{mathif}flat}.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{theorem}
+        For an \(R\)-module \(N\) the following conditions are equivalent.
+        \begin{enumerate}
+            \item \(N\) is flat.
+            \item If \(0 \rightarrow M' \rightarrow M \rightarrow M'' \rightarrow 0\) is short exact, then  \(0 \rightarrow M' \otimes N \rightarrow M \otimes N \rightarrow M'' \otimes N \rightarrow 0\) is short exact.
+            \item If \(M' \rightarrow M \rightarrow M''\) is exact, then  \(M' \otimes N \rightarrow M \otimes N \rightarrow M'' \otimes N\) is exact.
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+\begin{thmbox}
+    \begin{corollary}
+        Let \(N\) be a flat \(R\)-module and \(\varphi: M' \rightarrow M\) be a linear map. Then, we have the isomorphisms
+        \begin{enumerate}
+            \item \((\text{ker} \varphi) \otimes_R N \cong \text{ker}(\varphi \otimes \text{id}_N)\),
+            \item \((\text{coker} \varphi) \otimes_R N \cong \text{coker}(\varphi \otimes \text{id}_N)\),
+            \item \((\text{im} \varphi) \otimes_R N \cong \text{im}(\varphi \otimes \text{id}_N)\).
+        \end{enumerate}
+    \end{corollary}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \((N_i)_{i \in I}\) be a family of \(R\)-modules. The direct sum \(\bigoplus_{i \in I} N_i\) is flat if and only if \(N_i\) is flat for all \(i \in I\).
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        Every free module is flat. Every polynomial ring is flat.
+    \end{corollary}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(N\) be a a flat \(R\)-module. If \(r \in R\) is not a zero divisor in \(R\), then an equation \(rn = 0\) for some \(n \in N\) implies \(n = 0\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Fix an element \(r \in R\) that is not a zero divisor and an equation \(rn = 0\) for some \(n \in N\).
+        \item Define a linear map \(\varphi_r: N \longrightarrow N, x \mapsto rx\).
+        \item The equation \(rn = 0\) may be rewritten as \(\varphi_r(n) = \varphi_r(0) = 0\).
+        \item If \(\varphi_r\) is injective, we may conclude \(n = 0\). Therefore, we will claim \(\varphi_r\) is injective.
+        \item Consider the injective linear map \(\psi_r: R \longrightarrow R, x \mapsto rx\).
+        \item Tensoring with \(N\) gives \(\psi \otimes \text{id}_N: R \otimes_R N \longrightarrow R \otimes_R N, x \otimes n \mapsto rx \otimes n\).
+        \item Applying the isomorphism \(R \otimes_R N \cong N\) yields \(N \longrightarrow N, xn \mapsto rxn\).
+        \item Rewriting the above map gives \(N \longrightarrow N, n \mapsto rn\).
+        \item Since \(N\) was flat and \(\varphi_r\) was injective, the resulting map is also injective.
+    \end{enumerate}
+\end{proof}
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(R\) be a principal ideal domain and \(N\) be an \(R\)-module. \(N\) is flat if and only if any equation \(ax = 0\) for \(a \in R\) and \(x \in N\) implies \(a = 0\) or \(x = 0\).
+    \end{theorem}
+\end{thmbox}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        An \(R\)-module \(N\) is flat if and only if for every inclusion \(\mathfrak{a} \longrightarrow R\) the induced map \(\mathfrak{a} \otimes_R N \longrightarrow R \otimes_R N\) injective.
+    \end{theorem}
+\end{thmbox}
+
+Some rumbling of Bosch
+\begin{enumerate}
+    \item every ideal in PID is in the form \(\mathfrak{a} = (a)\)
+    \item as \(R\)-modules, \(\mathfrak{a}\) and \(R\) are isomorphic because both are free and generated by exactly one element
+    \item 
+\end{enumerate}
+
+
+\newpage
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+        \item An \(R\)-module \(N\) is called faithfully flat if the following conditions are satisfied.
+            \begin{enumerate}
+                \item \(N\) is flat.
+                \item If \(M\) is an \(R\)-module such that \(M \otimes_R N = 0\), then \(M = 0\).
+            \end{enumerate}
+        \item A ring homomorphism \(\varphi: R \longrightarrow R'\) is called faithfully flat if \(R'\) viewed as an \(R\)-module via \(\varphi\) is faithfully flat.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        For an \(R\)-module \(N\), the following conditions are equivalent.
+        \begin{enumerate}
+            \item \(N\) is faithfully flat.
+            \item \begin{enumerate}
+                \item \(N\) is flat
+                \item For any \(\varphi: M' \longrightarrow M\) such that \(M' \otimes_R N \longrightarrow M \otimes_R N\) is the zero morphism, then \(\varphi = 0\).
+            \end{enumerate}
+            \item \(M' \rightarrow M \rightarrow M''\) is exact \(\iff\) \(M' \otimes_R N \rightarrow M \otimes_R N \rightarrow M'' \otimes_R N\) is exact
+            \item \begin{enumerate}
+                \item \(N\) is flat
+                \item for every maximal ideal \(\mathfrak{m} \subset R\) we have \(\mathfrak{m}N \neq N\)
+            \end{enumerate}
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+
+\end{document}

@@ -1,0 +1,185 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+
+\begin{document}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(M\) be a finitely generated \(R\)-module and \(I \subset \text{Jac}(R)\) an ideal such that \(IM = M\). Then \(M = 0\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    We prove the statement through contradiction.
+    \begin{enumerate}
+        \item Assume \(M \neq 0\).
+        \item Since \(M\) is finitely generated, it has a generating system \(m_1, \ldots, m_n \in M\). Assert that this generating system is minimal.
+        \item With \(IM = M\), there is an equation \begin{align*}
+            m_1 = a_1 m_1 + \cdots a_n m_n
+        \end{align*}
+        for some \(a_1, \ldots, a_n \in I\).
+        \item We may rewrite \begin{align*}
+            m_1 = a_1 m_1 + \cdots a_n m_n &\iff m_1 - a_1 m_1 = a_2 m_2 + \cdots + a_n m_n \\
+            &\iff (1 - a_1) m_1 = a_2 m_2 + \cdots + a_n m_n
+        \end{align*}
+        \item Since \(a_1 \in I \subset \text{Jac}(A)\), \(1 - a_1\) is a unit in \(R\).
+        \item We arrive at a contradiction with the minimality of the genrating system.
+    \end{enumerate}
+\end{proof}
+
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(M\) be a finitely generated \(R\)-module, \(I \subset \text{Jac}(R)\) an ideal, and \(N\) a submodule of \(M\) such that \(M = N + IM\). Then \(M = N\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item \(M = N + IM\) implies \(M/N = (N + IM) / N = 0 + I (M/N) = I(M/N)\).
+        \item \(M/N\) is finitely generated.
+        \item Applying Nakayama yields
+        \item \(M/N = 0\)
+        \item Thus \(M = N\).
+    \end{enumerate}
+\end{proof}
+
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(R\) be a local ring with maximal ideal \(\mathfrak{m}\) and \(M\) a finitely generated \(R\)-module. 
+        \begin{enumerate}
+            \item Then \(M/\mathfrak{m}M\) is a vector space over the field \(R/\mathfrak{m}\).
+            \item If \(x_1, \ldots, x_n \in M\) are elements such that \(x_1, \ldots, x_n \in M/\mathfrak{m}M\) generates this vector space, then \(M = \sum_{i=1}^n Rx_i\)
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        Let \(I\) be an nilpotent ideal in \(R\) and \(M\) be an \(R\)-module such that \(IM = M\). Then \(M = 0\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item \(IM = M\) implies \(I \cdot IM = IM = M\).
+        \item Induction yields \(I^n M = M = 0\).
+    \end{enumerate}
+\end{proof}
+
+
+\end{document}

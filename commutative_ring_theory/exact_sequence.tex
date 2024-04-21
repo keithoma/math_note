@@ -1,0 +1,185 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=30cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section{Exact Sequence}
+\begin{defbox}
+    \begin{definition}
+        
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{theorem}
+        \begin{align*}
+            0 \longrightarrow M' \longrightarrow M \longrightarrow M'' \longrightarrow 0
+        \end{align*}
+        \(M / M' \cong M''\)
+    \end{theorem}
+\end{thmbox}
+\begin{exmbox}
+    \begin{example}
+        \begin{enumerate}
+            \item
+            \begin{align*}
+                0 \longrightarrow N \longrightarrow M \longrightarrow M / N \longrightarrow 0
+            \end{align*}
+            \begin{align*}
+                0 \longrightarrow M' \longrightarrow M' \oplus M'' \longrightarrow M'' \longrightarrow 0
+            \end{align*}
+        \end{enumerate}
+    \end{example}
+\end{exmbox}
+\begin{defbox}
+    \begin{definition}
+        Split
+    \end{definition}
+\end{defbox}
+\begin{enumerate}
+    \item \(g \circ s = \text{id}_{M''}\)
+    \item \(s\) is injective
+    \item this does not imply that \(M\) and \(M''\) are isomorphic, because for that we also need \(s \circ g = \text{id}_{M}\)
+    \item \(g\) admits section is a very good naming, because basically it means that \(M''\) lies in \(M\)
+    \item \(M''\) may be viewed as a submodule of \(M\)
+    \item since \(f\) is injective, we may see \(M'\) as a submodule of \(M\)
+    \item \(M' \cap M'' = 0 \iff f(M) \cap s(M'') = 0 \iff \text{ker} (g) \cap s(M'') = 0\)
+    \item And the last equation is true because if \(x \in \text{ker}(g) \cap s(M'')\), then \(g(x) = 0\) and \(x = s(m'')\), so \(g(s(m'')) = m'' = 0\), putting it back together \(x = s(m'') = s(0) = 0\).
+    \item \(M = M' + M'' \iff M = f(M) + s(M'') \iff M = \text{ker}(g) + s(M'')\)
+    \item I'm not sure about this, but w/E
+    \item thus: \(M = M' \oplus M''\)
+\end{enumerate}
+
+\begin{defbox}
+    \begin{definition}
+        \begin{align*}
+            \text{coker}(f) = M / \text{im}(f)
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{exmbox}
+    \begin{example}
+        \begin{align*}
+            0 \longrightarrow \text{ker}f \longrightarrow M' \longrightarrow M \longrightarrow \text{coker} f \longrightarrow 0
+        \end{align*}
+    \end{example}
+\end{exmbox}
+
+\newpage
+\section{Snake Lemma}
+
+
+\newpage
+
+\end{document}

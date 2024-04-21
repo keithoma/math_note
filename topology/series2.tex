@@ -1,0 +1,115 @@
+\documentclass[a4paper]{article}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\theoremstyle{definition}
+\newtheorem*{lemma}{Lemma}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+\title{Series 2}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 3}
+Suppose \(\mathcal{B}\) is a subbase for a topology \(\mathcal{T}\) on a set \(X\).
+
+\subsection*{(a)}
+Show that a sequence \(x_n \in X\) converges to \(x \in X\) if and only if for every \(\mathcal{U} \in \mathcal{B}\) containing \(x\) it is \(x_n \in \mathcal{U}\) for all \(n\) sufficiently large.
+\begin{proof}[Solution]
+    Let \(\mathcal{B}\) be a subbase for a topology \(\mathcal{T}\) on a set \(X\).
+
+    ``\(\Rightarrow\)'': Let \(x_n \in X\) be a sequence that converges to a point \(x \in X\). By the definition of convergence, we have that for every neighbourhood \(\mathcal{N} \subset X\) of \(x\) it is \(x_n \in \mathcal{N}\) for all \(n \in \mathbb{N}\) sufficiently large.
+
+    Fix a subset \(\mathcal{U} \in \mathcal{B}\) that contains \(x\). Since any subbase consists of only open sets, \(\mathcal{U}\) is open as well. Open subsets that contain \(x\) are themselves a neighbourhood of \(x\), thus \(x_n \in \mathcal{U}\) for all \(n \in \mathbb{N}\) sufficiently large as desired.
+
+    ``\(\Leftarrow\)'': Let \(x_n \in X\) be a sequence and \(x \in X\) be a point such that for every \(\mathcal{U} \in \mathcal{B}\) containing \(x\), it is \(x_n \in \mathcal{U}\) for all \(n\) sufficiently large. Fix a neighbourhood \(\mathcal{N} \subset X\) of \(x\). By the definition of a neighbourhood, there is an open set \(\mathcal{V} \in \mathcal{T}\) such that \(x \in \mathcal{V} \subset \mathcal{N}\). Now by the definition of a subbase, we may write
+    \begin{align*}
+        \mathcal{V} = \bigcup_{\alpha \in I} \left( \mathcal{U}_\alpha^1 \cap \cdots \cap \mathcal{U}_\alpha^{N_\alpha} \right)
+    \end{align*}
+    for some collection of subsets \(\mathcal{U}_\alpha \subset X\) indexed by a set \(I\), for each \(\alpha \in I\) it is \(N_\alpha \in \mathbb{N}\), and it is \(\mathcal{U}_\alpha^1, \ldots, \mathcal{U}_\alpha^{N_\alpha} \in \mathcal{B}\). Since \(x \in \mathcal{V}\), there is an \(\beta \in I\) such that \(x \in \mathcal{U}_\beta^1 \cap \cdots \cap \mathcal{U}_\beta^{N_\beta}\) and hence \(x \in \mathcal{U}_\beta^{i}\) for all \(1 \leq i \leq N_\beta\). By the given condition, this means that \(x_n \in \mathcal{U}_\beta^i\) for all \(1 \leq i \leq N_\beta\) and for all \(n\) sufficiently large. In turn, this gives \(x_n \in \mathcal{U}_\beta^1 \cap \cdots \cap \mathcal{U}_\beta^{N_\beta}\) for all \(n\) sufficiently large. Thus, \(x_n \in \mathcal{V}\) for all \(n\) sufficiently larg. Conclude \(x_n \in \mathcal{N}\) for all \(n\) sufficiently large which means \(x_n\) converges to \(x\).
+\end{proof}
+
+\end{document}

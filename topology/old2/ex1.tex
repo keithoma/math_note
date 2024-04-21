@@ -1,0 +1,211 @@
+\documentclass[a4paper]{article}
+\title{Topology}
+\author{K}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+
+% mathematics
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\theoremstyle{definition}
+\newtheorem*{lemma}{Lemma}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+\title{Series 2}
+
+\begin{document}
+\maketitle
+Name: Kei Thoma
+
+Number: 574613
+
+\section*{Exercise 2 c)}
+
+\begin{proof}[Solution]
+    \begin{enumerate}
+        \item \(\mathcal{B}\) is a subbasis for the discrete topology. Take an arbitary subset \(\mathcal{U} \subset \mathbb{R}\). If \(\mathcal{U} = \mathbb{R}\), then we simply have
+        \begin{align*}
+            \mathbb{R} = \bigcup_{x \in \mathbb{R}} \{x, x + 1\}
+        \end{align*}
+        as \(\{x, x + 1\}\) are members of the subbasis \(\mathcal{B}\). Similary, if \(\mathcal{U} = \mathbb{R} \setminus \{y\}\) for some \(y \in \mathbb{R}\), then we have
+        \begin{align*}
+            \mathbb{R} \setminus \{y\} = \left( \bigcup_{\substack{x \in \mathbb{R} \\ x + 1 \neq y}} \{x, x + 1\} \right) \cup \{y - 1, y + 1\}
+        \end{align*}
+        because again \(\{y - 1, y + 1\}\) lies in \(\mathcal{B}\). For any other cases, notice that there are two distinct points \(y \neq z\) with \(y, z \not\in \mathcal{U}\), thus the two sets \(\{x, y\}\) and \(\{x, z\}\) are members of \(\mathcal{B}\). Therefore, we have
+        \begin{align*}
+            \mathcal{U} &= \bigcup_{x \in \mathcal{U}} \{x\} \\
+            &= \bigcup_{x \in \mathcal{U}} \{x, y\} \cap \{x, z\} \text{.}
+        \end{align*}
+        In other words, every subset of \(\mathbb{R}\) is a union of finite intersections of members in \(\mathcal{B}\), thus \(\mathcal{B}\) as a subbasis generates the discrete topology.
+        \item However, \(\mathcal{B}\) is not a basis of the discrete topology. Plainly, a singleton set cannot be generated from a union of elements of \(\mathcal{B}\).
+    \end{enumerate}
+\end{proof}
+
+\section*{Exercise 3 b)}
+Suppose \(\mathcal{B}\) is a subbasis for a topology \(\mathcal{T}\) on a set \(X\). Given another topological space \(Y\), show that a map \(f: Y \longrightarrow X\) is continuous if and only if for every \(\mathcal{U} \in \mathcal{B}\), \(f^{-1}(\mathcal{U})\) is open in \(Y\).
+
+
+\begin{lemma}
+    The preimage of a map is stable under arbitary unions and finite intersections.
+\end{lemma}
+\begin{proof}
+    Let \(f: X \longrightarrow Y\) be a map, \(\{A_i\}_{i \in I}\) be a family of subsets in \(Y\), and \(A\) and \(B\) subsets in \(Y\).
+    \begin{enumerate}
+        \item It is plainly
+        \begin{align*}
+            x \in f^{-1} \left(\bigcup_{i \in I}A_i\right) &\iff f(x) \in \bigcup_{i \in I}A_i \\
+            &\iff \text{there is a \(i \in I\) such that } f(x) \in A_i \\
+            &\iff \text{there is a \(i \in I\) such that } x \in f^{-1}(A) \\
+            &\iff x \in \bigcup_{i \in I} f^{-1}(A) \text{.}
+        \end{align*}
+        \item We simply have
+        \begin{align*}
+            x \in f^{-1}(A \cap B) &\iff f(x) \in A \cap B \\
+            &\iff f(x) \in A \text{ and } f(x) \in B\\
+            &\iff x \in f^{-1}(A) \text{ and } x \in f^{-1}(B)\\
+            &\iff x \in f^{-1}(A) \cap f^{-1}(B) \text{.}
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{proof}[Solution]
+    Denote the topology of \(Y\) by \(\mathcal{S}\).
+
+    ``\(\Rightarrow\)'': Let \(f: Y \longrightarrow X\) be continuous and fix an \(\mathcal{U} \in \mathcal{B}\). Since \(\mathcal{B}\) is subbasis, all its elements are open subsets, thus \(\mathcal{U}\) is open. Then by definition of continuous maps, the preimage \(f^{-1}(\mathcal{U})\) is also open in \(Y\). As we have fixed an arbitary \(\mathcal{U} \in \mathcal{B}\), we may conclude the desired result.
+
+    ``\(\Leftarrow\)'': On the other hand, let for every \(\mathcal{U} \in \mathcal{B}\) the preimage \(f^{-1}(\mathcal{U})\) be open in \(Y\). Consider an arbitary open subset \(\mathcal{V} \in \mathcal{T}\). By the definition of a subbasis, \(\mathcal{V}\) is a union of finite intersection of members of \(\mathcal{B}\), i.e.
+    \begin{align*}
+        \mathcal{V} = \bigcup_{\alpha \in I} \left(\mathcal{U}_1^\alpha \cap \cdots \cap \mathcal{U}^\alpha_{n_\alpha} \right)
+    \end{align*}
+    with \(I\) being an arbitary index set, and \(n_\alpha \in \mathbb{N}\) for each \(\alpha \in I\). The preimage of \(\mathcal{V}\) therefore is
+    \begin{align*}
+        f^{-1}(\mathcal{V}) &= f^{-1}\left(\bigcup_{\alpha \in I} \left(\mathcal{U}_1^\alpha \cap \cdots \cap \mathcal{U}^\alpha_{n_\alpha} \right)\right) \\
+        &= \bigcup_{\alpha \in I} \left( f^{-1}(\mathcal{U}_1^\alpha) \cap \ldots \cap f^{-1}(\mathcal{U}_{n_\alpha}^\alpha) \right)
+    \end{align*}
+    where we applied the aforementioned lemma on the last step. Now, \(f^{-1}(\mathcal{U}_i)\) are open subsets for all \(i \in \mathbb{N}\). By the definition of topological spaces, unions of finite intersections of open subsets are also open, hence \(f^{-1}(\mathcal{V})\) is open. Thus, \(f\) is continuous.
+\end{proof}
+
+\section*{Exercise 3 c)}
+
+Now suppose \(\{(X_\alpha, \mathcal{T}_\alpha)\}_{\alpha \in I}\) is a collection of topological spaces, \((X, \mathcal{T})\) is \(\prod_{\alpha \in I} X_\alpha\) with the product topology, and the subbase \(\mathcal{B} \subset \mathcal{T}\) is taken to consist of all sets of the form
+\begin{align*}
+    \makeset{{x_\alpha}_{\alpha \in I}}{x_\beta \in \mathcal{U}_\beta} \subset \prod_\alpha X_\alpha
+\end{align*}
+for arbitary \(\beta \in I\) and \(\mathcal{U}_\beta \in \mathcal{T}_\beta\).
+
+Show that a sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converges to \(\{x_\alpha\}_{\alpha \in X} \in X\) as \(n \longrightarrow \infty\) if and only if \(x^n_\alpha \longrightarrow x_\alpha\) for every \(\alpha \in I\).
+
+\begin{proof}[Solution]
+    ``\(\Rightarrow\)'': Let the sequence \(\{x_\alpha^n\}_{\alpha \in I} \in X\) converge to \(\{x_\alpha\}_{\alpha \in I} \in X\). By exercise 3 a), we have that for all subbase \(\mathcal{U} \in \mathcal{B}\) with \(\{x_\alpha\}_{\alpha \in I} \in \mathcal{U}\) it is \(\{x_\alpha^n\}_{\alpha \in I} \in \mathcal{U}\) for sufficiently large \(n\). The members of the subase was in the form
+    \begin{align*}
+        \left\{ \{x_\alpha\}_{\alpha \in I} \mid x_\beta \in \mathcal{U}_\beta \right\} \subset \prod_{\alpha \in I} X_\alpha \text{.}
+    \end{align*}
+    Thus, for each \(\alpha \in I\), we have \(x^n_\alpha \rightarrow x_\alpha\).
+
+    ``\(\Leftarrow\)'': On the other hand, let \(x^n_\alpha\) converge to \(x_\alpha\) for every \(\alpha \in I\). By definition of convergence, we have that for every neighbourhood \(\mathcal{V}_\alpha\) of \(x_\alpha\), it is \(x^n_\alpha \in \mathcal{V}_\alpha\) for all sufficiently large \(n\). Denote the open subsets of these neighbourhoods by \(\mathcal{U}_\alpha\). Then, \(\prod_{\alpha \in I} \mathcal{U}_\alpha\) is a neighbourhood of \(\{x_\alpha\}_{\alpha \in I}\) in the product topology and also contains all \(\{x_\alpha^n\}_{\alpha \in I}\) if \(n\) is sufficiently large enough. Thus, \(\{x_\alpha^n\}_{\alpha \in I}\) converges to \(\{x_\alpha\}_{\alpha \in I}\).
+\end{proof}
+
+\section*{Exercise 5 b)}
+    \begin{proof}
+        A sequence of functions \(f_n: I \longrightarrow X\) converges to \(f: I \longrightarrow X\) if and only if \(f_n\) converges pointwise to \(f\) on finitely many terms and for any other terms \(f_n\) lies in every neighbourhood of \(f\) with sufficiently large \(n\).
+        
+        \textit{Proof.} ``\(\Rightarrow\)'': Let \(f_n\) converge to \(f\) in the box topology. If \(I\) is finite, then the box topology is just the product topology and we get the desired result. Thus, let \(I\) be infinite. Assume the statement to prove is false, i.e. there is a neighbourhood \(\mathcal{U}_\alpha\) of \(f(\alpha)\) (\(\alpha\) is a term that does not converge pointwise) such that \(f_n(\alpha) \not\in \mathcal{U}_\alpha\).
+
+        Construct a sequence \(\alpha_n \in I\) such that the neighbourhoods \(\mathcal{U}_{\alpha_n}\) of \(f(\alpha_n)\) and a subsequence \(f_{k_n}\) of \(f_n\) such that \(f_{k_n}(\alpha_n) \not\in \mathcal{U}_{\alpha_n}\) for all \(n \in \mathbb{N}\). With this sequence, \(\{g \in X^I | g(\alpha_n) \in \mathcal{U}_{\alpha_n}\}\) is an open subset. It contains \(f\), but not \(f_{k_n}\) which would mean that \(f_n\) does not converge to \(f\).
+
+        ``\(\Leftarrow\)'': On the other hand, let the converse condition hold. Then, \(f_n\) lies in every neighbourhood of \(f\) for sufficiently large \(n\), thus \(f_n\) converges to \(f\).
+    \end{proof}
+
+\section*{Exercise 7}
+
+\begin{proof}[Solution]
+    \begin{enumerate}
+        \item The error is in the following part.
+    
+        ``which means that \(x_n\) {\color{red}cannot enter} arbitary neighbourhoods of \(x \in X\) for arbitary large values of \(n\), i.e. there exists \(N_x \in \mathbb{N}\) and an open neighbourhood of \(\mathcal{U}_x \subset X\) of \(x\) such that \(x_n \not\in \mathcal{U}_x\) {\color{red}for every} \(n \geq N_x\)''
+    
+        The definition of convergence of a sequence was that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \in \mathcal{U}\) for all \(n \in \mathbb{N}\) sufficiently large. Thus, if we negate the definition, we have that for every neighbourhood \(\mathcal{U} \subset X\) of \(x\) it is \(x_n \not\in \mathcal{U}\) {\color{red}for some} \(n \in \mathbb{N}\) sufficiently large.
+    
+        This mistakes makes the last conclusion false. The proof says ``each of these finitely many subsets contains at most finitely many terms of \(x_n\)'', but in actuality the subsets may contain infinitely many terms of \(x_n\).
+        \item It sufficies to require \(X\) to be a first-countable space. Then, going back to the proof, we have for every \(x \in X\), no sequence of \(x_n\) converges to \(x\). Let \(\mathcal{U}_1 \supset \mathcal{U}_2 \supset \cdots\) be a neighbourhood base (we may chose such a base without loss of generality as it was done in the proof of Lemma 4.16). Then, each of these neighbourhood bases would only have finitely many terms of \(x_n\) and the given proof would work.
+    \end{enumerate}
+\end{proof}
+
+\end{document}

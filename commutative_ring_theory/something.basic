@@ -1,0 +1,1 @@
+=TRANSPOSE(SPLIT(TEXTJOIN("\\", TRUE, ARRAYFORMULA(IF((NOT(EXACT('在庫リスト'!C2:C, '【禁】オプション'!A1)) + NOT(EXACT('在庫リスト'!E2:E, "-"))) * EXACT('在庫リスト'!D2:D, '【禁】業者リスト'!A1), '在庫リスト'!B2:B, ""))), "\\"))

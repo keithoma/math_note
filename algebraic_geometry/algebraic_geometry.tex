@@ -1,0 +1,305 @@
+\documentclass[a4paper]{book}
+\title{Algebraic Geometry}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\maketitle
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\chapter*{Housekeeping}
+Notes taken from
+\begin{itemize}
+    \item my course
+\end{itemize}
+
+\textbf{to-do}
+\begin{enumerate}
+    \item
+\end{enumerate}
+
+
+
+
+\chapter{Basics?}
+
+Let \(K\) be an arbitary field.
+
+\begin{defbox}
+    \begin{definition}[Algebraic Subset]
+        For a subset \(M \subset K[X_1, \ldots, X_n]\), we define
+        \begin{align*}
+            V(M) = \makeset{p \in K^n}{\text{ for all polynomials }f \in M \text{ it is } f(p) = 0}
+        \end{align*}
+        called the algebraic subset in \(K^n\) or an affine algebraic set over \(K\).
+    \end{definition}
+\end{defbox}
+\begin{intbox}
+    \begin{intuition}
+        Imagine the ring of polynomials \(K[X_1, \ldots, X_n]\) to be a set of locks and the kartesian product of the field \(K^n\) to be a set of keys. Then, a subset \(M\) of \(K[X_1, \ldots, X_n]\) is some combination of locks and the algebraic subset \(V(M)\) are the set of keys that open all the locks in \(M\).
+    \end{intuition}
+\end{intbox}
+\begin{example}
+    \begin{enumerate}
+        \item Let \(\mathbb{K} = \mathbb{C}\) and \(A = \mathbb{C}[X]\).
+        \begin{enumerate}
+            \item If we set \(M = \set{X^2 - 1} \subset \mathbb{C}[X]\), then \(V(\set{X^2 - 1}) = \set{-1, 1} \in \mathbb{C}\) is the algebraic subset.
+            \item Now, if we append the set above to \(M = \set{X^2 - 1, X - 1} \subset \mathbb{C}[X]\), we have \begin{align*}
+                V(\set{X^2 - 1, X - 1}) = \set{1} \in \mathbb{C}
+            \end{align*}
+            instead. This example illustrates that appending the set of polynomials makes its algebraic subset smaller.
+            \item In general, the finite subsets of \(\mathbb{K}\) are precisely the algebraic subsets of \(\mathbb{K}\).
+        \end{enumerate}
+        \item Let \(\mathbb{K} = \mathbb{C}\) and \(A = \mathbb{C}[X, Y]\).
+        \begin{enumerate}
+            \item If \(M = \set{X - 1, Y - 1} \subset \mathbb{C}[X, Y]\), then \(V(\set{X - 1, Y - 1}) = \set{(1, 1)} \subset \mathbb{C}^2\).
+            \item If we remove the second polynomial, we get \(M = \set{X - 1} \subset \mathbb{C}[X, Y]\) and \begin{align*}
+                V(\set{X - 1}) = \makeset{(1, y)}{y \in \mathbb{C}}\text{.}
+            \end{align*}
+            It is the first example of an infinite algebraic subset.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+\begin{thmbox}
+    \begin{lemma}
+            If \(M, N \subset K[X_1, \ldots, X_n]\) with \(N \subset M\), then it is \(V(N) \supset V(M)\).
+    \end{lemma}
+\end{thmbox}
+\begin{intbox}
+    \begin{intuition}
+            \(N\) has less locks then \(M\). If \(N\) has less locks, then more keys are able to open all locks in \(N\).
+    \end{intuition}
+\end{intbox}
+\begin{proof}
+    Let \(p \in V(M)\). For all \(f \in M\), we have \(f(p) = 0\). Now, \(N \subset M\), thus for all \(g \in N\) it is \(g \in M\) and therefore \(g(p) = 0\). That means \(V(M) \subset V(N)\).
+\end{proof}
+\begin{thmbox}
+    \begin{proposition}
+        \begin{enumerate}
+            \item The empty set \(\varnothing\) is an algebraic subset of \(\mathbb{K}^n\).
+            \item The whole set \(\mathbb{K}^n\) is an algebraic subset of \(\mathbb{K}^n\).
+            \item An arbitary intersection of algebraic subsets of \(\mathbb{K}^n\) is an algebraic subset of \(\mathbb{K}^n\).
+            \item A finite union of algebraic subsets of \(\mathbb{K}^n\) is an algebraic subset of \(\mathbb{K}^n\).
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+\begin{exmbox}
+    \begin{example}
+    The union of non-finite union of algebraic subsets is not algebraic. Take \(\mathbb{K} = \mathbb{C}\) and \(A = \mathbb{C}[X]\). As we have seen before, the singleton sets \(\{x\}\) are algebraic for each \(x \in \mathbb{N}\), but their union
+    \begin{align*}
+        \bigcup_{x \in \mathbb{N}} \{x\} = \mathbb{N}
+    \end{align*}
+    is not.
+    \end{example}
+\end{exmbox}
+
+The above proposition justifies the following definition.
+
+\begin{defbox}
+    \begin{definition}
+        The unique topology on \(K^n\) whose closed subsets are the algebraic subsets are called the Zariski topology on \(K^n\).
+    \end{definition}
+\end{defbox}
+
+\#\#missing I think we didn't prove the uniqueness yet.
+\begin{thmbox}    
+    \begin{lemma}
+        Let \(M \subset K[X_1, \ldots, X_n]\) be a subset. Define \(I\) to be the ideal generated\footnote{By Hilbert's Basis Theorem the polynomial ring is Noetherian and thus this ideal is finitely generated.} by \(M\). Then we have \(V(M) = V(I)\).
+    \end{lemma}
+\end{thmbox}
+Thus, \(V(M)\) may be expressed by finite amount of generators \(V(M) = V(f_1, \ldots, f_n)\).
+\begin{example}
+    \begin{enumerate}
+        \item Let \(\mathbb{K} = \mathbb{C}\) and \(A = \mathbb{C}[X]\).
+        \begin{enumerate}
+            \item With the same example as above, set \(M = \set{X^2 - 1} \subset \mathbb{C}[X]\), then \(V(\set{X^2 - 1}) = \set{-1, 1} \in \mathbb{C}\) is the algebraic subset. Consider the ideal \((X^2 - 1)\). Some elements in this ideal are
+            \begin{align*}
+                3 (X^2 - 1), \qquad X(X^2 - 1), \qquad (X + 1)(X^2 - 1)
+            \end{align*}
+            which all still have the roots \(\set{-1, 1}\).
+        \end{enumerate}
+    \end{enumerate}
+\end{example}
+
+\begin{defbox}    
+    \begin{definition}[Radical of an Ideal]
+
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{proposition}
+        Let \(I\) be an ideal in \(A\), then:
+        \begin{enumerate}
+            \item \(\sqrt{I} = \sqrt{\sqrt{I}}\)
+            \item \(I = \sqrt{I} \iff A / I\) is a reduced ring, i.e. there are no nilpotent elements in \(A / I\).
+            \item \(A \overset{\pi}{\longrightarrow} A_\text{red} := A / \sqrt{I}\) has the following universial property:
+        \end{enumerate}
+    \end{proposition}
+\end{thmbox}
+\begin{proof}
+    
+\end{proof}
+\begin{thmbox}
+    \begin{lemma}
+        \(V(I) = V(\sqrt{I})\)
+    \end{lemma}
+\end{thmbox}
+This implies the surjectivity of the following map:
+\begin{align*}
+    \set{\text{radical ideals in } K[X_1, \ldots, X_n]} \rightarrow \set{\text{algebraic sets of }\mathbb{A}^n(K)}
+\end{align*}
+(because let \(V\) be an algebraic set i.e. \(V = V(M)\)
+then \(V(M) = V((M)) = V(\sqrt{(M)})\))
+
+In general not injective. \#\#missingexample
+
+
+\begin{thmbox}
+    \begin{theorem}[Hilbert Nullstellensatz]
+        If \(K\) is algebraically closed, then the above map is a bijection with inverse \(V \mapsto \text{Ann}(V)\).
+    \end{theorem}
+\end{thmbox}
+
+From now on, assume \(K = \overline{K}\).
+
+\begin{corollary}
+    For any proper ideal \(I \subset K[X_1, \ldots, X_n]\) there is a \(p \in K^n\) with \(f(p) = 0\) for all \(p \in I\).
+\end{corollary}
+
+\begin{defbox}
+    \begin{definition}[A-algebra]
+        Let \(A\) be a ring. An \(A\)-algebra is a ring \(B\) together with a rign homomorphism \(f: A \longrightarrow B\), making \(B\) into an \(A\)-module such that scalar multiplication and the product on \(B\) are compatible.
+
+        If \(A = K\) is a field, \(f\) is injective, so a \(K\)-algebra is a ring containing \(K\) as a subring, for example \(K[X_1, \ldots, X_n]\).
+
+        \#\#missing something about two \(A\)-algebras
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}[Coordinate Ring]
+        Let \(V \subset K^n\) be an algebraic subset. Definite the coordinate ring to be \(\mathcal{O}(V) := K[X_1, \ldots, X_n] / Ann(V)\) which is a reduced, finitely generated \(K\)-algebra (underlying ring is reduced).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        Suppose we have two algebraic sets \(X \subset \mathbb{A}^n\) and \(Y \subset \mathbb{A}^m\). A morphism between those two is a map \(f: X \longrightarrow Y\), \(p \mapsto (f_1(p), \ldots, f_m(p))\) where \(f_i \in \mathcal{O}(X)\) for all \(1 \leq i \leq m\).
+    \end{definition}
+\end{defbox}
+
+\#\#missing blue text
+
+\end{document}

@@ -1,0 +1,264 @@
+\documentclass[a4paper]{book}
+\title{Commutative Ring Theory}
+\author{Kei Thoma}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=2cm, paperheight=60cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+
+\begin{document}
+
+\begin{defbox}
+    \begin{definition}
+        Let \(\mathfrak{a}\) be an ideal in \(R\). The variety \(\boldsymbol{V}(\mathfrak{a})\) of \(\mathfrak{a}\) is the subset of \(\text{Spec}(R)\) consisting of all prime ideals that contain \(\mathfrak{a}\), i.e.
+        \begin{align*}
+            \boldsymbol{V}(\mathfrak{a}) := \makeset{\mathfrak{p} \in \text{Spec}(R)}{\mathfrak{a} \subset \mathfrak{p}} \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+
+\begin{defbox}
+    \begin{definition}
+        Given an \(f \in R\), we define the distinguished or basic set
+        \begin{align*}
+            D(f) := \text{Spec}(R) \setminus V(f)
+        \end{align*}
+    \end{definition}
+\end{defbox}
+
+\begin{thmbox}
+    \begin{theorem}
+        For \(f, g \in R\), we have:
+        \begin{enumerate}
+            \item \(D(f) \cap D(g) = D(f \cdot g)\).
+            \item \(D(f) = \emptyset \iff f\) is nilpotent.
+            \item \(D(f) = \text{Spec}(A) \iff f \in A^\times\)
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(\mathfrak{p} \in D(f) \cap D(g)\).
+        \item We have \begin{align*}
+            \mathfrak{p} \in D(f) \cap D(g) &\iff \mathfrak{p} \in (\text{Spec}(R) \setminus V(f)) \cap (\text{Spec}(R) \setminus V(g)) \\
+            &\iff \mathfrak{p} \in \text{Spec}(R) \setminus V(f) \text{ and } \mathfrak{p} \in \text{Spec}(R) \setminus V(g) \\
+            &\iff \mathfrak{p} \not\in V(f) \text{ and } \mathfrak{p} \not\in V(g) \\
+            &\iff \mathfrak{p} \not\in \makeset{\mathfrak{p} \in \text{Spec}(R)}{(f) \subset \mathfrak{p}} \text{ and } \mathfrak{p} \not\in \makeset{\mathfrak{p} \in \text{Spec}(R)}{(g) \subset \mathfrak{p}} \\
+            &\iff (f) \not\subset \mathfrak{p} \text{ and } (g) \not\subset \mathfrak{p} \\
+            &\iff (f)(g) \not\subset \mathfrak{p}
+        \end{align*}
+    \end{enumerate}
+
+    2.
+
+    \begin{align*}
+        D(f) = \emptyset &\iff \text{Spec}(R) \setminus V(f) = \emptyset\\
+        &\iff \text{Spec}(R) = V(f) \\
+        &\iff \text{All prime ideals \(\mathfrak{p}\) contain \((f)\)}. \\
+        &\iff (f) \subset \bigcap_{\mathfrak{p} \in \text{Spec}(R)}\mathfrak{p} = \text{Nil}(R)
+    \end{align*}
+\end{proof}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        The set \(\{\mathfrak{p}\}\) is closed in \(\text{Spec}(R)\) if and only if \(\mathfrak{p}\) is a maximal ideal.
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(\{\mathfrak{p}\}\) be a closed subset in \(\text{Spec}(R)\).
+        \item By definition, \(\{\mathfrak{p}\} = V(\mathfrak{a})\) for some ideal \(\mathfrak{a}\) in \(R\).
+        \item If \(\mathfrak{p}\) is not maximal, it is contained in a maximal ideal \(\mathfrak{m}\).
+        \item Thus \(V(\mathfrak{a}) \supset \{\mathfrak{p}, \mathfrak{m}\}\)
+    \end{enumerate}
+
+    \begin{enumerate}
+        \item trivial
+    \end{enumerate}
+\end{proof}
+
+
+\begin{thmbox}
+    \begin{theorem}
+        The closure of \(\{\mathfrak{p}\}\) is \(V(\mathfrak{p})\).
+    \end{theorem}
+\end{thmbox}
+\begin{proof}
+    \(\overline{\{\mathfrak{p}\}} \subset V(\mathfrak{p})\)
+    \begin{enumerate}
+        \item trivial since \(\mathfrak{p} \subset V(\mathfrak{p})\)
+    \end{enumerate}
+    \(V(\mathfrak{p}) \subset \overline{\{\mathfrak{p}\}}\)
+    \begin{enumerate}
+        \item Let \(\mathfrak{p}' \in V(\mathfrak{p}) = \makeset{\mathfrak{p}' \in \text{Spec}(R)}{\mathfrak{p} \subset \mathfrak{p}'}\).
+        \item So \(\mathfrak{p} \subset \mathfrak{p}'\).
+        \item I think the idea is simply \(\overline{\{\mathfrak{p}\}} = V(\mathfrak{a})\)
+    \end{enumerate}
+\end{proof}
+
+Is \(\text{Spec}(R)\) a Kolmogorov-space?
+
+Let \(\mathfrak{p}_1, \mathfrak{p}_2 \in \text{Spec}(R)\) with \(\mathfrak{p}_1 \neq \mathfrak{p}_2\).
+
+
+\begin{theorem}
+    \(X\) is irreducible if and only if every pair of non-empty open sets in \(X\) has a non-empty intersection.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(X\) be irreducible, so for any closed subsets \(X_1\) and \(X_2\) with \(X =  X_1 \cup X_2\) implies \(X = X_1\) or \(X = X_2\).
+        \item Let \(A\) and \(B\) be two non-empty open subsets.
+        \item Then \(X \setminus A\) and \(X \setminus B\) is closed.
+        \item We have \((X \setminus A) \cup (X \setminus B) = X \setminus (A \cap B)\)
+        \item Assume \(A \cap B = \emptyset\).
+        \item contradiction.
+    \end{enumerate}
+-----------------
+    \begin{enumerate}
+        \item Every pair of non-empty open sets in \(X\) has a non-empty intersection.
+        \item Assume \(X\) is reducible, i.e. \(X = X_1 \cup X_2\)
+        \item \(X \setminus X_1\) and \(X \setminus X_2\) are open.
+        \item \((X \setminus X_1) \cap (X \setminus X_2) = X \setminus (X_1 \cup X_2) = \emptyset\)
+        \item contradiction
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \(X\) is irreducible if and only if every non-empty open subset of \(X\) is dense in \(X\).
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(X\) be irreducible.
+        \item Fix an open subset \(A\).
+        \item \(X \setminus A\) is closed.
+        \item \(\text{cl}(A)\) is closed.
+        \item \(X = (X \setminus A) \cup \text{cl}(A)\), so \(X = \text{cl}(A)\).
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \(\text{Spec}(R)\) is irreducible if and only if the nilradical of \(A\) is a prime ideal.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item Let \(\text{Spec}(R)\) be irreducible.
+        \item Consider \(\bigcap_{\mathfrak{p} \in \text{Spec}(R)} \mathfrak{p}\)
+        \item \(\bigcap_{\mathfrak{p} \in \text{Spec}(R)} \mathfrak{p} = \bigcap_{\mathfrak{m}} V(\mathfrak{m})\)
+        \item \(X \setminus \bigcap_{\mathfrak{m}} V(\mathfrak{m}) = \bigcup_{\mathfrak{m}}(X \setminus V(\mathfrak{m}))\)
+        \item \(V(\mathfrak{m}) = \emptyset\)
+    \end{enumerate}
+\end{proof}
+
+
+\end{document}
