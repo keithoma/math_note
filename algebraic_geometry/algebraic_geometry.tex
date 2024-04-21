@@ -30,6 +30,7 @@
 \usepackage{xcolor}
 \usepackage{tikz}
 \usepackage{xhfill} % for a line with text in the middle
+\usepackage{stmaryrd} % for \mapsfrom command
 
 % ---------------------------------------------------------------------
 % S E T T I N G
@@ -280,7 +281,12 @@ Thus, \(V(M)\) may be expressed by finite amount of generators \(V(M) = V(f_1, \
 
 \begin{thmbox}
     \begin{theorem}[Hilbert Nullstellensatz]
-        If \(K\) is algebraically closed, then the above map is a bijection with inverse \(V \mapsto \text{Ann}(V)\).
+        If \(\mathbb{K}\) is algebraically closed, then the map above is a bijection, i.e.
+        \begin{align*}
+            \set{\text{radical ideals in } K[X_1, \ldots, X_n]} &\longleftrightarrow \set{\text{algebraic sets of }\mathbb{A}^n(K)} \\
+            \sqrt{I} &\longmapsto V(\sqrt{I}) \\
+            \makeset{f \in \mathbb{K}[X_1, \ldots, X_n]}{f(p) = 0 \text{ for all } p \in V} &\longmapsfrom V
+        \end{align*}
     \end{theorem}
 \end{thmbox}
 
