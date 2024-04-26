@@ -1,0 +1,91 @@
+\documentclass{book}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsthm} % for theorems, definitions, etc.
+\usepackage{amsmath} % for align
+\usepackage{amssymb} % for varnothing
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+
+
+
+
+
+
+
+\title{Return to Probability Theory}
+\author{Kei Thoma }
+\date{April 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Basics?}
+
+\begin{definition}[\(\sigma\)-Algebra]
+    Let \(X\) be a set and denote its power set by \(\mathcal{P}(X)\). Then a subset \(\Sigma \subset \mathcal{P}(X)\) is called a \(\sigma\)-algebra if it satisfies the following three axioms:
+    \begin{enumerate}
+        \item \(X \in \Sigma\)
+        \item \(\Sigma\) is closed under complementation.
+        \item \(\Sigma\) is closed under finite unions.
+    \end{enumerate}
+    Elements of the \(\sigma\)-algebra are called measurable sets. The set \(X\) with its \(\sigma\)-algebra, denoted \((X, \Sigma)\) is called measurable space.
+\end{definition}
+
+
+
+
+
+\begin{definition}[Measure]
+    Let \((X, \Sigma\) be a measure space. A function
+    \begin{align*}
+        \mu: \Sigma \longrightarrow \mathbb{R} \cup \{-\infty, \infty\}
+    \end{align*}
+    is called a measure if it satisfies the following conditions:
+    \begin{enumerate}
+        \item Non-negativity.
+        \item \(\mu(\varnothing) = 0\)
+        \item Countable additivity.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{definition}[Probability Measure]
+    
+\end{definition}
+
+\begin{definition}[Probability Space]
+    A probability space is a triple \( (\Omega, \mathcal{F}, P) \) consisting of
+    \begin{enumerate}
+        \item the sample space \(\Omega\); a set
+        \item the event space \(\mathcal{F}\); a \(\sigma\)-algebra of \(\Omega\)
+        \item the probability measure \(P: \mathcal{F} \longrightarrow [0, 1]\)
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Measurable Function]
+    Let \((X, \Sigma_X)\) and \((Y, \Sigma_Y)\) be measurable spaces. A function \(f: X \longrightarrow Y\) is said to be measurable if for every \(T \in \Sigma_Y\) the preimage of \(T\) under \(f\) is in \(\Sigma_X\).
+\end{definition}
+
+\begin{definition}[Random Variable]
+    A random variable \(X\) is a measurable function \(X: \Omega \longrightarrow E\) from a sample space to a measurable space \(E\).
+\end{definition}
+
+\begin{definition}[Expected Value]
+    
+\end{definition}
+
+\begin{definition}[Variance]
+    
+\end{definition}
+
+\begin{definition}[Covariance]
+    
+\end{definition}
+
+\begin{definition}[Almost Everywhere]
+    Let \((X, \Sigma\) be a measurable space. A property \(P\) is said to hold almost everywhere in \(X\) if there exists a set \(N \in \Sigma \) with \(\mu(N) = 0\), and all \(x \in X \setminus N\) have the property \(P\).
+\end{definition}
+
+\end{document}
