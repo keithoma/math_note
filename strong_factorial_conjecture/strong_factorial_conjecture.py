@@ -1,5 +1,8 @@
 """Some computations regarding the strong factorial conjecture."""
 
+from sympy import fps
+from sympy.abc import x
+
 def lemma_2_17(n):
     """Computes the coefficients defined recursively in lemma 2.17."""
     list_of_c = [1, 1]
@@ -24,9 +27,20 @@ def lemma_2_17(n):
 
     return list_of_c
 
+
+def fps_inverse():
+    a = fps(3 + x)
+    print(a)
+    inv = a.inverse(6)
+    print(inv)
+    result = compute_fps(inv)
+    print(result)
+
+
 def main():
     """Main."""
-    print(lemma_2_17(10))
+    # print(lemma_2_17(10))
+    fps_inverse()
 
 
 if __name__ == "__main__":
