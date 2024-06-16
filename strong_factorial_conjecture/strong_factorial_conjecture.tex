@@ -118,9 +118,24 @@
 
 My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen. See: https://arxiv.org/abs/1304.3956
 
-\begin{theorem}[Conjecture]
+\begin{theorem}[Conjecture 2.13]
     Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If the first \(m\) consecutive coefficient of the compositional inverse \(a^{-1}(X)\) vanish, then \(a(X) = X\).
 \end{theorem}
+
+\begin{theorem}[Conjecture 2.14]
+    Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If the coefficients of \(X^{n+1}, \ldots, X^{n+m}\) of the compositional inverse vanish, then \(a(X) = X\).
+\end{theorem}
+
+\begin{remark}
+    \(R(m)\) if and only if \(R(m)_n\) for all \(n \in \mathbb{N}_+\).
+\end{remark}
+
+\begin{proof}
+    Let \(R(m)\) be true for a \(m \in \mathbb{N}_0\).
+
+    Then \(R(m)_1\) is true, i.e. if \(\text{deg}(a) \leq m + 1\) and if the
+\end{proof}
+
 \begin{remark}
     If we denote the polynomial \(a(X)\) by \(\sum_{k \in \mathbb{N}_0}a_k X^k\) for some \(a_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_0\), then the condition \(a(X) \equiv X \mod{X^2}\) amounts to \(a_0 = 0\) and \(a_1 = 1\).
 
@@ -157,6 +172,15 @@ My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen
 
 https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
 
-^ proof 
+^ proof
+
+
+
+\begin{proposition}
+    \begin{enumerate}
+        \item The polynomial \(a(X)\) is invertible for the composition.
+        \item For all \(i \in \set{1, \ldots, \text{deg}(a - 1)}\), the coefficient \(a_i\) is nilpotent element in \(A\).
+    \end{enumerate}
+\end{proposition}
 
 \end{document}
