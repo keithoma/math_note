@@ -137,7 +137,21 @@ My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen
     My questions:
 
     \begin{enumerate}
-        \item What if \(a_0 \neq 0\)? Pick \(a_0 = 3\). \(a(X) = 3\)
+        \item What if \(a_0 \neq 0\)? Pick \(a_0 = 3\).
+        
+        Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_0 \neq 0\). Then we may write \(f(X) = g(X) + a_0\) where \(g\) has a compositional inverse. Thus it it
+        \begin{align*}
+            g^{-1}(g(X) + a_0) &= g^{-1}(g(X)) + g^{-1}(a_0) \\
+            &= X + g^{-1}(a_0) \\
+        \end{align*}
+        \begin{align*}
+            h(X) &= g^{-1}(X) + g^{-1}(a_0) \\
+            h(f(X)) &= h(g(X) + a_0) \\
+            &= g^{-1}(g(X) + a_0) + g^{-1}(a_0) \\
+            &= X
+        \end{align*}
+
+        Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_1 \neq 1\) and \(a_1 \neq 0\). Then we may write \(f(X) =\)
     \end{enumerate}
 \end{remark}
 
