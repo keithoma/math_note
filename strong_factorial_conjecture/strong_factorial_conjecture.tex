@@ -172,7 +172,7 @@ My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen
 
 https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
 
-^ proof
+proof
 
 
 
@@ -180,7 +180,22 @@ https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
     \begin{enumerate}
         \item The polynomial \(a(X)\) is invertible for the composition.
         \item For all \(i \in \set{1, \ldots, \text{deg}(a - 1)}\), the coefficient \(a_i\) is nilpotent element in \(A\).
+        I just don't see this ...
     \end{enumerate}
 \end{proposition}
+
+
+\begin{theorem}
+    \begin{enumerate}
+        \item The inclusion \(E^{[m]} \subset F_n^{[m]}\) implies \(R(m)_n\)
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    \begin{align*}
+        E^{[m]} & = \makeset{X_1 \cdots X_m (\mu_1 X_1 + \cdots + \mu_m X_m)}{\mu_1, \ldots, \mu_m \in \mathbb{C}} \subset \\
+        F^{[m]}_n &= \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\mathcal{L}(f^k) \neq 0 \text{ for some } n \leq k \leq \mathcal{N}(f) - 1} \cup \{0\}
+    \end{align*}
+\end{definition}
 
 \end{document}
