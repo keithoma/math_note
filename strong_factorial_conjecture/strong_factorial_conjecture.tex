@@ -23,6 +23,7 @@
 \usepackage{amsmath}
 \usepackage{textcomp}
 \usepackage{mathtools}
+\usepackage{mleftright} % for scaling mid bar in sets
 % \usepackage{MnSymbol} % for \cupdot
 
 % extra
@@ -84,8 +85,8 @@
 \newcommand{\rank}{\text{rank}}
 \newcommand{\Vol}{\text{Vol}}
 
-\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
-\newcommand{\makeset}[2]{\left\{\, #1 \mid #2 \,\right\}}
+\newcommand{\set}[1]{\mleft\{\, #1 \,\mright\}}
+\newcommand{\makeset}[2]{\mleft\{\, #1 \; \middle| \; #2 \,\mright\}}
 
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand*\Diff{\mathop{}\!\mathrm{D}}
@@ -184,6 +185,34 @@ proof
     \end{enumerate}
 \end{proposition}
 
+\begin{lemma}[Lagrange Inversion Formula]
+    Let \(K\) be a field of charateristic
+\end{lemma}
+
+\begin{example}[See 5.4.4]
+    \(f(X) = X e^{-X} = X \sum_{k=0}^\infty \frac{(-1)^k}{k!} X^k\)
+    \begin{align*}
+        [X^n]f^{-1}(X) = \frac{1}{n} [X^{n-1}] e^{nX}
+    \end{align*}
+\end{example}
+
+
+\begin{lemma}[Lemma 2.20 (Additive Inversion Formula)]
+    Let \(\alpha_1, \ldots, \alpha_m \in \mathbb{C}\) be complex numbers. The formal inverse of \(a(X) = X(1 - (\alpha_1 X + \cdots + \alpha_m X^m))\) is given by the following formula
+    \begin{align*}
+        a^{-1}(X) &= X \mleft( 1 + \frac{1}{n + 1} \sum_{n \geq 1} u_n X^n \mright)
+        \intertext{where}
+        u_n &= \frac{1}{n!} \sum_{j_1 + 2 j_2 + \cdots + m j_m = n} \frac{(n + j_1 + \cdots + j_m)!}{j_1 ! \cdots j_m!} \alpha_1^{j_1} \cdots \alpha_m^{j_m}
+    \end{align*}
+\end{lemma}
+
+\begin{proposition}[Proposition 2.23]
+    Let \(\alpha_1, \ldots, \alpha_m \in \mathbb{C}\) be complex numbers and let \((u_n)_{n \in \mathbb{N}_+}\) be a sequence defined by AIF in Lemma 2.20. For all \(n \in \mathbb{N}_+\), the Rigidity Conjecture \(R(m)_n\) is equivalent to the following implication: If \(u_n = \cdots = u_{n + m - 1} = 0\) then \(\alpha_1 = \cdots = \alpha_m = 0\).
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
 
 \begin{theorem}
     \begin{enumerate}
