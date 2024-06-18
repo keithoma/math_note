@@ -1,5 +1,5 @@
 # My Math Notes
-Links to resources I've enjoyed, and incomplete and wrong notes that I abandone after exams.
+Links to resources I've enjoyed, and incomplete notes that I abandone after exams.
 
 ## General
 
