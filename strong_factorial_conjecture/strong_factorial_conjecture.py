@@ -1,7 +1,6 @@
 """Some computations regarding the strong factorial conjecture."""
 
-from sympy import fps
-from sympy.abc import x
+from sympy import *
 
 def lemma_2_17(n):
     """Computes the coefficients defined recursively in lemma 2.17."""
@@ -36,12 +35,23 @@ def fps_inverse():
     result = compute_fps(inv)
     print(result)
 
+def multinomial_theorem():
+    x = symbols('x')
+    a = IndexedBase('a')
+    b = IndexedBase('b')
+    i = symbols('i', cls=Idx)
+    
+    f = a[0] + a[1] * x + a[2] * x ** 2 + a[3] * x ** 3 + a[4] * x ** 4
+    
+    print(simplify(f))
+
+
 
 def main():
     """Main."""
     # print(lemma_2_17(10))
-    fps_inverse()
-
+    # fps_inverse()
+    multinomial_theorem()
 
 if __name__ == "__main__":
     main()

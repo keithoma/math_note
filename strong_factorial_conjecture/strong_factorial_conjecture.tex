@@ -131,7 +131,12 @@ See: https://arxiv.org/abs/1304.3956
 \end{proposition}
 
 \begin{proof}
-    
+    Let \(g(X) = b_0 + b_1 X + b_2 X^2 + \cdots \in \mathbb{C}[[X]]\) be some power series that satisfies \(f(g(X)) = X\). We have
+    \begin{align}
+        X =& a_0 + a_1(b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
+        =& a_0 + a_1 b_0 + a_2 b_0 + \cdots + \\
+        &a_1 b_1 X
+    \end{align}
 \end{proof}
 
 \begin{theorem}[Conjecture 2.13]
