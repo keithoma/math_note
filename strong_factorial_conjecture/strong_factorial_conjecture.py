@@ -40,10 +40,12 @@ def multinomial_theorem():
     a = IndexedBase('a')
     b = IndexedBase('b')
     i = symbols('i', cls=Idx)
-    
+
     f = a[0] + a[1] * x + a[2] * x ** 2 + a[3] * x ** 3 + a[4] * x ** 4
-    
-    print(simplify(f))
+    g = b[0] + b[1] * x + b[2] * x ** 2 + b[3] * x ** 3 + b[4] * x ** 4
+    result = f.subs(x, g)
+
+    print(latex(expand(result)))
 
 
 

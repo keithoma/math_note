@@ -125,6 +125,21 @@ See: https://arxiv.org/abs/1304.3956
 
 \section{Rigidity Conjecture}
 
+When we consider compositions of formal power series, we always want the constant term to be \(0\).
+
+The following example is taken from:
+
+https://math.stackexchange.com/questions/1212053/defining-composition-of-two-formal-series-what-is-going-on
+
+\begin{example}
+    Let \(f = \sum_{k \in \mathbb{N}_0} a_k X^k\) and \(g = 1 + X\). Consider \(f \circ g\). We have
+    \begin{align*}
+        f \circ g &= \sum_{k \in \mathbb{N}_0} a_k (1 + X)^k \\
+        &= a_0 + a_1 + a_1 X + a_2 + 2 a_2 X + a_2 X^2 + \cdots
+    \end{align*}
+    If \(f \circ g\) is again a formal power series, then we should be able to write \(f \circ g = \sum_{k \in \mathbb{N}_+} c_k X^k\) for some \(c_k \in \mathbb{C}\). However, we see that \(c_0\) is the sum of all \(a_k\) and we cannot evaluate that as algebraists. Thus composition of formal power series only makes sense if the constant coefficient is \(0\).
+\end{example}
+
 \begin{proposition}
     % right now, it's copy pasted from enumerative combinatorics
     A power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k \in \mathbb{C}[[X]]\) has a compositional inverse \(f^{-1}(X)\) if and only if \(a_1 \neq 0\), in which case \(f^{-1}(X)\) is unique.
