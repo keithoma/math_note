@@ -121,6 +121,24 @@ My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen
 
 See: https://arxiv.org/abs/1304.3956
 
+\section{Factorial Conjecture}
+
+\(\mathbb{C}^{[m]}\) may be viewed as a vecor space over \(\mathbb{C}\) with a basis being
+\begin{align*}
+    \makeset{X_1^{l_1} \cdots X_m^{l_m}}{l_k \in \mathbb{N}_0 \text{ for all } 1 \leq k \leq m} \text{.}
+\end{align*}
+Thus any linear map is fully defined if we set a value for each basis element. Such linear map is the factorial map.
+\begin{definition}
+    We call the linear map \(\mathcal{L}: \mathbb{C}^{[m]} \longrightarrow \mathbb{C}\) defined by
+    \begin{align*}
+        \mathcal{L}(X_1^{l_1} \cdots X_m^{l_m}) = l_1! \cdots l_m! \qquad \text{ for all } l_1, \ldots, l_m \in \mathbb{N}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Conjecture 2.4]
+    Let \(f \in \mathbb{C}^{[m]}\) be a polynomial. We have \(\mathcal{L}(f^k) = 0\) for all \(k \in \mathbb{N}_+\) if and only if \(f = 0\).
+\end{theorem}
+
 \section{Rigidity Conjecture}
 
 When we consider compositions of formal power series, we always want the constant term to be \(0\).
