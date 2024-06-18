@@ -117,6 +117,8 @@
 % \maketitle
 % \tableofcontents
 
+test test test
+
 My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen. See: https://arxiv.org/abs/1304.3956
 
 \begin{theorem}[Conjecture 2.13]
@@ -154,20 +156,20 @@ My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen
 
     \begin{enumerate}
         \item What if \(a_0 \neq 0\)? Pick \(a_0 = 3\).
-        
-        Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_0 \neq 0\). Then we may write \(f(X) = g(X) + a_0\) where \(g\) has a compositional inverse. Thus it it
-        \begin{align*}
-            g^{-1}(g(X) + a_0) &= g^{-1}(g(X)) + g^{-1}(a_0) \\
-            &= X + g^{-1}(a_0) \\
-        \end{align*}
-        \begin{align*}
-            h(X) &= g^{-1}(X) + g^{-1}(a_0) \\
-            h(f(X)) &= h(g(X) + a_0) \\
-            &= g^{-1}(g(X) + a_0) + g^{-1}(a_0) \\
-            &= X
-        \end{align*}
 
-        Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_1 \neq 1\) and \(a_1 \neq 0\). Then we may write \(f(X) =\)
+              Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_0 \neq 0\). Then we may write \(f(X) = g(X) + a_0\) where \(g\) has a compositional inverse. Thus it it
+              \begin{align*}
+                  g^{-1}(g(X) + a_0) & = g^{-1}(g(X)) + g^{-1}(a_0) \\
+                                     & = X + g^{-1}(a_0)            \\
+              \end{align*}
+              \begin{align*}
+                  h(X)    & = g^{-1}(X) + g^{-1}(a_0)          \\
+                  h(f(X)) & = h(g(X) + a_0)                    \\
+                          & = g^{-1}(g(X) + a_0) + g^{-1}(a_0) \\
+                          & = X
+              \end{align*}
+
+              Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_1 \neq 1\) and \(a_1 \neq 0\). Then we may write \(f(X) =\)
     \end{enumerate}
 \end{remark}
 
@@ -181,7 +183,7 @@ proof
     \begin{enumerate}
         \item The polynomial \(a(X)\) is invertible for the composition.
         \item For all \(i \in \set{1, \ldots, \text{deg}(a - 1)}\), the coefficient \(a_i\) is nilpotent element in \(A\).
-        I just don't see this ...
+              I just don't see this ...
     \end{enumerate}
 \end{proposition}
 
@@ -200,9 +202,9 @@ proof
 \begin{lemma}[Lemma 2.20 (Additive Inversion Formula)]
     Let \(\alpha_1, \ldots, \alpha_m \in \mathbb{C}\) be complex numbers. The formal inverse of \(a(X) = X(1 - (\alpha_1 X + \cdots + \alpha_m X^m))\) is given by the following formula
     \begin{align*}
-        a^{-1}(X) &= X \mleft( 1 + \frac{1}{n + 1} \sum_{n \geq 1} u_n X^n \mright)
+        a^{-1}(X) & = X \mleft( 1 + \frac{1}{n + 1} \sum_{n \geq 1} u_n X^n \mright)
         \intertext{where}
-        u_n &= \frac{1}{n!} \sum_{j_1 + 2 j_2 + \cdots + m j_m = n} \frac{(n + j_1 + \cdots + j_m)!}{j_1 ! \cdots j_m!} \alpha_1^{j_1} \cdots \alpha_m^{j_m}
+        u_n       & = \frac{1}{n!} \sum_{j_1 + 2 j_2 + \cdots + m j_m = n} \frac{(n + j_1 + \cdots + j_m)!}{j_1 ! \cdots j_m!} \alpha_1^{j_1} \cdots \alpha_m^{j_m}
     \end{align*}
 \end{lemma}
 
@@ -211,7 +213,7 @@ proof
 \end{proposition}
 
 \begin{proof}
-    
+
 \end{proof}
 
 \begin{theorem}
@@ -222,8 +224,8 @@ proof
 
 \begin{definition}
     \begin{align*}
-        E^{[m]} & = \makeset{X_1 \cdots X_m (\mu_1 X_1 + \cdots + \mu_m X_m)}{\mu_1, \ldots, \mu_m \in \mathbb{C}} \subset \\
-        F^{[m]}_n &= \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\mathcal{L}(f^k) \neq 0 \text{ for some } n \leq k \leq \mathcal{N}(f) - 1} \cup \{0\}
+        E^{[m]}   & = \makeset{X_1 \cdots X_m (\mu_1 X_1 + \cdots + \mu_m X_m)}{\mu_1, \ldots, \mu_m \in \mathbb{C}} \subset                                  \\
+        F^{[m]}_n & = \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\mathcal{L}(f^k) \neq 0 \text{ for some } n \leq k \leq \mathcal{N}(f) - 1} \cup \{0\}
     \end{align*}
 \end{definition}
 
