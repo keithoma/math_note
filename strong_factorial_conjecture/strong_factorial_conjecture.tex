@@ -194,10 +194,17 @@ https://math.stackexchange.com/questions/1212053/defining-composition-of-two-for
         &a_1 b_1 X
     \end{align}
 \end{proof}
+Another proof:
 
+https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
+%
 \begin{theorem}[Conjecture 2.13]
     Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If \(m\) consecutive coefficient of the compositional inverse \(a^{-1}(X)\) vanish, i.e. \(b_{n+1} = b_{n+2} = \cdots = b_{n+m} = 0\) for some \(n \in \mathbb{N}_+\) then \(a(X) = X\).
 \end{theorem}
+%
+\begin{remark}
+    If we denote the polynomial \(a(X)\) by \(\sum_{k \in \mathbb{N}_0}a_k X^k\) for some \(a_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_0\), then the condition \(a(X) \equiv X \mod{X^2}\) amounts to \(a_0 = 0\) and \(a_1 = 1\).
+\end{remark}
 %
 \begin{theorem}[Conjecture 2.14]
     Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If the coefficients of \(X^{n+1}, \ldots, X^{n+m}\) of the compositional inverse vanish, then \(a(X) = X\).
@@ -207,52 +214,6 @@ https://math.stackexchange.com/questions/1212053/defining-composition-of-two-for
     \(R(m)\) if and only if \(R(m)_n\) for all \(n \in \mathbb{N}_+\).
 \end{remark}
 %
-\begin{proof}
-    Let \(R(m)\) be true for a \(m \in \mathbb{N}_0\).
-
-    Then \(R(m)_1\) is true, i.e. if \(\text{deg}(a) \leq m + 1\) and if the
-\end{proof}
-
-\begin{remark}
-    If we denote the polynomial \(a(X)\) by \(\sum_{k \in \mathbb{N}_0}a_k X^k\) for some \(a_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_0\), then the condition \(a(X) \equiv X \mod{X^2}\) amounts to \(a_0 = 0\) and \(a_1 = 1\).
-
-    Moreover, we have this:
-
-    A power series has a compositional inverse if and only if \(a_1 \neq 0\). In that case, the inverse is unique.
-
-    See
-
-    https://www.amazon.com/dp/B00HMUGS4S
-
-    https://math.stackexchange.com/questions/2520744/finding-compositional-inverses-for-formal-power-series
-
-    My questions:
-
-    \begin{enumerate}
-        \item What if \(a_0 \neq 0\)? Pick \(a_0 = 3\).
-
-              Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_0 \neq 0\). Then we may write \(f(X) = g(X) + a_0\) where \(g\) has a compositional inverse. Thus it it
-              \begin{align*}
-                  g^{-1}(g(X) + a_0) & = g^{-1}(g(X)) + g^{-1}(a_0) \\
-                                     & = X + g^{-1}(a_0)            \\
-              \end{align*}
-              \begin{align*}
-                  h(X)    & = g^{-1}(X) + g^{-1}(a_0)          \\
-                  h(f(X)) & = h(g(X) + a_0)                    \\
-                          & = g^{-1}(g(X) + a_0) + g^{-1}(a_0) \\
-                          & = X
-              \end{align*}
-
-              Let \(f \in \mathbb{C}[X]\) be a polynomial with \(a_1 \neq 1\) and \(a_1 \neq 0\). Then we may write \(f(X) =\)
-    \end{enumerate}
-\end{remark}
-
-https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
-
-proof
-
-
-
 \begin{proposition}
     \begin{enumerate}
         \item The polynomial \(a(X)\) is invertible for the composition.
