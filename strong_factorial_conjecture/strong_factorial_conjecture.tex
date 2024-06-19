@@ -196,23 +196,16 @@ https://math.stackexchange.com/questions/1212053/defining-composition-of-two-for
 \end{proof}
 
 \begin{theorem}[Conjecture 2.13]
-    Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If the first \(m\) consecutive coefficient of the compositional inverse \(a^{-1}(X)\) vanish, then \(a(X) = X\).
+    Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If \(m\) consecutive coefficient of the compositional inverse \(a^{-1}(X)\) vanish, i.e. \(b_{n+1} = b_{n+2} = \cdots = b_{n+m} = 0\) for some \(n \in \mathbb{N}_+\) then \(a(X) = X\).
 \end{theorem}
-
+%
 \begin{theorem}[Conjecture 2.14]
     Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If the coefficients of \(X^{n+1}, \ldots, X^{n+m}\) of the compositional inverse vanish, then \(a(X) = X\).
 \end{theorem}
-
+%
 \begin{remark}
     \(R(m)\) if and only if \(R(m)_n\) for all \(n \in \mathbb{N}_+\).
 \end{remark}
-%
-\begin{proof}
-    Fix \(m \in \mathbb{N}_0\) and let \(f \in \mathbb{C}[X]\) be a polynomial of degree less than or equal to \(m + 1\) such that \(f(X) \equiv X \mod{X^2}\). Denote the composition inverse and its coefficients of \(f\) by \(f^{-1}(X) = \sum_{k \in \mathbb{N}_+} b_k X^k\).
-    \begin{enumerate}
-        \item ``\(\Rightarrow\)'': Suppose \(R(m)\) holds.
-    \end{enumerate}
-\end{proof}
 %
 \begin{proof}
     Let \(R(m)\) be true for a \(m \in \mathbb{N}_0\).
