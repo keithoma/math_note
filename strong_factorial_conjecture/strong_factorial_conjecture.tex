@@ -186,13 +186,18 @@ https://math.stackexchange.com/questions/1212053/defining-composition-of-two-for
 \end{proposition}
 
 \begin{proof}
-    % the proof itself is pretty simple
-    Let \(g(X) = b_1 X + b_2 X^2 + \cdots \in \mathbb{C}[[X]]\) be some power series that satisfies \(f(g(X)) = X\). We have
-    \begin{align}
-        X =& a_1(b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
-        =& a_1 b_0 + a_2 b_0 + \cdots + \\
-        &a_1 b_1 X
-    \end{align}
+    % copied from enumerative combinatorics
+    Assume \(g(X) = b_1 X + b_2 X^2 + \cdots\) satisfies \(f(g(X)) = X\). We then have
+    \begin{align*}
+        a_1(b_1 X + b_2 X^2 + \cdots) + a_2(b_1 X + b_2 X^2 + \cdots)^2 + a_3(b_1 X + b_2 X^2 + \cdots)^3 = X
+    \end{align*}
+    Equating coefficients on both sides yields the infinite system of equations
+    \begin{align*}
+        a_1 b_1 &= 1 \\
+        a_1 b_2 + a_2 b_1^2 &= 0 \\
+        a_1 b_3 + 2a_2 b_1 b_2 + a_3 b_1^3 &= 0 \\
+        &\vdots
+    \end{align*}
 \end{proof}
 Another proof:
 
@@ -214,6 +219,14 @@ https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
     \(R(m)\) if and only if \(R(m)_n\) for all \(n \in \mathbb{N}_+\).
 \end{remark}
 %
+% copied from Edo & van den Essen
+\begin{lemma}[Lemma 2.16]
+    Let \(f \in \mathbb{C}[[X]]\) and \(g \in \mathbb{C}[[X]]\) be two formal series such that \(f(X) \equiv g(X) \mod{X^2}\), i.e. the constant and the coefficient of the first degree agree. If \(f(X) \equiv g(X) \mod{X^n}\) for some integer \(n \geq 2\) then \(f^{-1}(X) \equiv g^{-1}(X) \mod{X^n}\).
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+%
 \begin{proposition}
     \begin{enumerate}
         \item The polynomial \(a(X)\) is invertible for the composition.
@@ -225,6 +238,9 @@ https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
 \begin{lemma}[Lagrange Inversion Formula]
     Let \(K\) be a field of charateristic
 \end{lemma}
+\begin{proof}
+    % TODO:
+\end{proof}
 
 \begin{example}[See 5.4.4]
     \(f(X) = X e^{-X} = X \sum_{k=0}^\infty \frac{(-1)^k}{k!} X^k\)
