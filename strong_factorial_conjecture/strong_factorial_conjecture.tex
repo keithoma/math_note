@@ -115,7 +115,7 @@
 
 \begin{document}
 % \maketitle
-% \tableofcontents
+\tableofcontents
 
 My notes on "The Strong Factorial Conjecture" by Eric Edo and Arno van den Essen.
 
@@ -168,7 +168,61 @@ Thus any linear map is fully defined if we set a value for each basis element. S
 TODO: \(\mathbb{C}_0[[X]]\) the set of formal power series with the constant coefficient being \(0\) forms a \(\mathbb{C}\)-algebra with composition being the composition.
 %
 \subsection{Reciprocal of a Power Series}
+\begin{definition}[Cauchy Product]
+    For two power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k \in \mathbb{C}[[X]]\) and \(g(X) = \sum_{k \in \mathbb{N}_0} b_k X^k \in \mathbb{C}[[X]]\), we define their Cauchy product by
+    \begin{align*}
+        f(X) \times g(X) := \sum_{k \in \mathbb{N}_0} c_k X^k \; \text{ where } \; c_k := \sum_{i = 0}^{k}a_i b_{k - i} \text{.}
+    \end{align*}
+\end{definition}
+%
+\begin{remark}
+    The formula for the Cauchy product may be applied to two polynomials without any issue and produces the same result as primitively expanding would do.
+\end{remark}
+%
+\begin{example}
+    Take the alternating series \(f(X) = \sum_{k \in \mathbb{N}_0} (-1)^k X^k\) and the geometric series \(g(X) = \sum_{k \in \mathbb{N}_0} X^k\) and consider their Cauchy product \(f \times g\). The coefficients of the product is given by
+    \begin{align*}
+        c_k = \sum_{i=0}^k a_i b_{k-i} = \sum_{i=0}^k (-1)^{i} (1)^{k-i} = \sum_{i=0}^{k} (-1)^{i} = \begin{cases}
+            1 \text{ if \(k\) is even} \\
+            0 \text{ if \(k\) is odd}
+        \end{cases}
+    \end{align*}
+    hence we have \(f(X) \times g(X) = \sum_{k \in \mathbb{N}_0} X^{2k} = 1 + X^2 + X^4 + \cdots\).
 
+    Notice that both the alternating series \(f\) and the geometric series \(g\) only converge for values \(|X| < 1\) and thus, through the lense of analysis, their product only makes sense with that limitation. However, as algebraists we are not beholden to such bounds.
+
+    If we declare \(|X| < 1\), then with the help of the analytical tools, we may evaluate both series as
+    \begin{align*}
+        f(X) = \frac{1}{1 + X} \; \text{ and } \; g(X) = \frac{1}{1 - X}
+    \end{align*}
+    therefore
+    \begin{align*}
+        f(X) \cdot g(X) = \frac{1}{1 + X} \cdot \frac{1}{1 - X} = \frac{1}{1 - X^2}
+    \end{align*}
+    which matches our expectation exactly as the last expression is the simplied form of \(\sum_{k \in \mathbb{N}_0} X^{2k} = f(X) \times g(X)\).
+\end{example}
+\vspace*{1cm}
+It is well-known that the set of power series over a ring is again a ring. In particular, \(\mathbb{C}[[X]]\) with the usual coefficient-wise addition and the Cauchy product is a commutative ring with unity. It is, however, not a field because not all power series have a mulitplicative inverse. It turns out however, that strikingly many of the power series have a mulitplicative inverse.
+%
+\begin{proposition}
+    A power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k\) has a mulitplicative inverse if and only if its constant coefficient \(a_0\) is non-zero.
+
+    The reciprocal of \(f\), denoted by \(\) if it exsists, \#blablabla
+    \begin{align*}
+        b_0 = \frac{1}{a_0} \; \text{ and for \(k \geq 1\) it is } \; b_k = -\frac{1}{a_0} \sum_{i = 1}^{k} a_i b_{k-i}
+    \end{align*}
+\end{proposition}
+%
+\begin{example}
+    Consider \(f(X) = \sum_{k=0}^\infty (k+1) X^k\)
+
+    It's insane that the inverse is \((X - 1)^2\)
+\end{example}
+%
+\begin{remark}
+    Point out that the multiplicative inverse of the power series is a simple polynomial and in turn, many (maybe all, there was something with Gauss about this in algebra) polynomial only have an inverse as a power series. 
+\end{remark}
+%
 \subsection{Formal Differentiation}
 % definition copied from Wikipedia
 \begin{definition}[Formal Differentiation]
@@ -177,6 +231,11 @@ TODO: \(\mathbb{C}_0[[X]]\) the set of formal power series with the constant coe
         f'(X) := \sum_{k \in \mathbb{N}_0} a_k \cdot k \cdot X^{k-1} \text{.}
     \end{align*}
 \end{definition}
+%
+\begin{example}
+    
+\end{example}
+%
 \begin{remark}
     difference with analytic view of differentiation
 \end{remark}
