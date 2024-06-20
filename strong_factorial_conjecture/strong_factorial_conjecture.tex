@@ -303,6 +303,36 @@ https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
 %
 But there is no simple formula for the coefficients of the inverse (see enumerative combinatorics).
 %
+\begin{lemma}[Lagrange Inversion Formula]
+    Let \(K\) be a field of charateristic
+    \begin{align*}
+        f^{-1}(X) &= \sum_{n \in \mathbb{N}_+} b_n X^n\\
+        \text{where } b_n &= \frac{1}{n} \cdot [X^{n-1}] \left(\frac{X}{f(X)}\right)^n
+    \end{align*}
+\end{lemma}
+%
+\begin{proof}
+    We will prove that the given formula for \(b_n\), i.e. the \(n\)-th coefficient of the compositional inverse, is merited. Thus begin by fixing an arbitary integer \(n \in \mathbb{N}_+\).
+
+    % TODO: above
+    % TODO: since we fixed n at the beginning, we don't need it later anymore
+    % TODO: unsure about the index k and n
+
+    By proposition \#XXX, \(f\) is guranteed to have a unique compositional inverse which we will denote by \(f^{-1}(X) = \sum_{k \in \mathbb{N}_+} b_k X^k\) with \(b_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_+\). Applying the original \(f\) to both sides yields \(f(f^{-1} (X)) = X\) on the left side and on the right we have
+    \begin{align*}
+        f\left( \sum_{k \in \mathbb{N}_+} b_k X^k \right) = \sum_{k \in \mathbb{N}_+} b_k f(X)^k
+    \end{align*}
+    due to the linearity of \(f\) as a map, thus \(X = \sum_{k \in \mathbb{N}_+} b_k f(X)^k\). Now, formal differentiation with the chain rule \#sure? gives
+    \begin{align*}
+        1 = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-1} \cdot f'(X) \text{.}
+    \end{align*}
+    Let \(n \in \mathbb{N}\) \#with0? be an integer. \#moremotivation Dividing the above equation with the \(n\)-th power of the reciprocal produces
+    \begin{align*}
+        f(X)^{-n} = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-n-1} \cdot f'(X) \text{.}
+    \end{align*}
+    After 
+\end{proof}
+%
 \newpage
 \subsection{Rigidity Conjecture}
 %
@@ -340,36 +370,6 @@ But there is no simple formula for the coefficients of the inverse (see enumerat
 %
 The following lemma and proof are due to \#XXX.
 %
-\begin{lemma}[Lagrange Inversion Formula]
-    Let \(K\) be a field of charateristic
-    \begin{align*}
-        f^{-1}(X) &= \sum_{n \in \mathbb{N}_+} b_n X^n\\
-        \text{where } b_n &= \frac{1}{n} \cdot [X^{n-1}] \left(\frac{X}{f(X)}\right)^n
-    \end{align*}
-\end{lemma}
-%
-\begin{proof}
-    We will prove that the given formula for \(b_n\), i.e. the \(n\)-th coefficient of the compositional inverse, is merited. Thus begin by fixing an arbitary integer \(n \in \mathbb{N}_+\).
-
-    % TODO: above
-    % TODO: since we fixed n at the beginning, we don't need it later anymore
-    % TODO: unsure about the index k and n
-
-    By proposition \#XXX, \(f\) is guranteed to have a unique compositional inverse which we will denote by \(f^{-1}(X) = \sum_{k \in \mathbb{N}_+} b_k X^k\) with \(b_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_+\). Applying the original \(f\) to both sides yields \(f(f^{-1} (X)) = X\) on the left side and on the right we have
-    \begin{align*}
-        f\left( \sum_{k \in \mathbb{N}_+} b_k X^k \right) = \sum_{k \in \mathbb{N}_+} b_k f(X)^k
-    \end{align*}
-    due to the linearity of \(f\) as a map, thus \(X = \sum_{k \in \mathbb{N}_+} b_k f(X)^k\). Now, formal differentiation with the chain rule \#sure? gives
-    \begin{align*}
-        1 = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-1} \cdot f'(X) \text{.}
-    \end{align*}
-    Let \(n \in \mathbb{N}\) \#with0? be an integer. \#moremotivation Dividing the above equation with the \(n\)-th power of the reciprocal produces
-    \begin{align*}
-        f(X)^{-n} = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-n-1} \cdot f'(X) \text{.}
-    \end{align*}
-    After 
-\end{proof}
-
 \begin{example}[See 5.4.4]
     \(f(X) = X e^{-X} = X \sum_{k=0}^\infty \frac{(-1)^k}{k!} X^k\)
     \begin{align*}
