@@ -166,6 +166,33 @@ Thus any linear map is fully defined if we set a value for each basis element. S
 \section{Rigidity Conjecture}
 
 TODO: \(\mathbb{C}_0[[X]]\) the set of formal power series with the constant coefficient being \(0\) forms a \(\mathbb{C}\)-algebra with composition being the composition.
+%
+\subsection{Reciprocal of a Power Series}
+
+\subsection{Formal Differentiation}
+% definition copied from Wikipedia
+\begin{definition}[Formal Differentiation]
+    Given a formal power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k \in \mathbb{C}[[X]]\) its \textit{formal derivative}, denoted \(f'\), is defined by
+    \begin{align*}
+        f'(X) := \sum_{k \in \mathbb{N}_0} a_k \cdot k \cdot X^{k-1} \text{.}
+    \end{align*}
+\end{definition}
+\begin{remark}
+    difference with analytic view of differentiation
+\end{remark}
+\begin{proposition}[Linearity of Formal Differentiation]
+    Formal differentiation as an operator is linear, i.e. if we view \(\mathbb{C}[[X]]\) as a \(\mathbb{C}\)-vector space, then \((\ast)': \mathbb{C}[[X]] \longrightarrow \mathbb{C}[[X]]\) satisfies additivity and homogeneity.
+\end{proposition}
+As expected, the usual rules of differentiation such as the product rule and the chain rule may be transfered one-to-one from the analytical world to the one of algebra and formal power series. For this paper, only the chain rule is of interest. Before we formaly introduce the chain rule however, we require the notion of composition of power series.
+%
+\subsection{Composition of Formal Power Series}
+\begin{proposition}[Chain Rule]
+    If \(f \in \mathbb{C}[[X]]\) and \(g \in \mathbb{C}[[X]]\) are two formal power series, then the formal differentiation on their composition may be expressed as
+    \begin{align*}
+        (f \circ g)' = (f' \circ g) \cdot g'
+    \end{align*}
+\end{proposition}
+
 
 When we consider compositions of formal power series, we always want the constant term to be \(0\).
 
