@@ -176,7 +176,7 @@ TODO: \(\mathbb{C}_0[[X]]\) the set of formal power series with the constant coe
 \end{definition}
 %
 \begin{remark}
-    The formula for the Cauchy product may be applied to two polynomials without any issue and produces the same result as primitively expanding would do.
+    If one of the power series is also a polynomial, the formula above produces the same result as primitivly expanding would do.
 \end{remark}
 %
 \begin{example}
@@ -232,8 +232,18 @@ It is well-known that the set of power series over a ring is again a ring. In pa
     \end{align*}
 \end{definition}
 %
+When talking about differentiation, how can one resist to use the exponential function as an example?
+%
 \begin{example}
-    
+    Consider the series representation of \(ce^x\) which is
+    \begin{align*}
+        f(X) = \sum_{k \in \mathbb{N}_0} \frac{1}{k!} X^k \text{.}
+    \end{align*}
+    Formal differentiation gives
+    \begin{align*}
+        f'(X) = \sum_{k \in \mathbb{N}_+} \frac{c}{k!} \cdot k \cdot X^{k-1} = \sum_{k \in \mathbb{N}_+} \frac{c}{(k - 1)!} \cdot X^{k-1} = \sum_{k \in \mathbb{N}_0} \frac{c}{k!} X^k = f(X)\text{.}
+    \end{align*}
+    which is expected from analysis. Indeed, it is not difficult to show that \(f = f'\) if and only if \(f(X) = ce^X\). This proof can be found in functology book.
 \end{example}
 %
 \begin{remark}
@@ -292,6 +302,9 @@ Another proof:
 https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
 %
 But there is no simple formula for the coefficients of the inverse (see enumerative combinatorics).
+%
+\newpage
+\subsection{Rigidity Conjecture}
 %
 \begin{theorem}[Conjecture 2.13]
     Let \(a(X) \in \mathbb{C}[X]\) be a polynomial of degree less or equal to \(m + 1 \in \mathbb{N}_+\) such that \(a(X) \equiv X \mod{X^2}\). If \(m\) consecutive coefficient of the compositional inverse \(a^{-1}(X)\) vanish, i.e. \(b_{n+1} = b_{n+2} = \cdots = b_{n+m} = 0\) for some \(n \in \mathbb{N}_+\) then \(a(X) = X\).
