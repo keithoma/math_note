@@ -157,12 +157,20 @@ Thus, any linear map is fully specified by its values on the elements of this ba
 \end{example}
 %
 \begin{remark}[Remark 2.2]
-    
+    % TODO
 \end{remark}
 %
 \begin{remark}[Remark 2.3]
-    In general, the factorial map \(\mathcal{L}\) does not preserve multiplication. However, if two polynomials
+    In general, the factorial map \(\mathcal{L}\) does not preserve multiplication. However, if two polynomials \(f\) and \(g\) do not share any indeterminates, i.e. there exsists a subset \(I \subset \{1, 2, \ldots, m\}\) such that
+    \begin{align*}
+        f(X) \in \mathbb{C}[X_k : k \in I] \; \text{ and } \; g(X) \in \mathbb{C}[X_k : k \not\in I] \text{,}
+    \end{align*}
+    then indeed \(\mathcal{L}(fg) = \mathcal{L}(f)\mathcal{L}(g)\).
 \end{remark}
+%
+\begin{proof}
+    % TODO
+\end{proof}
 %
 \begin{example}
     To illustrate that the factorial map \(\mathcal{L}\) is not compatible with the multiplication, simply consider \(f(X) = X\) and \(g(X) = 1\) in \(\mathbb{C}^{[1]} = \mathbb{C}[X]\). It is
@@ -175,9 +183,17 @@ Thus, any linear map is fully specified by its values on the elements of this ba
     If \(f \in \mathbb{C}^{[m]}\) is a polynomial with \(\mathcal{L}(f^k) = 0\) for all \(k \in \mathbb{N}_+\), then \(f = 0\).
 \end{theorem}
 %
-\begin{remark}
-    The converse is trivial, hence the conjecture is about the forward implication.
-\end{remark}
+\begin{example}
+    \begin{align*}
+        \mathcal{L}(f) = \mathcal{L}(1 - X) = 1 - 1 = 0 \\
+        \mathcal{L}(f^2) = \mathcal{L}(1 - 2X + X^2) = 1 - 2 + 2 = 1 \\
+        ---------- \\
+        \mathcal{L}(a_0 + a_1 X) = a_0 + a_1 \Rightarrow a_0 = - a_1 \\
+        \mathcal{L}(a_0^2 + 2 a_0 a_1 X + a_1^2 X^2) = a_0^2 - 2a_0^2 + 2 a_0^2 = a_0^2 = 0 \Rightarrow a_0 = a_1 = 0 \\
+        ---------- \\
+        \mathcal{L}(a_0 + a_1 X + a_2 X^2)
+    \end{align*}
+\end{example}
 %
 \newpage
 \section{Rigidity Conjecture}
