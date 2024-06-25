@@ -1,47 +1,93 @@
-\begin{defbox}
-    \begin{definition}[A-algebra]
-        Let \(A\) be a ring. An \(A\)-algebra is a ring \(B\) together with a rign homomorphism \(f: A \longrightarrow B\), making \(B\) into an \(A\)-module such that scalar multiplication and the product on \(B\) are compatible.
+\documentclass[11pt]{book}
 
-        If \(A = K\) is a field, \(f\) is injective, so a \(K\)-algebra is a ring containing \(K\) as a subring, for example \(K[X_1, \ldots, X_n]\).
+% Language and font encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
 
-        \#\#missing something about two \(A\)-algebras
-    \end{definition}
-\end{defbox}
+% Mathematics packages
+\usepackage{amsmath, amssymb, amsthm, amsfonts, mathtools}
+\usepackage{mathrsfs} % For script fonts
 
-\begin{definition}[Annihilator]
-    Let \(R\) be a ring, and let \(M\) be a \(R\)-module. For a non-empty subset \(S\) of \(M\), the set of all elements \(r\) in \(R\) such that for all \(s\) in \(S\), it is \(rs = 0\) is called the annihilator of \(S\) and is denoted by
-    \begin{align*}
-        \text{Ann}_R(S) = \makeset{r \in R}{rs = 0 \text{ for all } s \in S} \text{.}
-    \end{align*}
-\end{definition}
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
 
-\begin{defbox}
-    \begin{definition}[Coordinate Ring]
-        Let \(V \subset K^n\) be an algebraic subset. Definite the coordinate ring to be \begin{align*}
-            \mathcal{O}(V) := K[X_1, \ldots, X_n] / \text{Ann}(V)
-        \end{align*}
-        which is a reduced, finitely generated \(K\)-algebra (underlying ring is reduced).
-    \end{definition}
-\end{defbox}
-\begin{thmbox}
-    \begin{proposition}
-        \(\mathcal{O}(V)\) is a reduced, finitely generated \(\mathbb{K}\)-algebra.
-    \end{proposition}
-\end{thmbox}
-\begin{proof}
-    ``\(\mathcal{O}(V)\) is a \(\mathbb{K}\)-algebra'': Firstly, \(\mathbb{K}\) is a field and hence also a ring. Define the map
-    \begin{align*}
-        f: \mathbb{K} &\longrightarrow \mathcal{O}(V) = \mathbb{K}[X_1, \ldots, X_n] / \text{Ann}_\mathbb{K}(V) \\
-        x &\longmapsto x \mod{\text{Ann}_\mathbb{K}(V)} \text{.}
-    \end{align*}
-\end{proof}
-\begin{example}
-    \begin{enumerate}
-        \item Set \(\mathbb{K} := \mathbb{C}\), and \(A := \mathbb{C}[X]\). The algebraic subsets \(V\) of \(\mathbb{C}\) are the finite subsets and the whole set. For any such algebraic subset \(V\), the annihilator is \(\text{Ann}_\mathbb{C}(V) = \{0\}\).
-        \item Set \(\mathbb{K} := \mathbb{C}\), and \(A := \mathbb{C}[X, Y]\).
-        \begin{enumerate}
-            \item An algebraic subset of \(\mathbb{C}^2\) is \(\set{(1, -2);\, (1, 2)}\). For this algebraic subset, the annihilator is again \(\text{Ann}_\mathbb{C}(V) = \{0\}\).
-            \item Another algebraic subset of \(\mathbb{C}^2\) is \(\makeset{(0, y)}{y \in \mathbb{C}}\). The annihilator is again \(\text{Ann}_\mathbb{C}(V) = \{0\}\).
-        \end{enumerate}
-    \end{enumerate}
-\end{example}
+% Definition & Theorem Boxes
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% Numbering and cross-referencing
+\numberwithin{equation}{section}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+    pdftitle={Algebraic Geometry Notes},
+    pdfpagemode=FullScreen,
+}
+
+% Commutative diagrams
+\usepackage{tikz-cd}
+
+% Margins and spacing
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\setlength{\textheight}{10000pt}
+\usepackage{setspace}
+\onehalfspacing
+
+% Custom commands
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Pp}{\mathbb{P}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\Spec}{\text{Spec}}
+\newcommand{\Proj}{\text{Proj}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\End}{\text{End}}
+\newcommand{\sheafhom}{\mathscr{H}\kern -.5pt om}
+\newcommand{\sheafext}{\mathscr{E}\kern -.5pt xt}
+
+\newcommand{\set}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\makeset}[2]{\left\{\, #1 \mathrel{\mid} #2 \,\right\}}
+
+% For including graphics
+\usepackage{graphicx}
+
+% Packages for better tables
+\usepackage{booktabs}
+\usepackage{array}
+
+% Title and author information
+\title{Notes on Algebraic Geometry}
+\author{Kei Thoma}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\end{document}
