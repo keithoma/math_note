@@ -5,6 +5,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 
+\usepackage{csquotes}
+
 % Mathematics packages
 \usepackage{amsmath, amssymb, amsthm, amsfonts, mathtools}
 \usepackage{mathrsfs} % For script fonts
@@ -52,7 +54,6 @@
 
 % Margins and spacing
 \usepackage[a4paper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
-\setlength{\textheight}{10000pt}
 \usepackage{setspace}
 \onehalfspacing
 
@@ -104,6 +105,12 @@
 
 \begin{defbox}
     \begin{definition}
+        Let \( k \) be a fixed algebraically closed field. We define affine \( n \)-space over \( k \), denoted \( \mathbb{A}^n \) or simply \( \mathbb{A}^n \), to be the set of all \( n \)-tuples of elements of \( k \). An element \( P \in \mathbb{A}^n \) will be called a point, and if \( P = (a_1, a_2, \ldots, a_n) \) with \( a_i \in k \), then the \( a_i \) will be called the coordinates of \( P \).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
         For a subset \(T\) of the polynomial ring \(A = k[X_1, \ldots, X_n]\), we define the zero set of \(T\) to be the common zeros of all the elements of \(T\), i.e.
         \begin{align*}
             Z(T) = \makeset{P \in \mathbb{A}^n}{f(P) = 0 \text{ for all } f \in T} \text{.}
@@ -134,8 +141,20 @@
     Let \(Z\) be the plane curve \(xy = 1\). Show that \(A(Z)\) is not isomorphic to a polynomial ring in one variable over \(k\). 
 \end{exercise}
 \begin{solution}
+    \(A(Z) = k[X, Y] / (XY - 1)\)
+
+    We know \(A(Z)\) is an \(k\)-algebra (see remark). Consider \(f: k[X, Y] \longrightarrow k[T]\). We must have \(\ker{f} = (XY - 1)\), thus \(f(XY - 1) = 0\), so \(f(X) = 1 / f(Y)\)
+
+    I'll think about the rigorous details later, but basically \(A(Z) \cong k[X, X^{-1}]\)
+\end{solution}
+\begin{exercise}
+    Let \(f\) be any irreducible quadratic polynomial in \(k[X, Y]\), and let \(W\) be the conic defined by \(f\). Show that \(A(W)\) is isomorphic to \(A(Y)\) or \(A(Z)\). Which one is it when?
+\end{exercise}
+\begin{solution}
+    Let \(f\) be irreducible.
+
+    \(A(W) = k[X, Y] / (f)\)
     
 \end{solution}
-
 \printbibliography
 \end{document}
