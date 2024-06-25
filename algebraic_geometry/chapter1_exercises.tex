@@ -42,14 +42,28 @@
 
 \begin{exercise}
     Let \(Y\) be the algebraic set in \(\mathbb{A}^3\) defined by two polynomials \(x^2 - yz\) and \(xz - x\). Show that \(Y\) is a union of three irreducible components. Describe them and find their prime ideals.
-    \end{exercise}
-    \begin{solution}
-        \(Y = Z(x^2 - yz, xz - x)\)
+\end{exercise}
+\begin{solution}
+    \(Y = Z(x^2 - yz, xz - x)\)
+
+    If \(z = 0\), then \(x = 0\) and \(y\) can be any thing, so one irreducible component is the \(y\)-axis. This is described by \((x, z)\).
+
+    If \(x = 0\), then \(yz = 0\). If \(z = 0\), then see above. \(y = 0\) gives the \(z\)-axis as above.
+
+    If \(z \neq 0\), then \(x^2 = yz\) and \(x(z - 1) = 0\). And we have a parabola ...
+\end{solution}
+
     
-        If \(z = 0\), then \(x = 0\) and \(y\) can be any thing, so one irreducible component is the \(y\)-axis. This is described by \((x, z)\).
-    
-        If \(x = 0\), then \(yz = 0\). If \(z = 0\), then see above. \(y = 0\) gives the \(z\)-axis as above.
-    
-        If \(z \neq 0\), then \(x^2 = yz\) and \(x(z - 1) = 0\). And we have a parabola ...
-    \end{solution}
-    
+
+\begin{exercise}
+    If we identify \(\mathbb{A}^2\) with \(\mathbb{A}^1 \times \mathbb{A}^1\) in the natural way, show that the Zariski topology on \(\mathbb{A^2}\) is not the product topology of the Zariski topologies on the two copies of \(\mathbb{A}^1\).
+\end{exercise}
+\begin{solution}
+    In \(\mathbb{A}^1\), the only closed sets are finite sets and \(\mathbb{A}^1\) itself. Take \(\set{p_1, p_2} \subset \mathbb{A}^1\). Consider
+    \begin{align*}
+        \set{(0, 0); (0, 1); (1, 0); (1, 1)}
+    \end{align*}
+    No, this is probably okay
+
+    Rather consider this example: \(Z(X^2 - Y)\), then the preimages of the projections give the x-axis and the non-negative y-axis, but the latter is not an algebraic set.
+\end{solution}
