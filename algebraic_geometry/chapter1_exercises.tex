@@ -24,3 +24,32 @@
     
     isn't this kinda clear ...? I'll come back to write it down rigorously, but in general ...
 \end{solution}
+
+\begin{exercise}
+    Let \(Y \subset \mathbb{A}^3\) be the set \(Y = \makeset{t, t^2, t^3}{t \in k}\).
+    \begin{enumerate}
+        \item Show that \(Y\) is an affine variety of dimension \(1\).
+    \end{enumerate}
+\end{exercise}
+\begin{solution}
+    By definition \ref{def:algebraic_variety}, affine algebraic varieties are irreducible closed subsets of \(\mathbb{A}^n\).
+    \begin{enumerate}
+        \item The topology on \(\mathbb{A}^n\) is the Zariski topology which is defined through closed sets. Closed sets are algebraic sets. Algebraic sets are zeros of some polynomials. Choose \((Y - X^2, Z - X^3)\).
+        \item By corollary \ref{cor:ideal_correspondence},
+        \item 
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Let \(Y\) be the algebraic set in \(\mathbb{A}^3\) defined by two polynomials \(x^2 - yz\) and \(xz - x\). Show that \(Y\) is a union of three irreducible components. Describe them and find their prime ideals.
+    \end{exercise}
+    \begin{solution}
+        \(Y = Z(x^2 - yz, xz - x)\)
+    
+        If \(z = 0\), then \(x = 0\) and \(y\) can be any thing, so one irreducible component is the \(y\)-axis. This is described by \((x, z)\).
+    
+        If \(x = 0\), then \(yz = 0\). If \(z = 0\), then see above. \(y = 0\) gives the \(z\)-axis as above.
+    
+        If \(z \neq 0\), then \(x^2 = yz\) and \(x(z - 1) = 0\). And we have a parabola ...
+    \end{solution}
+    

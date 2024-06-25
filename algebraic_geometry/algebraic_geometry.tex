@@ -26,6 +26,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{intuition}[theorem]{Intuition}
 
 % Definition & Theorem Boxes
 \usepackage{tcolorbox}
@@ -110,6 +111,12 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
     \end{definition}
 \end{defbox}
 
+\begin{intbox}
+\begin{intuition}
+It's just space with points. But not vectors, because we don't add points.
+\end{intuition}
+\end{intbox}
+
 \begin{defbox}
     \begin{definition}
         \begin{enumerate}
@@ -126,6 +133,12 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
     \end{definition}
 \end{defbox}
 
+\begin{intbox}
+    \begin{intuition}
+        These are just curves.
+    \end{intuition}
+\end{intbox}
+
 \begin{rembox}
 \begin{remark}
     \begin{enumerate}
@@ -135,12 +148,17 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
 \end{remark}
 \end{rembox}
 
+
 \begin{defbox}
     \begin{definition}
         A subset \(Y\) of \(\mathbb{A}^n\) is an algebraic set if there exists a subset \(T \subset A = k[X_1, \ldots, X_n]\) such that \(Y = Z(T)\).
     \end{definition}
 \end{defbox}
-
+\begin{intbox}
+    \begin{intuition}
+        So if the points on the space is a curve, then it's an algebraic set.
+    \end{intuition}
+\end{intbox}
 % #BOOKMARK
 
 \begin{defbox}
@@ -174,18 +192,7 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
 \end{defbox}
 
 % \input{chapter1_exercises.tex}
-\begin{exercise}
-    Let \(Y \subset \mathbb{A}^3\) be the set \(Y = \makeset{t, t^2, t^3}{t \in k}\).
-    \begin{enumerate}
-        \item Show that \(Y\) is an affine variety of dimension \(1\).
-    \end{enumerate}
-\end{exercise}
-\begin{solution}
-    By definition \ref{def:algebraic_variety}, affine algebraic varieties are irreducible closed subsets of \(\mathbb{A}^n\).
-    \begin{enumerate}
-        \item The topology on \(\mathbb{A}^n\) is the Zariski topology which is defined through closed sets. Closed sets are algebraic sets. Algebraic sets are zeros of some polynomials. Choose \((Y - X^2, Z - X^3)\).
-        \item By corollary \ref{cor:ideal_correspondence}, we want to show \((Y - X^2, Z - X^3)\) is prime.
-    \end{enumerate}
-\end{solution}
+
+
 \printbibliography
 \end{document}
