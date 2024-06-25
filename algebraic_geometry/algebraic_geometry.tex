@@ -150,6 +150,14 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
     \end{definition}
 \end{defbox}
 
+\begin{thmbox}
+\begin{corollary}
+    \label{cor:ideal_correspondence}
+    % TODO
+    An algebraic set is irreducible if and only if its ideal is a prime ideal.
+\end{corollary}
+\end{thmbox}
+
 \begin{defbox}
     \begin{definition}
         \label{def:affine_coordinate_ring}
@@ -173,12 +181,11 @@ For this section, let \(K\) be a fixed algebraically closed field, and \(A = K[X
     \end{enumerate}
 \end{exercise}
 \begin{solution}
+    By definition \ref{def:algebraic_variety}, affine algebraic varieties are irreducible closed subsets of \(\mathbb{A}^n\).
     \begin{enumerate}
-        \item By definition \ref{def:algebraic_variety}, affine algebraic varieties are irreducible closed subsets of \(\mathbb{A}^n\). Thus we have to show that \(Y = \makeset{t, t^2, t^3}{t \in k}\) is irreducible and closed in \(\mathbb{A}^n\). In \(\mathbb{A}^n\), we have the Zariski topology, hence closed sets are algebraic sets. Which means we have to show \(Y\) is an algebraic set. Choose \(f(X, Y, Z) = XY - Z^3\). Then \(Y\) is closed.
-        
-        Is \(XY - Z^3\) prime?
+        \item The topology on \(\mathbb{A}^n\) is the Zariski topology which is defined through closed sets. Closed sets are algebraic sets. Algebraic sets are zeros of some polynomials. Choose \((Y - X^2, Z - X^3)\).
+        \item By corollary \ref{cor:ideal_correspondence}, we want to show \((Y - X^2, Z - X^3)\) is prime.
     \end{enumerate}
 \end{solution}
-
 \printbibliography
 \end{document}
