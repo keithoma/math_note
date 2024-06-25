@@ -14,6 +14,12 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{exercise}{Exercise}[section]
+\newenvironment{solution}
+  {\renewcommand{\qedsymbol}{}\begin{proof}[Solution]}
+  {\end{proof}}
+
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
@@ -78,6 +84,12 @@
 \usepackage{booktabs}
 \usepackage{array}
 
+% Bibliography
+\usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
+
+% Specify your .bib file
+\addbibresource{references.bib}
+
 % Title and author information
 \title{Notes on Algebraic Geometry}
 \author{Kei Thoma}
@@ -88,6 +100,42 @@
 \maketitle
 \tableofcontents
 
+\cite{hartshorne1977}
 
+\begin{defbox}
+    \begin{definition}
+        For a subset \(T\) of the polynomial ring \(A = k[X_1, \ldots, X_n]\), we define the zero set of \(T\) to be the common zeros of all the elements of \(T\), i.e.
+        \begin{align*}
+            Z(T) = \makeset{P \in \mathbb{A}^n}{f(P) = 0 \text{ for all } f \in T} \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
 
+\begin{defbox}
+    \begin{definition}
+        A subset \(Y\) of \(\mathbb{A}^n\) is an algebraic set if there exists a subset \(T \subset A = k[X_1, \ldots, X_n]\) such that \(Y = Z(T)\).
+    \end{definition}
+\end{defbox}
+
+\begin{defbox}
+    \begin{definition}
+        \label{def:affine_coordinate_ring}
+        If \(Y \subset \mathbb{A}^n\) is an affine algebraic set, we define the affine coordinate ring \(A(Y)\) of \(Y\), to be \(A / I(Y)\). 
+    \end{definition}
+\end{defbox}
+
+\begin{exercise}
+    Let \( Y \) be the plane curve \( y = x^2 \) (i.e., \( Y \) is the zero set of the polynomial \( f = y - x^2 \)). Show that \( A(Y) \) is isomorphic to a polynomial ring in one variable over \( k \).
+\end{exercise}
+\begin{solution}
+    By definition ~\ref{def:affine_coordinate_ring}, we simply have \(A(Y) = k[X, Y] / (Y - X^2)\). The isomorphism follows from the isomorphism theorem and the map \(f: k[X, Y] \rightarrow k[X]\) where we set \(f(Y) = X^2\).
+\end{solution}
+\begin{exercise}
+    Let \(Z\) be the plane curve \(xy = 1\). Show that \(A(Z)\) is not isomorphic to a polynomial ring in one variable over \(k\). 
+\end{exercise}
+\begin{solution}
+    
+\end{solution}
+
+\printbibliography
 \end{document}
