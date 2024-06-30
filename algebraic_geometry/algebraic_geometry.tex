@@ -123,17 +123,10 @@ It's just space with points. But not vectors, because we don't add points.
 
 \begin{defbox}
     \begin{definition}
-        \begin{enumerate}
-            \item The set of zeros for \(f \in A = K[X_1, X_2, \ldots, X_n]\) is
-            \begin{align*}
-                \makeset{p \in \mathbb{A}^n}{f(p) = 0}\text{.}
-            \end{align*}
-        
-            \item For a subset \(T\) of the polynomial ring \(A = k[X_1, \ldots, X_n]\), we define the zero set of \(T\) to be the common zeros of all the elements of \(T\), i.e.
-            \begin{align*}
-                Z(T) = \makeset{P \in \mathbb{A}^n}{f(P) = 0 \text{ for all } f \in T} \text{.}
-            \end{align*}
-        \end{enumerate}
+        Let \(\mathbb{A}^n\) be the affine \(n\)-space over \(K\) and let \(K[X_1, \ldots, X_n]\) be the polynomial ring in \(n\) indeterminates over \(K\). For each subset \(S\) of polynomials in \(K[X_1, \ldots, X_n]\), we define the zero-locus \(Z(S)\) to be the set of points in \(\mathbb{A}^n\) on which the functions in \(S\) simultaneously vanish, i.e.
+        \begin{align*}
+            Z(S) = \makeset{x \in \mathbb{A}^n}{f(x) = 0 \text{ for all } f \in S} \text{.}
+        \end{align*}
     \end{definition}
 \end{defbox}
 
