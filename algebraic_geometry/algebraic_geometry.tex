@@ -160,6 +160,23 @@ It's just space with points. But not vectors, because we don't add points.
     \end{intuition}
 \end{intbox}
 % #BOOKMARK
+BOOKMARK
+\newline
+\rule{\textwidth}{0.4pt}
+\newline
+\begin{defbox}
+    \begin{definition}[Affine Algebraic Variety]
+        For an algebraically closed field \(K\) and a natural number \(n \in \mathbb{N}_+\), let \(\mathbb{A}^n\), be an affine \(n\)-space over \(K\). The polynomials in \(K[X_1, \ldots, X_n]\) can be viewed as \(K\)-valued functions on \(\mathbb{A}^n\).
+        \begin{enumerate}
+            \item For each subset \(S\) of polynomials in \(K[X_1, \ldots, X_n]\), define the zero-locus \(Z(S)\) to be the set of points in \(\mathbb{A}^n\) on which the functions in \(S\) simultaneously vanish, i.e.
+            \begin{align*}
+                Z(S) = \makeset{x \in \mathbb{A}^n}{f(x) = 0 \text{ for all } f \in S} \text{.}
+            \end{align*}
+            \item A subset \(V\) of \(\mathbb{A}^n\) is called affine agebraic set if \(V = Z(S)\) for some \(S \subset K[X_1, \ldots, X_n]\).
+            \item A nonempty affine algebraic set is called irreducible if it is not the union of two proper algebraic subsets. An irreducible affine algebraic set is also called an affine variety.
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
 
 \begin{defbox}
     \begin{definition}
