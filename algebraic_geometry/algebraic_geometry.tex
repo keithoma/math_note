@@ -227,7 +227,23 @@ Show that \(k\)-algebra \(B\) is isomorphic to the affine coordinate ring of som
         A regular function is continuous, when \(K\) is identified with \(\mathbb{A}^1_K\) in its Zariski topology.
     \end{lemma}
 \end{thmbox}
-
+\begin{defbox}
+    \begin{definition}[Germ]
+        Given a point \(p\) of a topological space \(X\), and two maps \(f, g: X \rightarrow Y\) where \(Y\) is any set, then \(f\) and \(g\) define the same germ at \(p\) if there is a neighbourhood \(\mathcal{U}\) of \(p\) such that restricted to \(\mathcal{U}\), \(f\) and \(g\) are equal, i.e.
+        \begin{align*}
+            f(x) = g(x) \text{ for all } u \in \mathcal{U} \text{.}
+        \end{align*}
+    \end{definition}
+\end{defbox}
+\begin{defbox}
+    \begin{definition}
+        Let \(X\) be a variety.
+        \begin{enumerate}
+            \item We denote the ring of all regular functions on \(X\) by \(\mathcal{O}(X)\).
+            \item If \(p\) is a point on \(X\), we define the local ring of \(p\) on \(X\), \(\mathcal{O}_p\) to be the ring of germs of regular functions on \(X\) near \(p\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
 
 \printbibliography
 \end{document}
