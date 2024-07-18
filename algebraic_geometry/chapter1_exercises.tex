@@ -26,19 +26,39 @@
 \end{solution}
 
 \begin{exercise}
-    Let \(Y \subset \mathbb{A}^3\) be the set \(Y = \makeset{t, t^2, t^3}{t \in k}\).
+    Let \(V \subset \mathbb{A}^3\) be the set \(Y = \makeset{(x, x^2, x^3) \in \mathbb{A}^3}{x \in K}\).
     \begin{enumerate}
-        \item Show that \(Y\) is an affine variety of dimension \(1\).
+        \item Show that \(V\) is an affine variety of dimension \(1\).
     \end{enumerate}
 \end{exercise}
 \begin{solution}
-    By definition \ref{def:algebraic_variety}, affine algebraic varieties are irreducible closed subsets of \(\mathbb{A}^n\).
     \begin{enumerate}
-        \item The topology on \(\mathbb{A}^n\) is the Zariski topology which is defined through closed sets. Closed sets are algebraic sets. Algebraic sets are zeros of some polynomials. Choose \((Y - X^2, Z - X^3)\).
-        \item By corollary \ref{cor:ideal_correspondence},
-        \item 
+        \item We show that \(V\) is an algebraic set.
+        \begin{enumerate}
+            \item Consider the ideal \((Y - X^2, Z - X^3) \subset K[X, Y]\) and it's zero set \(Z(Y - X^2, Z - X^3)\).
+            \item Writing out the definition of the zero set gives
+            \begin{align*}
+                Z(Y - X^2, Z - X^3) &= \makeset{(x, y, z) \in \mathbb{A}^3}{y - x^2 = 0, \; z - x^3 = 0} \\
+                &= \makeset{(x, y, z) \in \mathbb{A}^3}{y = x^2, \; z = x^3} \\
+                &= \makeset{(x, x^2, x^3) \in \mathbb{A}^3}{x \in K} \text{.}
+            \end{align*}
+            Thus, \(V\) is the zero set of the ideal \((Y - X^2, Z - X^3)\).
+            \item Hence, by definition, \(V = Z(Y - X^2, Z - X^3)\) is an algebraic set.
+        \end{enumerate}
+        \item Here, we prove that \(V\) is irreducible.
+        \begin{enumerate}
+            \item Consider the quotient \(K[X, Y, Z] / (Y - X^2, Z - X^3)\).
+            \item By substitution, we get the isomorphism
+            \begin{align*}
+                K[X, Y, Z] / (Y - X^2, Z - X^3) \cong K[X, X^2, X^3] = K[X] \text{.}
+            \end{align*}
+            \item Since \(K\) is a field it in particular an integral domain and so is \(K[X]\).
+            \item Thus, \((Y - X^2, Z - X^3)\) is prime in \(K[X, Y, Z]\).
+            \item With corollary \ref{cor:ideal_correspondence} we may conclude the variety \(V = Z(Y - X^2, Z - X^3)\) is irreducible.
+        \end{enumerate}
     \end{enumerate}
 \end{solution}
+
 
 \begin{exercise}
     Let \(Y\) be the algebraic set in \(\mathbb{A}^3\) defined by two polynomials \(x^2 - yz\) and \(xz - x\). Show that \(Y\) is a union of three irreducible components. Describe them and find their prime ideals.
