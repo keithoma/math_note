@@ -4,3 +4,25 @@ TODO
 \begin{enumerate}
     \item Prove \(R\) int domain, then \(R[X]\) is int domain.
 \end{enumerate}
+
+\begin{proposition}
+    If \(R\) is an integral domain, then the polynomial ring \(R[X]\) is again an integral domain.
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}
+        \item Since \(1 \in R \subset R[X]\), the polynomial ring \(R[X]\) is nonempty.
+        \item Let \(f, g \in R[X]\) be two nonzero polynomials with
+        \begin{align*}
+            f = \sum_{i = 0}^{m} a_i X^i \quad \text{and} \quad g = \sum_{j = 0}^{n} b_j X^j \text{.}
+        \end{align*}
+        Consider its product
+        \begin{align*}
+            f \cdot g = \sum_{k = 0}^{m + n} c_j X^k
+        \end{align*}
+        and suppose \(f \cdot g = 0\).
+        \item Since the leading coefficient of the product \(c_{m+n}\) is obtained by multiplying the leading coefficients of \(f\) and \(g\), we have \(c_{m+n} = a_m \cdot b_n\).
+        \item We had \(f \cdot g = 0\), thus \(c_{m+n} = a_m \cdot b_n = 0\).
+        \item \(R\) is an integral domain, therefore \(a_m \cdot b_n = 0\) means \(a_m = 0\) or \(b_n = 0\).
+        \item This contradicts that \(f\) and \(g\) were nonzero polynomials.
+    \end{enumerate}
+\end{proof}
