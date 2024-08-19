@@ -89,6 +89,18 @@
 % Bibliography
 \usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
 
+% hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+
 % Specify your .bib file
 \addbibresource{references.bib}
 
@@ -108,6 +120,20 @@
 
 \part{Algebraic Geometry}
 \chapter{Affine Varieties}
+\section*{Cheat Sheet}
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item The affine \(n\)-space over an algebraically closed field \(K\) is the set of all \(n\)-tuples of elements of \(K\).
+            \item For a subset \(S \subset K[X_1, \ldots, X_n1]\), we define the zero-locus as
+            \begin{align*}
+                    Z(S) = \makeset{x \in \mathbb{A}^n}{f(x) = 0 \text{ for all } f \in S} \text{.}
+            \end{align*}
+            \item A subset \(V \subset \mathbb{A}^n\) is an algebraic set if there exists a subset \(S \subset K[X_1, \ldots, X_n]\) such that \(V = Z(S)\).
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+\section*{Full Text}
 \begin{defbox}
     \begin{definition}
         Let \(K\) be an algebraically closed field and let \(n \in \mathbb{N}_0\) be a natural number.
@@ -161,6 +187,13 @@ It's just space with points. But not vectors, because we don't add points.
         So if the points on the space is a curve, then it's an algebraic set.
     \end{intuition}
 \end{intbox}
+
+\begin{defbox}
+    \begin{definition}
+        Zariski topology on \(\mathbb{A}^n\). Closed sets are algebraic sets.
+    \end{definition}
+\end{defbox}
+
 % #BOOKMARK
 BOOKMARK
 \newline
