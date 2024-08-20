@@ -90,6 +90,39 @@
     If \(x = 0\), then \(yz = 0\). If \(z = 0\), then see above. \(y = 0\) gives the \(z\)-axis \(V_2 = Z(x, y)\)
 
     If \(Z = 1\), then \(X^2 - Y = 0\), so \(X^2 = Y\). We have \(V_3 = Z(X^2 - Y, Z - 1)\). This is also irreducible because \(K[X, Y, Z]/(X^2 - Y, Z - 1) \cong K[X, Y]/(X^2 - Y) \cong K[X, X^2] = K[X]\).
+
+
+    If \(Z \neq 1\), then \(X(Z - 1) = 0\) gives \(X = 0\).
+
+
+    We will find the irreducible components by investigating cases.
+    \begin{enumerate}
+        \item Consider the subset \(V_1 = \makeset{(x, y, z) \in V}{z = 1}\).
+        \begin{enumerate}
+            \item If \(Z = 1\), then the polynomials reduce to
+            \begin{align*}
+                X^2 - YZ &\Rightarrow X^2 - Y \quad \text{and} \quad XZ - X \Rightarrow X - X \Rightarrow 0 \text{.}
+            \end{align*}
+            \item Thus, \(V_1\) is the zero-locus of the ideal \((X^2 - Y, Z - 1)\).
+            \item This ideal \((X^2 - Y, Z - 1)\) is prime because
+            \begin{align*}
+                K[X, Y, Z] / (X^2 - Y, Z - 1) \cong K[X, Y]/(X^2- Y) \cong K[X, X^2] = K[X]
+            \end{align*}
+            is an integral domain.
+            \item Hence \(V_1\) is irreducible.
+        \end{enumerate}
+        \item Consider the subset \(V_1 = \makeset{(x, y, z) \in V}{z \neq 1}\).
+        \begin{enumerate}
+            \item If \(Z \neq 1\), then we have for the second polynomial
+            \begin{align*}
+                XZ - X = 0 \Rightarrow X (Z - 1) = 0 \Rightarrow X = 0
+            \end{align*}
+            \item The first polynomial gives
+            \begin{align*}
+                YZ = 0
+            \end{align*}
+        \end{enumerate}
+    \end{enumerate}
 \end{solution}
 
     
