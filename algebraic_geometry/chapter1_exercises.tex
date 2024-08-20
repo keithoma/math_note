@@ -175,4 +175,22 @@
         \end{align*}
     \end{enumerate}
 \end{solution}
-    
+%
+% 1.5.
+%
+\begin{exercise}[1.5.]
+    Any nonempty open subset of an irreducible topological space is dense and irreducible. If \(Y\) is a subset of a topological space \(X\), which is irreducible in its induced topology, then the closure \(\text{cl}(Y)\) is also irreducible.
+\end{exercise}
+\begin{solution}
+    Let \(X\) be a irreducible topological space and let \(\mathcal{U}\) be an open subset of \(X\). We show \(\mathcal{U}\) is dense.
+    \begin{enumerate}
+        \item Assume \(\mathcal{U}\) does not lie dense in \(X\), i.e. \(\text{cl}(\mathcal{U}) \neq X\). In other words, there is a point \(p \in X\) with \(p \not\in \text{cl}(\mathcal{U})\).
+        \item If all open neighborhoods \(\mathcal{U}_p\) of \(p\) intersects \(\mathcal{U}\), i.e. \(\mathcal{U} \cap \mathcal{V}_p \neq \varnothing\), then by definition, \(p\) must lie in the closure \(\text{cl}(\mathcal{U})\). Hence let \(\mathcal{V}_p\) be an open neighborhood of \(p\) with \(\mathcal{U} \cap \mathcal{V}_p = \varnothing\).
+        \item This contradicts the irreduciblility of \(X\) hence \(\mathcal{U}\) lies dense in \(X\).
+    \end{enumerate}
+    We show \(\mathcal{U}\) is irreducible.
+    \begin{enumerate}
+        \item Assume \(\mathcal{U}\) is not irreducible, i.e. we find two open sets \(\mathcal{V}_1\) and \(\mathcal{V}_2\) with \(\mathcal{V}_1 \cap \mathcal{V}_2 = \varnothing\) and \(\mathcal{V}_1 \cup \mathcal{V}_2 = \mathcal{U}\).
+        \item I mean this is obvious.
+    \end{enumerate}
+\end{solution}
