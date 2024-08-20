@@ -128,14 +128,16 @@
     
 
 \begin{exercise}
-    If we identify \(\mathbb{A}^2\) with \(\mathbb{A}^1 \times \mathbb{A}^1\) in the natural way, show that the Zariski topology on \(\mathbb{A^2}\) is not the product topology of the Zariski topologies on the two copies of \(\mathbb{A}^1\).
+    If we identify \(\mathbb{A}^2\) with \(\mathbb{A}^1 \times \mathbb{A}^1\) in the natural way, show that the Zariski topology on \(\mathbb{A}^2\) is not the product topology of the Zariski topologies on the two copies of \(\mathbb{A}^1\).
 \end{exercise}
 \begin{solution}
-    In \(\mathbb{A}^1\), the only closed sets are finite sets and \(\mathbb{A}^1\) itself. Take \(\set{p_1, p_2} \subset \mathbb{A}^1\). Consider
-    \begin{align*}
-        \set{(0, 0); (0, 1); (1, 0); (1, 1)}
-    \end{align*}
-    No, this is probably okay
-
-    Rather consider this example: \(Z(X^2 - Y)\), then the preimages of the projections give the x-axis and the non-negative y-axis, but the latter is not an algebraic set.
+    Consider \(V = Z(X^2 - Y)\).
+    \begin{enumerate}
+        \item We get the two projections
+        \begin{align*}
+            p_1(V) = \mathbb{A}^1 \quad \text{and} \quad p_2(V) = [0, \infty) \text{.}
+        \end{align*}
+        \item In \(\mathbb{A}^1\), the only closed sets are finite sets and \(\mathbb{A}^1\) itself.
+        \item Thus \(p_2(V) = [0, \infty)\) is not closed.
+    \end{enumerate}
 \end{solution}
