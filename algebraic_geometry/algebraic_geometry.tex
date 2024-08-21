@@ -204,6 +204,15 @@ It's just space with points. But not vectors, because we don't add points.
         Zariski topology on \(\mathbb{A}^n\). Closed sets are algebraic sets.
     \end{definition}
 \end{defbox}
+
+\begin{example}
+    Consider \(\mathbb{A}^2\).
+    \begin{enumerate}
+        \item Any point is a closed subset.
+        \item Any curve described by a polynomials is a closed subset.
+    \end{enumerate}
+\end{example}
+
 \begin{defbox}
     \begin{definition}
         Irreducible subsets
@@ -236,6 +245,30 @@ It's just space with points. But not vectors, because we don't add points.
         An algebraic set is irreducible if and only if its ideal is a prime ideal.
     \end{corollary}
 \end{thmbox}
+\begin{exmbox}
+    \begin{example}
+        \(\mathbb{A}^n\) is irreducible, since it corresponds to the zero ideal in \(K[X_1, \ldots, X_n]\), which is prime.
+    \end{example}
+\end{exmbox}
+\begin{example}
+    Let \(f\) be an irreducible polynomial in \(K[X, Y]\). Then \(f\) generates a prime ideal in \(K[X, Y]\), since \(K[X, Y]\) is a UFD, so the zero set \(V = Z(f)\) is irreducible.
+\end{example}
+
+
+\begin{example}
+    \begin{enumerate}
+        \item Consider \(Z((X + 1)(Y + 1)) = Z(XY + X + Y + 1)\) in \(\mathbb{A}^2\). Clearly, \(X^2 - 1\) is not prime, hence it is not irreducible. We must have \(Z(XY + X + Y + 1) = Z(X + 1) \cup Z(Y + 1)\). Indeed, the above example is just two lines crossing.
+        \item Consider \(Z((X^2 - Y)(Y + 1)) = Z(X^2Y + X^2 - Y^2 - Y)\). This is a parabola and a line.
+    \end{enumerate}
+
+
+\end{example}
+
+\begin{defbox}
+    \begin{definition}
+        If \(f\) is an irreducible polynomial in \(K[X_1, \ldots, X_n]\) then the affine variety \(H = Z(f)\)
+    \end{definition}
+\end{defbox}
 
 \newpage
 \subsection*{Affine Coordinate Ring}
