@@ -416,7 +416,11 @@ If \(f \in R\) is a linear homogeneous polynomial, then the zero set of \(f\) is
 
 
 \chapter{Morphisms}
+\newpage
+\section{Cheat Sheet}
 
+\newpage
+\section{Full Text}
 \begin{defbox}
     \begin{definition}
         Let \(X\) be a quasi-affine variety in \(\mathbb{A}^n_K\) and \(f: X \rightarrow K\) a function.
@@ -463,5 +467,45 @@ If \(f \in R\) is a linear homogeneous polynomial, then the zero set of \(f\) is
     \end{theorem}
 \end{thmbox}
 
+\newpage
+\section{Exercises}
+\begin{example}
+    Let \(V = Z(X^2 - Y)\) be a variety. Consider
+    \begin{align*}
+        f: V & \rightarrow K, \\
+        (x, y) = (x, x^2) & \mapsto x^3
+    \end{align*}
+\end{example}
+
+\begin{example}
+    The variety \(V = Z(X^2 - Y)\) is isomorphic to \(\mathbb{A}^1\).
+\end{example}
+\begin{solution}
+    \begin{enumerate}
+        \item Consider the following map.
+        \begin{align*}
+            \varphi: V &\rightarrow \mathbb{A}^1 \\
+            (x, y) = (x, x^2) &\mapsto x
+        \end{align*}
+        \item \(\varphi\) is continuous.
+        \item Let \(\mathcal{U}\) be an open set and let \(f: \mathcal{U} \rightarrow K\) be a regular function.
+        \item \((f \circ \varphi) (x, y) = f(x)\)
+    \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+    Show that any conic in \(\mathbb{A}^2\) is isomorphic either to \(\mathbb{A}^1\) or \(\mathbb{A}^1 \setminus \{0\}\).
+\end{exercise}
+\begin{solution}
+    \begin{enumerate}
+        \item A conic is in the form \(aX^2 + bXY + cY^2 + dX + Ey + F = 0\).
+        \item Let \(V\) be the variety that is described by a conic.
+        \item Let \(\varphi: V \rightarrow \mathbb{A}^1\) be a morphism. We want to show that \(\varphi\) is an isomorphism.
+        \begin{enumerate} 
+            \item A morphism \(\varphi\) is a continuous map such that every open set \(\mathcal{U} \subset V\), and for every regular function \(f: \mathcal{U} \rightarrow K\) the function \(f \circ \varphi: \varphi^{-1}(V) \rightarrow K\) is regular.
+            \item 
+        \end{enumerate}
+    \end{enumerate}
+\end{solution}
 \printbibliography
 \end{document}
