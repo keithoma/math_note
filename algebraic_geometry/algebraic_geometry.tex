@@ -124,7 +124,7 @@
 \begin{defbox}
     \begin{definition}
         \begin{enumerate}
-            \item The affine \(n\)-space over an algebraically closed field \(K\) is the set of all \(n\)-tuples of elements of \(K\).
+            \item The affine \(n\)-space \(\mathbb{A}^n\) over an algebraically closed field \(K\) is the set of all \(n\)-tuples of elements of \(K\).
             \item For a subset \(S \subset K[X_1, \ldots, X_n1]\), we define the zero-locus as
             \begin{align*}
                     Z(S) = \makeset{x \in \mathbb{A}^n}{f(x) = 0 \text{ for all } f \in S} \text{.}
@@ -133,7 +133,17 @@
         \end{enumerate}
     \end{definition}
 \end{defbox}
+\begin{defbox}
+    \begin{definition}
+        \begin{enumerate}
+            \item Zariski topology.
+            \item Irreducible
+        \end{enumerate}
+    \end{definition}
+\end{defbox}
+\newpage
 \section*{Full Text}
+\subsection*{Algebraic Sets}
 \begin{defbox}
     \begin{definition}
         Let \(K\) be an algebraically closed field and let \(n \in \mathbb{N}_0\) be a natural number.
@@ -187,18 +197,109 @@ It's just space with points. But not vectors, because we don't add points.
         So if the points on the space is a curve, then it's an algebraic set.
     \end{intuition}
 \end{intbox}
-
+\newpage
+\subsection*{Zariski Topology}
 \begin{defbox}
     \begin{definition}
         Zariski topology on \(\mathbb{A}^n\). Closed sets are algebraic sets.
     \end{definition}
 \end{defbox}
+\begin{defbox}
+    \begin{definition}
+        Irreducible subsets
+    \end{definition}
+\end{defbox}
+\newpage
+\subsection*{Affine Algebraic Variety}
 
+\begin{defbox}
+    \begin{definition}
+        \label{def:algebraic_variety}
+        An affine algebraic variety is an irreducible closed subset of \(\mathbb{A}^n\). An open subset of an affine variety is a quasi-affine variety.
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{proposition}[1.2.]
+        
+    \end{proposition}
+\end{thmbox}
+\begin{thmbox}
+    \begin{theorem}[Hilbert's Nullstellensatz]
+        
+    \end{theorem}
+\end{thmbox}
+
+\begin{thmbox}
+    \begin{corollary}
+        \label{cor:ideal_correspondence}
+        % TODO
+        An algebraic set is irreducible if and only if its ideal is a prime ideal.
+    \end{corollary}
+\end{thmbox}
+
+\newpage
+\subsection*{Affine Coordinate Ring}
+
+\begin{defbox}
+    \begin{definition}
+        \label{def:affine_coordinate_ring}
+        If \(Y \subset \mathbb{A}^n\) is an affine algebraic set, we define the affine coordinate ring \(A(Y)\) of \(Y\), to be \(A / I(Y)\). 
+    \end{definition}
+\end{defbox}
+
+\newpage
+\subsection*{Dimension}
+%
+%
+%
+\begin{defbox}
+    \begin{definition}[Noetherian Topological Space]
+        A topological space \(X\) is called Noetherian if it satisfies the descending chain condition for closed subsets, i.e. for any sequence \(\mathcal{V}_1 \supset \mathcal{V}_2 \supset \cdots\) becomes stationary.
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{proposition}[1.5.]
+        In a Noetherian topological space \(X\), every nonempty closed subset \(\mathcal{V}\) can be expressed as finite union of irreducible, closed subsets.
+    \end{proposition}
+\end{thmbox}
+\begin{thmbox}
+    \begin{corollary}
+        Every algebraic set in \(\mathbb{A}^n\) can be expressed uniquely as a union of varieties, no one containing another.
+    \end{corollary}
+\end{thmbox}
+\begin{defbox}
+    \begin{definition}[Dimension of a Topological Space]
+        
+    \end{definition}
+\end{defbox}
+\begin{defbox}
+    \begin{definition}[Height of a Prime Ideal]
+        
+    \end{definition}
+\end{defbox}
+\begin{defbox}
+    \begin{definition}[Dimension of a Ring]
+        
+    \end{definition}
+\end{defbox}
+\begin{thmbox}
+    \begin{theorem}
+        Let \(K\) be a field, and let \(B\) be an integral domain which is a finitely generated \(K\)-algebra. Then:
+        \begin{enumerate}
+            \item the dimension of \(B\) is equal to the transcendence degree of the quotient field \(K(B)\) of \(B\) over \(K\)
+            \item For any prime ideal \(\mathfrak{p}\) in \(B\), we have
+            \begin{align*}
+                \text{height} \mathfrak{p} + \text{dim} B / \mathfrak{p} = \text{dim} B
+            \end{align*}
+        \end{enumerate}
+    \end{theorem}
+\end{thmbox}
 % #BOOKMARK
 BOOKMARK
 \newline
 \rule{\textwidth}{0.4pt}
 \newline
+\newpage
 \begin{defbox}
     \begin{definition}[Affine Algebraic Variety]
         For an algebraically closed field \(K\) and a natural number \(n \in \mathbb{N}_+\), let \(\mathbb{A}^n\), be an affine \(n\)-space over \(K\). The polynomials in \(K[X_1, \ldots, X_n]\) can be viewed as \(K\)-valued functions on \(\mathbb{A}^n\).
@@ -213,27 +314,7 @@ BOOKMARK
     \end{definition}
 \end{defbox}
 
-\begin{defbox}
-    \begin{definition}
-        \label{def:algebraic_variety}
-        An affine algebraic variety is an irreducible closed subset of \(\mathbb{A}^n\). An open subset of an affine variety is a quasi-affine variety.
-    \end{definition}
-\end{defbox}
 
-\begin{thmbox}
-\begin{corollary}
-    \label{cor:ideal_correspondence}
-    % TODO
-    An algebraic set is irreducible if and only if its ideal is a prime ideal.
-\end{corollary}
-\end{thmbox}
-
-\begin{defbox}
-    \begin{definition}
-        \label{def:affine_coordinate_ring}
-        If \(Y \subset \mathbb{A}^n\) is an affine algebraic set, we define the affine coordinate ring \(A(Y)\) of \(Y\), to be \(A / I(Y)\). 
-    \end{definition}
-\end{defbox}
 
 \begin{defbox}
     \begin{definition}
