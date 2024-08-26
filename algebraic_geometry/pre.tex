@@ -28,6 +28,25 @@ TODO
     \end{enumerate}
 \end{proof}
 
+\begin{proposition}
+    If \(R\) is a ring and its polynomial ring \(R[X]\) is an integral domain, then \(R\) is an integral domain.
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}
+        \item Assume there are nonzero elements \(x, y \in R\) with \(x \cdot y = 0\).
+        \item Since \(R \subset R[X]\), the two elements \(x\) and \(y\) are zero divisors in \(R[X]\).
+        \item This contradicts \(R[X]\) being an integral domain.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    The following are equivalent.
+    \begin{enumerate}
+        \item \(R\) is an integral domain.
+        \item \(R[X_1, \ldots, X_n]\) is an integral domain for a fixed \(n\).
+    \end{enumerate}
+\end{corollary}
+
 \part{Topology}
 
 \begin{defbox}
