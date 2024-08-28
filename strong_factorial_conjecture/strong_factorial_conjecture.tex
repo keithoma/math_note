@@ -173,11 +173,14 @@ Thus, any linear map is fully specified by its values on the elements of this ba
 \end{remark}
 %
 \begin{proof}
-    % TODO
+    It's probably enough to show this for the basis. We simply have
+    \begin{align*}
+        \mathcal{L}(X_1^{l_1} \cdots X_n^{l_n})\mathcal{L}(X_{n+1}^{l_{n+1}} \cdots X_m^{l_m}) = l_1! \cdots l_n! l_{n+1}! \cdots l_m!
+    \end{align*}
 \end{proof}
 %
 \begin{example}
-    To illustrate that the factorial map \(\mathcal{L}\) is not compatible with the multiplication, simply consider \(f(X) = X\) and \(g(X) = 1\) in \(\mathbb{C}^{[1]} = \mathbb{C}[X]\). It is
+    To illustrate that the factorial map \(\mathcal{L}\) is not compatible with the multiplication, simply consider \(f(X) = X\) and \(g(X) = X\) in \(\mathbb{C}^{[1]}\). It is
     \begin{align*}
         \mathcal{L}(fg) = \mathcal{L}(X^2) = 2 \;\text{ while } \;\mathcal{L}(f) \mathcal{L}(g) = 1 \cdot 1 = 1 \text{.}
     \end{align*}
