@@ -210,7 +210,16 @@ Thus, any linear map is fully specified by its values on the elements of this ba
     If \(f \in \mathbb{C}^{[m]}\) is a polynomial, then \(f\) lies in the factorial set \(F^{[m]}\) if and only if for all \(k \in \mathbb{N}_+\) \(\mathcal{L}(f^k) = 0\) implies \(f = 0\). XXXX have to rewrite this.
 \end{remark}
 %
-
+Before we define the strong factorial set, we introduce a notation. For a polynomial \(f \in \mathbb{C}^{[m]}\), \(\mathcal{N}(f)\) denotes the number of nonzero monomials in \(f\). For example, \(\mathcal{N}(1 + X + X^2) = 3\) and \(\mathcal{N}(XYZ) = 1\).
+%
+\begin{definition}
+    Set the following subsets of \(\mathcal{C}^{[m]}\) to be
+    \begin{align*}
+        F^{[m]} &= \{0\} \cup \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\text{there is some }k \in \mathbb{N}_+ \text{ such that }\mathcal{L}(f^k) \neq 0} \\
+        F_n^{[m]} &= \{0\} \cup \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\text{there is some }k \in \{n, \ldots, n + \mathcal{N}(f) - 1\} \text{ such that } \mathcal{L}(f^k) \neq 0} \\
+        F_\cap^{[m]} &= \bigcap_{n \in \mathbb{N}_+} F_n^{[m]}
+    \end{align*}
+\end{definition}
 \newpage
 \section{Rigidity Conjecture}
 
