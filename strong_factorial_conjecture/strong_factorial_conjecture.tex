@@ -199,27 +199,21 @@ Thus, any linear map is fully specified by its values on the elements of this ba
     If \(f\) fulfills the condition for the aforementioned conjecture, we have \(a_0 + a_1 = 0\), so \(a_0 = -a_1\) in the first equation. Substituting in the second equation, yields \(a_0^2 - 2 a_0^2 + 2a_0^2 = a_0^2 = 0\), hence \(a_0 = a_1 = 0\).
 \end{example}
 %
-\begin{definition}
-    The factorial set is the following subset of \(\mathbb{C}^{[m]}\).
-    \begin{align*}
-        F^{[m]} = \{0\} \cup \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\text{there is some }k \in \mathbb{N}_+ \text{ such that }\mathcal{L}(f^k) \neq 0}
-    \end{align*}
-\end{definition}
-%
-\begin{remark}
-    If \(f \in \mathbb{C}^{[m]}\) is a polynomial, then \(f\) lies in the factorial set \(F^{[m]}\) if and only if for all \(k \in \mathbb{N}_+\) \(\mathcal{L}(f^k) = 0\) implies \(f = 0\). XXXX have to rewrite this.
-\end{remark}
-%
 Before we define the strong factorial set, we introduce a notation. For a polynomial \(f \in \mathbb{C}^{[m]}\), \(\mathcal{N}(f)\) denotes the number of nonzero monomials in \(f\). For example, \(\mathcal{N}(1 + X + X^2) = 3\) and \(\mathcal{N}(XYZ) = 1\).
 %
 \begin{definition}
-    Set the following subsets of \(\mathcal{C}^{[m]}\) to be
+    Set the following subsets of \(\mathbb{C}^{[m]}\) to be
     \begin{align*}
         F^{[m]} &= \{0\} \cup \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\text{there is some }k \in \mathbb{N}_+ \text{ such that }\mathcal{L}(f^k) \neq 0} \\
         F_n^{[m]} &= \{0\} \cup \makeset{f \in \mathbb{C}^{[m]} \setminus \{0\}}{\text{there is some }k \in \{n, \ldots, n + \mathcal{N}(f) - 1\} \text{ such that } \mathcal{L}(f^k) \neq 0} \\
         F_\cap^{[m]} &= \bigcap_{n \in \mathbb{N}_+} F_n^{[m]}
     \end{align*}
+    We call \(F^{[m]}\) to be the factorial set and \(F^{[m]}_\cap\) to be the strong factorial set.
 \end{definition}
+%
+\begin{remark}
+    The polynomials of the factorial set \(F^{[m]}\) are precisely the polynomials that satisfy the factorial conjecture. Thus, the factorial conjecture can be reformulated to \(F^{[m]} = \mathbb{C}^{[m]}\).
+\end{remark}
 \newpage
 \section{Rigidity Conjecture}
 
