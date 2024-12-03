@@ -246,6 +246,24 @@ We introduce the following notation. For a polynomial \(f \in \mathbb{C}^{[m]}\)
 \begin{theorem}[Conjecture 2.8]
     All polynomials are in the strong factorial set, i.e. \(F_\cap^{[m]} = \mathbb{C}^{[m]}\).
 \end{theorem}
+%
+\begin{remark}
+    Let \(n \in \mathbb{N}_+\) be a positive integer.
+    \begin{enumerate}
+        \item Let \(f \in \mathbb{C}^{[m]}\) be a polynomial. \(f \in F_n^{[m]}\) if and only if for all \(k \in \{n, \ldots, n + \mathcal{N}(f) - 1\}\)
+        \begin{align*}
+            \mathcal{L}(f^k) = 0 \text{ implies } f = 0 \text{.}
+        \end{align*}
+        \item regular system of parameters
+    \end{enumerate}
+\end{remark}
+%
+\begin{remark}
+    If \(\mathcal{N}(f) = 1\), i.e. \(f\) is a monomial, then \(f \in F_\cap^{[m]}\).
+\end{remark}
+\begin{proof}
+    If \(\mathcal{N}(f) = 1\), then \(f = X_1^{l_1} \cdots X_m^{l_m}\) and \(f^k = X_1^{l_1 k} \cdots X_m^{l_m k}\). Thus, the only case where \(\mathcal{L}(f^k) = 0\) for any \(k \in \mathbb{N}_+\) is when \(f = 0\). Hence \(f\) lies in \(F_n^{[m]}\) for all \(n \in \mathbb{N}_+\) and we have \(f \in F_\cap^{[m]}\).
+\end{proof}
 \newpage
 \section{Rigidity Conjecture}
 
