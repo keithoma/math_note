@@ -157,22 +157,23 @@ Thus, any linear map is fully specified by its values on the elements of this ba
 \end{example}
 %
 \begin{remark}[Remark 2.2]
-    Let \(\sigma \in S_n\) be a permutation on the set \(\set{X_1, \ldots, X_m}\). We may extend \(\sigma\) to an automorphism \(\tilde{\sigma}\) of the \(\mathbb{C}\)-algebra \(\mathbb{C}^{[m]}\) by setting
+    Let \(\sigma \in S_n\) be a permutation on the set \(\{X_1, \ldots, X_m\}\). We extend \(\sigma\) to an automorphism \(\tilde{\sigma}\) of the \(\mathbb{C}\)-algebra \(\mathbb{C}^{[m]}\) by setting
     \begin{align*}
         \tilde{\sigma} \left( X_1^{l_1} \cdots X_m^{l_m} \right) = \sigma(X_1)^{l_1} \cdots \sigma(X_m)^{l_m} \text{.}
     \end{align*}
-    In this case, we have \(\mathcal{L}(\tilde{\sigma}(f)) = \mathcal{L}(f)\).
+    Then, \(\mathcal{L}(\tilde{\sigma}(f)) = \mathcal{L}(f)\) for any \(f \in \mathbb{C}^{[m]}\).
 \end{remark}
 \begin{proof}
-    By abuse of notation, set \(\sigma\) to be also the permutation on the set \(\set{1, \ldots, m}\) such that
-    \(\sigma(X_i) = X_{\sigma(i)}\). Then, for each monomial basis element of \(\mathbb{C}^{[m]}\), we have
+    Let \(\sigma\) also denote the permutation on \(\{1, \ldots, m\}\) where \(\sigma(X_i) = X_{\sigma(i)}\). For any monomial \(X_1^{l_1} \cdots X_m^{l_m}\), we have
     \begin{align*}
-        \mathcal{L}\left(\tilde{\sigma} \left( X_1^{l_1} \cdots X_m^{l_m} \right)\right) = 
-        \mathcal{L}\left(X_{\sigma(1)}^{l_1} \cdots X_{\sigma(m)}^{l_m} \right) = 
-        l_{\sigma(1)} ! \cdots l_{\sigma(m)} ! = 
-        l_1 ! \cdots l_m ! \text{.}
+        \mathcal{L}\left(\tilde{\sigma}\left(X_1^{l_1} \cdots X_m^{l_m}\right)\right) = 
+        \mathcal{L} \left(X_{\sigma(1)}^{l_1} \cdots X_{\sigma(m)}^{l_m}\right) =
+        l_1 ! \cdots l_m! 
     \end{align*}
-    So for each monomial basis \(B \in \mathcal{B}\) it is \(\mathcal{L}(\tilde{\sigma}(B)) = \mathcal{L}(B)\). Since both the factorial map and the automorphism \(\tilde{\sigma}\) is linear, we have \(\mathcal{L}(\tilde{\sigma}(f)) = \mathcal{L}(f)\).
+    Thus, for any monomial basis element \(B \in \mathcal{B}\), \(\mathcal{L}(\tilde{\sigma}(B)) = \mathcal{L}(B)\). By linearity of both \(\tilde{\sigma}\) and \(\mathcal{L}\), it is
+    \begin{align*}
+        \mathcal{L}(\tilde{\sigma}(f)) = \mathcal{L}(f) \text{ for all } f \in \mathbb{C}^{[m]} \text{.}
+    \end{align*}
 \end{proof}
 %
 \begin{remark}[Remark 2.3]
@@ -184,9 +185,20 @@ Thus, any linear map is fully specified by its values on the elements of this ba
 \end{remark}
 %
 \begin{proof}
-    It's probably enough to show this for the basis. We simply have
+    % #WIP: Can be written better ...
+    Let \(B_1 \in \mathcal{B}\) and \(B_2 \in \mathcal{B}\) two monomial basis elements of \(\mathbb{C}^{[m]}\) that do not share any indeterminates, i.e. there is a subset \(I \subset \{1, 2, \ldots, m\}\) such that \(B_1 \in \mathbb{C}[X_k : k \in I]\) and \(B_2 \in \mathbb{C}[X_k : k \not\in I]\).
+    
+    We first want to renumber the indeterminates conveniently. Let \(\sigma\) be a permutation on \(\set{X_1, \ldots, X_m}\) and \(\tilde{\sigma}\) an extension of \(\sigma\) to an automorphism on \(\mathbb{C}^{[m]}\) such that for an \(n \in \mathbb{N}\)
     \begin{align*}
-        \mathcal{L}(X_1^{l_1} \cdots X_n^{l_n})\mathcal{L}(X_{n+1}^{l_{n+1}} \cdots X_m^{l_m}) = l_1! \cdots l_n! l_{n+1}! \cdots l_m!
+        \tilde{\sigma}(B_1) \in \mathbb{C}[X_k : k \in \{1, \ldots, n\}] \; \text{ and } \; \tilde{\sigma}(B_2) \in \mathbb{C}[X_k : k \in \{n + 1, \ldots, m\}]
+    \end{align*}
+    
+    Now, we have
+    \begin{align*}
+        \mathcal{L}(B_1)\mathcal{L}(B_2) &= \mathcal{L}(\tilde{\sigma}(B_1))\mathcal{L}(\tilde{\sigma}(B_1)) \\
+        &= \mathcal{L}(X_1^{l_1} \cdots X_n^{l_n})\mathcal{L}(X_{n+1}^{l_{n+1}} \cdots X_m^{l_m}) \\
+        &= l_1 ! \cdots l_n ! l_{n+1}! \cdots l_m \\
+        &= \mathcal{L} (B_1 B_2) \text{.}
     \end{align*}
 \end{proof}
 %
