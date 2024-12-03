@@ -264,6 +264,25 @@ We introduce the following notation. For a polynomial \(f \in \mathbb{C}^{[m]}\)
 \begin{proof}
     If \(\mathcal{N}(f) = 1\), then \(f = X_1^{l_1} \cdots X_m^{l_m}\) and \(f^k = X_1^{l_1 k} \cdots X_m^{l_m k}\). Thus, the only case where \(\mathcal{L}(f^k) = 0\) for any \(k \in \mathbb{N}_+\) is when \(f = 0\). Hence \(f\) lies in \(F_n^{[m]}\) for all \(n \in \mathbb{N}_+\) and we have \(f \in F_\cap^{[m]}\).
 \end{proof}
+\begin{remark}
+    If \(f \in \mathbb{R}^{[m]}_{\geq 0}\), i.e. all nonzero coefficients are real and positive, then \(f \in F_\cap^{[m]}\).
+\end{remark}
+\begin{proof}
+    Should be straight forward.
+\end{proof}
+%
+\begin{remark}[2.11]
+    See proof in other paper.
+\end{remark}
+%
+\begin{example}
+    Consider \(f = X_1 - X_2 \in \mathbb{C}^{[2]}\). For all \(n \in \mathbb{N}_+\),
+    \begin{align*}
+        \mathcal{L}(f^n) = \mathcal{L} \left( \sum_{k = 0}^n \binom{n}{k} X_1^{n-k}(-X_2)^k \right) = \sum_{k=0}^n \binom{n}{k} (n-k)! k! (-1)^k = \sum_{k=0}^n \frac{n!}{k!} k! (-1)^k = n! \sum_{k=0}^n (-1)^k
+    \end{align*}
+    Hence \(\mathcal{L}(f^n) = n!\) if \(n\) is even and \(\mathcal{L}(f^n) = 0\) otherwise. Since \(n\) or \(n + 1\) is even, we have \(f \in F_n^{[2]}\). Thus \(f \in F_\cap^{[2]}\).
+    % #WIP: this example shows that SFC(2) can not be true in positive characteristc ... im not quite sure why
+\end{example}
 \newpage
 \section{Rigidity Conjecture}
 
