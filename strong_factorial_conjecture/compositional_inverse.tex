@@ -237,20 +237,16 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
     \end{align}
 \end{lemma}
 \begin{proof}
+    We start with the expression for \(u_n\) given by the Lagrange inversion formula.
     \begin{align}
-        u_n &= [X^n] \left(\frac{X}{a(X)} \right)^{n+1} \\
-        &= [X^n] \left(\frac{1}{1 - (\alpha_1 X + \cdots + \alpha_m X^m)}\right)^{n+1} \\
-        &= [X^n] \sum_{k \geq 0} \binom{n+k}{n} \left(\alpha_1 X + \cdots + \alpha_m X^m \right)^k \\
-        &= [X^n] \sum_{k \geq 0} \binom{n+k}{n} \sum_{k_1 + \cdots k_m = k} \frac{k!}{k_1! \cdots k_m!} (\alpha_1 X)^{k_1} \cdots (\alpha_m X^m)^{k_m} \\
-        &= \frac{1}{n!} [X^n] \sum_{k \geq 0} (n + k)! \sum_{k_1 + \cdots k_m = k} \frac{1}{k_1! \cdots k_m!} \alpha_1^{k_1} \cdots \alpha_m^{k_m} X^{k_1 + \cdots m k_m} \\
-        &= \frac{1}{n!} \sum_{k_1 + 2k_2 + \cdots + m k_m = n} \frac{(n + k_1 + \cdots + k_m)!}{k_1! \cdots k_m!} \alpha_1^{k_1} \cdots \alpha_m^{k_m}
+        u_n &= [X^n] \left(\frac{X}{a(X)} \right)^{n+1}  \label{eq:step1} \\
+        &= [X^n] \left(\frac{1}{1 - (\alpha_1 X + \cdots + \alpha_m X^m)}\right)^{n+1} \label{eq:step2} \\
+        &= [X^n] \sum_{k \geq 0} \binom{n+k}{n} \left(\alpha_1 X + \cdots + \alpha_m X^m \right)^k \label{eq:step3} \\
+        &= [X^n] \sum_{k \geq 0} \binom{n+k}{n} \sum_{k_1 + \cdots k_m = k} \frac{k!}{k_1! \cdots k_m!} (\alpha_1 X)^{k_1} \cdots (\alpha_m X^m)^{k_m} \label{eq:step4} \\
+        &= \frac{1}{n!} [X^n] \sum_{k \geq 0} (n + k)! \sum_{k_1 + \cdots k_m = k} \frac{1}{k_1! \cdots k_m!} \alpha_1^{k_1} \cdots \alpha_m^{k_m} X^{k_1 + \cdots m k_m} \label{eq:step5} \\
+        &= \frac{1}{n!} \sum_{k_1 + 2k_2 + \cdots + m k_m = n} \frac{(n + k_1 + \cdots + k_m)!}{k_1! \cdots k_m!} \alpha_1^{k_1} \cdots \alpha_m^{k_m} \label{eq:step6}
     \end{align}
-    \begin{enumerate}
-        \item substituted \(f(X)\)
-        \item see concrete mathematics 5.56
-        \item multinomial theorem
-        \item just reformulated
-        \item extract the coefficient of \(X^n\) by setting \(k_1 + 2 k_2 + \cdots + m k_m = n\)
-    \end{enumerate}
+    We have substituted \(a(X)\) in \eqref{eq:step2}, expanded the fraction using the binominal series formula for \((1-z)^{-(n+1)}\) (see Concrete Mathematics 5.56) in \eqref{eq:step3}, used the multinominal theorem in \eqref{eq:step4}, and finally collected terms for \([X^n]\) in \eqref{eq:step6}.
 \end{proof}
+
 \end{document}
