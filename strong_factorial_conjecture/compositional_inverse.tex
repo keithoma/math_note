@@ -190,7 +190,9 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
         &= \sum_{k \geq 1} k \cdot b_k \cdot [X^{-1}] \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \\
         &= n \cdot b_n [X^{-1}] \frac{f(X)^n}{f(X)^{n+1}} \cdot f'(X) \\
         &= n \cdot b_n [X^{-1}] \frac{f'(X)}{f(X)} \\
-        &= n \cdot b_n [X^{-1}] \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 X + a_2 X^2 + a_3 X^3 + \cdots}
+        &= n \cdot b_n [X^{-1}] \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 X + a_2 X^2 + a_3 X^3 + \cdots} \\
+        &= n \cdot b_n [X^{-1}] \frac{1}{X} \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 + a_2 X + a_3 X^2 + \cdots} \\
+        &= n \cdot b_n [X^{-1}] \frac{1}{X} \left(\frac{a_1}{a_1 + a_2 X + a_3 X^2 + \cdots} + \frac{2 a_2 X}{a_1 + a_2 X + a_3 X^2 + \cdots} + \cdots\right)
     \end{align}
     Since we are only interested in the coefficient of \(X^{-1}\), in the last expression, we have \(a_1 a_1^{-1} X^{-1} = X^{-1}\), hence
     \begin{align}
