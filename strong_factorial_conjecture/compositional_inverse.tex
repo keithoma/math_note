@@ -116,6 +116,22 @@
 \begin{document}
 
 \section{Rigidity Conjecture}
+\begin{proposition}[Division]
+    A formal power series \(f(X) = \sum_{k \geq 1} a_k X^k\in \mathbb{C}[[X]]\) is invertible if and only if its constant coefficient \(a_0\) is nonzero.
+\end{proposition}
+\begin{lemma}
+    Given two formal power series \(f(X) = \sum_{n \geq 0} a_k X^k \in \mathbb{C}[[X]]\) and \(g(X) = \sum_{n \geq 0} b_k X^k \in \mathbb{C}[[X]]\) with \(b_0 \neq 0\), we may compute their quotient
+    \begin{align}
+        \frac{\sum_{n \geq 0} a_k X^k}{\sum_{n \geq 0} b_k X^k} = \sum_{n \geq 0} c_k X^k
+    \end{align}
+    by
+    \begin{align}
+        c_n = \frac{1}{b_0} \left(a_n - \sum_{k \geq 1} b_k c_{n - k}\right) \text{.}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    \#MISSING
+\end{proof}
 \begin{remark}
     When studying compositions of formal power series, we require that the inner power series \(f(X)\) has no constant term, i.e., \(f(0) = 0\). This condition ensures that the resulting composition is well-defined in the ring of formal power series \(\mathbb{C}[[X]]\), as it prevents infinite contributions to the coefficients.
 
@@ -191,8 +207,7 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
         &= n \cdot b_n [X^{-1}] \frac{f(X)^n}{f(X)^{n+1}} \cdot f'(X) \\
         &= n \cdot b_n [X^{-1}] \frac{f'(X)}{f(X)} \\
         &= n \cdot b_n [X^{-1}] \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 X + a_2 X^2 + a_3 X^3 + \cdots} \\
-        &= n \cdot b_n [X^{-1}] \frac{1}{X} \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 + a_2 X + a_3 X^2 + \cdots} \\
-        &= n \cdot b_n [X^{-1}] \frac{1}{X} \left(\frac{a_1}{a_1 + a_2 X + a_3 X^2 + \cdots} + \frac{2 a_2 X}{a_1 + a_2 X + a_3 X^2 + \cdots} + \cdots\right)
+        &= n \cdot b_n [X^{-1}] \frac{1}{X} \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 + a_2 X + a_3 X^2 + \cdots}
     \end{align}
     Since we are only interested in the coefficient of \(X^{-1}\), in the last expression, we have \(a_1 a_1^{-1} X^{-1} = X^{-1}\), hence
     \begin{align}
