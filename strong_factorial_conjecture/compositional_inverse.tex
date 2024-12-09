@@ -207,12 +207,23 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
         &= n \cdot b_n [X^{-1}] \frac{f(X)^n}{f(X)^{n+1}} \cdot f'(X) \\
         &= n \cdot b_n [X^{-1}] \frac{f'(X)}{f(X)} \\
         &= n \cdot b_n [X^{-1}] \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 X + a_2 X^2 + a_3 X^3 + \cdots} \\
-        &= n \cdot b_n [X^{-1}] \frac{1}{X} \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 + a_2 X + a_3 X^2 + \cdots}
+        &= n \cdot b_n [X^{-1}] \frac{1}{X} \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 + a_2 X + a_3 X^2 + \cdots} \\
+        &= n \cdot b_n
     \end{align}
-    Since we are only interested in the coefficient of \(X^{-1}\), in the last expression, we have \(a_1 a_1^{-1} X^{-1} = X^{-1}\), hence
+    where we used the formula for power series division given in \#REFMISSING to compute the constant term of the quotient.
     \begin{align}
-        [X^{-1}]
+        \frac{1}{a_1} \left(a_1 - 0\right) = 1
     \end{align}
+    Now, by shifting the power of the coefficient to be extracted, we get
+    \begin{align}
+        [X^{-1}] \frac{1}{f(X)^n} = [X^{n-1}] \frac{X^n}{f(X)^n} = [X^{n-1}] \left( \frac{X}{f(X)} \right)^n \text{.}
+    \end{align}
+    Finally, continuing from \#REFMIISING, we get
+    \begin{align}
+        n \cdot b_n &= [X^{-1}] \frac{1}{f(X)^n} = [X^{n-1}] \left( \frac{X}{f(X)} \right)^n \\
+        \Rightarrow \quad b_n &= \frac{1}{n} [X^{n-1}] \left( \frac{X}{f(X)} \right)^n
+    \end{align}
+    as desired.
 \end{proof}
 
 \end{document}
