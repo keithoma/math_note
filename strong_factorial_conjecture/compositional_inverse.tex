@@ -171,12 +171,31 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
     \begin{align*}
         X = f^{-1}(f(X)) = \sum_{k \geq 1} b_k f(X)^k \text{.}
     \end{align*}
-    Differentiating and subsequently taking the quotient with \(f(X)^n\) both sides yields
+    Differentiating and subsequently taking the quotient with \(f(X)^n\) for \(n \in \mathbb{N}\) on both sides yields
     \begin{align*}
         1 &= \sum_{k \geq 1} k \cdot b_k \cdot f(X)^{k - 1} \cdot f'(X) \\
-        \Rightarrow \quad \frac{1}{f(X)} &= \sum_{k \geq 1} k \cdot b_k \cdot \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \text{.}
+        \Rightarrow \quad \frac{1}{f(X)^n} &= \sum_{k \geq 1} k \cdot b_k \cdot \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \text{.}
     \end{align*}
-
+    We want to take the coefficient of \(X^{-1}\) on both sides. For that, first notice that for \(k \neq n\) it is
+    \begin{align*}
+        \frac{1}{k - n} \frac{d}{dX} f(X)^{k - n} = f(X)^{k - n -1} f'(X) = \frac{f(X)^{k}}{f(X)^{n + 1}} f'(X) \text{.}
+    \end{align*}
+    For any Laurent series, its derivative has no \(X^{-1}\) term. Thus, for \(k \neq n\), it is
+    \begin{align*}
+        [X^{-1}]\frac{f(X)^{k}}{f(X)^{n + 1}} f'(X) = [X^{-1}] \frac{1}{k - n} \frac{d}{dX} f(X)^{k - n} = 0 \text{.}
+    \end{align*}
+    If we now take the coefficient of \(X^{-1}\) in \#REFMISSING, we get
+    \begin{align}
+        [X^{-1}] \frac{1}{f(X)^n} &= [X^{-1}] \sum_{k \geq 1} k \cdot b_k \cdot \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \\
+        &= \sum_{k \geq 1} k \cdot b_k \cdot [X^{-1}] \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \\
+        &= n \cdot b_n [X^{-1}] \frac{f(X)^n}{f(X)^{n+1}} \cdot f'(X) \\
+        &= n \cdot b_n [X^{-1}] \frac{f'(X)}{f(X)} \\
+        &= n \cdot b_n [X^{-1}] \frac{a_1 + 2 a_2 X + 3 a_3 X^2 + \cdots}{a_1 X + a_2 X^2 + a_3 X^3 + \cdots}
+    \end{align}
+    Since we are only interested in the coefficient of \(X^{-1}\), in the last expression, we have \(a_1 a_1^{-1} X^{-1} = X^{-1}\), hence
+    \begin{align}
+        [X^{-1}]
+    \end{align}
 \end{proof}
 
 \end{document}
