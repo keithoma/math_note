@@ -116,6 +116,14 @@
 \begin{document}
 
 \section{Rigidity Conjecture}
+\begin{remark}
+    When studying compositions of formal power series, we require that the inner power series \(f(X)\) to have no constant term, i.e., \(f(0) = 0\).
+    \begin{align*}
+        f(g(X)) &= a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
+        &= a_0 + (a_1 b_0 + a_1 b_1 X + a_1 b_2 X^2 + \cdots) + (a_2 b_0^2 + 2 a_2 b_0 b_1 X + (2 a_2 b_0 b_2 + a_2 b_1^2) X^2 + \cdots) \\
+        &= a_0 + a_1 b_0 + a_2 b_0^2 + \cdots
+    \end{align*}
+\end{remark}
 \begin{definition}
     Let \(f(X) \in \mathbb{C}[[X]]\) be a power series. We call a power series \(f^{-1}(X) \in \mathbb{C}[[X]]\) the compositional inverse of \(f\), if it satisfies \(f(f^{-1}(X)) = f^{-1}(f(X)) = X\). 
 \end{definition}
@@ -123,9 +131,15 @@
     A power series \(f(X) = a_0 + a_1 X + \cdots\in \mathbb{C}[[X]]\) has a compositional inverse if and only if \(a_0 = 0\) and \(a_1 \neq 0\). Moreover, if the compositional inverse exists, then it is unique. 
 \end{proposition}
 \begin{proof}
-    Assume \(f\) has a compositional inverse and denote the compositional inverse by \(f^{-1}(X) = b_0 + b_1 X + b_2 X^2 + \cdots\). Writing out \(f(f^{-1}(X)) = X\) gives
+    Assume \(f\) has a compositional inverse and denote the compositional inverse by \(f^{-1}(X) = b_0 + b_1 X + b_2 X^2 + \cdots\). Writing out \(f(f^{-1}(X)) = X\) using multinomial thoerem gives
     \begin{align*}
-        a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots)
+        X &= a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
+        &= a_0 + (a_1b_0 + a_1 b_1 X + a_1 b_2 X^2 + \cdots) + (a_2 b_0^2 + 2 a_ 2 b_0 b_1 X + \cdots) \text{.}
+    \end{align*}
+    Equating the coefficients on both sides yields a linear system of equations.
+    \begin{align*}
+        0 &= a_0 + a_1 b_0 + a _2 b_0^2 + \cdots \\
+        1 &= a_1 b_1 +
     \end{align*}
 \end{proof}
 
