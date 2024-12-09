@@ -117,30 +117,66 @@
 
 \section{Rigidity Conjecture}
 \begin{remark}
-    When studying compositions of formal power series, we require that the inner power series \(f(X)\) to have no constant term, i.e., \(f(0) = 0\).
+    When studying compositions of formal power series, we require that the inner power series \(f(X)\) has no constant term, i.e., \(f(0) = 0\). This condition ensures that the resulting composition is well-defined in the ring of formal power series \(\mathbb{C}[[X]]\), as it prevents infinite contributions to the coefficients.
+
+    Consider \(f(X) = \sum_{k \geq 1} a_k X^k\) and \(g(X) = \sum_{k \geq 0} b_k X^k\). The composition \(g(f(X))\) is given by substituting \(f(X)\) into \(g(X)\):
     \begin{align*}
-        f(g(X)) &= a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
-        &= a_0 + (a_1 b_0 + a_1 b_1 X + a_1 b_2 X^2 + \cdots) + (a_2 b_0^2 + 2 a_2 b_0 b_1 X + (2 a_2 b_0 b_2 + a_2 b_1^2) X^2 + \cdots) \\
-        &= a_0 + a_1 b_0 + a_2 b_0^2 + \cdots
+        g(f(X)) &= b_0 + b_1 f(X) + b_2 f(X)^2 + \cdots \\
+        &= b_0 + b_1 (a_1 X + a_2 X^2 + \cdots) + b_2 (a_1 X + a_2 X^2 + \cdots)^2 + \cdots \\
+        &= b_0 + b_1 a_1 X + (b_1 a_2 + b_2 a_1^2) X^2 + \cdots,
     \end{align*}
+    where we grouped the terms by powers of \(X\) in the last step. We observe that the coefficients of \(X^n\) in \(g(f(X))\) depend only on a finite number of coefficients of \(f(X)\) and \(g(X)\). This is because, with \(f(0) = 0\), each power \(f(X)^k\) introduces terms of degree at least \(k\), ensuring that lower-degree terms do not contribute infinitely to higher-order coefficients.
+
+    On the other hand, if \(f(0) \neq 0\), we write \(f(X) = a_0 + \sum_{k \geq 1} a_k X^k\), where \(a_0 = f(0)\). In this case,
+    \begin{align*}
+        f(X)^k = (a_0 + a_1 X + a_2 X^2 + \cdots)^k
+    \end{align*}
+    produces a constant term \(a_0^k \neq 0\). Consequently, the constant term of \(g(f(X))\) depends on infinitely many terms of \(g(X)\), and the composition \(g(f(X))\) is no longer a formal power series.
+
+    Since we are interested in the compositional inverse, it is necessary to extend the condition \(f(0) = 0\) to both power series. This ensures that the inverse series \(f^{-1}(X)\), when substituted into \(f(X)\), results in the identity series \(X\), with no contributions from constant terms that would otherwise make the series ill-defined.
 \end{remark}
+
+The following proposition and lemma are taken from Enumerative Combinatorics by Richard P. Stanley and Sergey Fomin.
+
 \begin{definition}
-    Let \(f(X) \in \mathbb{C}[[X]]\) be a power series. We call a power series \(f^{-1}(X) \in \mathbb{C}[[X]]\) the compositional inverse of \(f\), if it satisfies \(f(f^{-1}(X)) = f^{-1}(f(X)) = X\). 
+    Let \(f(X) \in \mathbb{C}[[X]]\) be a power series with no constant term. We call a power series \(f^{-1}(X) \in \mathbb{C}[[X]]\) the compositional inverse of \(f\), if it satisfies \(f(f^{-1}(X)) = f^{-1}(f(X)) = X\). 
 \end{definition}
 \begin{proposition}
-    A power series \(f(X) = a_0 + a_1 X + \cdots\in \mathbb{C}[[X]]\) has a compositional inverse if and only if \(a_0 = 0\) and \(a_1 \neq 0\). Moreover, if the compositional inverse exists, then it is unique. 
+    A power series \(f(X) = a_1 X + a_2 X^2 + \cdots\in \mathbb{C}[[X]]\) has a compositional inverse if and only if \(a_1 \neq 0\). Moreover, if the compositional inverse exists, then it is unique. 
 \end{proposition}
 \begin{proof}
-    Assume \(f\) has a compositional inverse and denote the compositional inverse by \(f^{-1}(X) = b_0 + b_1 X + b_2 X^2 + \cdots\). Writing out \(f(f^{-1}(X)) = X\) using multinomial thoerem gives
+    Assume \(f\) has a compositional inverse and denote the compositional inverse by \(f^{-1}(X) = b_1 X + b_2 X^2 + \cdots\). Writing out \(f(f^{-1}(X)) = X\) using multinomial thoerem gives
     \begin{align*}
-        X &= a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots) + a_2 (b_0 + b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
-        &= a_0 + (a_1b_0 + a_1 b_1 X + a_1 b_2 X^2 + \cdots) + (a_2 b_0^2 + 2 a_ 2 b_0 b_1 X + \cdots) \text{.}
+        X &= a_1 (b_1 X + b_2 X^2 + \cdots) + a_2 (b_1 X + b_2 X^2 + \cdots)^2 + \cdots \\
+        &= (a_1 b_1 X + a_1 b_2 X^2 + a_1 b_3 X^3 + \cdots) + (a_2 b_1^2 X^2 + 2 a_2 b_1 b_2 X^3 + \cdots) \\
+        &= (a_1 b_1) X + (a_1 b_2 + a_2 b_1^2) X^2 + (a_1b_3 + 2 a_2 b_1 b_2 + a_3 b_1^3) X^3 \cdots\text{.}
     \end{align*}
     Equating the coefficients on both sides yields a linear system of equations.
     \begin{align*}
-        0 &= a_0 + a_1 b_0 + a _2 b_0^2 + \cdots \\
-        1 &= a_1 b_1 +
+        1 &= a_1 b_1 \\
+        0 &= a_1 b_2 + a_2 b_1^2 \\
+        0 &= a_1b_3 + 2 a_2 b_1 b_2 + a_3 b_1^3 \\
+        & \quad\vdots
     \end{align*}
+    The first equation has a solution if and only if \(a_1 \neq 0\). In that case, the solution is unique. Then, the second equation can be solved uniquely for \(b_2\). By this process, we are able to solve the third equation for \(b_3\), the fourth for \(b_4\) and so on. Thus, \(f^{-1}(X)\) exists if and only if \(a_1 \neq 0\) and in that case, \(f^{-1}(X)\) is unique.
+\end{proof}
+\begin{lemma}[Lagrange Inversion Formula]
+    Let \(f(X) = \sum_{k \geq 1} a_k X^k \in \mathbb{C}[[X]]\) be a power series with \(a_1 \neq 0\) and denote its composition inverse by \(f^{-1}(X) = \sum_{k \geq 1}b_k X^k \in \mathbb{C}[[X]]\). The coefficients of the inverse is given by the following formula.
+    \begin{align*}
+        b_k = \frac{1}{k} [X^{n - 1}] \left(\frac{X}{f(X)}\right)^k
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    We begin by substituting \(f(X)\) into \(f^{-1}(X)\). It is
+    \begin{align*}
+        X = f^{-1}(f(X)) = \sum_{k \geq 1} b_k f(X)^k \text{.}
+    \end{align*}
+    Differentiating and subsequently taking the quotient with \(f(X)^n\) both sides yields
+    \begin{align*}
+        1 &= \sum_{k \geq 1} k \cdot b_k \cdot f(X)^{k - 1} \cdot f'(X) \\
+        \frac{1}{f(X)} &= \sum_{k \geq 1} k \cdot b_k \cdot \frac{f(X)^{k}}{f(X)^{n+1}} \cdot f'(X) \text{.}
+    \end{align*}
+    
 \end{proof}
 
 \end{document}
