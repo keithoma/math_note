@@ -1,0 +1,298 @@
+\documentclass[a4paper]{article}
+\title{Strong Factorial Conjecture}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{mleftright} % for scaling mid bar in sets
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\mleft\{\, #1 \,\mright\}}
+\newcommand{\makeset}[2]{\mleft\{\, #1 \; \middle| \; #2 \,\mright\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+
+TODO: \(\mathbb{C}_0[[X]]\) the set of formal power series with the constant coefficient being \(0\) forms a \(\mathbb{C}\)-algebra with composition being the composition.
+%
+\subsection{Reciprocal of a Power Series}
+\begin{definition}[Cauchy Product]
+    For two power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k \in \mathbb{C}[[X]]\) and \(g(X) = \sum_{k \in \mathbb{N}_0} b_k X^k \in \mathbb{C}[[X]]\), we define their Cauchy product by
+    \begin{align*}
+        f(X) \times g(X) := \sum_{k \in \mathbb{N}_0} c_k X^k \; \text{ where } \; c_k := \sum_{i = 0}^{k}a_i b_{k - i} \text{.}
+    \end{align*}
+\end{definition}
+%
+\begin{remark}
+    If one of the power series is also a polynomial, the formula above produces the same result as primitivly expanding would do.
+\end{remark}
+%
+\begin{example}
+    Take the alternating series \(f(X) = \sum_{k \in \mathbb{N}_0} (-1)^k X^k\) and the geometric series \(g(X) = \sum_{k \in \mathbb{N}_0} X^k\) and consider their Cauchy product \(f \times g\). The coefficients of the product is given by
+    \begin{align*}
+        c_k = \sum_{i=0}^k a_i b_{k-i} = \sum_{i=0}^k (-1)^{i} (1)^{k-i} = \sum_{i=0}^{k} (-1)^{i} = \begin{cases}
+            1 \text{ if \(k\) is even} \\
+            0 \text{ if \(k\) is odd}
+        \end{cases}
+    \end{align*}
+    hence we have \(f(X) \times g(X) = \sum_{k \in \mathbb{N}_0} X^{2k} = 1 + X^2 + X^4 + \cdots\).
+
+    Notice that both the alternating series \(f\) and the geometric series \(g\) only converge for values \(|X| < 1\) and thus, through the lense of analysis, their product only makes sense with that limitation. However, as algebraists we are not beholden to such bounds.
+
+    If we declare \(|X| < 1\), then with the help of the analytical tools, we may evaluate both series as
+    \begin{align*}
+        f(X) = \frac{1}{1 + X} \; \text{ and } \; g(X) = \frac{1}{1 - X}
+    \end{align*}
+    therefore
+    \begin{align*}
+        f(X) \cdot g(X) = \frac{1}{1 + X} \cdot \frac{1}{1 - X} = \frac{1}{1 - X^2}
+    \end{align*}
+    which matches our expectation exactly as the last expression is the simplied form of \(\sum_{k \in \mathbb{N}_0} X^{2k} = f(X) \times g(X)\).
+\end{example}
+\vspace*{1cm}
+It is well-known that the set of power series over a ring is again a ring. In particular, \(\mathbb{C}[[X]]\) with the usual coefficient-wise addition and the Cauchy product is a commutative ring with unity. It is, however, not a field because not all power series have a mulitplicative inverse. It turns out however, that strikingly many of the power series have a mulitplicative inverse.
+%
+\begin{proposition}
+    A power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k\) has a mulitplicative inverse if and only if its constant coefficient \(a_0\) is non-zero.
+
+    The reciprocal of \(f\), denoted by \(\) if it exsists, \#blablabla
+    \begin{align*}
+        b_0 = \frac{1}{a_0} \; \text{ and for \(k \geq 1\) it is } \; b_k = -\frac{1}{a_0} \sum_{i = 1}^{k} a_i b_{k-i}
+    \end{align*}
+\end{proposition}
+%
+\begin{example}
+    Consider \(f(X) = \sum_{k=0}^\infty (k+1) X^k\)
+
+    It's insane that the inverse is \((X - 1)^2\)
+\end{example}
+%
+\begin{remark}
+    Point out that the multiplicative inverse of the power series is a simple polynomial and in turn, many (maybe all, there was something with Gauss about this in algebra) polynomial only have an inverse as a power series. 
+\end{remark}
+%
+\subsection{Formal Differentiation}
+% definition copied from Wikipedia
+\begin{definition}[Formal Differentiation]
+    Given a formal power series \(f(X) = \sum_{k \in \mathbb{N}_0} a_k X^k \in \mathbb{C}[[X]]\) its \textit{formal derivative}, denoted \(f'\), is defined by
+    \begin{align*}
+        f'(X) := \sum_{k \in \mathbb{N}_0} a_k \cdot k \cdot X^{k-1} \text{.}
+    \end{align*}
+\end{definition}
+%
+When talking about differentiation, how can one resist to use the exponential function as an example?
+%
+\begin{example}
+    Consider the series representation of \(ce^x\) which is
+    \begin{align*}
+        f(X) = \sum_{k \in \mathbb{N}_0} \frac{1}{k!} X^k \text{.}
+    \end{align*}
+    Formal differentiation gives
+    \begin{align*}
+        f'(X) = \sum_{k \in \mathbb{N}_+} \frac{c}{k!} \cdot k \cdot X^{k-1} = \sum_{k \in \mathbb{N}_+} \frac{c}{(k - 1)!} \cdot X^{k-1} = \sum_{k \in \mathbb{N}_0} \frac{c}{k!} X^k = f(X)\text{.}
+    \end{align*}
+    which is expected from analysis. Indeed, it is not difficult to show that \(f = f'\) if and only if \(f(X) = ce^X\). This proof can be found in functology book.
+\end{example}
+%
+\begin{remark}
+    difference with analytic view of differentiation
+\end{remark}
+\begin{proposition}[Linearity of Formal Differentiation]
+    Formal differentiation as an operator is linear, i.e. if we view \(\mathbb{C}[[X]]\) as a \(\mathbb{C}\)-vector space, then \((\ast)': \mathbb{C}[[X]] \longrightarrow \mathbb{C}[[X]]\) satisfies additivity and homogeneity.
+\end{proposition}
+As expected, the usual rules of differentiation such as the product rule and the chain rule may be transfered one-to-one from the analytical world to the one of algebra and formal power series. For this paper, only the chain rule is of interest. Before we formaly introduce the chain rule however, we require the notion of composition of power series.
+%
+\subsection{Composition of Formal Power Series}
+\begin{proposition}[Chain Rule]
+    If \(f \in \mathbb{C}[[X]]\) and \(g \in \mathbb{C}[[X]]\) are two formal power series, then the formal differentiation on their composition may be expressed as
+    \begin{align*}
+        (f \circ g)' = (f' \circ g) \cdot g'
+    \end{align*}
+\end{proposition}
+
+
+When we consider compositions of formal power series, we always want the constant term to be \(0\).
+
+The following example is taken from:
+
+https://math.stackexchange.com/questions/1212053/defining-composition-of-two-formal-series-what-is-going-on
+
+\begin{example}
+    Let \(f = \sum_{k \in \mathbb{N}_0} a_k X^k\) and \(g = 1 + X\). Consider \(f \circ g\). We have
+    \begin{align*}
+        f \circ g &= \sum_{k \in \mathbb{N}_0} a_k (1 + X)^k \\
+        &= a_0 + a_1 + a_1 X + a_2 + 2 a_2 X + a_2 X^2 + \cdots
+    \end{align*}
+    If \(f \circ g\) is again a formal power series, then we should be able to write \(f \circ g = \sum_{k \in \mathbb{N}_+} c_k X^k\) for some \(c_k \in \mathbb{C}\). However, we see that \(c_0\) is the sum of all \(a_k\) and we cannot evaluate that as algebraists. Thus composition of formal power series only makes sense if the constant coefficient is \(0\).
+\end{example}
+
+\begin{proposition}
+    % right now, it's copy pasted from enumerative combinatorics
+    A power series \(f(X) = \sum_{k \in \mathbb{N}_+} a_k X^k \in \mathbb{C}[[X]]\) has a compositional inverse \(f^{-1}(X)\) if and only if \(a_1 \neq 0\), in which case \(f^{-1}(X)\) is unique.
+\end{proposition}
+
+\begin{proof}
+    % copied from enumerative combinatorics
+    Assume \(g(X) = b_1 X + b_2 X^2 + \cdots\) satisfies \(f(g(X)) = X\). We then have
+    \begin{align*}
+        a_1(b_1 X + b_2 X^2 + \cdots) + a_2(b_1 X + b_2 X^2 + \cdots)^2 + a_3(b_1 X + b_2 X^2 + \cdots)^3 = X
+    \end{align*}
+    Equating coefficients on both sides yields the infinite system of equations
+    \begin{align*}
+        a_1 b_1 &= 1 \\
+        a_1 b_2 + a_2 b_1^2 &= 0 \\
+        a_1 b_3 + 2a_2 b_1 b_2 + a_3 b_1^3 &= 0 \\
+        &\vdots
+    \end{align*}
+\end{proof}
+Another proof:
+
+https://www.math.uwaterloo.ca/~dgwagner/co430I.pdf
+%
+But there is no simple formula for the coefficients of the inverse (see enumerative combinatorics).
+%
+\begin{lemma}[Lagrange Inversion Formula]
+Let \(a(X) \in \mathbb{C}[X]\) be a polynomial, then the compositional inverse is given by \(a^{-1}(X) = X(1 + \sum_{n \geq 1} u_n X^n) \in \mathbb{C}[[X]]\) where
+\begin{align*}
+    u_n = [X^n] \left(\frac{X}{a(X)}\right)^{n+1}
+\end{align*}
+%
+\begin{proof}
+    Let 
+\end{proof}
+\end{lemma}
+%
+\begin{lemma}[Lagrange Inversion Formula OLD]
+    Let \(K\) be a field of charateristic
+    \begin{align*}
+        f^{-1}(X) &= \sum_{n \in \mathbb{N}_+} b_n X^n\\
+        \text{where } b_n &= \frac{1}{n} \cdot [X^{n-1}] \left(\frac{X}{f(X)}\right)^n
+    \end{align*}
+\end{lemma}
+%
+\begin{proof}
+    We will prove that the given formula for \(b_n\), i.e. the \(n\)-th coefficient of the compositional inverse, is merited. Thus begin by fixing an arbitary integer \(n \in \mathbb{N}_+\).
+
+    % TODO: above
+    % TODO: since we fixed n at the beginning, we don't need it later anymore
+    % TODO: unsure about the index k and n
+
+    By proposition \#XXX, \(f\) is guranteed to have a unique compositional inverse which we will denote by \(f^{-1}(X) = \sum_{k \in \mathbb{N}_+} b_k X^k\) with \(b_k \in \mathbb{C}\) for all \(k \in \mathbb{N}_+\). Applying the original \(f\) to both sides yields \(f(f^{-1} (X)) = X\) on the left side and on the right we have
+    \begin{align*}
+        f\left( \sum_{k \in \mathbb{N}_+} b_k X^k \right) = \sum_{k \in \mathbb{N}_+} b_k f(X)^k
+    \end{align*}
+    due to the linearity of \(f\) as a map, thus \(X = \sum_{k \in \mathbb{N}_+} b_k f(X)^k\). Now, formal differentiation with the chain rule \#sure? gives
+    \begin{align*}
+        1 = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-1} \cdot f'(X) \text{.}
+    \end{align*}
+    Let \(n \in \mathbb{N}\) \#with0? be an integer. \#moremotivation Dividing the above equation with the \(n\)-th power of the reciprocal produces
+    \begin{align*}
+        f(X)^{-n} = \sum_{k \in \mathbb{N}_+} k \cdot b_k \cdot f(X)^{k-n-1} \cdot f'(X) \text{.}
+    \end{align*}
+    After 
+\end{proof}
+%
+\newpage
+\end{document}
