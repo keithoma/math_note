@@ -291,7 +291,12 @@ We introduce the following notation. For a polynomial \(f \in \mathbb{C}^{[m]}\)
 \begin{proposition}
     A power series \(f(X) = a_0 + a_1 X + \cdots\in \mathbb{C}[[X]]\) has a compositional inverse if and only if \(a_0 = 0\) and \(a_1 \neq 0\). Moreover, if the compositional inverse exists, then it is unique. 
 \end{proposition}
-
+\begin{proof}
+    Assume \(f\) has a compositional inverse and denote the compositional inverse by \(f^{-1}(X) = b_0 + b_1 X + b_2 X^2 + \cdots\). Writing out \(f(f^{-1}(X)) = X\) gives
+    \begin{align*}
+        a_0 + a_1 (b_0 + b_1 X + b_2 X^2 + \cdots)
+    \end{align*}
+\end{proof}
 
 \subsection{Rigidity Conjecture}
 %
