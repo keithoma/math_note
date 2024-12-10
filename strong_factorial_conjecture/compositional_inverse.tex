@@ -248,5 +248,33 @@ The following proposition and lemma are taken from Enumerative Combinatorics by 
     \end{align}
     We have substituted \(a(X)\) in \eqref{eq:step2}, expanded the fraction using the binominal series formula for \((1-z)^{-(n+1)}\) (see Concrete Mathematics 5.56) in \eqref{eq:step3}, used the multinominal theorem in \eqref{eq:step4}, and finally collected terms for \([X^n]\) in \eqref{eq:step6}.
 \end{proof}
-
+%
+\begin{lemma}[Multiplicative Inversion Formula]
+    For some \(n \in \mathbb{N}_+\), let \(a(X) = X(1 - \mu_1 X) \cdots (1 - \mu_m X^m) \in \mathbb{C}[X]\) be a polynomial. The compositional inverse is given by
+    \begin{align}
+        a^{-1}(X) = X \left(1 + \sum_{n \geq 1} \frac{1}{n + 1} u_n X^n\right)
+    \end{align}
+    where
+    \begin{align}
+        u_n = \frac{1}{(n!)^m} \sum_{k_1 + \cdots + k_m = n} \frac{(n + k_1)! \cdots (n+k_m)!}{k_1! \cdots k_m!} \mu_1^{k_1} \cdots \mu_m^{k_m} \text{.}
+    \end{align}
+\end{lemma}
+%
+\begin{proof}
+    \begin{align}
+        u_n &= [X^n] \left(\frac{X}{a(X)}\right)^{n+1} \\
+        &= [X^n] \left(\frac{1}{(1 - \mu_1 X) \cdots (1 - \mu_m X)}\right)^{n+1} \\
+        &= [X^n] \prod_{i=1}^m \sum_{k_i \geq 0} \binom{n + k_i}{k_i} \mu_i^{k_i} X^{k_i} \\
+        &= [X^n] \sum_{k_1, k_2, \ldots, k_m \geq 0} \left(\prod_{i=1}^m \binom{n + k_i}{k_i} \mu_i^{k_i}\right) X^{k_1 + k_2 + \cdots k_m} \\
+        &= \sum_{k_1 + k_2 + \cdots k_m = n} \prod_{i=1}^m \binom{n+k_i}{k_i} \mu_i^{k_i} \\
+        &= \frac{1}{(n!)^m} \sum_{k_1 + \cdots + k_m = n} \frac{(n + k_1)! \cdots (n+k_m)!}{k_1! \cdots k_m!} \mu_1^{k_1} \cdots \mu_m^{k_m} 
+    \end{align}
+    \begin{enumerate}
+        \item substituted
+        \item multinomial thoerem
+        \item distribution law (not checked)
+        \item extracting coefficients (not checked)
+        \item simplyfing binom (not checked)
+    \end{enumerate}
+\end{proof}
 \end{document}
