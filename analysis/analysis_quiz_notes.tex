@@ -1,0 +1,162 @@
+\documentclass[a4paper]{article}
+\title{Strong Factorial Conjecture}
+
+
+% ---------------------------------------------------------------------
+% P A C K A G E S
+% ---------------------------------------------------------------------
+
+% typography and formatting
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{exsheets}
+\usepackage{environ}
+\usepackage{graphicx}
+\usepackage{cutwin}
+\usepackage{pifont}
+
+% mathematics
+\usepackage{xfrac}  
+\usepackage{amsthm} % for theorems, and definitions
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{mathtools}
+\usepackage{mleftright} % for scaling mid bar in sets
+% \usepackage{MnSymbol} % for \cupdot
+
+% extra
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% ---------------------------------------------------------------------
+% S E T T I N G
+% ---------------------------------------------------------------------
+
+%maybe delete later, for colorbox
+\usepackage{tcolorbox}
+\newtcolorbox{defbox}{colback=blue!5!white,colframe=blue!75!black}
+\newtcolorbox{defboxlight}{colback=cyan!5!white,colframe=cyan!75!black}
+\newtcolorbox{thmbox}{colback=orange!5!white,colframe=orange!75!black}
+\newtcolorbox{rembox}{colback=purple!5!white,colframe=purple!75!black}
+\newtcolorbox{exmbox}{colback=gray!5!white,colframe=gray!75!black}
+\newtcolorbox{intbox}{colback=violet!5!white,colframe=violet!75!black}
+
+% typography and formatting
+\geometry{margin=3cm}
+
+\SetupExSheets{
+  counter-format = ch.qu,
+  counter-within = chapter,
+  question/print = true,
+  solution/print = true,
+}
+
+% mathematics
+\newcounter{global}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{example}{Example}[definition]
+
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{intuition}{Intuition}
+
+% extra
+\definecolor{mathif}{HTML}{0000A0} % for conditions
+\definecolor{maththen}{HTML}{CC5500} % for consequences
+\definecolor{mathrem}{HTML}{8b008b} % for notes
+\definecolor{mathobj}{HTML}{008800}
+
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% ---------------------------------------------------------------------
+% C O M M A N D S
+% ---------------------------------------------------------------------
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Vol}{\text{Vol}}
+
+\newcommand{\set}[1]{\mleft\{\, #1 \,\mright\}}
+\newcommand{\makeset}[2]{\mleft\{\, #1 \; \middle| \; #2 \,\mright\}}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff{\mathop{}\!\mathrm{D}}
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+% ---------------------------------------------------------------------
+% R E N D E R
+% ---------------------------------------------------------------------
+
+\newif\ifshowproof
+\showprooftrue
+
+\NewEnviron{Proof}{%
+    \ifshowproof%
+        \begin{proof}%
+            \BODY
+        \end{proof}%
+    \fi%
+}%
+
+\begin{document}
+\section{Question 1}
+Let \(\sum_{k=1}^\infty a_k\) and \(\sum_{k=1}^\infty b_k\) be two absolutely convergent series. Does \(\sum_{k=1}^{\infty} a_k b_k\) converge absolutely as well?
+\begin{proof}[Solution]
+    Yes. Let \(\sum_{k=1}^\infty a_k\) and \(\sum_{k=1}^\infty b_k\) be two absolutely convergent series. We aim to show that \(\sum_{k=1}^\infty a_k b_k\) converges absolutely as well.
+    
+    Since \(\sum_{k=1}^\infty b_k\) converges absolutely, the sequence \(\{b_k\}\) is bounded, i.e., there exists \(M > 0\) such that \(|b_k| \leq M\) for all \(k \in \mathbb{N}\). Similarly, the absolute convergence of \(\sum_{k=1}^\infty a_k\) implies that \(\sum_{k=1}^\infty |a_k| < \infty\).
+    
+    Consider the series
+    \[
+    \sum_{k=1}^\infty |a_k b_k| = \sum_{k=1}^\infty |a_k| \cdot |b_k|.
+    \]
+    Using the boundedness of \(\{b_k\}\), we have
+    \[
+    |a_k b_k| \leq |a_k| \cdot M.
+    \]
+    Thus,
+    \[
+    \sum_{k=1}^\infty |a_k b_k| \leq M \sum_{k=1}^\infty |a_k|.
+    \]
+    Since \(\sum_{k=1}^\infty |a_k| < \infty\), it follows that \(\sum_{k=1}^\infty |a_k b_k|\) converges. Hence, \(\sum_{k=1}^\infty a_k b_k\) converges absolutely.
+    \end{proof}
+\section{Question 2}
+Let \(\sum_{k=1}^\infty a_k\) and \(\sum_{k=1}^\infty b_k\) be two convergent series. Moreover, let \(a_k\) and \(b_k\) be two null sequences. Does \(\sum_{k=1}^\infty a_k b_k\) converge?
+\begin{proof}[Solution]
+    No. Consider
+    \begin{align*}
+        \sum_{k=1}^{\infty} a_k = \sum_{k=1}^{\infty} b_k = \sum_{k=1}^{\infty} \frac{(-1)^k}{\sqrt{k}} \text{.}
+    \end{align*}
+    \(a_k\) and \(b_k\) are clearly null sequences, and by alternating series test, both series converge. However,
+    \begin{align*}
+        \sum_{k=1}^\infty a_k b_k = \sum_{k=1}^\infty \frac{(-1)^k}{\sqrt{k}} \cdot  \frac{(-1)^k}{\sqrt{k}} = \sum_{k=1}^\infty \frac{1}{k}
+    \end{align*}
+    which is the harmonic series and hence does not converge.
+\end{proof}
+\section{Question 3}
+Let \(\sum_{k=1}^\infty a_k\) and \(\sum_{k=1}^\infty b_k\) be two convergent series. Moreover, let \(a_k\) and \(b_k\) be monotonic sequences. Does \(\sum_{k=1}^{\infty}a_k b_k\) converge absolutely?
+\begin{proof}[Solution]
+    Yes. If \(a_k\) is monotonic and \(\sum_{k=1}^{\infty} a_k\) converge, then \(\sum_{k=1}^\infty a_k\) converges absolutely. Similarly, \(|b_k|\) is bounded by \(b_1\). Now, we have
+    \begin{align*}
+        \sum_{k=1}^{\infty} |a_k b_k | = \sum_{k=1}^{\infty} |a_k || b_k | \leq b_1 \sum_{k=1}^{\infty} |a_k |
+    \end{align*}
+    Thus, \(\sum_{k=1}^\infty a_k b_k\) converges absolutely.
+\end{proof}
+
+
+\end{document}
